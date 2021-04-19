@@ -3,5 +3,13 @@
 
 import pandas as pd
 
+# ## Goal: Graph data over times and location
 
-# ## Loading Data 
+# ## Simple Graphing
+
+
+# ## Non-Standard Graphs
+
+
+# ## Grouping Data
+
