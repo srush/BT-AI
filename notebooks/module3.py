@@ -1,15 +1,18 @@
-# # Module 3 - Pandas
-
+# # Module 3 - Visualizing Data
 
 import pandas as pd
 
-# ## Goal: Graph data over times and location
+import altair as alt
+
+# Goal: View and Present Climate Data
+# 
+
 
 # ## Simple Graphing
 
-
-# ## Non-Standard Graphs
-
+# ## Time-Series Graphs
 
 # ## Grouping Data
+
+# ## Labels, Axes, Colors
 

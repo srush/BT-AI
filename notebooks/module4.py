@@ -3,16 +3,24 @@
 import sklearn
 
 
-
 # ## Input Formats
 
 
+# ## Features 
+
+# ## Regression
+
+# Predict Temperature
+
+
 # ## Classification
+
+# In a state. 
 
 
 # ## Fitting Models to Data
 
 
-# ## Scikit Learn and Pandas
+# ## Graphs and Scikitlean
 
 
