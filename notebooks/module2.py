@@ -33,6 +33,8 @@
 # * First steps with dataframes
 # * Different types in dataframes
 
+import pandas as pd
+
 df = pd.read_csv("data/Cities.csv")
 
 
@@ -98,17 +100,17 @@ df
 # Changing Columns
 
 def change_name(str1):
-    return str1.replace("United States", "USA")
+    return str1.replace(" City", "")
 
 
-df["Country"] = df["Country"].map(change_name)
+df["City"] = df["City"].map(change_name)
 df
 
 
 # New Columns
 
 abbrev = {
-    "USA": "US",
+    "United States": "US",
     "Mexico" : "MX",
     "Canada" : "CA",
     "Haiti" : "HAT",
@@ -128,10 +130,103 @@ df["Abbrev"] = df["Country"].map(abbreviate)
 df
 
 
-
 # Find facts
 
 df.loc[df["Country"] == "Canada"]
 
 
-df.loc[df["Country"] == "Canada"].sort_by
+# ## More complex joins
+
+all_cities_df = pd.read_csv("data/AllCities.csv")
+all_cities_df
+
+check = all_cities_df["City"] == "New York" 
+new_york_df = all_cities_df.loc[check]
+new_york_df
+
+
+# Join
+
+df = df.merge(all_cities_df, on=["City", "Country"])
+df
+
+
+
+
+# Remove Strings
+
+def latitude_to_number(latitude_string):
+    str1 = latitude_string
+    if str1[-1] == "N":
+        return float(str1[:-1])        
+    else:
+        return -float(str1[:-1])        
+    
+
+
+def longitude_to_number(longitude_string):
+    str1 = longitude_string.replace("W", "")
+    return -float(str1)
+
+# Modify Columns
+
+df["Longitude"] = df["Longitude"].map(longitude_to_number)
+df["Latitude"] = df["Latitude"].map(latitude_to_number)
+df 
+
+
+
+# Plotting
+
+import altair as alt
+
+
+chart = alt.Chart(df).mark_bar().encode(x="City", y="Population")
+chart
+
+
+chart = alt.Chart(df).mark_bar().encode(x=alt.X("City:N", sort=None),
+                                        y="Population:Q")
+chart
+
+
+from vega_datasets import data
+
+us_cities_df = df.loc[df["Country"] == "United States"]
+
+
+states = alt.topo_feature(data.us_10m.url, feature='states')
+background = alt.Chart(states).mark_geoshape(
+    fill='lightgray',
+    stroke='white'
+).properties(
+    width=500,
+    height=300
+).project('albersUsa')
+points = alt.Chart(us_cities_df).mark_circle().encode(
+    longitude='Longitude',
+    latitude='Latitude',
+    size="Population",
+    tooltip=['City','Population']
+)
+chart = background + points
+chart
+
+df
+
+states = alt.topo_feature(data.world_110m.url, feature='countries')
+background = alt.Chart(states).mark_geoshape(
+    fill='lightgray',
+    stroke='white'
+).properties(
+    width=500,
+    height=300
+).project('orthographic', rotate= [95, -42, 0])
+points = alt.Chart(df).mark_circle().encode(
+    longitude='Longitude',
+    latitude='Latitude',
+    size="Population",
+    tooltip=['City','Population']
+)
+chart = background + points
+chart

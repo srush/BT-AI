@@ -121,6 +121,13 @@ contains2 = original_str.contains("Item 4")
 contains2
 
 
+# Convert
+
+int1 = int("15")
+int1
+
+decimal1 = float("15.50")
+decimal1
 
 # Exercise
 

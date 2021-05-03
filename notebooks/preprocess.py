@@ -42,13 +42,14 @@ def full_cities():
 
 df = full_cities()
 cities = set(df["City"])
+cities = cities | set([city.replace(" City", "") for city in cities])
 out_df = df[["City", "Country", "Population"]]
+
 
 out_df.to_csv("NorthAmerica.csv")
 out_df
 
 
-open("test.csv")
 
 
 # ## Steps
@@ -76,6 +77,30 @@ df = df[pd.to_datetime(df["dt"]).dt.month.isin(list(range(1, 13, 3)))]
 
 
 df = df[df["City"].isin(cities)]
+
+
+def latitude_to_number(latitude_string):
+    str1 = latitude_string
+    if str1[-1] == "N":
+        return float(str1[:-1])        
+    else:
+        return -float(str1[:-1])        
+    
+
+
+def longitude_to_number(longitude_string):
+
+    str1 = longitude_string
+    if str1[-1] == "W":
+        return -float(str1[:-1])        
+    else:
+        return float(str1[:-1])        
+
+
+# Modify Columns
+
+df["Longitude"] = df["Longitude"].map(longitude_to_number)
+df["Latitude"] = df["Latitude"].map(latitude_to_number)
 
 
 #cities = set(df["City"])
