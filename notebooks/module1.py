@@ -316,38 +316,53 @@ int1
 decimal1 = float("15.50")
 decimal1
 
-# Exercise
-
-teacher_str = "Sasha Rush,arush@cornell.edu,Roosevelt Island,NYC"
-
-
-name, email, location, city =  teacher_str.split(",")
-
-
-
 
 # ## Functions
 
-def add_ten(x):
-    return x + 10
 
-out = add_ten(5)
+# Functions are small snippets of code that you may want to use
+# multiple times.
+
+def add_man(str1):
+    return str1 + "man"
+
+out = add_man("bat")
 out
 
 
-y = 5
-out = add_ten(y)
+# Most of the time, functions should not change the variables that
+# are sent to them. For instance here we do not change the variable `y`.
+
+y = "bat"
+out = add_man(y)
 out
 
 y
 
 
-number_list = [5, 10, 15]
-# Doesn't work:  add_ten(number_list)
-out = map(add_ten, number_list)
-
-for value in out:
-    print("Next Value is: ", value)
+# One interesting aspect of Python is that it lets your pass functions
+# to functions. For instance, the built-in function `map` is a function
+# applies another function to each element of a list.
 
 
-# ## Dictionaries
+# Assume we have a list like this.
+
+word_list = ["spider", "bat", "super"]
+
+# If we want a list with `man` added to each we cannot run the following:
+
+# Doesn't work:  add_man(word_list)
+
+# However, the map function makes this work, by creating a new list.
+
+out = map(add_man, word_list)
+out 
+
+
+
+# ## Exercises
+
+teacher_str = "Sasha Rush,arush@cornell.edu,Roosevelt Island,NYC"
+
+
+name, email, location, city =  teacher_str.split(",")
