@@ -364,3 +364,6 @@ teacher_str = "Sasha Rush,arush@cornell.edu,Roosevelt Island,NYC"
 
 
 name, email, location, city =  teacher_str.split(",")
+
+
+# Todo - Keyword args

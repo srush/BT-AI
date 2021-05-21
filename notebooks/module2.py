@@ -1,4 +1,4 @@
-# # Lab 2 - Working with Data
+# # Lab 2 - Working with Data 1
 
 
 # The target of this lab session is to analyze and understand a large
@@ -187,7 +187,8 @@ df
 
 # A similar technique can be used to manipulate the data in a
 # column to change certain values. For instance, we might want to
-# remove the final " City" from cities like "New York"
+# remove the final " City" from cities like "New York" 
+
 
 def change_name(str1):
     return str1.replace(" City", "")
@@ -224,35 +225,62 @@ df
 # ## Joining Together Tables
 
 
-# Another way we can 
+# Pandas becomes much more powerful when we start to have many
+# different tables that relate to each other. For this example we will
+# consider another table that provides new information about these
+# cities.
+
+# https://docs.google.com/spreadsheets/d/1Jwcr6IBJbOT1G4Vq7VqaZ7S1V9gRmUb5ALkJPaG5fxI/edit?usp=sharing
+
+# wget https://raw.githubusercontent.com/srush/BTT-2021/main/notebooks/data/AllCities.csv
+
+# Lets load this table into a new variable.
 
 all_cities_df = pd.read_csv("data/AllCities.csv")
 all_cities_df
 
 
+# We can see where we in NYC are located in this table.
 
-
-check = all_cities_df["City"] == "New York" 
-new_york_df = all_cities_df.loc[check]
+filter = all_cities_df["City"] == "New York" 
+new_york_df = all_cities_df.loc[filter]
 new_york_df
 
 
-# Join
+# But there are a lot of other cities in this table outside of North America. 
+
+filter = all_cities_df["Country"] == "Germany" 
+europe_df = all_cities_df.loc[filter]
+europe_df
+
+
+
+# We would like to make a combined table that consists of:
+#
+# * Only Cities in North America
+# * Populations for each city
+# * Locations for each city.
+
+# This operation is known as a `join` or a `merge` since it joins together
+# these two tables. We just need to tell pandas which are the shared columns
+# between the two tables. 
 
 df = df.merge(all_cities_df, on=["City", "Country"])
 df
 
 
-# Remove Strings
+
+# ## Formatting Exercise
+
+# Convert the latitude and longitude strings...
 
 def latitude_to_number(latitude_string):
     str1 = latitude_string
     if str1[-1] == "N":
         return float(str1[:-1])        
     else:
-        return -float(str1[:-1])            
+        return -float(str1[:-1])    
 df["Latitude"] = df["Latitude"].map(latitude_to_number)
-
 
 
 def longitude_to_number(longitude_string):
@@ -260,47 +288,91 @@ def longitude_to_number(longitude_string):
     return -float(str1)
 df["Longitude"] = df["Longitude"].map(longitude_to_number)
 
-# Modify Columns
-
-
 
 
 # ## Plotting
 
-import altair as alt
+# Next class we will dive deeper into plotting and visualization. But
+# let's finish with a little demo to show off all the tables we created.
 
-chart = alt.Chart(df).mark_bar().encode(x="City", y="Population")
+
+# Example in the spreadsheet
+
+
+# We can make a graph by converting our table into a `Chart`. We do this
+# in three steps
+
+# * Chart - Convert a dataframe to a chart
+# * Mark - Determine which type of chart we want
+# * Encode - Say which Pandas columns correspond to which dimensions
+
+
+# For instance if we want to convert our cities to a bar chart we select:
+
+# * Chart - df
+# * Mark - Bar chart
+# * Encode - City by Population
+
+
+chart = (alt.Chart(df)
+            .mark_bar()
+            .encode(x="City",
+                    y="Population"))
+chart
+
+# There are many different possible graphs from the same data. For
+# instance we might want to explore whether how north or south a city
+# is impacts its population. This graph plots population against
+# latitude. The special `tooltip` argument uses the city column to
+# show the name of each city.
+
+# * Chart - df
+# * Mark - Point chart
+# * Encode - Population, Latitude
+
+chart = (alt.Chart(df)
+            .mark_point()
+            .encode(y="Latitude",
+                    x="Population",
+                    tooltip="City"
+            ))
 chart
 
 
-chart = alt.Chart(df).mark_bar().encode(x=alt.X("City:N", sort=None),
-                                        y="Population:Q")
-chart
 
+
+# Finally lets do an advanced example. In this example we will plot
+# the population of each city in the US over a map. To do this
+# we first load in a map of the US states. (This part I found
+# out how to do by googling).
 
 from vega_datasets import data
+states = alt.topo_feature(data.us_10m.url, feature='states')
+background = alt.Chart(states).mark_geoshape().project('albersUsa')
 
+
+# Now we filter our data to just cities in the United States.
 us_cities_df = df.loc[df["Country"] == "United States"]
 
+# And finally we make a plot.
 
-states = alt.topo_feature(data.us_10m.url, feature='states')
-background = alt.Chart(states).mark_geoshape(
-    fill='lightgray',
-    stroke='white'
-).properties(
-    width=500,
-    height=300
-).project('albersUsa')
-points = alt.Chart(us_cities_df).mark_circle().encode(
-    longitude='Longitude',
-    latitude='Latitude',
-    size="Population",
-    tooltip=['City','Population']
-)
-chart = background + points
+# * Chart - US cities
+# * Mark - Circle chart
+# * Encode - Population, Longitude, Latitude
+
+chart = (alt.Chart(us_cities_df)
+             .mark_circle(color="red")
+             .encode(
+                 longitude='Longitude',
+                 latitude='Latitude',
+                 size="Population",
+                 tooltip='City'
+             ))
+chart = background + chart
 chart
 
-df
+
+# WIth a little more work we can even make this look cooler!
 
 states = alt.topo_feature(data.world_110m.url, feature='countries')
 background = alt.Chart(states).mark_geoshape(

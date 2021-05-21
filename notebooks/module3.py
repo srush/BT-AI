@@ -1,4 +1,4 @@
-# # Module 3 - Visualizing Data
+# # Lab 3 - Working with Data 2
 
 import pandas as pd
 import altair as alt
