@@ -104,6 +104,11 @@ chart
 # ## Input Formats
 
 
+model = sklearn.linear_model.LinearRegression()
+model.fit(df2[["Latitude"]], df2["AverageTemperature"])
+
+
+
 # ## Features 
 
 # ## Regression
