@@ -1,0 +1,3511 @@
+Id,City,Country,Longitude,Latitude
+0,A Coruña,Spain,8.73W,42.59N
+1,Aachen,Germany,6.34E,50.63N
+2,Aalborg,Denmark,10.33E,57.05N
+3,Aba,Nigeria,8.07E,5.63N
+4,Abadan,Iran,48.00E,29.74N
+5,Abakaliki,Nigeria,8.07E,5.63N
+6,Abakan,Russia,91.36E,53.84N
+7,Abbotsford,Canada,122.45W,49.03N
+8,Abengourou,Côte D'Ivoire,4.05W,7.23N
+9,Abeokuta,Nigeria,4.05E,7.23N
+10,Aberdeen,United Kingdom,1.48W,57.05N
+11,Abha,Saudi Arabia,42.25E,18.48N
+12,Abidjan,Côte D'Ivoire,3.23W,5.63N
+13,Abiko,Japan,139.23E,36.17N
+14,Abilene,United States,100.53W,32.95N
+15,Abohar,India,73.85E,29.74N
+16,Abomey Calavi,Benin,2.43E,7.23N
+17,Abu Dhabi,United Arab Emirates,54.98E,24.92N
+18,Abuja,Nigeria,7.30E,8.84N
+19,Acapulco,Mexico,100.47W,16.87N
+20,Acarigua,Venezuela,68.92W,8.84N
+21,Accra,Ghana,0.00W,5.63N
+22,Achalpur,India,77.02E,21.70N
+23,Acheng,China,128.08E,45.81N
+24,Achinsk,Russia,90.00E,57.05N
+25,Acuña,Mexico,101.54W,29.74N
+26,Adana,Turkey,35.80E,36.17N
+27,Addis Abeba,Ethiopia,38.11E,8.84N
+28,Adelaide,Australia,138.16E,34.56S
+29,Aden,Yemen,45.41E,13.66N
+30,Adilabad,India,78.48E,20.09N
+31,Adiwerna,Indonesia,109.46E,7.23S
+32,Adoni,India,77.50E,15.27N
+33,Afyonkarahisar,Turkey,31.21E,39.38N
+34,Agadir,Morocco,9.23W,29.74N
+35,Agartala,India,91.75E,23.31N
+36,Agboville,Côte D'Ivoire,4.84W,5.63N
+37,Ageo,Japan,139.23E,36.17N
+38,Agra,India,78.81E,26.52N
+39,Aguascalientes,Mexico,102.98W,21.70N
+40,Ahmadabad,India,72.52E,23.31N
+41,Ahmadnagar,India,74.37E,18.48N
+42,Ahmadpur East,Pakistan,72.00E,29.74N
+43,Ahvaz,Iran,49.01E,31.35N
+44,Aix En Provence,France,4.47E,44.20N
+45,Aizawl,India,93.50E,23.31N
+46,Ajdabiya,Libya,20.73E,31.35N
+47,Ajmer,India,75.22E,26.52N
+48,Akashi,Japan,134.27E,34.56N
+49,Akishima,Japan,139.23E,36.17N
+50,Akita,Japan,139.42E,39.38N
+51,Akola,India,76.78E,20.09N
+52,Akron,United States,80.95W,40.99N
+53,Aksaray,Turkey,34.58E,37.78N
+54,Aksu,China,80.95E,40.99N
+55,Aktau,Kazakhstan,51.43E,44.20N
+56,Akure,Nigeria,5.68E,7.23N
+57,Akyab,Burma,92.13E,20.09N
+58,Alagoinhas,Brazil,37.81W,12.05S
+59,Alandur,India,80.09E,13.66N
+60,Alanya,Turkey,31.82E,36.17N
+61,Alappuzha,India,77.03E,8.84N
+62,Albacete,Spain,2.08W,39.38N
+63,Alberton,South Africa,28.66E,26.52S
+64,Albuquerque,United States,107.03W,34.56N
+65,Albury,Australia,147.18E,36.17S
+66,Alcalá De Henares,Spain,4.26W,40.99N
+67,Alcobendas,Spain,4.26W,40.99N
+68,Alcorcón,Spain,4.26W,40.99N
+69,Aleppo,Syria,37.79E,36.17N
+70,Alexandria,Egypt,30.16E,31.35N
+71,Alexandria,United States,76.99W,39.38N
+72,Algeciras,Spain,5.97W,36.17N
+73,Algiers,Algeria,3.98E,36.17N
+74,Aligarh,India,77.27E,28.13N
+75,Allahabad,India,81.58E,24.92N
+76,Allentown,United States,74.56W,40.99N
+77,Almaty,Kazakhstan,76.36E,42.59N
+78,Almere,Netherlands,5.26E,52.24N
+79,Almería,Spain,1.99W,36.17N
+80,Almetyevsk,Russia,51.02E,55.45N
+81,Alor Setar,Malaysia,100.09E,5.63N
+82,Altay,China,88.82E,47.42N
+83,Alwar,India,77.27E,28.13N
+84,Amadora,Portugal,8.32W,39.38N
+85,Amagasaki,Japan,136.22E,34.56N
+86,Amaigbo,Nigeria,8.07E,5.63N
+87,Amarillo,United States,101.19W,34.56N
+88,Ambala,India,77.54E,29.74N
+89,Ambarnath,India,72.68E,18.48N
+90,Ambato,Ecuador,77.95W,0.80S
+91,Ambattur,India,80.09E,13.66N
+92,Ambon,Indonesia,127.77E,4.02S
+93,Ambur,India,78.90E,12.05N
+94,Americana,Brazil,48.06W,23.31S
+95,Amersfoort,Netherlands,5.26E,52.24N
+96,Amiens,France,2.45E,49.03N
+97,Amol,Iran,51.71E,36.17N
+98,Amravati,India,77.02E,21.70N
+99,Amritsar,India,75.39E,31.35N
+100,Amroha,India,79.09E,28.13N
+101,Amsterdam,Netherlands,5.26E,52.24N
+102,Anaco,Venezuela,64.05W,8.84N
+103,Anaheim,United States,117.77W,32.95N
+104,Anand,India,72.52E,23.31N
+105,Ananindeua,Brazil,49.02W,0.80S
+106,Anantapur,India,77.50E,15.27N
+107,Anbu,China,116.21E,23.31N
+108,Anchorage,United States,151.13W,61.88N
+109,Ancona,Italy,13.42E,44.20N
+110,Anda,China,125.77E,45.81N
+111,Andijon,Uzbekistan,72.43E,40.99N
+112,Angarsk,Russia,105.11E,52.24N
+113,Angeles,Philippines,120.83E,15.27N
+114,Angers,France,1.18W,47.42N
+115,Angra Dos Reis,Brazil,44.56W,23.31S
+116,Angren,Uzbekistan,70.30E,40.99N
+117,Anjo,Japan,136.22E,34.56N
+118,Ankang,China,108.19E,32.95N
+119,Ankara,Turkey,33.29E,39.38N
+120,Ann Arbor,United States,82.91W,42.59N
+121,Anqing,China,116.86E,31.35N
+122,Anqiu,China,119.34E,36.17N
+123,Anshan,China,123.55E,40.99N
+124,Anshun,China,105.67E,26.52N
+125,Antakya,Turkey,35.80E,36.17N
+126,Antalya,Turkey,30.51E,37.78N
+127,Antananarivo,Madagascar,47.32E,18.48S
+128,Antioch,United States,122.03W,37.78N
+129,Antipolo,Philippines,120.83E,15.27N
+130,Antofagasta,Chile,70.78W,23.31S
+131,Antsirabe,Madagascar,47.77E,20.09S
+132,Antwerp,Belgium,3.80E,50.63N
+133,Anyama,Côte D'Ivoire,4.84W,5.63N
+134,Anyang,China,113.37E,36.17N
+135,Anápolis,Brazil,48.56W,16.87S
+136,Apeldoorn,Netherlands,5.26E,52.24N
+137,Apodaca,Mexico,100.30W,26.52N
+138,Apopa,El Salvador,90.00W,13.66N
+139,Apucarana,Brazil,51.55W,23.31S
+140,Aqtöbe,Kazakhstan,57.04E,50.63N
+141,Ara,India,85.12E,24.92N
+142,Aracaju,Brazil,36.82W,10.45S
+143,Arad,Romania,21.92E,45.81N
+144,Araguaína,Brazil,47.84W,7.23S
+145,Arak,Iran,50.59E,34.56N
+146,Arapiraca,Brazil,36.82W,10.45S
+147,Araraquara,Brazil,47.60W,21.70S
+148,Araras,Brazil,47.60W,21.70S
+149,Araruama,Brazil,42.82W,23.31S
+150,Araucária,Brazil,49.66W,24.92S
+151,Araçatuba,Brazil,51.06W,21.70S
+152,Ardabil,Iran,48.81E,37.78N
+153,Arequipa,Peru,72.00W,16.87S
+154,Arica,Chile,70.99W,18.48S
+155,Arjawinangun,Indonesia,107.84E,7.23S
+156,Arkhangelsk,Russia,40.21E,65.09N
+157,Arlington,United States,76.99W,39.38N
+158,Arlington,United States,96.70W,32.95N
+159,Armavir,Russia,40.38E,45.81N
+160,Armenia,Colombia,76.34W,4.02N
+161,Arnhem,Netherlands,5.26E,52.24N
+162,Arusha,Tanzania,36.16E,4.02S
+163,Arvada,United States,106.13W,39.38N
+164,Aryanah,Tunisia,9.94E,36.17N
+165,Arzamas,Russia,42.52E,55.45N
+166,Asahikawa,Japan,143.11E,44.20N
+167,Asaka,Japan,139.23E,36.17N
+168,Asansol,India,86.50E,23.31N
+169,Asfi,Morocco,8.62W,32.95N
+170,Asgabat,Turkmenistan,58.98E,37.78N
+171,Ashdod,Israel,33.93E,31.35N
+172,Ashikaga,Japan,139.23E,36.17N
+173,Ashqelon,Israel,33.93E,31.35N
+174,Asmara,Eritrea,39.17E,15.27N
+175,Astana,Kazakhstan,72.25E,50.63N
+176,Astanajapura,Indonesia,107.84E,7.23S
+177,Astrakhan,Russia,47.31E,45.81N
+178,Asunción,Paraguay,58.52W,24.92S
+179,Aswan,Egypt,32.33E,23.31N
+180,Asyut,Egypt,30.45E,26.52N
+181,Athens,Greece,24.41E,37.78N
+182,Atibaia,Brazil,46.31W,23.31S
+183,Atlanta,United States,83.68W,34.56N
+184,Atsugi,Japan,139.23E,36.17N
+185,Atyrau,Kazakhstan,50.92E,47.42N
+186,Auckland,New Zealand,175.03E,36.17S
+187,Augsburg,Germany,10.66E,47.42N
+188,Aurangabad,India,75.07E,20.09N
+189,Aurora,United States,104.05W,39.38N
+190,Aurora,United States,87.34W,40.99N
+191,Austin,United States,97.85W,29.74N
+192,Avadi,India,80.09E,13.66N
+193,Awassa,Ethiopia,38.11E,7.23N
+194,Awka,Nigeria,6.46E,5.63N
+195,Ayacucho,Peru,73.49W,13.66S
+196,Ayer Itam,Malaysia,100.09E,5.63N
+197,Azamgarh,India,82.39E,26.52N
+198,Azare,Nigeria,9.86E,12.05N
+199,Babakan,Indonesia,107.84E,7.23S
+200,Babol,Iran,51.71E,36.17N
+201,Bac Lieu,Vietnam,106.22E,8.84N
+202,Bacau,Romania,26.54E,45.81N
+203,Bacolod,Philippines,123.55E,10.45N
+204,Bacoor,Philippines,120.83E,15.27N
+205,Badajoz,Spain,6.24W,39.38N
+206,Badalona,Spain,2.13E,40.99N
+207,Badaojiang,China,126.55E,42.59N
+208,Badlapur,India,72.68E,18.48N
+209,Bafoussam,Cameroon,9.69E,5.63N
+210,Bagaha,India,84.18E,26.52N
+211,Baghdad,Iraq,45.00E,32.95N
+212,Baglan,Afghanistan,69.61E,36.17N
+213,Bago,Burma,97.12E,16.87N
+214,Baguio,Philippines,120.56E,16.87N
+215,Bahadurgarh,India,77.27E,28.13N
+216,Baharampur,India,88.25E,23.31N
+217,Bahawalnagar,Pakistan,73.85E,29.74N
+218,Bahawalpur,Pakistan,72.00E,29.74N
+219,Bahia Blanca,Argentina,62.43W,39.38S
+220,Bahir Dar,Ethiopia,37.81E,12.05N
+221,Bahraich,India,80.91E,28.13N
+222,Baia Mare,Romania,22.50E,47.42N
+223,Baicheng,China,123.46E,45.81N
+224,Baidyabati,India,88.25E,23.31N
+225,Baiyin,China,103.43E,36.17N
+226,Bakersfield,United States,119.34W,36.17N
+227,Baku,Azerbaijan,48.99E,40.99N
+228,Balakovo,Russia,47.30E,52.24N
+229,Balashikha,Russia,36.85E,55.45N
+230,Baleshwar,India,87.40E,21.70N
+231,Balikpapan,Indonesia,116.52E,0.80S
+232,Baliuag,Philippines,120.83E,15.27N
+233,Ballia,India,84.18E,26.52N
+234,Bally,India,88.25E,23.31N
+235,Balti,Moldova,27.24E,47.42N
+236,Baltimore,United States,76.99W,39.38N
+237,Balurghat,India,88.67E,24.92N
+238,Bama,Nigeria,13.15E,12.05N
+239,Bamako,Mali,8.22W,12.05N
+240,Bamenda,Cameroon,9.69E,5.63N
+241,Banda,India,79.80E,24.92N
+242,Banda Aceh,Indonesia,95.25E,5.63N
+243,Bandar E Anzali,Iran,48.81E,37.78N
+244,Bandar Maharani,Malaysia,102.05E,2.41N
+245,Bandar Penggaram,Malaysia,103.66E,2.41N
+246,Bandundu,Congo (Democratic Republic Of The),16.88E,4.02S
+247,Bandung,Indonesia,107.84E,7.23S
+248,Baneh,Iran,45.75E,36.17N
+249,Bangalore,India,77.26E,12.05N
+250,Bangaon,India,88.25E,23.31N
+251,Bangkok,Thailand,99.91E,13.66N
+252,Bangui,Central African Republic,18.48E,4.02N
+253,Banja Luka,Bosnia And Herzegovina,17.89E,44.20N
+254,Banjaran,Indonesia,107.84E,7.23S
+255,Banjarmasin,Indonesia,114.91E,4.02S
+256,Bankura,India,86.50E,23.31N
+257,Bansbaria,India,88.25E,23.31N
+258,Bantou,China,118.82E,24.92N
+259,Banyuwangi,Indonesia,114.32E,8.84S
+260,Baoding,China,114.45E,39.38N
+261,Baoji,China,107.03E,34.56N
+262,Baoshan,China,131.45E,47.42N
+263,Barakpur,India,88.25E,23.31N
+264,Baranagar,India,88.25E,23.31N
+265,Barasat,India,88.25E,23.31N
+266,Barbacena,Brazil,44.13W,21.70S
+267,Barcelona,Spain,2.13E,40.99N
+268,Barcelona,Venezuela,64.64W,10.45N
+269,Barddhaman,India,88.25E,23.31N
+270,Bareli,India,79.09E,28.13N
+271,Bari,Italy,17.04E,40.99N
+272,Barinas,Venezuela,70.54W,8.84N
+273,Baripada,India,87.40E,21.70N
+274,Barisal,Bangladesh,90.00E,23.31N
+275,Barnala,India,75.69E,29.74N
+276,Barnaul,Russia,83.18E,53.84N
+277,Barquisimeto,Venezuela,69.55W,10.45N
+278,Barra Mansa,Brazil,44.13W,21.70S
+279,Barrancabermeja,Colombia,73.78W,7.23N
+280,Barranquilla,Colombia,74.45W,10.45N
+281,Barreiras,Brazil,44.38W,12.05S
+282,Barretos,Brazil,47.77W,20.09S
+283,Barrie,Canada,80.50W,44.20N
+284,Barsi,India,76.06E,18.48N
+285,Barueri,Brazil,46.31W,23.31S
+286,Baruta,Venezuela,66.27W,10.45N
+287,Basel,Switzerland,8.29E,47.42N
+288,Basildon,United Kingdom,0.00W,52.24N
+289,Basirhat,India,88.25E,23.31N
+290,Basti,India,82.39E,26.52N
+291,Bat Yam,Israel,33.93E,31.35N
+292,Bata,Equatorial Guinea,10.45E,2.41N
+293,Batala,India,75.39E,31.35N
+294,Batangas,Philippines,121.38E,13.66N
+295,Bataysk,Russia,39.08E,47.42N
+296,Batman,Turkey,40.68E,37.78N
+297,Baton Rouge,United States,90.46W,29.74N
+298,Baturaja,Indonesia,103.66E,4.02S
+299,Bauchi,Nigeria,10.64E,10.45N
+300,Bauru,Brazil,49.33W,21.70S
+301,Bayamo,Cuba,76.78W,20.09N
+302,Bayrut,Lebanon,35.03E,34.56N
+303,Beaumont,United States,94.15W,29.74N
+304,Beawar,India,73.43E,26.52N
+305,Begusarai,India,86.90E,24.92N
+306,Beian,China,126.71E,47.42N
+307,Beibei,China,107.08E,29.74N
+308,Beihai,China,109.90E,21.70N
+309,Beipiao,China,121.42E,40.99N
+310,Beira,Mozambique,34.12E,20.09S
+311,Beirut,Lebanon,35.03E,34.56N
+312,Bekasi,Indonesia,106.55E,5.63S
+313,Belawan,Indonesia,98.84E,4.02N
+314,Belfast,United Kingdom,5.67W,55.45N
+315,Belford Roxo,Brazil,42.82W,23.31S
+316,Belgaum,India,74.17E,15.27N
+317,Belgorod,Russia,36.76E,50.63N
+318,Belgrade,Serbia,20.12E,44.20N
+319,Bellary,India,77.50E,15.27N
+320,Bellevue,United States,121.97W,47.42N
+321,Bello,Colombia,75.87W,5.63N
+322,Belo Horizonte,Brazil,44.36W,20.09S
+323,Belém,Brazil,49.02W,0.80S
+324,Bene Beraq,Israel,35.43E,32.95N
+325,Bengbu,China,117.77E,32.95N
+326,Benghazi,Libya,20.11E,32.95N
+327,Bengkulu,Indonesia,102.05E,4.02S
+328,Benguela,Angola,13.15E,12.05S
+329,Benha,Egypt,31.38E,29.74N
+330,Beni Suef,Egypt,31.38E,29.74N
+331,Benoni,South Africa,28.66E,26.52S
+332,Benxi,China,123.55E,40.99N
+333,Beppu,Japan,131.17E,32.95N
+334,Berbera,Somalia,45.00E,10.45N
+335,Berezniki,Russia,55.38E,58.66N
+336,Bergamo,Italy,10.38E,45.81N
+337,Bergen,Norway,6.49E,60.27N
+338,Bergisch Gladbach,Germany,6.34E,50.63N
+339,Berkeley,United States,122.03W,37.78N
+340,Berlin,Germany,13.14E,52.24N
+341,Bern,Switzerland,8.29E,47.42N
+342,Bertoua,Cameroon,13.66E,4.02N
+343,Besançon,France,5.92E,47.42N
+344,Bethal,South Africa,28.66E,26.52S
+345,Betim,Brazil,44.36W,20.09S
+346,Bettiah,India,84.18E,26.52N
+347,Bhadravati,India,75.14E,13.66N
+348,Bhadreswar,India,88.25E,23.31N
+349,Bhagalpur,India,86.90E,24.92N
+350,Bhairab Bazar,Bangladesh,90.44E,24.92N
+351,Bharatpur,India,77.01E,26.52N
+352,Bharatpur,Nepal,84.55E,28.13N
+353,Bharuch,India,73.56E,21.70N
+354,Bhatpara,India,88.25E,23.31N
+355,Bhavnagar,India,71.83E,21.70N
+356,Bhilai,India,82.21E,21.70N
+357,Bhilwara,India,74.48E,24.92N
+358,Bhimavaram,India,82.05E,16.87N
+359,Bhind,India,78.81E,26.52N
+360,Bhiwandi,India,73.36E,20.09N
+361,Bhiwani,India,75.45E,28.13N
+362,Bhopal,India,77.77E,23.31N
+363,Bhubaneswar,India,85.31E,20.09N
+364,Bhuj,India,69.03E,23.31N
+365,Bhusawal,India,75.29E,21.70N
+366,Bialystok,Poland,23.18E,53.84N
+367,Bid,India,76.06E,18.48N
+368,Bida,Nigeria,5.68E,8.84N
+369,Bidar,India,77.75E,18.48N
+370,Bielefeld,Germany,7.88E,52.24N
+371,Bielsko Biala,Poland,19.01E,50.63N
+372,Bihar,India,85.12E,24.92N
+373,Bijapur,India,75.35E,16.87N
+374,Bikaner,India,73.64E,28.13N
+375,Bila Tserkva,Ukraine,29.39E,49.03N
+376,Bilaspur,India,82.21E,21.70N
+377,Bilbao,Spain,2.18W,42.59N
+378,Binangonan,Philippines,121.38E,13.66N
+379,Binjai,Indonesia,98.84E,4.02N
+380,Bintulu,Malaysia,113.30E,2.41N
+381,Binzhou,China,117.97E,37.78N
+382,Biratnagar,Nepal,87.76E,26.52N
+383,Birganj,Nepal,84.18E,26.52N
+384,Birigui,Brazil,51.06W,21.70S
+385,Birjand,Iran,58.40E,32.95N
+386,Birmingham,United Kingdom,2.63W,52.24N
+387,Birmingham,United States,87.13W,32.95N
+388,Birnin Kebbi,Nigeria,4.93E,12.05N
+389,Bisho,South Africa,27.77E,32.95S
+390,Bissau,Guinea Bissau,14.79W,12.05N
+391,Bitung,Indonesia,124.55E,0.80N
+392,Biysk,Russia,84.09E,52.24N
+393,Biên Hòa,Vietnam,107.18E,10.45N
+394,Blackburn,United Kingdom,1.36W,53.84N
+395,Blackpool,United Kingdom,4.09W,53.84N
+396,Blagoveshchensk,Russia,128.03E,50.63N
+397,Blantyre,Malawi,35.83E,15.27S
+398,Blitar,Indonesia,112.70E,8.84S
+399,Bloemfontein,South Africa,25.85E,29.74S
+400,Blumenau,Brazil,48.36W,26.52S
+401,Boa Vista,Brazil,60.27W,2.41N
+402,Bobo Dioulasso,Burkina Faso,4.09W,10.45N
+403,Bochum,Germany,7.88E,52.24N
+404,Bogor,Indonesia,106.22E,7.23S
+405,Bogotá,Colombia,74.73W,4.02N
+406,Bohicon,Benin,2.43E,7.23N
+407,Bojnurd,Iran,56.95E,37.78N
+408,Bokaro,India,86.50E,23.31N
+409,Boksburg,South Africa,28.66E,26.52S
+410,Bologna,Italy,11.18E,44.20N
+411,Bolton,United Kingdom,1.36W,53.84N
+412,Boma,Congo (Democratic Republic Of The),12.91E,5.63S
+413,Bombay,India,72.68E,18.48N
+414,Bonn,Germany,6.34E,50.63N
+415,Bontang,Indonesia,118.13E,0.80N
+416,Bordeaux,France,0.00W,44.20N
+417,Borujerd,Iran,48.65E,34.56N
+418,Boshan,China,117.35E,36.17N
+419,Boston,United States,72.00W,42.59N
+420,Botad,India,71.83E,21.70N
+421,Botosani,Romania,27.24E,47.42N
+422,Botshabelo,South Africa,27.69E,29.74S
+423,Bottrop,Germany,7.88E,52.24N
+424,Botucatu,Brazil,48.06W,23.31S
+425,Bouaké,Côte D'Ivoire,5.68W,7.23N
+426,Boulogne Billancourt,France,2.45E,49.03N
+427,Bournemouth,United Kingdom,1.27W,50.63N
+428,Bozhou,China,115.85E,32.95N
+429,Bradford,United Kingdom,1.36W,53.84N
+430,Braga,Portugal,8.52W,40.99N
+431,Bragança Paulista,Brazil,46.31W,23.31S
+432,Brahmapur,India,84.51E,18.48N
+433,Braila,Romania,28.85E,45.81N
+434,Brakpan,South Africa,28.66E,26.52S
+435,Brasov,Romania,26.54E,45.81N
+436,Brasília,Brazil,47.50W,15.27S
+437,Bratislava,Slovakia,17.76E,47.42N
+438,Bratsk,Russia,102.05E,55.45N
+439,Brazzaville,Congo,15.27E,4.02S
+440,Brebes,Indonesia,109.46E,7.23S
+441,Breda,Netherlands,5.26E,52.24N
+442,Bremen,Germany,9.55E,53.84N
+443,Bremerhaven,Germany,9.55E,53.84N
+444,Brescia,Italy,10.38E,45.81N
+445,Brest,Belarus,23.65E,52.24N
+446,Brest,France,4.90W,49.03N
+447,Bridgeport,United States,72.43W,40.99N
+448,Brighton,United Kingdom,1.27W,50.63N
+449,Brikama,Gambia,17.34W,13.66N
+450,Brisbane,Australia,153.64E,28.13S
+451,Bristol,United Kingdom,2.63W,52.24N
+452,Brits,South Africa,28.37E,24.92S
+453,Brno,Czech Republic,17.14E,49.03N
+454,Brownsville,United States,96.72W,26.52N
+455,Brugge,Belgium,3.80E,50.63N
+456,Brunswick,Germany,10.51E,52.24N
+457,Brussels,Belgium,3.80E,50.63N
+458,Bryansk,Russia,34.09E,53.84N
+459,Bucaramanga,Colombia,73.78W,7.23N
+460,Bucharest,Romania,26.83E,44.20N
+461,Budapest,Hungary,20.13E,47.42N
+462,Budaun,India,79.09E,28.13N
+463,Buenaventura,Colombia,76.34W,4.02N
+464,Buffalo,United States,78.55W,42.59N
+465,Buga,Colombia,76.34W,4.02N
+466,Bugama,Nigeria,7.23E,4.02N
+467,Buhe,China,112.62E,29.74N
+468,Bujumbura,Burundi,29.73E,4.02S
+469,Bukan,Iran,45.75E,36.17N
+470,Bukavu,Congo (Democratic Republic Of The),28.13E,2.41S
+471,Bukit Mertajam,Malaysia,100.09E,5.63N
+472,Bulandshahr,India,77.27E,28.13N
+473,Bulaon,Philippines,120.83E,15.27N
+474,Bulawayo,Zimbabwe,29.00E,20.09S
+475,Buon Me Thuot,Vietnam,108.49E,12.05N
+476,Buraydah,Saudi Arabia,44.78E,26.52N
+477,Burbank,United States,118.70W,34.56N
+478,Burewala,Pakistan,72.00E,29.74N
+479,Burgas,Bulgaria,28.36E,42.59N
+480,Burgos,Spain,4.36W,42.59N
+481,Burhanpur,India,77.02E,21.70N
+482,Bursa,Turkey,29.13E,39.38N
+483,Bushehr,Iran,51.69E,29.74N
+484,Butembo,Congo (Democratic Republic Of The),29.73E,0.80N
+485,Butterworth,Malaysia,100.09E,5.63N
+486,Butuan,Philippines,125.68E,8.84N
+487,Buzau,Romania,26.54E,45.81N
+488,Bydgoszcz,Poland,17.73E,53.84N
+489,Bytom,Poland,19.01E,50.63N
+490,Bénin,Nigeria,5.68E,7.23N
+491,Cabanatuan,Philippines,120.83E,15.27N
+492,Cabimas,Venezuela,71.18W,10.45N
+493,Cabo Frio,Brazil,42.82W,23.31S
+494,Cabudare,Venezuela,69.55W,10.45N
+495,Cachoeirinha,Brazil,51.69W,29.74S
+496,Cachoeiro De Itapemirim,Brazil,40.95W,20.09S
+497,Cadiz,Philippines,123.55E,10.45N
+498,Cadiz,Spain,5.97W,36.17N
+499,Caen,France,0.00W,49.03N
+500,Cagayan De Oro,Philippines,124.05E,8.84N
+501,Cagliari,Italy,8.32E,39.38N
+502,Cagua,Venezuela,67.91W,10.45N
+503,Cainta,Philippines,120.83E,15.27N
+504,Cairns,Australia,145.67E,16.87S
+505,Cairo,Egypt,31.38E,29.74N
+506,Cajamarca,Peru,78.65W,7.23S
+507,Calabar,Nigeria,8.07E,5.63N
+508,Calabozo,Venezuela,67.30W,8.84N
+509,Calama,Chile,69.03W,23.31S
+510,Calamba,Philippines,121.38E,13.66N
+511,Calcutta,India,88.25E,23.31N
+512,Calgary,Canada,112.82W,50.63N
+513,Cali,Colombia,76.34W,4.02N
+514,Cam Pha,Vietnam,108.17E,21.70N
+515,Cam Ranh,Vietnam,108.49E,12.05N
+516,Camagüey,Cuba,78.75W,21.70N
+517,Camaragibe,Brazil,34.86W,7.23S
+518,Camaçari,Brazil,37.81W,12.05S
+519,Cambridge,United Kingdom,0.00W,52.24N
+520,Cambridge,United States,72.00W,42.59N
+521,Campeche,Mexico,90.43W,20.09N
+522,Campina Grande,Brazil,36.49W,7.23S
+523,Campinas,Brazil,46.31W,23.31S
+524,Campo Grande,Brazil,54.60W,20.09S
+525,Campos,Brazil,40.67W,21.70S
+526,Can Tho,Vietnam,105.55E,10.45N
+527,Canberra,Australia,149.17E,36.17S
+528,Cancún,Mexico,87.40W,21.70N
+529,Cangzhou,China,115.93E,37.78N
+530,Canoas,Brazil,51.69W,29.74S
+531,Cap Haïtien,Haiti,71.66W,20.09N
+532,Cape Coast,Ghana,1.61W,5.63N
+533,Cape Coral,United States,82.39W,26.52N
+534,Cape Town,South Africa,18.19E,32.95S
+535,Capiatá,Paraguay,56.75W,24.92S
+536,Caracas,Venezuela,66.27W,10.45N
+537,Carapicuíba,Brazil,46.31W,23.31S
+538,Cardiff,United Kingdom,2.63W,52.24N
+539,Cariacica,Brazil,40.95W,20.09S
+540,Carmen,Mexico,91.27W,18.48N
+541,Carolina,Puerto Rico,65.92W,18.48N
+542,Carrefour,Haiti,72.68W,18.48N
+543,Carrollton,United States,96.70W,32.95N
+544,Cartagena,Colombia,76.09W,10.45N
+545,Cartagena,Spain,0.00W,37.78N
+546,Cartago,Colombia,76.34W,4.02N
+547,Caruaru,Brazil,36.49W,8.84S
+548,Cary,United States,79.56W,36.17N
+549,Carúpano,Venezuela,63.00W,10.45N
+550,Casablanca,Morocco,6.70W,32.95N
+551,Cascavel,Brazil,53.20W,24.92S
+552,Castanhal,Brazil,47.41W,0.80S
+553,Catamarca,Argentina,66.36W,28.13S
+554,Catanduva,Brazil,49.33W,21.70S
+555,Catania,Italy,14.24E,37.78N
+556,Catia La Mar,Venezuela,66.27W,10.45N
+557,Caucaia,Brazil,39.38W,4.02S
+558,Cavite,Philippines,120.83E,15.27N
+559,Caxias,Brazil,43.59W,5.63S
+560,Caxias Do Sul,Brazil,51.69W,29.74S
+561,Cebu,Philippines,123.55E,10.45N
+562,Cedar Rapids,United States,91.64W,42.59N
+563,Celaya,Mexico,100.66W,20.09N
+564,Chakwal,Pakistan,73.72E,32.95N
+565,Chalco,Mexico,98.96W,20.09N
+566,Champdani,India,88.25E,23.31N
+567,Chandannagar,India,88.25E,23.31N
+568,Chandausi,India,79.09E,28.13N
+569,Chandigarh,India,77.28E,31.35N
+570,Chandler,United States,112.02W,32.95N
+571,Chandpur,Bangladesh,90.00E,23.31N
+572,Chandrapur,India,78.48E,20.09N
+573,Changchun,China,125.22E,44.20N
+574,Changde,China,111.82E,28.13N
+575,Changji,China,87.20E,44.20N
+576,Changzhou,China,120.63E,31.35N
+577,Chaohu,China,118.74E,31.35N
+578,Chaoyang,China,121.42E,40.99N
+579,Chaozhou,China,116.21E,23.31N
+580,Chapecó,Brazil,53.73W,26.52S
+581,Charallave,Venezuela,66.27W,10.45N
+582,Charleroi,Belgium,3.80E,50.63N
+583,Charleston,United States,79.47W,32.95N
+584,Charlotte,United States,81.73W,34.56N
+585,Chas,India,86.50E,23.31N
+586,Chattanooga,United States,85.62W,34.56N
+587,Chavakachcheri,Sri Lanka,80.27E,8.84N
+588,Cheboksary,Russia,48.19E,55.45N
+589,Chelmsford,United Kingdom,0.00W,52.24N
+590,Cheltenham,United Kingdom,2.63W,52.24N
+591,Chelyabinsk,Russia,62.36E,55.45N
+592,Chemnitz,Germany,13.94E,50.63N
+593,Chengde,China,117.16E,40.99N
+594,Chengdu,China,103.66E,31.35N
+595,Chenghai,China,116.21E,23.31N
+596,Chenzhou,China,112.84E,26.52N
+597,Cherepovets,Russia,36.92E,58.66N
+598,Cherkasy,Ukraine,31.84E,49.03N
+599,Cherkessk,Russia,42.48E,44.20N
+600,Chernihiv,Ukraine,31.53E,52.24N
+601,Chernivtsi,Ukraine,26.94E,49.03N
+602,Chesapeake,United States,75.58W,36.17N
+603,Chetumal,Mexico,87.89W,18.48N
+604,Chhapra,India,84.18E,26.52N
+605,Chhatarpur,India,79.80E,24.92N
+606,Chhindwara,India,78.75E,21.70N
+607,Chiang Mai,Thailand,99.72E,18.48N
+608,Chicago,United States,87.27W,42.59N
+609,Chiclayo,Peru,80.27W,7.23S
+610,Chifeng,China,120.00E,42.59N
+611,Chigasaki,Japan,139.23E,36.17N
+612,Chihuahua,Mexico,106.36W,28.13N
+613,Chikmagalur,India,75.14E,13.66N
+614,Chillan,Chile,71.60W,36.17S
+615,Chilpancingo,Mexico,99.72W,18.48N
+616,Chimalhuacán,Mexico,98.96W,20.09N
+617,Chimbote,Peru,78.65W,8.84S
+618,Chimoio,Mozambique,33.80E,18.48S
+619,Chinandega,Nicaragua,87.12W,12.05N
+620,Chincha Alta,Peru,76.79W,13.66S
+621,Chingola,Zambia,27.95E,12.05S
+622,Chiniot,Pakistan,73.51E,31.35N
+623,Chishtian Mandi,Pakistan,72.00E,29.74N
+624,Chisinau,Moldova,29.61E,47.42N
+625,Chita,Russia,112.99E,52.24N
+626,Chitradurga,India,76.79E,13.66N
+627,Chittaurgarh,India,74.48E,24.92N
+628,Chitungwiza,Zimbabwe,30.42E,18.48S
+629,Chizhou,China,116.86E,31.35N
+630,Chofu,Japan,139.23E,36.17N
+631,Choloma,Honduras,87.50W,15.27N
+632,Chon Buri,Thailand,101.56E,13.66N
+633,Chongqing,China,107.08E,29.74N
+634,Chorzow,Poland,19.01E,50.63N
+635,Chosica,Peru,77.26W,12.05S
+636,Christchurch,New Zealand,172.17E,44.20S
+637,Chula Vista,United States,117.77W,32.95N
+638,Chuncheng,China,111.63E,21.70N
+639,Chungho,Taiwan,120.59E,24.92N
+640,Chupei,Taiwan,120.59E,24.92N
+641,Churu,India,75.45E,28.13N
+642,Chuzhou,China,117.77E,32.95N
+643,Ciamis,Indonesia,107.84E,7.23S
+644,Ciampea,Indonesia,106.22E,7.23S
+645,Cianjur,Indonesia,107.84E,7.23S
+646,Cibadak,Indonesia,106.22E,7.23S
+647,Cibinong,Indonesia,106.55E,5.63S
+648,Cibitung,Indonesia,106.55E,5.63S
+649,Cicalengka,Indonesia,107.84E,7.23S
+650,Ciego De Ávila,Cuba,78.75W,21.70N
+651,Cienfuegos,Cuba,80.48W,21.70N
+652,Cikampek,Indonesia,107.84E,7.23S
+653,Cikarang,Indonesia,106.55E,5.63S
+654,Cikupa,Indonesia,106.55E,5.63S
+655,Cilegon,Indonesia,106.55E,5.63S
+656,Cileungsi,Indonesia,106.55E,5.63S
+657,Cileunyi,Indonesia,107.84E,7.23S
+658,Cimahi,Indonesia,107.84E,7.23S
+659,Cincinnati,United States,85.32W,39.38N
+660,Ciomas,Indonesia,106.22E,7.23S
+661,Ciparay,Indonesia,107.84E,7.23S
+662,Ciputat,Indonesia,106.55E,5.63S
+663,Cirebon,Indonesia,107.84E,7.23S
+664,Cisaat,Indonesia,106.22E,7.23S
+665,Cisarua,Indonesia,106.55E,5.63S
+666,Citeureup,Indonesia,106.55E,5.63S
+667,Ciudad Bolívar,Venezuela,64.05W,8.84N
+668,Ciudad Guayana,Venezuela,62.43W,8.84N
+669,Ciudad Valles,Mexico,99.52W,21.70N
+670,Clarksville,United States,87.51W,36.17N
+671,Clearwater,United States,82.73W,28.13N
+672,Clermont Ferrand,France,3.46E,45.81N
+673,Cleveland,United States,80.95W,40.99N
+674,Cluj Napoca,Romania,22.50E,47.42N
+675,Coacalco,Mexico,98.96W,20.09N
+676,Coatzacoalcos,Mexico,94.65W,18.48N
+677,Cochabamba,Bolivia,66.98W,16.87S
+678,Coimbra,Portugal,8.52W,40.99N
+679,Colatina,Brazil,40.95W,20.09S
+680,Colchester,United Kingdom,0.00W,52.24N
+681,Colima,Mexico,104.08W,20.09N
+682,Cologne,Germany,6.34E,50.63N
+683,Colombo,Brazil,49.66W,24.92S
+684,Colombo,Sri Lanka,80.27E,7.23N
+685,Colorado Springs,United States,104.05W,39.38N
+686,Columbia,United States,81.73W,34.56N
+687,Columbus,United States,83.24W,39.38N
+688,Columbus,United States,85.21W,32.95N
+689,Comodoro Rivadavia,Argentina,68.08W,45.81S
+690,Conakry,Guinea,13.78W,8.84N
+691,Concepcion,Chile,73.59W,36.17S
+692,Concord,United States,122.03W,37.78N
+693,Concordia,Argentina,58.43W,31.35S
+694,Conselheiro Lafaiete,Brazil,44.36W,20.09S
+695,Constanta,Romania,29.07E,44.20N
+696,Constantine,Algeria,5.97E,36.17N
+697,Contagem,Brazil,44.36W,20.09S
+698,Copenhagen,Denmark,11.34E,55.45N
+699,Copiapo,Chile,70.00W,28.13S
+700,Coquimbo,Chile,72.00W,29.74S
+701,Coral Springs,United States,80.60W,26.52N
+702,Cordoba,Argentina,64.08W,31.35S
+703,Cork,Ireland,7.88W,52.24N
+704,Coro,Venezuela,69.04W,12.05N
+705,Corona,United States,117.77W,32.95N
+706,Coronel Fabriciano,Brazil,42.65W,20.09S
+707,Corpus Christi,United States,97.27W,28.13N
+708,Corrientes,Argentina,59.09W,28.13S
+709,Costa Mesa,United States,117.77W,32.95N
+710,Cotabato,Philippines,124.05E,7.23N
+711,Cotia,Brazil,46.31W,23.31S
+712,Cotonou,Benin,2.43E,7.23N
+713,Cottbus,Germany,13.14E,52.24N
+714,Coventry,United Kingdom,2.63W,52.24N
+715,Cracow,Poland,19.01E,50.63N
+716,Craiova,Romania,24.60E,44.20N
+717,Crawley,United Kingdom,1.27W,50.63N
+718,Criciúma,Brazil,50.00W,28.13S
+719,Cuautitlán Izcalli,Mexico,98.96W,20.09N
+720,Cuautla,Mexico,99.72W,18.48N
+721,Cubatão,Brazil,46.31W,23.31S
+722,Cuddapah,India,79.17E,15.27N
+723,Cuenca,Ecuador,79.55W,2.41S
+724,Cuernavaca,Mexico,99.72W,18.48N
+725,Cuiabá,Brazil,55.83W,15.27S
+726,Culiacán,Mexico,108.18W,24.92N
+727,Cumaná,Venezuela,64.64W,10.45N
+728,Curico,Chile,72.00W,34.56S
+729,Curitiba,Brazil,49.66W,24.92S
+730,Curug,Indonesia,106.55E,5.63S
+731,Cusco,Peru,71.83W,13.66S
+732,Czestochowa,Poland,19.01E,50.63N
+733,Cà Mau,Vietnam,104.59E,8.84N
+734,Córdoba,Mexico,96.34W,18.48N
+735,Córdoba,Spain,4.07W,37.78N
+736,Cúa,Venezuela,66.27W,10.45N
+737,Cúcuta,Colombia,72.16W,7.23N
+738,Da Lat,Vietnam,108.49E,12.05N
+739,Da Nang,Vietnam,107.50E,15.27N
+740,Daan,China,105.23E,29.74N
+741,Dabrowa Gornicza,Poland,19.01E,50.63N
+742,Dadiangas,Philippines,125.92E,5.63N
+743,Dadu,Pakistan,68.06E,26.52N
+744,Dagupan,Philippines,120.56E,16.87N
+745,Dahuk,Iraq,43.76E,36.17N
+746,Daito,Japan,136.22E,34.56N
+747,Dakar,Senegal,17.50W,15.27N
+748,Dali,China,100.30E,26.52N
+749,Dalian,China,120.69E,39.38N
+750,Daliang,China,112.72E,23.31N
+751,Dallas,United States,96.70W,32.95N
+752,Daloa,Côte D'Ivoire,5.68W,7.23N
+753,Damascus,Syria,35.43E,32.95N
+754,Damaturu,Nigeria,11.51E,12.05N
+755,Damoh,India,79.51E,23.31N
+756,Dandong,China,124.86E,39.38N
+757,Danshui,China,114.47E,23.31N
+758,Dar Es Salaam,Tanzania,39.73E,7.23S
+759,Darbhanga,India,85.97E,26.52N
+760,Darjiling,India,87.76E,26.52N
+761,Darmstadt,Germany,8.87E,50.63N
+762,Daska,Pakistan,73.72E,32.95N
+763,Dasmariñas,Philippines,121.38E,13.66N
+764,Dasoguz,Turkmenistan,59.64E,40.99N
+765,Datong,China,112.90E,40.99N
+766,Daugavpils,Latvia,25.51E,55.45N
+767,Davao,Philippines,125.68E,7.23N
+768,Dawei,Burma,98.26E,13.66N
+769,Dawukou,China,106.13E,39.38N
+770,Daxian,China,107.43E,31.35N
+771,Dayton,United States,83.24W,39.38N
+772,Debre Zeyit,Ethiopia,39.73E,8.84N
+773,Debrecen,Hungary,22.50E,47.42N
+774,Dehra Dun,India,77.54E,29.74N
+775,Dehri,India,83.35E,24.92N
+776,Dehui,China,125.22E,44.20N
+777,Dekernes,Egypt,32.04E,31.35N
+778,Delhi,India,77.27E,28.13N
+779,Delicias,Mexico,106.36W,28.13N
+780,Delmas,Haiti,72.68W,18.48N
+781,Denizli,Turkey,28.47E,37.78N
+782,Denpasar,Indonesia,115.95E,8.84S
+783,Denton,United States,96.70W,32.95N
+784,Denver,United States,104.05W,39.38N
+785,Deoria,India,84.18E,26.52N
+786,Depok,Indonesia,106.55E,5.63S
+787,Depok,Indonesia,109.46E,7.23S
+788,Dera Ghazi Khan,Pakistan,70.15E,29.74N
+789,Dera Ismail Khan,Pakistan,71.62E,31.35N
+790,Derbent,Russia,48.00E,42.59N
+791,Derby,United Kingdom,1.36W,53.84N
+792,Des Moines,United States,93.73W,40.99N
+793,Dese,Ethiopia,40.09E,10.45N
+794,Detroit,United States,82.91W,42.59N
+795,Dewas,India,76.02E,23.31N
+796,Deyang,China,103.66E,31.35N
+797,Dezful,Iran,48.83E,32.95N
+798,Dezhou,China,115.93E,37.78N
+799,Dhaka,Bangladesh,90.00E,23.31N
+800,Dhanbad,India,86.50E,23.31N
+801,Dharan,Nepal,87.76E,26.52N
+802,Dharmavaram,India,77.50E,15.27N
+803,Dhaulpur,India,77.01E,26.52N
+804,Dhule,India,75.07E,20.09N
+805,Diadema,Brazil,46.31W,23.31S
+806,Dibrugarh,India,95.45E,28.13N
+807,Didao,China,130.38E,45.81N
+808,Digos,Philippines,125.68E,7.23N
+809,Dijon,France,5.92E,47.42N
+810,Dimapur,India,93.13E,26.52N
+811,Dimitrovgrad,Russia,50.45E,53.84N
+812,Dinajpur,Bangladesh,88.67E,24.92N
+813,Dindigul,India,77.73E,10.45N
+814,Dingzhou,China,114.45E,39.38N
+815,Diourbel,Senegal,15.83W,15.27N
+816,Dire Dawa,Ethiopia,41.73E,10.45N
+817,Divinópolis,Brazil,44.36W,20.09S
+818,Divo,Côte D'Ivoire,4.84W,5.63N
+819,Djougou,Benin,2.45E,10.45N
+820,Do Rud,Iran,48.83E,32.95N
+821,Dodoma,Tanzania,35.52E,5.63S
+822,Doha,Qatar,51.43E,24.92N
+823,Donghai,China,116.21E,23.31N
+824,Dongli,China,110.90E,20.09N
+825,Dongling,China,123.55E,40.99N
+826,Dongtai,China,119.68E,32.95N
+827,Dongying,China,117.97E,37.78N
+828,Dordrecht,Netherlands,5.26E,52.24N
+829,Dortmund,Germany,7.88E,52.24N
+830,Dos Hermanas,Spain,6.10W,37.78N
+831,Dos Quebradas,Colombia,75.87W,5.63N
+832,Douala,Cameroon,10.45E,4.02N
+833,Dourados,Brazil,54.52W,21.70S
+834,Downey,United States,118.70W,34.56N
+835,Dresden,Germany,13.94E,50.63N
+836,Drobeta Turnu Severin,Romania,22.36E,44.20N
+837,Dubai,United Arab Emirates,54.98E,24.92N
+838,Dublin,Ireland,6.82W,53.84N
+839,Dudley,United Kingdom,2.63W,52.24N
+840,Duisburg,Germany,6.34E,50.63N
+841,Dum Dum,India,88.25E,23.31N
+842,Duma,Syria,37.34E,32.95N
+843,Dumaguete,Philippines,124.05E,8.84N
+844,Dumai,Indonesia,102.05E,2.41N
+845,Dundee,United Kingdom,4.43W,57.05N
+846,Dunedin,New Zealand,169.62E,45.81S
+847,Dunhua,China,128.73E,42.59N
+848,Duque De Caxias,Brazil,42.82W,23.31S
+849,Durango,Mexico,104.63W,24.92N
+850,Durban,South Africa,31.38E,29.74S
+851,Durg,India,80.48E,21.70N
+852,Durgapur,India,86.50E,23.31N
+853,Durham,United States,79.56W,36.17N
+854,Durrës,Albania,19.17E,40.99N
+855,Dushanbe,Tajikistan,68.67E,39.38N
+856,Dzerzhinsk,Russia,42.79E,57.05N
+857,Düsseldorf,Germany,6.34E,50.63N
+858,East London,South Africa,27.77E,32.95S
+859,East Los Angeles,United States,118.70W,34.56N
+860,Eastbourne,United Kingdom,1.27E,50.63N
+861,Ebetsu,Japan,141.82E,42.59N
+862,Ebina,Japan,139.23E,36.17N
+863,Ecatepec,Mexico,98.96W,20.09N
+864,Ede,Netherlands,5.26E,52.24N
+865,Ede,Nigeria,4.05E,7.23N
+866,Edinburgh,United Kingdom,2.83W,55.45N
+867,Edirne,Turkey,26.18E,42.59N
+868,Edison,United States,74.56W,40.99N
+869,Edmonton,Canada,113.18W,53.84N
+870,Edéa,Cameroon,10.45E,4.02N
+871,Eindhoven,Netherlands,5.26E,52.24N
+872,Ejido,Venezuela,70.54W,8.84N
+873,Ejigbo,Nigeria,4.05E,7.23N
+874,Ekibastuz,Kazakhstan,76.20E,52.24N
+875,El Faiyûm,Egypt,31.38E,29.74N
+876,El Limón,Venezuela,67.91W,10.45N
+877,El Mahalla El Kubra,Egypt,32.04E,31.35N
+878,El Monte,United States,118.70W,34.56N
+879,El Paso,United States,105.55W,31.35N
+880,El Progreso,Honduras,87.50W,15.27N
+881,El Tigre,Venezuela,64.05W,8.84N
+882,Elbasan,Albania,19.17E,40.99N
+883,Elblag,Poland,20.45E,53.84N
+884,Eldoret,Kenya,34.55E,0.80N
+885,Elektrostal,Russia,39.69E,55.45N
+886,Elista,Russia,45.00E,45.81N
+887,Elizabeth,United States,74.56W,40.99N
+888,Eluru,India,80.37E,16.87N
+889,Embu,Brazil,46.31W,23.31S
+890,Emmen,Netherlands,7.88E,52.24N
+891,Encheng,China,111.63E,21.70N
+892,Engels,Russia,46.90E,50.63N
+893,Enschede,Netherlands,7.88E,52.24N
+894,Ensenada,Mexico,116.86W,31.35N
+895,Enugu,Nigeria,7.30E,7.23N
+896,Envigado,Colombia,75.87W,5.63N
+897,Erfurt,Germany,11.41E,50.63N
+898,Erlangen,Germany,9.80E,49.03N
+899,Erode,India,77.26E,12.05N
+900,Erzincan,Turkey,39.54E,39.38N
+901,Erzurum,Turkey,41.62E,39.38N
+902,Escondido,United States,117.77W,32.95N
+903,Escuintla,Guatemala,90.83W,15.27N
+904,Esenyurt,Turkey,27.69E,40.99N
+905,Esfahan,Iran,50.74E,32.95N
+906,Eskisehir,Turkey,31.21E,39.38N
+907,Eslamshahr,Iran,51.71E,36.17N
+908,Esmeraldas,Brazil,44.36W,20.09S
+909,Espoo,Finland,25.95E,60.27N
+910,Essen,Germany,6.34E,50.63N
+911,Etah,India,79.09E,28.13N
+912,Etawah,India,78.81E,26.52N
+913,Eugene,United States,122.98W,44.20N
+914,Evansville,United States,87.46W,37.78N
+915,Exeter,United Kingdom,3.80W,50.63N
+916,Ezhou,China,114.46E,29.74N
+917,Fairfield,United States,122.03W,37.78N
+918,Faisalabad,Pakistan,73.51E,31.35N
+919,Faizabad,India,82.39E,26.52N
+920,Faridabad,India,77.27E,28.13N
+921,Faridpur,Bangladesh,90.00E,23.31N
+922,Farrukhabad,India,79.09E,28.13N
+923,Fatehpur,India,80.60E,26.52N
+924,Fayetteville,United States,79.78W,34.56N
+925,Feira De Santana,Brazil,39.45W,12.05S
+926,Fengcheng,China,123.55E,40.99N
+927,Fengshan,Taiwan,119.71E,23.31N
+928,Fernando De La Mora,Paraguay,56.75W,24.92S
+929,Ferrara,Italy,11.18E,44.20N
+930,Ferraz De Vasconcelos,Brazil,46.31W,23.31S
+931,Fez,Morocco,5.84W,34.56N
+932,Fianarantsoa,Madagascar,47.60E,21.70S
+933,Firozabad,India,78.81E,26.52N
+934,Firozpur,India,75.39E,31.35N
+935,Flint,United States,82.91W,42.59N
+936,Florence,Italy,11.18E,44.20N
+937,Florencia,Colombia,76.34W,2.41N
+938,Florianópolis,Brazil,48.18W,28.13S
+939,Floridablanca,Colombia,73.78W,7.23N
+940,Focsani,Romania,26.54E,45.81N
+941,Foggia,Italy,14.91E,40.99N
+942,Fontana,United States,116.76W,34.56N
+943,Forlì,Italy,11.18E,44.20N
+944,Formosa,Argentina,57.31W,26.52S
+945,Fort Collins,United States,104.38W,40.99N
+946,Fort Lauderdale,United States,80.60W,26.52N
+947,Fort Wayne,United States,85.21W,40.99N
+948,Fort Worth,United States,96.70W,32.95N
+949,Fortaleza,Brazil,40.98W,4.02S
+950,Foshan,China,112.72E,23.31N
+951,Foz Do Iguaçu,Brazil,54.98W,24.92S
+952,Franca,Brazil,47.77W,20.09S
+953,Francisco Morato,Brazil,46.31W,23.31S
+954,Franco Da Rocha,Brazil,46.31W,23.31S
+955,Frankfurt,Germany,8.87E,50.63N
+956,Freetown,Sierra Leone,13.78W,8.84N
+957,Freiburg,Germany,8.29E,47.42N
+958,Fremont,United States,122.03W,37.78N
+959,Fresnillo,Mexico,102.23W,23.31N
+960,Fresno,United States,119.34W,36.17N
+961,Fuchu,Japan,139.23E,36.17N
+962,Fuenlabrada,Spain,4.26W,40.99N
+963,Fuji,Japan,138.16E,34.56N
+964,Fujieda,Japan,138.16E,34.56N
+965,Fujimi,Japan,139.23E,36.17N
+966,Fujinomiya,Japan,138.16E,34.56N
+967,Fujisawa,Japan,139.23E,36.17N
+968,Fukaya,Japan,139.23E,36.17N
+969,Fukuyama,Japan,134.27E,34.56N
+970,Fuling,China,107.08E,29.74N
+971,Fullerton,United States,117.77W,32.95N
+972,Funabashi,Japan,139.23E,36.17N
+973,Funtua,Nigeria,6.58E,12.05N
+974,Fushun,China,123.55E,40.99N
+975,Fuxin,China,122.18E,42.59N
+976,Fuyang,China,115.85E,32.95N
+977,Fuyu,China,125.77E,45.81N
+978,Fuzhou,China,120.00E,26.52N
+979,Fürth,Germany,9.80E,49.03N
+980,Gaborone,Botswana,26.60E,24.92S
+981,Gadag,India,75.83E,15.27N
+982,Gagnoa,Côte D'Ivoire,6.46W,5.63N
+983,Gainesville,United States,83.08W,29.74N
+984,Galati,Romania,28.85E,45.81N
+985,Gandajika,Congo (Democratic Republic Of The),23.51E,7.23S
+986,Gandhidham,India,70.78E,23.31N
+987,Gandhinagar,India,72.52E,23.31N
+988,Ganganagar,India,73.85E,29.74N
+989,Gangapur,India,77.01E,26.52N
+990,Gangawati,India,75.83E,15.27N
+991,Ganzhou,China,114.63E,26.52N
+992,Gaomi,China,119.34E,36.17N
+993,Gaozhou,China,111.63E,21.70N
+994,Garanhuns,Brazil,36.49W,8.84S
+995,Garden Grove,United States,117.77W,32.95N
+996,Gardez,Afghanistan,69.89E,32.95N
+997,Garland,United States,96.70W,32.95N
+998,Garoua,Cameroon,13.78E,8.84N
+999,Garut,Indonesia,107.84E,7.23S
+1000,Garza García,Mexico,100.30W,26.52N
+1001,Gashua,Nigeria,10.73E,13.66N
+1002,Gaya,India,85.12E,24.92N
+1003,Gaziantep,Turkey,36.61E,37.78N
+1004,Gazipur,Bangladesh,90.00E,23.31N
+1005,Gazni,Afghanistan,67.98E,32.95N
+1006,Gboko,Nigeria,8.92E,7.23N
+1007,Gbongan,Nigeria,4.05E,7.23N
+1008,Gdansk,Poland,17.73E,53.84N
+1009,Gdynia,Poland,17.73E,53.84N
+1010,Gebze,Turkey,29.82E,40.99N
+1011,Geelong,Australia,144.41E,37.78S
+1012,Gejiu,China,103.98E,23.31N
+1013,Gelsenkirchen,Germany,7.88E,52.24N
+1014,Gemena,Congo (Democratic Republic Of The),20.09E,4.02N
+1015,General Escobedo,Mexico,100.30W,26.52N
+1016,Geneva,Switzerland,5.77E,45.81N
+1017,Genoa,Italy,8.94E,44.20N
+1018,Gent,Belgium,3.80E,50.63N
+1019,George,South Africa,23.35E,34.56S
+1020,Georgetown,Guyana,57.57W,7.23N
+1021,Gera,Germany,11.41E,50.63N
+1022,Getafe,Spain,4.26W,40.99N
+1023,Ghaziabad,India,77.27E,28.13N
+1024,Ghazipur,India,83.35E,24.92N
+1025,Gijón,Spain,6.71W,44.20N
+1026,Gilbert,United States,112.02W,32.95N
+1027,Gillingham,United Kingdom,1.27E,50.63N
+1028,Girardot,Colombia,74.73W,4.02N
+1029,Girón,Colombia,73.78W,7.23N
+1030,Giugliano In Campania,Italy,14.91E,40.99N
+1031,Gizeh,Egypt,31.38E,29.74N
+1032,Glasgow,United Kingdom,2.83W,55.45N
+1033,Glazov,Russia,52.31E,58.66N
+1034,Glendale,United States,112.02W,32.95N
+1035,Glendale,United States,118.70W,34.56N
+1036,Gliwice,Poland,19.01E,50.63N
+1037,Gloucester,United Kingdom,2.63W,52.24N
+1038,Godhra,India,74.27E,23.31N
+1039,Goiânia,Brazil,48.56W,16.87S
+1040,Gojra,Pakistan,73.51E,31.35N
+1041,Gold Coast,Australia,153.64E,28.13S
+1042,Goma,Congo (Democratic Republic Of The),29.73E,2.41S
+1043,Gombe,Nigeria,10.64E,10.45N
+1044,Gomel,Belarus,31.53E,52.24N
+1045,Gonbad E Qabus,Iran,54.92E,37.78N
+1046,Gonda,India,82.39E,26.52N
+1047,Gondal,India,70.10E,21.70N
+1048,Gondar,Ethiopia,37.81E,12.05N
+1049,Gongzhuling,China,125.22E,44.20N
+1050,Gorakhpur,India,84.18E,26.52N
+1051,Gorgan,Iran,53.70E,36.17N
+1052,Gorontalo,Indonesia,122.95E,0.80N
+1053,Gorzow Wielkopolski,Poland,15.77E,52.24N
+1054,Governador Valadares,Brazil,42.25W,18.48S
+1055,Granada,Spain,4.07W,37.78N
+1056,Grand Prairie,United States,96.70W,32.95N
+1057,Grand Rapids,United States,85.09W,42.59N
+1058,Gravataí,Brazil,51.69W,29.74S
+1059,Graz,Austria,15.39E,47.42N
+1060,Green Bay,United States,87.20W,44.20N
+1061,Greensboro,United States,79.56W,36.17N
+1062,Grenoble,France,5.77E,45.81N
+1063,Grogol,Indonesia,111.08E,7.23S
+1064,Groningen,Netherlands,6.82E,53.84N
+1065,Guacara,Venezuela,67.91W,10.45N
+1066,Guadalajara,Mexico,104.08W,20.09N
+1067,Guadalupe,Mexico,100.30W,26.52N
+1068,Guanare,Venezuela,70.54W,8.84N
+1069,Guangshui,China,113.09E,31.35N
+1070,Guangyuan,China,106.28E,32.95N
+1071,Guangzhou,China,112.72E,23.31N
+1072,Guantánamo,Cuba,75.07W,20.09N
+1073,Guarapari,Brazil,40.95W,20.09S
+1074,Guarapuava,Brazil,51.43W,24.92S
+1075,Guaratinguetá,Brazil,44.56W,23.31S
+1076,Guarenas,Venezuela,66.27W,10.45N
+1077,Guarujá,Brazil,46.31W,23.31S
+1078,Guarulhos,Brazil,46.31W,23.31S
+1079,Guatemala,Guatemala,90.83W,15.27N
+1080,Guatemala City,Guatemala,90.83W,15.27N
+1081,Guatire,Venezuela,66.27W,10.45N
+1082,Guayaquil,Ecuador,79.55W,2.41S
+1083,Guaymas,Mexico,110.00W,28.13N
+1084,Guaíba,Brazil,51.69W,29.74S
+1085,Gudalur,India,80.55E,12.05N
+1086,Gudivada,India,80.37E,16.87N
+1087,Guelph,Canada,80.50W,44.20N
+1088,Guilin,China,109.95E,24.92N
+1089,Guiyang,China,107.46E,26.52N
+1090,Gujranwala,Pakistan,73.72E,32.95N
+1091,Gujrat,Pakistan,73.72E,32.95N
+1092,Gulbarga,India,77.02E,16.87N
+1093,Gulu,Uganda,32.95E,2.41N
+1094,Guna,India,78.03E,24.92N
+1095,Guntakal,India,77.50E,15.27N
+1096,Guntur,India,80.37E,16.87N
+1097,Gurgaon,India,77.27E,28.13N
+1098,Gusau,Nigeria,6.58E,12.05N
+1099,Guwahati,India,91.34E,26.52N
+1100,Gwalior,India,78.81E,26.52N
+1101,Gweru,Zimbabwe,29.00E,20.09S
+1102,Gyor,Hungary,17.76E,47.42N
+1103,Gyumri,Armenia,44.73E,40.99N
+1104,Gómez Palacio,Mexico,102.86W,24.92N
+1105,Göteborg,Sweden,12.31E,58.66N
+1106,Göttingen,Germany,10.51E,52.24N
+1107,Ha Noi,Vietnam,106.44E,21.70N
+1108,Haarlem,Netherlands,5.26E,52.24N
+1109,Haarlemmermeer,Netherlands,5.26E,52.24N
+1110,Habikino,Japan,136.22E,34.56N
+1111,Habra,India,88.25E,23.31N
+1112,Hachinohe,Japan,140.59E,40.99N
+1113,Hachioji,Japan,139.23E,36.17N
+1114,Hadano,Japan,139.23E,36.17N
+1115,Hadejia,Nigeria,9.86E,12.05N
+1116,Hafizabad,Pakistan,73.51E,31.35N
+1117,Hagen,Germany,7.88E,52.24N
+1118,Hagonoy,Philippines,120.83E,15.27N
+1119,Hai Phong,Vietnam,106.44E,21.70N
+1120,Haibowan,China,106.13E,39.38N
+1121,Haicheng,China,114.47E,23.31N
+1122,Haicheng,China,123.55E,40.99N
+1123,Haifa,Israel,35.43E,32.95N
+1124,Haikou,China,102.86E,24.92N
+1125,Haikou,China,110.90E,20.09N
+1126,Hailar,China,120.00E,49.03N
+1127,Hailun,China,126.71E,47.42N
+1128,Haimen,China,116.21E,23.31N
+1129,Hajipur,India,85.12E,24.92N
+1130,Hakodate,Japan,140.59E,40.99N
+1131,Haldia,India,87.40E,21.70N
+1132,Haldwani,India,79.38E,29.74N
+1133,Halifax,Canada,62.61W,44.20N
+1134,Halisahar,India,88.25E,23.31N
+1135,Halle,Germany,11.41E,50.63N
+1136,Hamadan,Iran,48.65E,34.56N
+1137,Hamamatsu,Japan,138.16E,34.56N
+1138,Hamburg,Germany,9.55E,53.84N
+1139,Hami,China,93.82E,42.59N
+1140,Hamilton,Canada,80.73W,42.59N
+1141,Hamilton,New Zealand,174.92E,37.78S
+1142,Hamm,Germany,7.88E,52.24N
+1143,Hampton,United States,75.58W,36.17N
+1144,Handa,Japan,136.22E,34.56N
+1145,Handan,China,115.36E,36.17N
+1146,Hangu,China,118.61E,39.38N
+1147,Hangzhou,China,120.00E,29.74N
+1148,Hanoi,Vietnam,106.44E,21.70N
+1149,Hanover,Germany,10.51E,52.24N
+1150,Hanumangarh,India,73.85E,29.74N
+1151,Hanzhong,China,106.28E,32.95N
+1152,Haora,India,88.25E,23.31N
+1153,Hapur,India,77.27E,28.13N
+1154,Harare,Zimbabwe,30.42E,18.48S
+1155,Harbin,China,125.77E,45.81N
+1156,Hardoi,India,80.60E,26.52N
+1157,Hargeysa,Somalia,44.59E,8.84N
+1158,Haridwar,India,77.54E,29.74N
+1159,Hartford,United States,72.43W,40.99N
+1160,Hassan,India,76.79E,13.66N
+1161,Hat Yai,Thailand,99.73E,7.23N
+1162,Hathras,India,77.27E,28.13N
+1163,Hayward,United States,122.03W,37.78N
+1164,Hazaribag,India,84.76E,23.31N
+1165,Hebi,China,113.37E,36.17N
+1166,Hefei,China,116.86E,31.35N
+1167,Hegang,China,131.45E,47.42N
+1168,Heidelberg,Germany,9.80E,49.03N
+1169,Heihe,Russia,128.03E,50.63N
+1170,Heilbronn,Germany,9.80E,49.03N
+1171,Helsinki,Finland,25.95E,60.27N
+1172,Henderson,United States,115.36W,36.17N
+1173,Hengshan,China,130.38E,45.81N
+1174,Hengshui,China,115.93E,37.78N
+1175,Hengyang,China,112.84E,26.52N
+1176,Henzada,Burma,95.44E,16.87N
+1177,Herat,Afghanistan,62.27E,34.56N
+1178,Hermosillo,Mexico,110.77W,29.74N
+1179,Herne,Germany,7.88E,52.24N
+1180,Heze,China,114.81E,34.56N
+1181,Hialeah,United States,80.60W,26.52N
+1182,Highlands Ranch,United States,104.05W,39.38N
+1183,Higüey,Dominican Republic,69.30W,18.48N
+1184,Hikone,Japan,136.22E,34.56N
+1185,Hildesheim,Germany,10.51E,52.24N
+1186,Himeji,Japan,134.27E,34.56N
+1187,Hindupur,India,76.79E,13.66N
+1188,Hino,Japan,139.23E,36.17N
+1189,Hirakata,Japan,136.22E,34.56N
+1190,Hiratsuka,Japan,139.23E,36.17N
+1191,Hirosaki,Japan,140.59E,40.99N
+1192,Hiroshima,Japan,132.32E,34.56N
+1193,Hisar,India,75.69E,29.74N
+1194,Hitachi,Japan,141.22E,36.17N
+1195,Ho Chi Minh City,Vietnam,107.18E,10.45N
+1196,Hobart,Australia,148.36E,42.59S
+1197,Hofu,Japan,132.32E,34.56N
+1198,Hohhot,China,110.77E,40.99N
+1199,Holguín,Cuba,76.78W,20.09N
+1200,Hollywood,United States,80.60W,26.52N
+1201,Hong Gai,Vietnam,106.44E,21.70N
+1202,Honggang,China,125.77E,45.81N
+1203,Honghu,China,112.62E,29.74N
+1204,Horlivka,Ukraine,39.18E,49.03N
+1205,Hortolândia,Brazil,48.06W,23.31S
+1206,Hoshangabad,India,77.77E,23.31N
+1207,Hoshiarpur,India,75.39E,31.35N
+1208,Hospet,India,75.83E,15.27N
+1209,Hosur,India,77.26E,12.05N
+1210,Houma,China,111.38E,36.17N
+1211,Houston,United States,96.00W,29.74N
+1212,Hrodna,Belarus,23.18E,53.84N
+1213,Hsichih,Taiwan,122.36E,24.92N
+1214,Hsinchu,Taiwan,120.59E,24.92N
+1215,Hsintien,Taiwan,122.36E,24.92N
+1216,Huadian,China,126.55E,42.59N
+1217,Huaibei,China,116.76E,34.56N
+1218,Huaihua,China,110.00E,28.13N
+1219,Huainan,China,117.77E,32.95N
+1220,Huaiyin,China,119.68E,32.95N
+1221,Huambo,Angola,15.69E,13.66S
+1222,Huancayo,Peru,75.62W,12.05S
+1223,Huangcun,China,116.53E,39.38N
+1224,Huangpu,China,112.72E,23.31N
+1225,Huangyan,China,120.91E,28.13N
+1226,Huangzhou,China,114.46E,29.74N
+1227,Hubli,India,75.83E,15.27N
+1228,Huddersfield,United Kingdom,1.36W,53.84N
+1229,Hue,Vietnam,107.16E,16.87N
+1230,Huelva,Spain,6.10W,37.78N
+1231,Huicheng,China,116.21E,23.31N
+1232,Huixquilucan,Mexico,98.96W,20.09N
+1233,Huizhou,China,114.47E,23.31N
+1234,Hulan,China,125.77E,45.81N
+1235,Hulan Ergi,China,124.34E,47.42N
+1236,Humen,China,114.47E,23.31N
+1237,Huntington Beach,United States,117.77W,32.95N
+1238,Huntsville,United States,85.62W,34.56N
+1239,Huzhou,China,120.63E,31.35N
+1240,Huánuco,Peru,76.09W,10.45S
+1241,Hyderabad,India,78.70E,16.87N
+1242,Hyderabad,Pakistan,69.16E,24.92N
+1243,Hòa Bình,Vietnam,105.78E,20.09N
+1244,Iasi,Romania,27.24E,47.42N
+1245,Ibadan,Nigeria,4.05E,7.23N
+1246,Ibagué,Colombia,74.73W,4.02N
+1247,Ibaraki,Japan,136.22E,34.56N
+1248,Ibarra,Ecuador,77.95W,0.80N
+1249,Ibb,Yemen,43.76E,13.66N
+1250,Ibirité,Brazil,44.36W,20.09S
+1251,Ica,Peru,75.14W,13.66S
+1252,Ichalkaranji,India,73.67E,16.87N
+1253,Ichihara,Japan,140.11E,34.56N
+1254,Ichikawa,Japan,139.23E,36.17N
+1255,Ichinomiya,Japan,136.22E,34.56N
+1256,Idlib,Syria,35.80E,36.17N
+1257,Ife,Nigeria,4.05E,7.23N
+1258,Igboho,Nigeria,4.05E,8.84N
+1259,Iguala,Mexico,99.72W,18.48N
+1260,Iida,Japan,137.24E,36.17N
+1261,Ijero,Nigeria,5.68E,7.23N
+1262,Ikare,Nigeria,5.68E,7.23N
+1263,Ikere,Nigeria,5.68E,7.23N
+1264,Ikire,Nigeria,4.05E,7.23N
+1265,Ikirun,Nigeria,4.05E,7.23N
+1266,Ikole,Nigeria,5.68E,7.23N
+1267,Ikoma,Japan,136.22E,34.56N
+1268,Ikorodu,Nigeria,4.05E,7.23N
+1269,Ikot Ekpene,Nigeria,8.07E,5.63N
+1270,Ila,Nigeria,5.68E,7.23N
+1271,Ilam,Iran,46.91E,32.95N
+1272,Ilawe,Nigeria,5.68E,7.23N
+1273,Ilebo,Congo (Democratic Republic Of The),20.09E,4.02S
+1274,Ilesha,Nigeria,4.05E,8.84N
+1275,Ilhéus,Brazil,39.17W,15.27S
+1276,Iligan,Philippines,124.05E,8.84N
+1277,Ilobu,Nigeria,4.05E,7.23N
+1278,Iloilo,Philippines,121.91E,10.45N
+1279,Ilorin,Nigeria,4.05E,8.84N
+1280,Imabari,Japan,132.32E,34.56N
+1281,Imperatriz,Brazil,46.82W,5.63S
+1282,Imphal,India,93.99E,24.92N
+1283,Inazawa,Japan,136.22E,34.56N
+1284,Indaiatuba,Brazil,48.06W,23.31S
+1285,Independence,United States,93.64W,39.38N
+1286,Indianapolis,United States,85.32W,39.38N
+1287,Indore,India,76.02E,23.31N
+1288,Indramayu,Indonesia,108.16E,5.63S
+1289,Inegol,Turkey,29.13E,39.38N
+1290,Inglewood,United States,118.70W,34.56N
+1291,Ingolstadt,Germany,12.24E,49.03N
+1292,Ingraj Bazar,India,88.67E,24.92N
+1293,Inisa,Nigeria,4.05E,7.23N
+1294,Innsbruck,Austria,10.66E,47.42N
+1295,Ipatinga,Brazil,42.65W,20.09S
+1296,Ipoh,Malaysia,100.45E,4.02N
+1297,Ipswich,United Kingdom,0.00W,52.24N
+1298,Iquique,Chile,69.95W,20.09S
+1299,Iquitos,Peru,73.13W,4.02S
+1300,Iranshahr,Iran,60.90E,26.52N
+1301,Irapuato,Mexico,100.66W,20.09N
+1302,Irbid,Jordan,35.43E,32.95N
+1303,Irbil,Iraq,43.76E,36.17N
+1304,Iringa,Tanzania,36.49E,7.23S
+1305,Irkutsk,Russia,105.11E,52.24N
+1306,Iruma,Japan,139.23E,36.17N
+1307,Irvine,United States,117.77W,32.95N
+1308,Irving,United States,96.70W,32.95N
+1309,Iráklion,Greece,25.30E,34.56N
+1310,Ise,Nigeria,5.68E,7.23N
+1311,Isehara,Japan,139.23E,36.17N
+1312,Isesaki,Japan,139.23E,36.17N
+1313,Iseyin,Nigeria,4.05E,7.23N
+1314,Ishinomaki,Japan,141.50E,39.38N
+1315,Isiro,Congo (Democratic Republic Of The),28.13E,2.41N
+1316,Iskenderun,Turkey,35.80E,36.17N
+1317,Islamabad,Pakistan,73.72E,32.95N
+1318,Ismailia,Egypt,32.04E,31.35N
+1319,Isparta,Turkey,30.51E,37.78N
+1320,Istanbul,Turkey,29.82E,40.99N
+1321,Itaboraí,Brazil,42.82W,23.31S
+1322,Itabuna,Brazil,39.17W,15.27S
+1323,Itaguaí,Brazil,44.56W,23.31S
+1324,Itagüí,Colombia,75.87W,5.63N
+1325,Itajaí,Brazil,48.36W,26.52S
+1326,Itami,Japan,136.22E,34.56N
+1327,Itapecerica Da Serra,Brazil,46.31W,23.31S
+1328,Itapetininga,Brazil,48.06W,23.31S
+1329,Itapevi,Brazil,46.31W,23.31S
+1330,Itaquaquecetuba,Brazil,46.31W,23.31S
+1331,Itarsi,India,77.77E,23.31N
+1332,Itu,Brazil,48.06W,23.31S
+1333,Ivanovo,Russia,39.84E,57.05N
+1334,Iwaki,Japan,140.34E,37.78N
+1335,Iwakuni,Japan,132.32E,34.56N
+1336,Iwatsuki,Japan,139.23E,36.17N
+1337,Iwo,Nigeria,4.05E,7.23N
+1338,Ixtapaluca,Mexico,98.96W,20.09N
+1339,Izhevsk,Russia,54.59E,57.05N
+1340,Izmir,Turkey,26.44E,37.78N
+1341,Izmit,Turkey,29.82E,40.99N
+1342,Izumi,Japan,136.22E,34.56N
+1343,Jabalpur,India,79.51E,23.31N
+1344,Jaboatão,Brazil,34.86W,8.84S
+1345,Jacareí,Brazil,46.31W,23.31S
+1346,Jackson,United States,90.96W,32.95N
+1347,Jacksonville,United States,81.23W,29.74N
+1348,Jacobabad,Pakistan,68.18E,28.13N
+1349,Jaffna,Sri Lanka,80.27E,8.84N
+1350,Jagadhri,India,77.54E,29.74N
+1351,Jahrom,Iran,53.64E,28.13N
+1352,Jaipur,India,75.22E,26.52N
+1353,Jakarta,Indonesia,106.55E,5.63S
+1354,Jalalabad,Afghanistan,70.05E,34.56N
+1355,Jalandhar,India,75.39E,31.35N
+1356,Jalingo,Nigeria,12.16E,8.84N
+1357,Jalna,India,75.07E,20.09N
+1358,Jalpaiguri,India,89.55E,26.52N
+1359,Jamalpur,Bangladesh,90.44E,24.92N
+1360,Jamalpur,India,86.90E,24.92N
+1361,Jamame,Somalia,42.59E,0.80N
+1362,Jambi,Indonesia,103.66E,0.80S
+1363,Jammu,India,75.64E,32.95N
+1364,Jamnagar,India,70.10E,21.70N
+1365,Jamshedpur,India,86.50E,23.31N
+1366,Jamuria,India,86.50E,23.31N
+1367,Jandira,Brazil,46.31W,23.31S
+1368,Jaraguá Do Sul,Brazil,48.36W,26.52S
+1369,Jaramana,Syria,35.43E,32.95N
+1370,Jaranwala,Pakistan,73.51E,31.35N
+1371,Jaunpur,India,82.39E,26.52N
+1372,Jaén,Spain,4.07W,37.78N
+1373,Jaú,Brazil,49.33W,21.70S
+1374,Jember,Indonesia,114.32E,8.84S
+1375,Jequié,Brazil,40.46W,13.66S
+1376,Jerez,Spain,5.97W,36.17N
+1377,Jersey City,United States,74.56W,40.99N
+1378,Jerusalem,Israel,35.81E,31.35N
+1379,Jetpur,India,70.10E,21.70N
+1380,Jhang,Pakistan,71.62E,31.35N
+1381,Jhansi,India,78.03E,24.92N
+1382,Jhelum,Pakistan,73.72E,32.95N
+1383,Jhunjhunun,India,75.45E,28.13N
+1384,Ji Paraná,Brazil,61.36W,10.45S
+1385,Jiamusi,China,131.45E,47.42N
+1386,Jian,China,114.63E,26.52N
+1387,Jiangmen,China,112.72E,23.31N
+1388,Jiangyin,China,120.63E,31.35N
+1389,Jiangyou,China,105.55E,31.35N
+1390,Jiaohe,China,127.45E,44.20N
+1391,Jiaojiang,China,120.91E,28.13N
+1392,Jiaozhou,China,119.34E,36.17N
+1393,Jiaozuo,China,112.86E,34.56N
+1394,Jiaxing,China,120.63E,31.35N
+1395,Jiayuguan,China,97.80E,39.38N
+1396,Jiazi,China,116.21E,23.31N
+1397,Jibuti,Djibouti,42.74E,12.05N
+1398,Jiddah,Saudi Arabia,38.94E,21.70N
+1399,Jieshi,China,116.21E,23.31N
+1400,Jieshou,China,115.85E,32.95N
+1401,Jilin,China,127.45E,44.20N
+1402,Jimeta,Nigeria,12.16E,8.84N
+1403,Jimma,Ethiopia,36.49E,7.23N
+1404,Jinan,China,117.35E,36.17N
+1405,Jinchang,China,101.69E,37.78N
+1406,Jinchengjiang,China,108.18E,24.92N
+1407,Jind,India,75.69E,29.74N
+1408,Jingdezhen,China,116.31E,29.74N
+1409,Jinhua,China,120.00E,29.74N
+1410,Jining,China,112.90E,40.99N
+1411,Jining,China,116.76E,34.56N
+1412,Jinxi,China,121.42E,40.99N
+1413,Jinzhou,China,121.42E,40.99N
+1414,Jiroft,Iran,57.27E,28.13N
+1415,Jishou,China,110.00E,28.13N
+1416,Jishu,China,127.45E,44.20N
+1417,Jiujiang,China,116.31E,29.74N
+1418,Jiupu,China,123.55E,40.99N
+1419,Jiutai,China,125.22E,44.20N
+1420,Jiutepec,Mexico,99.72W,18.48N
+1421,Jixi,China,130.38E,45.81N
+1422,Jodhpur,India,73.43E,26.52N
+1423,Joetsu,Japan,138.31E,37.78N
+1424,Johannesburg,South Africa,28.66E,26.52S
+1425,Johor Bahru,Malaysia,103.66E,0.80N
+1426,Joinville,Brazil,48.36W,26.52S
+1427,Joliet,United States,87.34W,40.99N
+1428,Jolo,Philippines,119.46E,5.63N
+1429,Jombang,Indonesia,112.70E,7.23S
+1430,Jos,Nigeria,9.00E,10.45N
+1431,João Pessoa,Brazil,34.86W,7.23S
+1432,Juarez,Mexico,105.55W,31.35N
+1433,Juazeiro Do Norte,Brazil,39.73W,7.23S
+1434,Juba,Sudan,31.34E,4.02N
+1435,Juiz De Fora,Brazil,44.13W,21.70S
+1436,Jujuy,Argentina,65.62W,24.92S
+1437,Juliaca,Peru,70.83W,15.27S
+1438,Junagadh,India,70.10E,21.70N
+1439,Jundiaí,Brazil,46.31W,23.31S
+1440,Juàzeiro,Brazil,39.73W,8.84S
+1441,Kabankalan,Philippines,123.55E,10.45N
+1442,Kabul,Afghanistan,70.05E,34.56N
+1443,Kabwe,Zambia,28.90E,13.66S
+1444,Kadoma,Japan,136.22E,34.56N
+1445,Kadoma,Zimbabwe,30.42E,18.48S
+1446,Kaduna,Nigeria,7.36E,10.45N
+1447,Kahramanmaras,Turkey,36.61E,37.78N
+1448,Kaifeng,China,114.81E,34.56N
+1449,Kaili,China,107.46E,26.52N
+1450,Kaithal,India,75.69E,29.74N
+1451,Kaiyuan,China,103.98E,23.31N
+1452,Kakamigahara,Japan,137.24E,36.17N
+1453,Kakinada,India,82.05E,16.87N
+1454,Kakogawa,Japan,134.27E,34.56N
+1455,Kalemie,Congo (Democratic Republic Of The),29.06E,5.63S
+1456,Kaliningrad,Russia,19.84E,55.45N
+1457,Kalisz,Poland,18.39E,52.24N
+1458,Kallithéa,Greece,24.41E,37.78N
+1459,Kalmunai,Sri Lanka,81.89E,7.23N
+1460,Kalol,India,72.52E,23.31N
+1461,Kaluga,Russia,36.82E,53.84N
+1462,Kalyan,India,73.36E,20.09N
+1463,Kamagaya,Japan,139.23E,36.17N
+1464,Kamakura,Japan,140.11E,34.56N
+1465,Kamalia,Pakistan,73.51E,31.35N
+1466,Kamarhati,India,88.25E,23.31N
+1467,Kamensk Uralskiy,Russia,62.36E,55.45N
+1468,Kamoke,Pakistan,73.51E,31.35N
+1469,Kampala,Uganda,32.95E,0.80N
+1470,Kamyshin,Russia,44.37E,50.63N
+1471,Kananga,Congo (Democratic Republic Of The),22.60E,5.63S
+1472,Kanchipuram,India,80.09E,13.66N
+1473,Kanchrapara,India,88.25E,23.31N
+1474,Kandi,Benin,2.45E,10.45N
+1475,Kandy,Sri Lanka,80.27E,7.23N
+1476,Kankan,Guinea,9.00W,10.45N
+1477,Kano,Nigeria,8.22E,12.05N
+1478,Kanpur,India,80.60E,26.52N
+1479,Kansas City,United States,93.64W,39.38N
+1480,Kansk,Russia,96.38E,55.45N
+1481,Kaohsiung,Taiwan,119.71E,23.31N
+1482,Kaolack,Senegal,15.69W,13.66N
+1483,Kapra,India,78.70E,16.87N
+1484,Karachi,Pakistan,67.39E,24.92N
+1485,Karaj,Iran,51.71E,36.17N
+1486,Karaman,Turkey,32.54E,37.78N
+1487,Karamay,China,84.23E,45.81N
+1488,Karang Tengah,Indonesia,106.22E,7.23S
+1489,Karawang,Indonesia,106.55E,5.63S
+1490,Karimnagar,India,79.44E,18.48N
+1491,Kariya,Japan,136.22E,34.56N
+1492,Karlsruhe,Germany,7.35E,49.03N
+1493,Karnal,India,77.54E,29.74N
+1494,Kashan,Iran,50.59E,34.56N
+1495,Kashi,China,76.99E,39.38N
+1496,Kashihara,Japan,136.22E,34.56N
+1497,Kashipur,India,79.38E,29.74N
+1498,Kashiwa,Japan,139.23E,36.17N
+1499,Kassala,Sudan,35.83E,15.27N
+1500,Kassel,Germany,8.87E,50.63N
+1501,Kasuga,Japan,131.17E,32.95N
+1502,Kasugai,Japan,136.22E,34.56N
+1503,Kasukabe,Japan,139.23E,36.17N
+1504,Kasur,Pakistan,73.51E,31.35N
+1505,Kathmandu,Nepal,84.55E,28.13N
+1506,Katihar,India,86.90E,24.92N
+1507,Katowice,Poland,19.01E,50.63N
+1508,Katsina,Nigeria,7.43E,13.66N
+1509,Katumba,Tanzania,33.24E,8.84S
+1510,Kaunas,Lithuania,22.68E,55.45N
+1511,Kawagoe,Japan,139.23E,36.17N
+1512,Kawaguchi,Japan,139.23E,36.17N
+1513,Kawanishi,Japan,136.22E,34.56N
+1514,Kawasaki,Japan,139.23E,36.17N
+1515,Kayseri,Turkey,35.38E,39.38N
+1516,Kazan,Russia,48.19E,55.45N
+1517,Kebumen,Indonesia,109.46E,7.23S
+1518,Kecskemét,Hungary,20.13E,47.42N
+1519,Kediri,Indonesia,112.70E,7.23S
+1520,Kedungwuni,Indonesia,109.46E,7.23S
+1521,Keelung,Taiwan,122.36E,24.92N
+1522,Kelowna,Canada,120.00W,49.03N
+1523,Kemang,Indonesia,106.22E,7.23S
+1524,Kemerovo,Russia,85.04E,55.45N
+1525,Kendari,Indonesia,122.95E,4.02S
+1526,Kenitra,Morocco,5.84W,34.56N
+1527,Kerch,Ukraine,35.77E,45.81N
+1528,Kerman,Iran,57.23E,29.74N
+1529,Kermanshah,Iran,46.70E,34.56N
+1530,Khabarovsk,Russia,134.69E,49.03N
+1531,Khairpur,Pakistan,68.18E,28.13N
+1532,Khammam,India,80.37E,16.87N
+1533,Khandwa,India,77.02E,21.70N
+1534,Khanewal,Pakistan,72.00E,29.74N
+1535,Khanna,India,75.39E,31.35N
+1536,Khanpur,Pakistan,70.00E,28.13N
+1537,Kharagpur,India,87.40E,21.70N
+1538,Khardaha,India,88.25E,23.31N
+1539,Khartoum,Sudan,32.50E,15.27N
+1540,Kherson,Ukraine,31.97E,47.42N
+1541,Khimki,Russia,36.85E,55.45N
+1542,Khlong Luang,Thailand,99.91E,13.66N
+1543,Khomeynishahr,Iran,50.74E,32.95N
+1544,Khon Kaen,Thailand,102.14E,16.87N
+1545,Khorramabad,Iran,48.83E,32.95N
+1546,Khorramshahr,Iran,48.00E,29.74N
+1547,Khoy,Iran,44.75E,37.78N
+1548,Khujand,Tajikistan,70.30E,40.99N
+1549,Khulna,Bangladesh,90.00E,23.31N
+1550,Khurja,India,77.27E,28.13N
+1551,Khushab,Pakistan,71.81E,32.95N
+1552,Khuzdar,Pakistan,66.36E,28.13N
+1553,Kiel,Germany,9.55E,53.84N
+1554,Kielce,Poland,21.55E,50.63N
+1555,Kiev,Ukraine,31.69E,50.63N
+1556,Kigali,Rwanda,29.73E,2.41S
+1557,Kigoma,Tanzania,29.73E,4.02S
+1558,Kikwit,Congo (Democratic Republic Of The),19.37E,5.63S
+1559,Killeen,United States,98.01W,31.35N
+1560,Kimberley,South Africa,24.55E,28.13S
+1561,Kindia,Guinea,12.27W,10.45N
+1562,Kindu,Congo (Democratic Republic Of The),26.52E,2.41S
+1563,Kingston,Canada,76.02W,44.20N
+1564,Kingston,Jamaica,76.06W,18.48N
+1565,Kingston Upon Hull,United Kingdom,1.36W,53.84N
+1566,Kinshasa,Congo (Democratic Republic Of The),15.27E,4.02S
+1567,Kirkuk,Iraq,43.76E,36.17N
+1568,Kirov,Russia,49.23E,58.66N
+1569,Kirovohrad,Ukraine,31.84E,49.03N
+1570,Kiryu,Japan,139.23E,36.17N
+1571,Kisangani,Congo (Democratic Republic Of The),24.91E,0.80N
+1572,Kisaran,Indonesia,98.84E,2.41N
+1573,Kisarazu,Japan,140.11E,34.56N
+1574,Kishi,Nigeria,4.05E,8.84N
+1575,Kishiwada,Japan,136.22E,34.56N
+1576,Kislovodsk,Russia,42.48E,44.20N
+1577,Kismayo,Somalia,42.59E,0.80S
+1578,Kisumu,Kenya,34.55E,0.80S
+1579,Kitakyushu,Japan,130.38E,34.56N
+1580,Kitami,Japan,143.11E,44.20N
+1581,Kitchener,Canada,80.50W,44.20N
+1582,Kitwe,Zambia,27.95E,12.05S
+1583,Klaipeda,Lithuania,19.84E,55.45N
+1584,Klang,Malaysia,102.05E,2.41N
+1585,Klaten,Indonesia,111.08E,7.23S
+1586,Klerksdorp,South Africa,26.87E,26.52S
+1587,Kluang,Malaysia,103.66E,2.41N
+1588,Knoxville,United States,83.54W,36.17N
+1589,Kobe,Japan,134.27E,34.56N
+1590,Koblenz,Germany,6.34E,50.63N
+1591,Kochi,India,76.09E,10.45N
+1592,Kodaira,Japan,139.23E,36.17N
+1593,Koganei,Japan,139.23E,36.17N
+1594,Kohat,Pakistan,71.81E,32.95N
+1595,Koidu,Sierra Leone,10.54W,8.84N
+1596,Kokubunji,Japan,139.23E,36.17N
+1597,Kolar,India,78.44E,13.66N
+1598,Kolhapur,India,73.67E,16.87N
+1599,Kollam,India,77.03E,8.84N
+1600,Kolomna,Russia,39.69E,55.45N
+1601,Kolpino,Russia,29.19E,60.27N
+1602,Komaki,Japan,136.22E,34.56N
+1603,Komatsu,Japan,137.24E,36.17N
+1604,Komsomolsk Na Amure,Russia,138.17E,50.63N
+1605,Konan,Japan,137.24E,36.17N
+1606,Konya,Turkey,32.54E,37.78N
+1607,Korba,India,82.21E,21.70N
+1608,Korhogo,Côte D'Ivoire,5.68W,8.84N
+1609,Koriyama,Japan,140.34E,37.78N
+1610,Korla,China,85.21E,40.99N
+1611,Koronadal,Philippines,124.30E,5.63N
+1612,Koshigaya,Japan,139.23E,36.17N
+1613,Kosice,Slovakia,22.04E,49.03N
+1614,Kostroma,Russia,39.84E,57.05N
+1615,Koszalin,Poland,15.00E,53.84N
+1616,Kot Addu,Pakistan,70.15E,29.74N
+1617,Kota,India,76.26E,24.92N
+1618,Kota Bahru,Malaysia,101.70E,5.63N
+1619,Kota Kinabalu,Malaysia,116.23E,5.63N
+1620,Kotte,Sri Lanka,80.27E,7.23N
+1621,Kousséri,Cameroon,14.79E,12.05N
+1622,Kovrov,Russia,42.79E,57.05N
+1623,Kpalimé,Togo,0.81E,7.23N
+1624,Kragujevac,Serbia,20.12E,44.20N
+1625,Krasnodar,Russia,38.08E,45.81N
+1626,Krasnoyarsk,Russia,93.54E,55.45N
+1627,Krefeld,Germany,6.34E,50.63N
+1628,Kremenchuk,Ukraine,34.29E,49.03N
+1629,Kresek,Indonesia,106.55E,5.63S
+1630,Krishnanagar,India,88.25E,23.31N
+1631,Kroonstad,South Africa,26.36E,28.13S
+1632,Krugersdorp,South Africa,28.66E,26.52S
+1633,Kryvyy Rih,Ukraine,34.34E,47.42N
+1634,Kuala Lumpur,Malaysia,102.05E,2.41N
+1635,Kuala Terengganu,Malaysia,103.32E,5.63N
+1636,Kuantan,Malaysia,103.66E,4.02N
+1637,Kuching,Malaysia,110.09E,0.80N
+1638,Kuhdasht,Iran,46.91E,32.95N
+1639,Kuito,Angola,16.44E,12.05S
+1640,Kulim,Malaysia,100.09E,5.63N
+1641,Kulti,India,86.50E,23.31N
+1642,Kumagaya,Japan,139.23E,36.17N
+1643,Kumanovo,Macedonia,21.82E,42.59N
+1644,Kumasi,Ghana,0.81W,7.23N
+1645,Kumba,Cameroon,8.84E,4.02N
+1646,Kumbakonam,India,79.36E,10.45N
+1647,Kunming,China,102.86E,24.92N
+1648,Kupang,Indonesia,123.55E,10.45S
+1649,Kurashiki,Japan,134.27E,34.56N
+1650,Kure,Japan,132.32E,34.56N
+1651,Kurgan,Russia,65.20E,55.45N
+1652,Kursk,Russia,36.79E,52.24N
+1653,Kurume,Japan,131.17E,32.95N
+1654,Kusatsu,Japan,136.22E,34.56N
+1655,Kusti,Sudan,32.20E,13.66N
+1656,Kuwana,Japan,136.22E,34.56N
+1657,Kuytun,China,84.97E,44.20N
+1658,Kwekwe,Zimbabwe,30.42E,18.48S
+1659,Kyzyl,Russia,94.60E,52.24N
+1660,Kütahya,Turkey,29.13E,39.38N
+1661,La Ceiba,Honduras,87.50W,15.27N
+1662,La Paz,Bolivia,68.65W,16.87S
+1663,La Paz,Mexico,109.95W,24.92N
+1664,La Plata,Argentina,58.38W,34.56S
+1665,La Rioja,Argentina,66.46W,29.74S
+1666,La Romana,Dominican Republic,69.30W,18.48N
+1667,La Serena,Chile,72.00W,29.74S
+1668,La Vega,Dominican Republic,70.99W,18.48N
+1669,Lafayette,United States,92.31W,29.74N
+1670,Lafia,Nigeria,8.92E,8.84N
+1671,Lafiagi,Nigeria,5.68E,8.84N
+1672,Lages,Brazil,50.00W,28.13S
+1673,Lagos,Nigeria,3.23E,5.63N
+1674,Lahad Datu,Malaysia,117.85E,5.63N
+1675,Lahore,Pakistan,73.51E,31.35N
+1676,Laiwu,China,117.35E,36.17N
+1677,Laiyang,China,121.33E,36.17N
+1678,Lakewood,United States,104.05W,39.38N
+1679,Lakhimpur,India,80.91E,28.13N
+1680,Lakhnau,India,80.60E,26.52N
+1681,Lalitpur,India,78.03E,24.92N
+1682,Lalitpur,Nepal,84.55E,28.13N
+1683,Lambaré,Argentina,58.52W,24.92S
+1684,Lampang,Thailand,99.72E,18.48N
+1685,Lancaster,United States,118.70W,34.56N
+1686,Langfang,China,116.53E,39.38N
+1687,Lansing,United States,85.09W,42.59N
+1688,Lanzhou,China,103.43E,36.17N
+1689,Laoag,Philippines,120.00E,18.48N
+1690,Laohekou,China,112.02E,32.95N
+1691,Lapu Lapu,Philippines,123.55E,10.45N
+1692,Laredo,United States,99.09W,28.13N
+1693,Larkana,Pakistan,68.18E,28.13N
+1694,Las Palmas,Spain,15.45W,28.13N
+1695,Las Tunas,Cuba,77.02W,21.70N
+1696,Las Vegas,United States,115.36W,36.17N
+1697,Lasa,China,90.46E,29.74N
+1698,Lashio,Burma,96.99E,23.31N
+1699,Latina,Italy,12.78E,40.99N
+1700,Latur,India,76.06E,18.48N
+1701,Lausanne,Switzerland,5.77E,45.81N
+1702,Lawang,Indonesia,112.70E,7.23S
+1703,Le Havre,France,0.00W,49.03N
+1704,Le Mans,France,1.18E,47.42N
+1705,Leeds,United Kingdom,1.36W,53.84N
+1706,Leganés,Spain,4.26W,40.99N
+1707,Legaspi,Philippines,123.03E,13.66N
+1708,Leghorn,Italy,11.18E,44.20N
+1709,Legnica,Poland,16.48E,50.63N
+1710,Leicester,United Kingdom,0.00W,52.24N
+1711,Leiden,Netherlands,5.26E,52.24N
+1712,Leipzig,Germany,11.41E,50.63N
+1713,Leiyang,China,112.84E,26.52N
+1714,Lembang,Indonesia,107.84E,7.23S
+1715,Lemesos,Cyprus,33.08E,34.56N
+1716,Lengshuijiang,China,111.82E,28.13N
+1717,Leninsk Kuznetskiy,Russia,85.91E,53.84N
+1718,Leshan,China,103.38E,29.74N
+1719,Leuwiliang,Indonesia,106.22E,7.23S
+1720,Leverkusen,Germany,6.34E,50.63N
+1721,Lexington Fayette,United States,85.42W,37.78N
+1722,León,Mexico,101.25W,21.70N
+1723,León,Nicaragua,87.12W,12.05N
+1724,León,Spain,6.55W,42.59N
+1725,Liancheng,China,109.90E,21.70N
+1726,Lianran,China,102.86E,24.92N
+1727,Liaocheng,China,115.36E,36.17N
+1728,Liaoyang,China,123.55E,40.99N
+1729,Libreville,Gabon,8.84E,0.80N
+1730,Licheng,China,114.47E,23.31N
+1731,Lichinga,Mozambique,35.50E,13.66S
+1732,Likasi,Congo (Democratic Republic Of The),27.00E,10.45S
+1733,Lille,France,3.80E,50.63N
+1734,Lilongwe,Malawi,33.85E,13.66S
+1735,Lima,Peru,77.26W,12.05S
+1736,Limeira,Brazil,47.60W,21.70S
+1737,Limoges,France,1.15E,45.81N
+1738,Linchuan,China,115.45E,28.13N
+1739,Lincoln,United States,95.86W,40.99N
+1740,Linfen,China,111.38E,36.17N
+1741,Linhai,China,120.91E,28.13N
+1742,Linhares,Brazil,39.24W,20.09S
+1743,Linqing,China,115.36E,36.17N
+1744,Linshui,China,113.37E,36.17N
+1745,Linxi,China,118.61E,39.38N
+1746,Linxia,China,103.43E,36.17N
+1747,Linz,Austria,14.69E,49.03N
+1748,Lipa,Philippines,121.38E,13.66N
+1749,Lipetsk,Russia,39.42E,52.24N
+1750,Lira,Uganda,32.95E,2.41N
+1751,Lisbon,Portugal,8.32W,39.38N
+1752,Little Rock,United States,91.46W,34.56N
+1753,Liusha,China,116.21E,23.31N
+1754,Liuzhou,China,109.95E,24.92N
+1755,Liverpool,United Kingdom,4.09W,53.84N
+1756,Livingstone,Zambia,25.35E,18.48S
+1757,Liège,Belgium,6.34E,50.63N
+1758,Ljubljana,Slovenia,15.00E,45.81N
+1759,Lleida,Spain,0.00W,40.99N
+1760,Loa Janan,Indonesia,116.52E,0.80S
+1761,Lobito,Angola,13.15E,12.05S
+1762,Logroño,Spain,2.18W,42.59N
+1763,Loja,Ecuador,79.55W,4.02S
+1764,London,Canada,80.73W,42.59N
+1765,London,United Kingdom,0.00W,52.24N
+1766,Londrina,Brazil,51.55W,23.31S
+1767,Long Beach,United States,117.77W,32.95N
+1768,Long Xuyên,Vietnam,105.55E,10.45N
+1769,Longfeng,China,125.77E,45.81N
+1770,Longjiang,China,124.34E,47.42N
+1771,Longjing,China,128.73E,42.59N
+1772,Longyan,China,117.04E,24.92N
+1773,Loni,India,77.27E,28.13N
+1774,Los Angeles,Chile,73.22W,37.78S
+1775,Los Angeles,United States,118.70W,34.56N
+1776,Los Mochis,Mexico,109.25W,26.52N
+1777,Los Reyes,Mexico,98.96W,20.09N
+1778,Los Teques,Venezuela,66.27W,10.45N
+1779,Loudi,China,111.82E,28.13N
+1780,Louga,Senegal,15.83W,15.27N
+1781,Louisville,United States,85.42W,37.78N
+1782,Loum,Cameroon,9.69E,5.63N
+1783,Lowell,United States,72.00W,42.59N
+1784,Lower Hutt,New Zealand,174.67E,40.99S
+1785,Luan,China,116.86E,31.35N
+1786,Luancheng,China,113.90E,37.78N
+1787,Luanda,Angola,13.78E,8.84S
+1788,Luanshya,Zambia,28.90E,13.66S
+1789,Lubango,Angola,14.17E,15.27S
+1790,Lubbock,United States,102.45W,32.95N
+1791,Lublin,Poland,21.55E,50.63N
+1792,Lubumbashi,Congo (Democratic Republic Of The),27.95E,12.05S
+1793,Lucena,Philippines,121.38E,13.66N
+1794,Luchou,Taiwan,120.59E,24.92N
+1795,Ludhiana,India,75.39E,31.35N
+1796,Ludwigshafen,Germany,7.35E,49.03N
+1797,Lumajang,Indonesia,112.70E,8.84S
+1798,Luohe,China,113.94E,32.95N
+1799,Luoyang,China,112.86E,34.56N
+1800,Luoyang,China,114.47E,23.31N
+1801,Luqiao,China,120.91E,28.13N
+1802,Luque,Paraguay,56.75W,24.92S
+1803,Lusaka,Zambia,27.50E,15.27S
+1804,Luton,United Kingdom,0.00W,52.24N
+1805,Luxor,Egypt,32.24E,26.52N
+1806,Luzhou,China,105.23E,29.74N
+1807,Luziânia,Brazil,48.56W,16.87S
+1808,Lvov,Ukraine,24.08E,50.63N
+1809,Lyon,France,5.77E,45.81N
+1810,Lyubertsy,Russia,36.85E,55.45N
+1811,Lárisa,Greece,22.89E,39.38N
+1812,López Mateos,Mexico,98.96W,20.09N
+1813,Lübeck,Germany,9.55E,53.84N
+1814,Maanshan,China,118.74E,31.35N
+1815,Maastricht,Netherlands,6.34E,50.63N
+1816,Maba,China,113.50E,24.92N
+1817,Mabalacat,Philippines,120.83E,15.27N
+1818,Macapá,Brazil,50.63W,0.80N
+1819,Macaé,Brazil,42.40W,21.70S
+1820,Maceió,Brazil,35.18W,10.45S
+1821,Machala,Ecuador,79.55W,4.02S
+1822,Macheng,China,114.97E,31.35N
+1823,Machida,Japan,139.23E,36.17N
+1824,Machilipatnam,India,80.83E,15.27N
+1825,Madanapalle,India,78.44E,13.66N
+1826,Madhyamgram,India,88.25E,23.31N
+1827,Madison,United States,89.45W,42.59N
+1828,Madiun,Indonesia,111.08E,7.23S
+1829,Madras,India,80.09E,13.66N
+1830,Madrid,Spain,4.26W,40.99N
+1831,Madurai,India,77.73E,10.45N
+1832,Magangué,Colombia,75.41W,8.84N
+1833,Magdeburg,Germany,10.51E,52.24N
+1834,Magelang,Indonesia,109.46E,7.23S
+1835,Magnitogorsk,Russia,58.64E,53.84N
+1836,Magé,Brazil,42.82W,23.31S
+1837,Mahabad,Iran,45.75E,36.17N
+1838,Mahajanga,Madagascar,45.83E,15.27S
+1839,Mahbubnagar,India,78.70E,16.87N
+1840,Mahesana,India,72.52E,23.31N
+1841,Maicao,Colombia,72.33W,12.05N
+1842,Maiduguri,Nigeria,13.15E,12.05N
+1843,Mainz,Germany,8.87E,50.63N
+1844,Maisuru,India,77.26E,12.05N
+1845,Majalaya,Indonesia,107.84E,7.23S
+1846,Makasar,Indonesia,119.46E,5.63S
+1847,Makati,Philippines,120.83E,15.27N
+1848,Makhachkala,Russia,48.00E,42.59N
+1849,Makiyivka,Ukraine,39.08E,47.42N
+1850,Makurdi,Nigeria,8.92E,7.23N
+1851,Malabo,Equatorial Guinea,8.84E,4.02N
+1852,Malakal,Sudan,31.62E,8.84N
+1853,Malambo,Colombia,74.45W,10.45N
+1854,Malang,Indonesia,112.70E,7.23S
+1855,Malatya,Turkey,38.64E,37.78N
+1856,Malegaon,India,75.07E,20.09N
+1857,Maler Kotla,India,75.69E,29.74N
+1858,Malmö,Sweden,14.17E,55.45N
+1859,Malolos,Philippines,120.83E,15.27N
+1860,Man,Côte D'Ivoire,7.30W,7.23N
+1861,Manado,Indonesia,124.55E,0.80N
+1862,Managua,Nicaragua,85.48W,12.05N
+1863,Manama,Bahrain,50.15E,26.52N
+1864,Manaus,Brazil,60.27W,2.41S
+1865,Manbij,Syria,37.79E,36.17N
+1866,Manchester,United Kingdom,1.36W,53.84N
+1867,Manchester,United States,72.00W,42.59N
+1868,Mandalay,Burma,96.06E,21.70N
+1869,Mandaue,Philippines,123.55E,10.45N
+1870,Mandi Bahauddin,Pakistan,73.72E,32.95N
+1871,Mandsaur,India,74.48E,24.92N
+1872,Mandya,India,77.26E,12.05N
+1873,Mangaluru,India,75.14E,13.66N
+1874,Manila,Philippines,120.83E,15.27N
+1875,Manisa,Turkey,27.05E,39.38N
+1876,Manizales,Colombia,75.87W,5.63N
+1877,Mannheim,Germany,7.35E,49.03N
+1878,Manta,Ecuador,81.16W,0.80S
+1879,Manzanillo,Cuba,76.78W,20.09N
+1880,Manzanillo,Mexico,104.79W,18.48N
+1881,Manzini,Swaziland,32.24E,26.52S
+1882,Maoming,China,111.63E,21.70N
+1883,Maputo,Mozambique,32.24E,26.52S
+1884,Mar Del Plata,Argentina,56.95W,37.78S
+1885,Marabá,Brazil,48.43W,5.63S
+1886,Maracaibo,Venezuela,71.18W,10.45N
+1887,Maracanaú,Brazil,39.38W,4.02S
+1888,Maracay,Venezuela,67.91W,10.45N
+1889,Maradi,Niger,7.43E,13.66N
+1890,Maragheh,Iran,46.78E,37.78N
+1891,Marand,Iran,45.78E,39.38N
+1892,Marawi,Philippines,124.05E,7.23N
+1893,Marbella,Spain,3.98W,36.17N
+1894,Mardan,Pakistan,72.00E,34.56N
+1895,Mariara,Venezuela,67.91W,10.45N
+1896,Maringá,Brazil,51.55W,23.31S
+1897,Marivan,Iran,45.75E,36.17N
+1898,Maroua,Cameroon,13.91E,10.45N
+1899,Marrakesh,Morocco,7.54W,31.35N
+1900,Marseille,France,6.55E,42.59N
+1901,Martapura,Indonesia,114.91E,4.02S
+1902,Marv Dasht,Iran,53.54E,29.74N
+1903,Marília,Brazil,49.33W,21.70S
+1904,Masaya,Nicaragua,85.48W,12.05N
+1905,Maseru,Lesotho,27.69E,29.74S
+1906,Mashhad,Iran,59.67E,36.17N
+1907,Masjed E Soleyman,Iran,49.01E,31.35N
+1908,Matadi,Congo (Democratic Republic Of The),12.91E,5.63S
+1909,Matamoros,Mexico,96.72W,26.52N
+1910,Matanzas,Cuba,81.26W,23.31N
+1911,Mataram,Indonesia,115.95E,8.84S
+1912,Mataró,Spain,2.13E,40.99N
+1913,Mathura,India,77.27E,28.13N
+1914,Matola,Mozambique,32.24E,26.52S
+1915,Matsubara,Japan,136.22E,34.56N
+1916,Matsudo,Japan,139.23E,36.17N
+1917,Matsumoto,Japan,137.24E,36.17N
+1918,Matsusaka,Japan,136.22E,34.56N
+1919,Maturín,Venezuela,63.00W,10.45N
+1920,Mau,India,84.18E,26.52N
+1921,Mauá,Brazil,46.31W,23.31S
+1922,Mawlamyine,Burma,97.12E,16.87N
+1923,Maxixe,Mozambique,35.83E,23.31S
+1924,Maykop,Russia,40.25E,44.20N
+1925,Maymyo,Burma,96.06E,21.70N
+1926,Mazatlán,Mexico,105.73W,23.31N
+1927,Mazyr,Belarus,28.91E,52.24N
+1928,Mbandaka,Congo (Democratic Republic Of The),18.48E,0.80N
+1929,Mbeya,Tanzania,33.24E,8.84S
+1930,Mbouda,Cameroon,9.69E,5.63N
+1931,Mbour,Senegal,17.34W,13.66N
+1932,Mbuji Mayi,Congo (Democratic Republic Of The),24.22E,5.63S
+1933,Mecca,Saudi Arabia,40.67E,21.70N
+1934,Medan,Indonesia,98.84E,4.02N
+1935,Medellín,Colombia,75.87W,5.63N
+1936,Meiktila,Burma,95.55E,20.09N
+1937,Meilu,China,109.90E,21.70N
+1938,Mejicanos,El Salvador,90.00W,13.66N
+1939,Melaka,Malaysia,102.05E,2.41N
+1940,Melbourne,Australia,144.41E,37.78S
+1941,Memphis,United States,89.51W,34.56N
+1942,Mendoza,Argentina,67.98W,32.95S
+1943,Mentougou,China,116.53E,39.38N
+1944,Mercedes,Argentina,66.06W,32.95S
+1945,Mergui,Burma,98.63E,12.05N
+1946,Mersin,Turkey,33.81E,36.17N
+1947,Mesa,United States,112.02W,32.95N
+1948,Mesquite,United States,96.70W,32.95N
+1949,Messina,Italy,16.27E,37.78N
+1950,Metairie,United States,90.46W,29.74N
+1951,Metepec,Mexico,99.72W,18.48N
+1952,Metro,Indonesia,104.93E,5.63S
+1953,Metz,France,7.35E,49.03N
+1954,Mexicali,Mexico,115.85W,32.95N
+1955,Mexico,Mexico,98.96W,20.09N
+1956,Meycauayan,Philippines,120.83E,15.27N
+1957,Mezhdurechensk,Russia,88.64E,53.84N
+1958,Miami,United States,80.60W,26.52N
+1959,Miandoab,Iran,45.75E,36.17N
+1960,Mianyang,China,105.55E,31.35N
+1961,Miass,Russia,59.53E,55.45N
+1962,Middelburg,South Africa,28.66E,26.52S
+1963,Middlesbrough,United Kingdom,1.36W,53.84N
+1964,Midrand,South Africa,28.66E,26.52S
+1965,Milagro,Ecuador,79.55W,2.41S
+1966,Milan,Italy,8.08E,45.81N
+1967,Milwaukee,United States,87.27W,42.59N
+1968,Minatitlán,Mexico,94.65W,18.48N
+1969,Mingaora,Pakistan,72.00E,34.56N
+1970,Mingshui,China,117.35E,36.17N
+1971,Minna,Nigeria,7.30E,8.84N
+1972,Minneapolis,United States,93.46W,45.81N
+1973,Minsk,Belarus,28.64E,53.84N
+1974,Miramar,United States,80.60W,26.52N
+1975,Miri,Malaysia,113.30E,4.02N
+1976,Mirpur Khas,Pakistan,69.16E,24.92N
+1977,Mirzapur,India,83.35E,24.92N
+1978,Misato,Japan,139.23E,36.17N
+1979,Mishima,Japan,138.16E,34.56N
+1980,Miskolc,Hungary,20.13E,47.42N
+1981,Misratah,Libya,14.36E,32.95N
+1982,Mitaka,Japan,139.23E,36.17N
+1983,Mixco,Guatemala,90.83W,15.27N
+1984,Miyakonojo,Japan,131.94E,31.35N
+1985,Mobile,United States,88.59W,31.35N
+1986,Modakeke,Nigeria,4.05E,7.23N
+1987,Modena,Italy,11.18E,44.20N
+1988,Modesto,United States,120.00W,37.78N
+1989,Moers,Germany,6.34E,50.63N
+1990,Moga,India,75.39E,31.35N
+1991,Mogadishu,Somalia,45.80E,2.41N
+1992,Moji Das Cruzes,Brazil,46.31W,23.31S
+1993,Mojokerto,Indonesia,112.70E,7.23S
+1994,Mokolo,Cameroon,13.91E,10.45N
+1995,Mombasa,Kenya,39.38E,4.02S
+1996,Monclova,Mexico,102.09W,26.52N
+1997,Monrovia,Liberia,10.54W,7.23N
+1998,Montalban,Philippines,120.83E,15.27N
+1999,Monterrey,Mexico,100.30W,26.52N
+2000,Montería,Colombia,75.41W,8.84N
+2001,Montes Claros,Brazil,43.53W,16.87S
+2002,Montevideo,Uruguay,56.43W,34.56S
+2003,Montgomery,United States,87.13W,32.95N
+2004,Montpellier,France,4.47E,44.20N
+2005,Montreal,Canada,72.69W,45.81N
+2006,Monywa,Burma,94.33E,21.70N
+2007,Monza,Italy,10.38E,45.81N
+2008,Mopti,Mali,4.17W,15.27N
+2009,Moradabad,India,79.09E,28.13N
+2010,Moratuwa,Sri Lanka,80.27E,7.23N
+2011,Morelia,Mexico,100.66W,20.09N
+2012,Morena,India,78.81E,26.52N
+2013,Moreno Valley,United States,116.76W,34.56N
+2014,Moriguchi,Japan,136.22E,34.56N
+2015,Mormugao,India,74.17E,15.27N
+2016,Morogoro,Tanzania,38.11E,7.23S
+2017,Morvi,India,70.78E,23.31N
+2018,Moscow,Russia,36.85E,55.45N
+2019,Moshi,Tanzania,37.77E,4.02S
+2020,Mossoró,Brazil,37.13W,5.63S
+2021,Mostar,Bosnia And Herzegovina,17.45E,42.59N
+2022,Motihari,India,84.18E,26.52N
+2023,Moundou,Chad,15.41E,8.84N
+2024,Mubi,Nigeria,13.91E,10.45N
+2025,Mudanjiang,China,129.69E,44.20N
+2026,Mufulira,Zambia,27.95E,12.05S
+2027,Mulhouse,France,8.29E,47.42N
+2028,Multan,Pakistan,72.00E,29.74N
+2029,Munger,India,86.90E,24.92N
+2030,Munich,Germany,10.66E,47.42N
+2031,Murcia,Spain,2.03W,37.78N
+2032,Muridke,Pakistan,73.51E,31.35N
+2033,Murmansk,Russia,34.70E,68.31N
+2034,Murom,Russia,42.52E,55.45N
+2035,Murwara,India,81.26E,23.31N
+2036,Musashino,Japan,139.23E,36.17N
+2037,Musoma,Tanzania,34.55E,0.80S
+2038,Mutare,Zimbabwe,32.11E,18.48S
+2039,Muzaffargarh,Pakistan,72.00E,29.74N
+2040,Muzaffarnagar,India,77.54E,29.74N
+2041,Muzaffarpur,India,85.97E,26.52N
+2042,Mwanza,Tanzania,32.95E,2.41S
+2043,Mwene Ditu,Congo (Democratic Republic Of The),23.51E,7.23S
+2044,My Tho,Vietnam,105.55E,10.45N
+2045,Myingyan,Burma,96.06E,21.70N
+2046,Mytishchi,Russia,36.85E,55.45N
+2047,Málaga,Spain,3.98W,36.17N
+2048,Médéa,Algeria,1.99E,36.17N
+2049,Mérida,Mexico,89.13W,21.70N
+2050,Móstoles,Spain,4.26W,40.99N
+2051,Mönchengladbach,Germany,6.34E,50.63N
+2052,Mülheim,Germany,6.34E,50.63N
+2053,Münster,Germany,7.88E,52.24N
+2054,Nacala,Mozambique,40.83E,15.27S
+2055,Nadiad,India,72.52E,23.31N
+2056,Nador,Morocco,3.89W,34.56N
+2057,Naga,Philippines,123.03E,13.66N
+2058,Nagaoka,Japan,138.31E,37.78N
+2059,Nagareyama,Japan,139.23E,36.17N
+2060,Nagda,India,76.02E,23.31N
+2061,Nagercoil,India,77.03E,8.84N
+2062,Nagoya,Japan,136.22E,34.56N
+2063,Nagpur,India,78.75E,21.70N
+2064,Naihati,India,88.25E,23.31N
+2065,Nairobi,Kenya,36.16E,0.80S
+2066,Najran,Saudi Arabia,43.53E,16.87N
+2067,Nakhodka,Russia,133.09E,42.59N
+2068,Nakhon Pathom,Thailand,99.91E,13.66N
+2069,Nakhon Ratchasima,Thailand,102.50E,15.27N
+2070,Nakhon Si Thammarat,Thailand,99.73E,8.84N
+2071,Nakuru,Kenya,36.16E,0.80S
+2072,Nalchik,Russia,43.64E,42.59N
+2073,Nalgonda,India,78.70E,16.87N
+2074,Nam Dinh,Vietnam,105.78E,20.09N
+2075,Namangan,Uzbekistan,72.43E,40.99N
+2076,Nampula,Mozambique,39.17E,15.27S
+2077,Namur,Belgium,3.80E,50.63N
+2078,Nancha,China,129.08E,47.42N
+2079,Nanchang,China,115.45E,28.13N
+2080,Nanchong,China,105.55E,31.35N
+2081,Nancy,France,7.35E,49.03N
+2082,Nanded,India,77.75E,18.48N
+2083,Nandurbar,India,73.56E,21.70N
+2084,Nandyal,India,79.17E,15.27N
+2085,Nangloi Jat,India,77.27E,28.13N
+2086,Nanjing,China,118.74E,31.35N
+2087,Nanning,China,107.48E,23.31N
+2088,Nanpiao,China,121.42E,40.99N
+2089,Nantes,France,1.18W,47.42N
+2090,Nantong,China,120.63E,31.35N
+2091,Nantou,Taiwan,121.46E,23.31N
+2092,Nanyang,China,112.02E,32.95N
+2093,Naperville,United States,87.34W,40.99N
+2094,Naples,Italy,14.91E,40.99N
+2095,Narashino,Japan,139.23E,36.17N
+2096,Narayanganj,Bangladesh,90.00E,23.31N
+2097,Narita,Japan,141.22E,36.17N
+2098,Narsingdi,Bangladesh,90.00E,23.31N
+2099,Nashville,United States,87.51W,36.17N
+2100,Nassau,Bahamas,78.03W,24.92N
+2101,Natal,Brazil,35.52W,5.63S
+2102,Naucalpan,Mexico,98.96W,20.09N
+2103,Navadwip,India,88.25E,23.31N
+2104,Navoi,Uzbekistan,64.51E,39.38N
+2105,Navsari,India,73.36E,20.09N
+2106,Nawabganj,Bangladesh,88.67E,24.92N
+2107,Nawabshah,Pakistan,68.06E,26.52N
+2108,Nazilli,Turkey,28.47E,37.78N
+2109,Nazran,Russia,44.72E,44.20N
+2110,Nazret,Ethiopia,39.73E,8.84N
+2111,Ndola,Zambia,28.90E,13.66S
+2112,Neftekamsk,Russia,53.86E,55.45N
+2113,Nefteyugansk,Russia,73.02E,61.88N
+2114,Negombo,Sri Lanka,80.27E,7.23N
+2115,Nehe,China,124.90E,49.03N
+2116,Neijiang,China,105.23E,29.74N
+2117,Neiva,Colombia,74.73W,2.41N
+2118,Nelspruit,South Africa,30.15E,24.92S
+2119,Netanya,Israel,35.43E,32.95N
+2120,Neuquen,Argentina,68.67W,39.38S
+2121,Neuss,Germany,6.34E,50.63N
+2122,Nevinnomyssk,Russia,42.48E,44.20N
+2123,New Delhi,India,77.27E,28.13N
+2124,New Haven,United States,72.43W,40.99N
+2125,New Orleans,United States,90.46W,29.74N
+2126,New York,United States,74.56W,40.99N
+2127,Newark,United States,74.56W,40.99N
+2128,Newcastle,Australia,152.23E,32.95S
+2129,Newcastle,South Africa,30.00E,28.13S
+2130,Newcastle Upon Tyne,United Kingdom,2.83W,55.45N
+2131,Newport,United Kingdom,2.63W,52.24N
+2132,Newport News,United States,77.29W,37.78N
+2133,Neyagawa,Japan,136.22E,34.56N
+2134,Neyshabur,Iran,59.67E,36.17N
+2135,Neyveli,India,78.90E,12.05N
+2136,Nezahualcóyotl,Mexico,98.96W,20.09N
+2137,Ngaoundéré,Cameroon,13.78E,7.23N
+2138,Nguru,Nigeria,10.73E,13.66N
+2139,Nha Trang,Vietnam,108.49E,12.05N
+2140,Niamey,Niger,2.48E,13.66N
+2141,Nice,France,6.71E,44.20N
+2142,Nicolás Romero,Mexico,98.96W,20.09N
+2143,Nigel,South Africa,28.66E,26.52S
+2144,Niigata,Japan,138.31E,37.78N
+2145,Niihama,Japan,134.27E,34.56N
+2146,Niiza,Japan,139.23E,36.17N
+2147,Nijmegen,Netherlands,5.26E,52.24N
+2148,Nilópolis,Brazil,42.82W,23.31S
+2149,Ningbo,China,121.85E,29.74N
+2150,Nis,Serbia,21.82E,42.59N
+2151,Nishinomiya,Japan,136.22E,34.56N
+2152,Nishio,Japan,136.22E,34.56N
+2153,Niterói,Brazil,42.82W,23.31S
+2154,Nizamabad,India,77.75E,18.48N
+2155,Nizhnekamsk,Russia,51.02E,55.45N
+2156,Nizhnevartovsk,Russia,77.84E,60.27N
+2157,Nizhniy Novgorod,Russia,42.79E,57.05N
+2158,Nizhniy Tagil,Russia,60.49E,57.05N
+2159,Nkongsamba,Cameroon,9.69E,5.63N
+2160,Nkpor,Nigeria,6.46E,5.63N
+2161,Nnewi,Nigeria,6.46E,5.63N
+2162,Nobeoka,Japan,131.17E,32.95N
+2163,Noda,Japan,139.23E,36.17N
+2164,Nogales,United States,111.20W,31.35N
+2165,Noginsk,Russia,39.69E,55.45N
+2166,Nonthaburi,Thailand,99.91E,13.66N
+2167,Norfolk,United States,75.58W,36.17N
+2168,Norilsk,Russia,88.83E,69.92N
+2169,Norman,United States,97.30W,34.56N
+2170,North Las Vegas,United States,115.36W,36.17N
+2171,North Shore,New Zealand,175.03E,36.17S
+2172,Northampton,United Kingdom,0.00W,52.24N
+2173,Norwalk,United States,118.70W,34.56N
+2174,Norwich,United Kingdom,0.00W,52.24N
+2175,Nossa Senhora Do Socorro,Brazil,36.82W,10.45S
+2176,Nottingham,United Kingdom,1.36W,53.84N
+2177,Nouakchott,Mauritania,15.21W,18.48N
+2178,Nova Friburgo,Brazil,42.40W,21.70S
+2179,Nova Iguaçu,Brazil,42.82W,23.31S
+2180,Novara,Italy,8.08E,45.81N
+2181,Novi Sad,Serbia,19.62E,45.81N
+2182,Novo Hamburgo,Brazil,51.69W,29.74S
+2183,Novocheboksarsk,Russia,48.19E,55.45N
+2184,Novocherkassk,Russia,39.08E,47.42N
+2185,Novokuznetsk,Russia,85.91E,53.84N
+2186,Novomoskovsk,Russia,39.55E,53.84N
+2187,Novorossiysk,Russia,38.01E,44.20N
+2188,Novosibirsk,Russia,82.20E,55.45N
+2189,Novotroitsk,Russia,59.58E,50.63N
+2190,Nsukka,Nigeria,7.30E,7.23N
+2191,Nueva San Salvador,El Salvador,90.00W,13.66N
+2192,Nuevo Laredo,United States,99.09W,28.13N
+2193,Nukus,Uzbekistan,58.91E,42.59N
+2194,Numazu,Japan,138.16E,34.56N
+2195,Nuremberg,Germany,12.24E,49.03N
+2196,Nyíregyháza,Hungary,22.50E,47.42N
+2197,Nzérékoré,Guinea,8.92W,7.23N
+2198,Nîmes,France,4.47E,44.20N
+2199,Oakland,United States,122.03W,37.78N
+2200,Oaxaca,Mexico,97.12W,16.87N
+2201,Oberhausen,Germany,6.34E,50.63N
+2202,Obihiro,Japan,144.00E,42.59N
+2203,Obninsk,Russia,36.85E,55.45N
+2204,Obosi,Nigeria,6.46E,5.63N
+2205,Obregon,Mexico,110.00W,28.13N
+2206,Obuasi,Ghana,1.61W,5.63N
+2207,Oceanside,United States,117.77W,32.95N
+2208,Ocumare Del Tuy,Venezuela,66.27W,10.45N
+2209,Odawara,Japan,139.23E,36.17N
+2210,Odense,Denmark,11.34E,55.45N
+2211,Odesa,Ukraine,31.15E,45.81N
+2212,Odintsovo,Russia,36.85E,55.45N
+2213,Offa,Nigeria,4.05E,8.84N
+2214,Offenbach,Germany,8.87E,50.63N
+2215,Ogaki,Japan,136.22E,34.56N
+2216,Ogbomosho,Nigeria,4.05E,8.84N
+2217,Okara,Pakistan,73.51E,31.35N
+2218,Okazaki,Japan,136.22E,34.56N
+2219,Oklahoma City,United States,97.46W,36.17N
+2220,Okrika,Nigeria,7.23E,4.02N
+2221,Oktyabrskiy,Russia,53.18E,53.84N
+2222,Olathe,United States,95.72W,39.38N
+2223,Oldenburg,Germany,7.88E,52.24N
+2224,Oldham,United Kingdom,1.36W,53.84N
+2225,Olinda,Brazil,34.86W,7.23S
+2226,Olomouc,Czech Republic,17.14E,49.03N
+2227,Olongapo,Philippines,120.83E,15.27N
+2228,Olsztyn,Poland,20.45E,53.84N
+2229,Omaha,United States,95.86W,40.99N
+2230,Ome,Japan,139.23E,36.17N
+2231,Omsk,Russia,73.70E,55.45N
+2232,Omuta,Japan,131.17E,32.95N
+2233,Ondo,Nigeria,4.05E,7.23N
+2234,Ongole,India,80.83E,15.27N
+2235,Onitsha,Nigeria,6.46E,5.63N
+2236,Ontario,United States,116.76W,34.56N
+2237,Opobo,Nigeria,7.23E,4.02N
+2238,Opole,Poland,19.01E,50.63N
+2239,Oradea,Romania,22.50E,47.42N
+2240,Orai,India,78.81E,26.52N
+2241,Orange,United States,117.77W,32.95N
+2242,Ordu,Turkey,38.34E,40.99N
+2243,Orekhovo Zuevo,Russia,39.69E,55.45N
+2244,Orizaba,Mexico,96.34W,18.48N
+2245,Orkney,South Africa,26.87E,26.52S
+2246,Orlando,United States,80.91W,28.13N
+2247,Orléans,France,1.18E,47.42N
+2248,Oron,Nigeria,8.07E,5.63N
+2249,Orsha,Belarus,31.36E,53.84N
+2250,Orsk,Russia,59.58E,50.63N
+2251,Orumiyeh,Iran,44.75E,37.78N
+2252,Oruro,Bolivia,67.61W,18.48S
+2253,Orël,Russia,36.79E,52.24N
+2254,Osasco,Brazil,46.31W,23.31S
+2255,Oshawa,Canada,78.26W,44.20N
+2256,Oshogbo,Nigeria,4.05E,7.23N
+2257,Oslo,Norway,9.73E,60.27N
+2258,Osmaniye,Turkey,36.61E,37.78N
+2259,Osnabrück,Germany,7.88E,52.24N
+2260,Osorno,Chile,72.43W,40.99S
+2261,Ostrava,Czech Republic,19.01E,50.63N
+2262,Ota,Japan,139.23E,36.17N
+2263,Otaru,Japan,141.82E,42.59N
+2264,Ottawa,Canada,75.00W,45.81N
+2265,Otukpo,Nigeria,8.92E,7.23N
+2266,Ouagadougou,Burkina Faso,1.64W,12.05N
+2267,Oulu,Finland,24.89E,65.09N
+2268,Overland Park,United States,93.64W,39.38N
+2269,Oviedo,Spain,6.55W,42.59N
+2270,Owerri,Nigeria,6.46E,5.63N
+2271,Owo,Nigeria,5.68E,7.23N
+2272,Oxford,United Kingdom,0.00W,52.24N
+2273,Oxnard,United States,118.70W,34.56N
+2274,Oyama,Japan,139.23E,36.17N
+2275,Oyo,Nigeria,4.05E,7.23N
+2276,Paarl,South Africa,19.46E,34.56S
+2277,Pabna,Bangladesh,90.00E,23.31N
+2278,Pacet,Indonesia,107.84E,7.23S
+2279,Pachuca,Mexico,98.96W,20.09N
+2280,Padalarang,Indonesia,107.84E,7.23S
+2281,Padang,Indonesia,100.45E,0.80S
+2282,Paderborn,Germany,7.88E,52.24N
+2283,Padova,Italy,12.69E,45.81N
+2284,Pagadian,Philippines,124.05E,7.23N
+2285,Pak Kret,Thailand,99.91E,13.66N
+2286,Pakokku,Burma,94.33E,21.70N
+2287,Pakpattan,Pakistan,73.85E,29.74N
+2288,Palakkad,India,76.09E,10.45N
+2289,Palanpur,India,72.71E,24.92N
+2290,Palembang,Indonesia,105.27E,2.41S
+2291,Palermo,Italy,14.24E,37.78N
+2292,Palhoça,Brazil,48.18W,28.13S
+2293,Pali,India,73.43E,26.52N
+2294,Pallavaram,India,80.09E,13.66N
+2295,Palma,Spain,2.08E,39.38N
+2296,Palma Soriano,Cuba,76.78W,20.09N
+2297,Palmas,Brazil,48.27W,10.45S
+2298,Palmdale,United States,118.70W,34.56N
+2299,Palmira,Colombia,76.34W,4.02N
+2300,Palo Negro,Venezuela,67.91W,10.45N
+2301,Palu,Indonesia,119.73E,0.80S
+2302,Palwal,India,77.27E,28.13N
+2303,Pamanukan,Indonesia,108.16E,5.63S
+2304,Pamplona,Spain,2.18W,42.59N
+2305,Pamulang,Indonesia,106.55E,5.63S
+2306,Panamá,Panama,80.27W,8.84N
+2307,Panchiao,Taiwan,122.36E,24.92N
+2308,Panevezys,Lithuania,25.51E,55.45N
+2309,Pangkah,Indonesia,109.46E,7.23S
+2310,Panihati,India,88.25E,23.31N
+2311,Panipat,India,77.54E,29.74N
+2312,Panvel,India,72.68E,18.48N
+2313,Panzhihua,China,102.09E,26.52N
+2314,Paradise,United States,115.36W,36.17N
+2315,Parakou,Benin,2.43E,8.84N
+2316,Paramaribo,Suriname,54.89W,5.63N
+2317,Parana,Argentina,60.31W,31.35S
+2318,Paranaguá,Brazil,47.88W,24.92S
+2319,Parbhani,India,76.78E,20.09N
+2320,Paris,France,2.45E,49.03N
+2321,Parma,Italy,11.18E,44.20N
+2322,Parnamirim,Brazil,35.52W,5.63S
+2323,Parnaíba,Brazil,40.98W,2.41S
+2324,Parsabad,Iran,47.86E,39.38N
+2325,Parung,Indonesia,106.55E,5.63S
+2326,Pasadena,United States,118.70W,34.56N
+2327,Pasadena,United States,96.00W,29.74N
+2328,Pasarkemis,Indonesia,106.55E,5.63S
+2329,Paseh,Indonesia,107.84E,7.23S
+2330,Pasir Gudang,Malaysia,103.66E,0.80N
+2331,Passo Fundo,Brazil,51.82W,28.13S
+2332,Pasto,Colombia,77.95W,0.80N
+2333,Pasuruan,Indonesia,112.70E,7.23S
+2334,Patan,India,72.52E,23.31N
+2335,Pate,Taiwan,120.59E,24.92N
+2336,Paterson,United States,74.56W,40.99N
+2337,Pathankot,India,75.64E,32.95N
+2338,Pathein,Burma,95.44E,16.87N
+2339,Pati,Indonesia,111.08E,7.23S
+2340,Patiala,India,75.69E,29.74N
+2341,Patna,India,85.12E,24.92N
+2342,Patos De Minas,Brazil,47.32W,18.48S
+2343,Paulista,Brazil,34.86W,7.23S
+2344,Pavlodar,Kazakhstan,76.20E,52.24N
+2345,Pavlohrad,Ukraine,36.73E,49.03N
+2346,Payakumbuh,Indonesia,100.45E,0.80S
+2347,Pekalongan,Indonesia,109.46E,7.23S
+2348,Peking,China,116.53E,39.38N
+2349,Pelotas,Brazil,52.77W,31.35S
+2350,Pemalang,Indonesia,109.46E,7.23S
+2351,Pemba,Mozambique,40.46E,13.66S
+2352,Pembroke Pines,United States,80.60W,26.52N
+2353,Penza,Russia,45.00E,53.84N
+2354,Peoria,United States,112.02W,32.95N
+2355,Peoria,United States,89.47W,40.99N
+2356,Perbaungan,Indonesia,98.84E,4.02N
+2357,Pereira,Colombia,75.87W,5.63N
+2358,Peristérion,Greece,24.41E,37.78N
+2359,Perm,Russia,55.38E,58.66N
+2360,Perpignan,France,2.18E,42.59N
+2361,Perth,Australia,114.97E,31.35S
+2362,Perugia,Italy,13.09E,42.59N
+2363,Pervouralsk,Russia,60.49E,57.05N
+2364,Pescara,Italy,15.27E,42.59N
+2365,Peshawar,Pakistan,72.00E,34.56N
+2366,Petaling Jaya,Malaysia,102.05E,2.41N
+2367,Petapa,Guatemala,90.83W,15.27N
+2368,Petare,Venezuela,66.27W,10.45N
+2369,Peterborough,United Kingdom,0.00W,52.24N
+2370,Petrolina,Brazil,39.73W,8.84S
+2371,Petropavl,Kazakhstan,68.03E,55.45N
+2372,Petropavlovsk Kamchatskiy,Russia,159.55E,53.84N
+2373,Petrozavodsk,Russia,35.66E,61.88N
+2374,Petrópolis,Brazil,42.82W,23.31S
+2375,Pforzheim,Germany,9.80E,49.03N
+2376,Phagwara,India,75.39E,31.35N
+2377,Phalaborwa,South Africa,30.58E,23.31S
+2378,Phan Thiet,Vietnam,107.18E,10.45N
+2379,Philadelphia,United States,74.91W,39.38N
+2380,Phitsanulok,Thailand,100.47E,16.87N
+2381,Phnum Pénh,Cambodia,105.21E,12.05N
+2382,Phoenix,United States,112.02W,32.95N
+2383,Phra Pradaeng,Thailand,99.91E,13.66N
+2384,Piatra Neamt,Romania,27.24E,47.42N
+2385,Piedras Negras,Mexico,100.91W,28.13N
+2386,Pietermaritzburg,South Africa,29.54E,29.74S
+2387,Pietersburg,South Africa,28.83E,23.31S
+2388,Pilibhit,India,79.09E,28.13N
+2389,Pimpri,India,74.37E,18.48N
+2390,Pinar Del Río,Cuba,83.94W,21.70N
+2391,Pindamonhangaba,Brazil,46.31W,23.31S
+2392,Pindiga,Nigeria,10.64E,10.45N
+2393,Pingchen,Taiwan,120.59E,24.92N
+2394,Pingdingshan,China,112.86E,34.56N
+2395,Pingliang,China,107.40E,36.17N
+2396,Pingshan,China,114.47E,23.31N
+2397,Pingtung,Taiwan,119.71E,23.31N
+2398,Pingxiang,China,113.64E,28.13N
+2399,Pinsk,Belarus,26.28E,52.24N
+2400,Piracicaba,Brazil,48.06W,23.31S
+2401,Pitesti,Romania,24.60E,44.20N
+2402,Pittsburgh,United States,80.95W,40.99N
+2403,Piura,Peru,80.72W,5.63S
+2404,Plano,United States,96.70W,32.95N
+2405,Pleven,Bulgaria,24.60E,44.20N
+2406,Plock,Poland,18.39E,52.24N
+2407,Ploiesti,Romania,26.54E,45.81N
+2408,Plovdiv,Bulgaria,24.00E,42.59N
+2409,Plumbon,Indonesia,107.84E,7.23S
+2410,Plymouth,United Kingdom,3.80W,50.63N
+2411,Plzen,Czech Republic,13.94E,50.63N
+2412,Plây Cu,Vietnam,108.17E,13.66N
+2413,Podgorica,Montenegro,19.64E,42.59N
+2414,Podolsk,Russia,36.85E,55.45N
+2415,Pokhara,Nepal,84.55E,28.13N
+2416,Poltava,Ukraine,34.29E,49.03N
+2417,Pomona,United States,118.70W,34.56N
+2418,Ponce,Puerto Rico,65.92W,18.48N
+2419,Pondicherry,India,80.55E,12.05N
+2420,Ponnani,India,76.09E,10.45N
+2421,Ponta Grossa,Brazil,49.66W,24.92S
+2422,Pontianak,Indonesia,110.09E,0.80S
+2423,Poole,United Kingdom,1.27W,50.63N
+2424,Porbandar,India,70.10E,21.70N
+2425,Port Au Prince,Haiti,72.68W,18.48N
+2426,Port Blair,India,92.05E,12.05N
+2427,Port Elizabeth,South Africa,25.30E,34.56S
+2428,Port Gentil,Gabon,8.84E,0.80S
+2429,Port Harcourt,Nigeria,7.23E,4.02N
+2430,Port Louis,Mauritius,58.01E,20.09S
+2431,Port Moresby,Papua New Guinea,146.76E,8.84S
+2432,Port Said,Egypt,32.04E,31.35N
+2433,Port Saint Lucie,United States,80.60W,26.52N
+2434,Portland,United States,123.46W,45.81N
+2435,Portmore,Jamaica,76.06W,18.48N
+2436,Porto,Portugal,8.52W,40.99N
+2437,Porto Alegre,Brazil,51.69W,29.74S
+2438,Portoviejo,Ecuador,81.16W,0.80S
+2439,Portsmouth,United Kingdom,1.27W,50.63N
+2440,Posadas,Argentina,55.45W,28.13S
+2441,Potchefstroom,South Africa,26.87E,26.52S
+2442,Potgietersrus,South Africa,28.83E,23.31S
+2443,Potosí,Bolivia,66.54W,20.09S
+2444,Potsdam,Germany,13.14E,52.24N
+2445,Pouso Alegre,Brazil,45.87W,21.70S
+2446,Poznan,Poland,15.77E,52.24N
+2447,Poá,Brazil,46.31W,23.31S
+2448,Poços De Caldas,Brazil,45.87W,21.70S
+2449,Prabumulih,Indonesia,103.66E,4.02S
+2450,Prague,Czech Republic,13.94E,50.63N
+2451,Praia Grande,Brazil,46.31W,23.31S
+2452,Prato,Italy,11.18E,44.20N
+2453,Presidente Prudente,Brazil,51.06W,21.70S
+2454,Preston,United Kingdom,1.36W,53.84N
+2455,Pretoria,South Africa,28.37E,24.92S
+2456,Pringsewu,Indonesia,104.93E,5.63S
+2457,Pristina,Serbia,21.82E,42.59N
+2458,Prizren,Serbia,21.82E,42.59N
+2459,Probolinggo,Indonesia,112.70E,7.23S
+2460,Proddatur,India,79.17E,15.27N
+2461,Prokopyevsk,Russia,85.91E,53.84N
+2462,Providence,United States,72.00W,42.59N
+2463,Provo,United States,112.37W,39.38N
+2464,Pskov,Russia,28.03E,57.05N
+2465,Pucallpa,Peru,73.78W,8.84S
+2466,Pudukkottai,India,79.36E,10.45N
+2467,Puebla,Mexico,98.03W,18.48N
+2468,Pueblo,United States,103.73W,37.78N
+2469,Puerto Cabello,Venezuela,67.91W,10.45N
+2470,Puerto Montt,Chile,72.43W,40.99S
+2471,Puerto Plata,Dominican Republic,69.95W,20.09N
+2472,Puerto Princesa,Philippines,118.64E,10.45N
+2473,Puerto Vallarta,Mexico,105.78W,20.09N
+2474,Pulandian,China,122.77E,39.38N
+2475,Pune,India,74.37E,18.48N
+2476,Puno,Peru,70.83W,15.27S
+2477,Punta Arenas,Chile,70.95W,52.24S
+2478,Punto Fijo,Venezuela,70.68W,12.05N
+2479,Puqi,China,114.46E,29.74N
+2480,Puri,India,85.31E,20.09N
+2481,Purnia,India,87.76E,26.52N
+2482,Puruliya,India,86.50E,23.31N
+2483,Purwakarta,Indonesia,107.84E,7.23S
+2484,Purwodadi,Indonesia,111.08E,7.23S
+2485,Purwokerto,Indonesia,109.46E,7.23S
+2486,Purworejo,Indonesia,112.70E,7.23S
+2487,Puyang,China,115.36E,36.17N
+2488,Pyatigorsk,Russia,42.48E,44.20N
+2489,Pyay,Burma,94.65E,18.48N
+2490,Pátrai,Greece,22.37E,37.78N
+2491,Pécs,Hungary,17.31E,45.81N
+2492,Pétionville,Haiti,72.68W,18.48N
+2493,Pôrto Seguro,Brazil,38.51W,16.87S
+2494,Pôrto Velho,Brazil,64.05W,8.84S
+2495,Qabis,Tunisia,9.73E,34.56N
+2496,Qalyub,Egypt,31.38E,29.74N
+2497,Qandahar,Afghanistan,65.97E,31.35N
+2498,Qarchak,Iran,51.71E,36.17N
+2499,Qazvin,Iran,49.72E,36.17N
+2500,Qena,Egypt,32.24E,26.52N
+2501,Qianguo,China,125.77E,45.81N
+2502,Qianjiang,China,112.62E,29.74N
+2503,Qingdao,China,121.33E,36.17N
+2504,Qingyuan,China,112.72E,23.31N
+2505,Qinhuangdao,China,118.61E,39.38N
+2506,Qinzhou,China,108.17E,21.70N
+2507,Qiqihar,China,124.34E,47.42N
+2508,Qitaihe,China,130.38E,45.81N
+2509,Qom,Iran,50.59E,34.56N
+2510,Qostanay,Kazakhstan,64.09E,53.84N
+2511,Quanzhou,China,118.82E,24.92N
+2512,Quchan,Iran,58.98E,37.78N
+2513,Quebec,Canada,72.24W,47.42N
+2514,Queenstown,South Africa,26.39E,31.35S
+2515,Queimados,Brazil,42.82W,23.31S
+2516,Quelimane,Mozambique,37.18E,18.48S
+2517,Queluz,Portugal,8.32W,39.38N
+2518,Querétaro,Mexico,100.66W,20.09N
+2519,Quetta,Pakistan,66.46E,29.74N
+2520,Quetzaltenango,Guatemala,90.83W,15.27N
+2521,Quevedo,Ecuador,79.55W,0.80S
+2522,Qui Nhon,Vietnam,109.82E,13.66N
+2523,Quilpue,Chile,71.81W,32.95S
+2524,Quito,Ecuador,77.95W,0.80S
+2525,Qujing,China,104.63E,24.92N
+2526,Qunduz,Afghanistan,69.61E,36.17N
+2527,Rabak,Sudan,32.20E,13.66N
+2528,Rabat,Morocco,5.84W,34.56N
+2529,Rach Gia,Vietnam,105.55E,10.45N
+2530,Radom,Poland,21.55E,50.63N
+2531,Rae Bareli,India,80.60E,26.52N
+2532,Rafsanjan,Iran,55.38E,29.74N
+2533,Raichur,India,77.02E,16.87N
+2534,Raiganj,India,88.67E,24.92N
+2535,Raigarh,India,83.94E,21.70N
+2536,Raipur,India,82.21E,21.70N
+2537,Rajamahendri,India,82.05E,16.87N
+2538,Rajapalaiyam,India,77.03E,8.84N
+2539,Rajkot,India,70.10E,21.70N
+2540,Rajpur,India,88.25E,23.31N
+2541,Rajshahi,Bangladesh,88.67E,24.92N
+2542,Raleigh,United States,79.56W,36.17N
+2543,Ramat Gan,Israel,35.43E,32.95N
+2544,Ramnicu Valcea,Romania,24.23E,45.81N
+2545,Rampur,India,79.09E,28.13N
+2546,Rancaekek,Indonesia,107.84E,7.23S
+2547,Rancagua,Chile,70.05W,34.56S
+2548,Ranchi,India,84.76E,23.31N
+2549,Rancho Cucamonga,United States,116.76W,34.56N
+2550,Randfontein,South Africa,26.87E,26.52S
+2551,Ranghulu,China,124.34E,47.42N
+2552,Rangkasbitung,Indonesia,106.55E,5.63S
+2553,Rangoon,Burma,95.44E,16.87N
+2554,Rangpur,Bangladesh,89.55E,26.52N
+2555,Raniganj,India,86.50E,23.31N
+2556,Rantauprapat,Indonesia,100.45E,2.41N
+2557,Rasht,Iran,48.81E,37.78N
+2558,Ratisbon,Germany,12.24E,49.03N
+2559,Ratlam,India,74.27E,23.31N
+2560,Raurkela,India,85.67E,21.70N
+2561,Ravenna,Italy,11.18E,44.20N
+2562,Rawalpindi,Pakistan,73.72E,32.95N
+2563,Rawang,Malaysia,102.05E,4.02N
+2564,Rayong,Thailand,101.92E,12.05N
+2565,Reading,United Kingdom,1.27W,50.63N
+2566,Recife,Brazil,34.86W,8.84S
+2567,Recklinghausen,Germany,7.88E,52.24N
+2568,Reggio Di Calabria,Italy,16.27E,37.78N
+2569,Regina,Canada,105.21W,50.63N
+2570,Reims,France,4.90E,49.03N
+2571,Remscheid,Germany,6.34E,50.63N
+2572,Rengasdengklok,Indonesia,106.55E,5.63S
+2573,Rennes,France,1.18W,47.42N
+2574,Reno,United States,120.69W,39.38N
+2575,Resende,Brazil,44.13W,21.70S
+2576,Resistencia,Argentina,59.09W,28.13S
+2577,Reutlingen,Germany,9.80E,49.03N
+2578,Rewa,India,81.58E,24.92N
+2579,Rewari,India,77.27E,28.13N
+2580,Reykjavík,Iceland,21.06W,65.09N
+2581,Reynosa,Mexico,98.51W,26.52N
+2582,Rialto,United States,116.76W,34.56N
+2583,Ribeirão Das Neves,Brazil,44.36W,20.09S
+2584,Ribeirão Pires,Brazil,46.31W,23.31S
+2585,Ribeirão Prêto,Brazil,47.60W,21.70S
+2586,Richards Bay,South Africa,31.82E,28.13S
+2587,Richardson,United States,96.70W,32.95N
+2588,Richmond,United States,122.03W,37.78N
+2589,Richmond,United States,77.29W,37.78N
+2590,Riga,Latvia,25.08E,57.05N
+2591,Rijeka,Croatia,15.00E,45.81N
+2592,Rimini,Italy,13.42E,44.20N
+2593,Rio Branco,Brazil,67.91W,10.45S
+2594,Rio Claro,Brazil,47.60W,21.70S
+2595,Rio Cuarto,Argentina,64.15W,32.95S
+2596,Rio De Janeiro,Brazil,42.82W,23.31S
+2597,Rio Grande,Brazil,52.77W,31.35S
+2598,Riobamba,Ecuador,77.95W,2.41S
+2599,Rishra,India,88.25E,23.31N
+2600,Riverside,United States,116.76W,34.56N
+2601,Rivne,Ukraine,26.62E,50.63N
+2602,Riyadh,Saudi Arabia,46.11E,24.92N
+2603,Rizhao,China,119.34E,36.17N
+2604,Robertsonpet,India,78.44E,13.66N
+2605,Rochester,United States,78.55W,42.59N
+2606,Rockford,United States,89.45W,42.59N
+2607,Rohtak,India,77.27E,28.13N
+2608,Rome,Italy,13.09E,42.59N
+2609,Rondonópolis,Brazil,55.26W,16.87S
+2610,Rongcheng,China,103.88E,26.52N
+2611,Rongcheng,China,112.62E,29.74N
+2612,Rongcheng,China,116.21E,23.31N
+2613,Rosario,Argentina,60.32W,32.95S
+2614,Roseville,United States,120.69W,39.38N
+2615,Rostock,Germany,12.27E,53.84N
+2616,Rostov Na Donu,Russia,39.08E,47.42N
+2617,Rotherham,United Kingdom,1.36W,53.84N
+2618,Rotterdam,Netherlands,5.26E,52.24N
+2619,Rouen,France,0.00W,49.03N
+2620,Roxas,Philippines,123.29E,12.05N
+2621,Rubtsovsk,Russia,81.46E,52.24N
+2622,Ruda Slaska,Poland,19.01E,50.63N
+2623,Ruian,China,120.91E,28.13N
+2624,Ruiru,Kenya,37.77E,0.80S
+2625,Ruse,Bulgaria,26.83E,44.20N
+2626,Rustenburg,South Africa,26.87E,26.52S
+2627,Ryazan,Russia,39.55E,53.84N
+2628,Rybinsk,Russia,40.00E,58.66N
+2629,Rybnik,Poland,19.01E,50.63N
+2630,Rzeszow,Poland,21.55E,50.63N
+2631,Saarbrücken,Germany,7.35E,49.03N
+2632,Sabadell,Spain,2.13E,40.99N
+2633,Sabará,Brazil,44.36W,20.09S
+2634,Sabha,Libya,14.33E,26.52N
+2635,Sabratah,Libya,12.45E,32.95N
+2636,Sabzevar,Iran,57.68E,36.17N
+2637,Sacramento,United States,122.03W,37.78N
+2638,Sadiqabad,Pakistan,70.00E,28.13N
+2639,Safaqis,Tunisia,11.68E,34.56N
+2640,Saga,Japan,131.17E,32.95N
+2641,Sagamihara,Japan,139.23E,36.17N
+2642,Sagar,India,79.51E,23.31N
+2643,Saharanpur,India,77.54E,29.74N
+2644,Saharsa,India,85.97E,26.52N
+2645,Sahiwal,Pakistan,73.51E,31.35N
+2646,Saint Denis,Reunion,56.25E,21.70S
+2647,Saint Helens,United Kingdom,4.09W,53.84N
+2648,Saint Louis,Senegal,16.74W,16.87N
+2649,Saint Louis,United States,89.48W,39.38N
+2650,Saint Paul,United States,93.46W,45.81N
+2651,Saint Petersburg,Russia,29.19E,60.27N
+2652,Saint Petersburg,United States,82.73W,28.13N
+2653,Saint Étienne,France,3.46E,45.81N
+2654,Saitama,Japan,139.23E,36.17N
+2655,Sakai,Japan,136.22E,34.56N
+2656,Sakata,Japan,139.42E,39.38N
+2657,Sakura,Japan,141.22E,36.17N
+2658,Salalah,Oman,53.58E,16.87N
+2659,Salamanca,Mexico,100.66W,20.09N
+2660,Salamanca,Spain,6.39W,40.99N
+2661,Salatiga,Indonesia,111.08E,7.23S
+2662,Salavat,Russia,55.91E,53.84N
+2663,Salem,United States,122.98W,44.20N
+2664,Salerno,Italy,14.91E,40.99N
+2665,Salihorsk,Belarus,26.28E,52.24N
+2666,Salinas,United States,121.33W,36.17N
+2667,Salt Lake City,United States,112.90W,40.99N
+2668,Salta,Argentina,65.62W,24.92S
+2669,Saltillo,Mexico,101.08W,24.92N
+2670,Salto,Uruguay,58.43W,31.35S
+2671,Salvador,Brazil,38.81W,13.66S
+2672,Salzburg,Austria,13.03E,47.42N
+2673,Salzgitter,Germany,10.51E,52.24N
+2674,Samara,Russia,50.45E,53.84N
+2675,Samarinda,Indonesia,116.52E,0.80S
+2676,Samarkand,Uzbekistan,66.59E,39.38N
+2677,Sambalpur,India,83.94E,21.70N
+2678,Sambhal,India,79.09E,28.13N
+2679,Samsun,Turkey,36.21E,40.99N
+2680,Samut Prakan,Thailand,99.91E,13.66N
+2681,San Antonio,United States,97.85W,29.74N
+2682,San Bernardino,United States,116.76W,34.56N
+2683,San Bernardo,Chile,69.89W,32.95S
+2684,San Carlos De Bariloche,Argentina,70.30W,40.99S
+2685,San Cristóbal,Dominican Republic,69.30W,18.48N
+2686,San Cristóbal,Venezuela,72.16W,7.23N
+2687,San Diego,United States,117.77W,32.95N
+2688,San Fernando,Philippines,120.83E,15.27N
+2689,San Francisco,United States,122.03W,37.78N
+2690,San Francisco De Macorís,Dominican Republic,69.95W,20.09N
+2691,San Jose,United States,122.03W,37.78N
+2692,San José,Costa Rica,84.27W,10.45N
+2693,San Juan,Argentina,67.85W,31.35S
+2694,San Juan,Puerto Rico,65.92W,18.48N
+2695,San Juan Del Río,Mexico,100.66W,20.09N
+2696,San Juan Sacatepéquez,Guatemala,90.83W,15.27N
+2697,San Lorenzo,Paraguay,56.75W,24.92S
+2698,San Luis,Argentina,66.06W,32.95S
+2699,San Luis Potosí,Mexico,101.25W,21.70N
+2700,San Luis Río Colorado,Mexico,113.94W,32.95N
+2701,San Martin,Argentina,67.98W,32.95S
+2702,San Mateo,Philippines,120.83E,15.27N
+2703,San Miguelito,Panama,80.27W,8.84N
+2704,San Nicolas,Argentina,60.32W,32.95S
+2705,San Nicolás De Los Garza,Mexico,100.30W,26.52N
+2706,San Pablo,Philippines,121.38E,13.66N
+2707,San Pablo De Las Salinas,Mexico,98.96W,20.09N
+2708,San Pedro,Philippines,121.38E,13.66N
+2709,San Pedro De Macorís,Dominican Republic,69.30W,18.48N
+2710,San Pedro Sula,Honduras,87.50W,15.27N
+2711,San Pédro,Côte D'Ivoire,6.46W,5.63N
+2712,San Rafael,Argentina,68.11W,34.56S
+2713,San Salvador,El Salvador,90.00W,13.66N
+2714,Sanandaj,Iran,46.70E,34.56N
+2715,Sanbu,China,113.37E,21.70N
+2716,Sanchung,Taiwan,120.59E,24.92N
+2717,Sancti Spíritus,Cuba,78.75W,21.70N
+2718,Sanda,Japan,134.27E,34.56N
+2719,Sandakan,Malaysia,117.85E,5.63N
+2720,Sanhsia,Taiwan,120.59E,24.92N
+2721,Sanmenxia,China,110.92E,34.56N
+2722,Sanming,China,118.21E,26.52N
+2723,Santa Ana,El Salvador,90.00W,13.66N
+2724,Santa Ana,United States,117.77W,32.95N
+2725,Santa Catarina,Mexico,100.30W,26.52N
+2726,Santa Clara,Cuba,80.48W,21.70N
+2727,Santa Clara,United States,122.03W,37.78N
+2728,Santa Clarita,United States,118.70W,34.56N
+2729,Santa Cruz,Philippines,121.38E,13.66N
+2730,Santa Cruz De Tenerife,Spain,15.45W,28.13N
+2731,Santa Cruz Do Sul,Brazil,51.69W,29.74S
+2732,Santa Fe,Argentina,60.31W,31.35S
+2733,Santa Luzia,Brazil,44.36W,20.09S
+2734,Santa Maria,Brazil,53.54W,29.74S
+2735,Santa Marta,Colombia,74.45W,10.45N
+2736,Santa Rita,Brazil,34.86W,7.23S
+2737,Santa Rosa,Philippines,121.38E,13.66N
+2738,Santa Rosa,United States,122.03W,37.78N
+2739,Santa Teresa,Venezuela,66.27W,10.45N
+2740,Santander,Spain,4.47W,44.20N
+2741,Santarém,Brazil,55.45W,2.41S
+2742,Santiago,Chile,69.89W,32.95S
+2743,Santiago,Dominican Republic,69.95W,20.09N
+2744,Santiago,Philippines,122.23E,16.87N
+2745,Santiago De Cuba,Cuba,75.07W,20.09N
+2746,Santiago Del Estero,Argentina,64.55W,28.13S
+2747,Santo André,Brazil,46.31W,23.31S
+2748,Santo Domingo,Dominican Republic,69.30W,18.48N
+2749,Santo Domingo,Ecuador,79.55W,0.80S
+2750,Santos,Brazil,46.31W,23.31S
+2751,Sapele,Nigeria,6.46E,5.63N
+2752,Sapucaia,Brazil,51.69W,29.74S
+2753,Saqqez,Iran,45.75E,36.17N
+2754,Sarajevo,Bosnia And Herzegovina,17.89E,44.20N
+2755,Saransk,Russia,45.00E,53.84N
+2756,Sarapul,Russia,54.59E,57.05N
+2757,Saratov,Russia,47.30E,52.24N
+2758,Sargodha,Pakistan,73.51E,31.35N
+2759,Sarh,Chad,18.65E,8.84N
+2760,Sari,Iran,53.70E,36.17N
+2761,Sasaram,India,83.35E,24.92N
+2762,Sasebo,Japan,129.26E,32.95N
+2763,Saskatoon,Canada,107.74W,52.24N
+2764,Sassari,Italy,8.52E,40.99N
+2765,Satara,India,73.67E,16.87N
+2766,Satkhira,Bangladesh,88.25E,23.31N
+2767,Satna,India,81.58E,24.92N
+2768,Satu Mare,Romania,22.50E,47.42N
+2769,Savannah,United States,81.05W,31.35N
+2770,Saveh,Iran,50.59E,34.56N
+2771,Sawai Madhopur,India,77.01E,26.52N
+2772,Sawangan,Indonesia,106.55E,5.63S
+2773,Sayama,Japan,139.23E,36.17N
+2774,Scottsdale,United States,112.02W,32.95N
+2775,Seattle,United States,121.97W,47.42N
+2776,Sekondi,Ghana,1.61W,5.63N
+2777,Sekudai,Malaysia,103.66E,0.80N
+2778,Selam,India,78.90E,12.05N
+2779,Semarang,Indonesia,111.08E,7.23S
+2780,Semey,Kazakhstan,79.86E,50.63N
+2781,Semnan,Iran,53.70E,36.17N
+2782,Seoni,India,78.75E,21.70N
+2783,Seoul,South Korea,126.10E,37.78N
+2784,Sepatan,Indonesia,106.55E,5.63S
+2785,Serang,Indonesia,106.55E,5.63S
+2786,Serekunda,Gambia,17.34W,13.66N
+2787,Seremban,Malaysia,102.05E,2.41N
+2788,Sergiyev Posad,Russia,36.89E,57.05N
+2789,Serpukhov,Russia,36.85E,55.45N
+2790,Serra,Brazil,40.95W,20.09S
+2791,Sete Lagoas,Brazil,44.36W,20.09S
+2792,Seto,Japan,137.24E,36.17N
+2793,Setúbal,Portugal,8.32W,39.38N
+2794,Severodvinsk,Russia,40.21E,65.09N
+2795,Seversk,Russia,84.10E,57.05N
+2796,Sevilla,Spain,6.10W,37.78N
+2797,Shagamu,Nigeria,4.05E,7.23N
+2798,Shah Alam,Malaysia,102.05E,2.41N
+2799,Shahe,China,115.36E,36.17N
+2800,Shahjahanpur,India,79.09E,28.13N
+2801,Shahr E Kord,Iran,50.74E,32.95N
+2802,Shahreza,Iran,52.77E,31.35N
+2803,Shahrud,Iran,55.69E,36.17N
+2804,Shakhty,Russia,39.08E,47.42N
+2805,Shaki,Nigeria,4.05E,8.84N
+2806,Shanghai,China,120.63E,31.35N
+2807,Shangqiu,China,114.81E,34.56N
+2808,Shangrao,China,117.27E,28.13N
+2809,Shantipur,India,88.25E,23.31N
+2810,Shaoguan,China,113.50E,24.92N
+2811,Shaowu,China,117.27E,28.13N
+2812,Shaoxing,China,120.00E,29.74N
+2813,Shaoyang,China,111.04E,26.52N
+2814,Shaping,China,112.72E,23.31N
+2815,Sharjah,United Arab Emirates,54.98E,24.92N
+2816,Shashi,China,112.62E,29.74N
+2817,Sheffield,United Kingdom,1.36W,53.84N
+2818,Shekhupura,Pakistan,73.51E,31.35N
+2819,Shenyang,China,123.55E,40.99N
+2820,Shenzhen,Hong Kong,114.47E,23.31N
+2821,Sherbrooke,Canada,72.69W,45.81N
+2822,Sherpur,Bangladesh,90.44E,24.92N
+2823,Shihezi,China,84.97E,44.20N
+2824,Shikarpur,Pakistan,68.18E,28.13N
+2825,Shiliguri,India,87.76E,26.52N
+2826,Shillong,India,92.22E,24.92N
+2827,Shilong,China,114.47E,23.31N
+2828,Shimla,India,77.28E,31.35N
+2829,Shimoga,India,75.14E,13.66N
+2830,Shimonoseki,Japan,130.38E,34.56N
+2831,Shinyanga,Tanzania,32.95E,4.02S
+2832,Shiraz,Iran,51.69E,29.74N
+2833,Shishou,China,112.62E,29.74N
+2834,Shiyan,China,110.11E,32.95N
+2835,Shizuishan,China,106.13E,39.38N
+2836,Sholapur,India,76.06E,18.48N
+2837,Shreveport,United States,92.87W,32.95N
+2838,Shrirampur,India,88.25E,23.31N
+2839,Shuangcheng,China,125.77E,45.81N
+2840,Shuangyashan,China,131.45E,47.42N
+2841,Shulin,Taiwan,120.59E,24.92N
+2842,Shunyi,China,116.53E,39.38N
+2843,Shymkent,Kazakhstan,69.82E,42.59N
+2844,Si Racha,Thailand,101.56E,13.66N
+2845,Sialkot,Pakistan,73.72E,32.95N
+2846,Siauliai,Lithuania,22.68E,55.45N
+2847,Sibiu,Romania,24.23E,45.81N
+2848,Sibu,Malaysia,111.70E,2.41N
+2849,Sidoarjo,Indonesia,112.70E,7.23S
+2850,Siegen,Germany,8.87E,50.63N
+2851,Siirt,Turkey,42.71E,37.78N
+2852,Sikar,India,75.45E,28.13N
+2853,Sikasso,Mali,5.73W,10.45N
+2854,Silchar,India,92.22E,24.92N
+2855,Simi Valley,United States,118.70W,34.56N
+2856,Sincelejo,Colombia,75.41W,8.84N
+2857,Singapore,Singapore,103.66E,0.80N
+2858,Singaraja,Indonesia,114.32E,8.84S
+2859,Singkawang,Indonesia,108.48E,0.80N
+2860,Sinnar,Sudan,33.85E,13.66N
+2861,Sioux Falls,United States,96.15W,44.20N
+2862,Sirajganj,Bangladesh,90.44E,24.92N
+2863,Sirjan,Iran,55.38E,29.74N
+2864,Sirsa,India,75.69E,29.74N
+2865,Sitapur,India,80.91E,28.13N
+2866,Sivas,Turkey,37.46E,39.38N
+2867,Siverek,Turkey,38.64E,37.78N
+2868,Siwan,India,84.18E,26.52N
+2869,Skopje,Macedonia,21.82E,42.59N
+2870,Slough,United Kingdom,0.00W,52.24N
+2871,Smolensk,Russia,31.18E,55.45N
+2872,Soacha,Colombia,74.73W,4.02N
+2873,Sobral,Brazil,40.98W,4.02S
+2874,Soc Trang,Vietnam,106.22E,8.84N
+2875,Sochi,Russia,40.25E,44.20N
+2876,Sofia,Bulgaria,24.00E,42.59N
+2877,Sogamoso,Colombia,72.65W,5.63N
+2878,Sohag,Egypt,32.24E,26.52N
+2879,Soka,Japan,139.23E,36.17N
+2880,Sokodé,Togo,0.81E,8.84N
+2881,Sokoto,Nigeria,5.78E,13.66N
+2882,Soledad,Colombia,74.45W,10.45N
+2883,Solikamsk,Russia,58.38E,60.27N
+2884,Solingen,Germany,6.34E,50.63N
+2885,Somerset West,South Africa,19.46E,34.56S
+2886,Songea,Tanzania,35.18E,10.45S
+2887,Sonipat,India,77.27E,28.13N
+2888,Soreang,Indonesia,107.84E,7.23S
+2889,Sorocaba,Brazil,48.06W,23.31S
+2890,Sorong,Indonesia,130.98E,0.80S
+2891,Sosnowiec,Poland,19.01E,50.63N
+2892,Soubré,Côte D'Ivoire,6.46W,5.63N
+2893,South Bend,United States,85.21W,40.99N
+2894,Southampton,United Kingdom,1.27W,50.63N
+2895,Southend On Sea,United Kingdom,0.00W,52.24N
+2896,Soweto,South Africa,28.66E,26.52S
+2897,Soyapango,El Salvador,88.35W,13.66N
+2898,Spanish Town,Jamaica,77.75W,18.48N
+2899,Split,Croatia,15.65E,44.20N
+2900,Spokane,United States,117.24W,47.42N
+2901,Spring Valley,United States,115.36W,36.17N
+2902,Springfield,United States,72.00W,42.59N
+2903,Springfield,United States,89.48W,39.38N
+2904,Springfield,United States,93.56W,37.78N
+2905,Springs,South Africa,28.66E,26.52S
+2906,Srikakulam,India,84.51E,18.48N
+2907,Srinagar,India,73.95E,34.56N
+2908,Stamford,United States,74.56W,40.99N
+2909,Stara Zagora,Bulgaria,26.18E,42.59N
+2910,Staryy Oskol,Russia,36.76E,50.63N
+2911,Stavanger,Norway,6.15E,58.66N
+2912,Stavropol,Russia,42.48E,44.20N
+2913,Sterling Heights,United States,82.91W,42.59N
+2914,Sterlitamak,Russia,55.91E,53.84N
+2915,Stockholm,Sweden,18.46E,58.66N
+2916,Stockport,United Kingdom,1.36W,53.84N
+2917,Stockton,United States,122.03W,37.78N
+2918,Stoke On Trent,United Kingdom,2.63W,52.24N
+2919,Strasbourg,France,7.35E,49.03N
+2920,Stuttgart,Germany,9.80E,49.03N
+2921,Subang,Indonesia,107.84E,7.23S
+2922,Suceava,Romania,27.24E,47.42N
+2923,Sucre,Bolivia,65.92W,18.48S
+2924,Sudbury,Canada,81.92W,45.81N
+2925,Suez,Egypt,33.23E,29.74N
+2926,Suihua,China,126.71E,47.42N
+2927,Suining,China,105.23E,29.74N
+2928,Suita,Japan,136.22E,34.56N
+2929,Sujiatun,China,123.55E,40.99N
+2930,Sukabumi,Indonesia,106.22E,7.23S
+2931,Sukaraja,Indonesia,106.22E,7.23S
+2932,Sukkur,Pakistan,68.18E,28.13N
+2933,Suleja,Nigeria,7.30E,8.84N
+2934,Sullana,Peru,80.72W,5.63S
+2935,Sultanpur,India,82.39E,26.52N
+2936,Sumaré,Brazil,48.06W,23.31S
+2937,Sumedang,Indonesia,107.84E,7.23S
+2938,Sumy,Ukraine,34.23E,50.63N
+2939,Sunderland,United Kingdom,2.83W,55.45N
+2940,Sungai Petani,Malaysia,100.09E,5.63N
+2941,Sunggal,Indonesia,98.84E,4.02N
+2942,Sunnyvale,United States,122.03W,37.78N
+2943,Sunrise Manor,United States,115.36W,36.17N
+2944,Sur,Lebanon,35.43E,32.95N
+2945,Surabaya,Indonesia,112.70E,7.23S
+2946,Surakarta,Indonesia,111.08E,7.23S
+2947,Surat,India,73.56E,21.70N
+2948,Surat Thani,Thailand,99.73E,8.84N
+2949,Surendranagar,India,72.52E,23.31N
+2950,Surgut,Russia,73.02E,61.88N
+2951,Suriapet,India,80.37E,16.87N
+2952,Surt,Libya,16.96E,31.35N
+2953,Susah,Tunisia,9.94E,36.17N
+2954,Sutton Coldfield,United Kingdom,2.63W,52.24N
+2955,Suzano,Brazil,46.31W,23.31S
+2956,Suzhou,China,116.76E,34.56N
+2957,Suzhou,China,120.63E,31.35N
+2958,Suzuka,Japan,136.22E,34.56N
+2959,Swansea,United Kingdom,5.26W,52.24N
+2960,Swindon,United Kingdom,2.63W,52.24N
+2961,Sydney,Australia,151.78E,34.56S
+2962,Syktyvkar,Russia,49.25E,61.88N
+2963,Syracuse,Italy,16.27E,37.78N
+2964,Syracuse,United States,76.36W,42.59N
+2965,Syzran,Russia,47.73E,53.84N
+2966,Szczecin,Poland,15.00E,53.84N
+2967,Szeged,Hungary,19.62E,45.81N
+2968,Székesfehérvár,Hungary,17.76E,47.42N
+2969,São Bernardo Do Campo,Brazil,46.31W,23.31S
+2970,São Caetano Do Sul,Brazil,46.31W,23.31S
+2971,São Carlos,Brazil,47.60W,21.70S
+2972,São Gonçalo,Brazil,42.82W,23.31S
+2973,São José,Brazil,48.18W,28.13S
+2974,São José Do Rio Prêto,Brazil,49.48W,20.09S
+2975,São José Dos Campos,Brazil,46.31W,23.31S
+2976,São José Dos Pinhais,Brazil,49.66W,24.92S
+2977,São João De Meriti,Brazil,42.82W,23.31S
+2978,São Leopoldo,Brazil,51.69W,29.74S
+2979,São Luís,Brazil,44.20W,2.41S
+2980,São Paulo,Brazil,46.31W,23.31S
+2981,São Vicente,Brazil,46.31W,23.31S
+2982,Tabora,Tanzania,32.29E,5.63S
+2983,Taboão Da Serra,Brazil,46.31W,23.31S
+2984,Tabriz,Iran,46.78E,37.78N
+2985,Tabuk,Saudi Arabia,37.27E,28.13N
+2986,Tachikawa,Japan,139.23E,36.17N
+2987,Tacloban,Philippines,124.93E,12.05N
+2988,Tacna,Peru,70.99W,18.48S
+2989,Tacoma,United States,121.97W,47.42N
+2990,Tadepallegudem,India,82.05E,16.87N
+2991,Taganrog,Russia,39.08E,47.42N
+2992,Tagum,Philippines,125.68E,7.23N
+2993,Taian,China,117.35E,36.17N
+2994,Taicheng,China,113.37E,21.70N
+2995,Taichung,Taiwan,120.59E,24.92N
+2996,Tainan,Taiwan,119.71E,23.31N
+2997,Taipei,Taiwan,122.36E,24.92N
+2998,Taiping,Malaysia,100.45E,4.02N
+2999,Taitung,Taiwan,121.46E,23.31N
+3000,Taiyuan,China,111.86E,37.78N
+3001,Taizhou,China,119.68E,32.95N
+3002,Tajimi,Japan,137.24E,36.17N
+3003,Takaoka,Japan,137.24E,36.17N
+3004,Takarazuka,Japan,136.22E,34.56N
+3005,Takasaki,Japan,139.23E,36.17N
+3006,Takatsuki,Japan,136.22E,34.56N
+3007,Takoradi,Ghana,1.61W,5.63N
+3008,Talara,Peru,81.16W,4.02S
+3009,Talca,Chile,71.60W,36.17S
+3010,Talcahuano,Chile,73.59W,36.17S
+3011,Tali,Taiwan,120.59E,24.92N
+3012,Talisay,Philippines,123.55E,10.45N
+3013,Talkha,Egypt,32.04E,31.35N
+3014,Tallahassee,United States,84.92W,29.74N
+3015,Tallinn,Estonia,24.62E,58.66N
+3016,Tama,Japan,139.23E,36.17N
+3017,Tamale,Ghana,0.81W,8.84N
+3018,Taman,Indonesia,109.46E,7.23S
+3019,Taman,Indonesia,112.70E,7.23S
+3020,Tambaram,India,80.09E,13.66N
+3021,Tambov,Russia,42.04E,52.24N
+3022,Tambun,Indonesia,106.55E,5.63S
+3023,Tampa,United States,82.73W,28.13N
+3024,Tampere,Finland,22.08E,61.88N
+3025,Tampico,Mexico,97.79W,21.70N
+3026,Tandil,Argentina,58.98W,37.78S
+3027,Tando Adam,Pakistan,68.06E,26.52N
+3028,Tanete,Indonesia,119.46E,5.63S
+3029,Tanga,Tanzania,38.74E,5.63S
+3030,Tangerang,Indonesia,106.55E,5.63S
+3031,Tanggu,China,118.61E,39.38N
+3032,Tangier,Morocco,5.97W,36.17N
+3033,Tangshan,China,113.90E,37.78N
+3034,Tanjung Morawa,Indonesia,98.84E,4.02N
+3035,Tanshui,Taiwan,120.59E,24.92N
+3036,Tanta,Egypt,30.16E,31.35N
+3037,Tanza,Philippines,120.83E,15.27N
+3038,Taonan,China,123.46E,45.81N
+3039,Taoyüan,Taiwan,120.59E,24.92N
+3040,Tapachula,Mexico,92.50W,15.27N
+3041,Taranto,Italy,17.04E,40.99N
+3042,Taraz,Kazakhstan,72.00E,42.59N
+3043,Targu Mures,Romania,24.23E,45.81N
+3044,Tarhunah,Libya,14.36E,32.95N
+3045,Tarija,Bolivia,64.90W,21.70S
+3046,Tarlac,Philippines,120.83E,15.27N
+3047,Tarnow,Poland,21.55E,50.63N
+3048,Tarragona,Spain,2.13E,40.99N
+3049,Tarsus,Turkey,34.58E,37.78N
+3050,Tartu,Estonia,27.69E,58.66N
+3051,Tartus,Syria,35.03E,34.56N
+3052,Tashkent,Uzbekistan,70.30E,40.99N
+3053,Tasikmalaya,Indonesia,107.84E,7.23S
+3054,Taubaté,Brazil,46.31W,23.31S
+3055,Taunggyi,Burma,97.25E,20.09N
+3056,Tauranga,New Zealand,176.95E,37.78S
+3057,Tawau,Malaysia,118.13E,4.02N
+3058,Taytay,Philippines,120.83E,15.27N
+3059,Tbilisi,Georgia,44.73E,40.99N
+3060,Tebingtinggi,Indonesia,98.84E,4.02N
+3061,Tegal,Indonesia,109.46E,7.23S
+3062,Tegucigalpa,Honduras,86.70W,13.66N
+3063,Tehuacán,Mexico,98.03W,18.48N
+3064,Tekirdag,Turkey,27.69E,40.99N
+3065,Tel Aviv Yafo,Israel,33.93E,31.35N
+3066,Teluknaga,Indonesia,106.55E,5.63S
+3067,Tema,Ghana,0.00W,5.63N
+3068,Tembisa,South Africa,28.66E,26.52S
+3069,Temirtau,Kazakhstan,72.25E,50.63N
+3070,Tempe,United States,112.02W,32.95N
+3071,Temuco,Chile,72.83W,39.38S
+3072,Tenali,India,80.37E,16.87N
+3073,Tengzhou,China,116.76E,34.56N
+3074,Tepic,Mexico,104.71W,21.70N
+3075,Teresina,Brazil,43.59W,5.63S
+3076,Teresópolis,Brazil,42.40W,21.70S
+3077,Termiz,Uzbekistan,67.12E,37.78N
+3078,Ternate,Indonesia,127.77E,0.80N
+3079,Terni,Italy,13.09E,42.59N
+3080,Terrassa,Spain,2.13E,40.99N
+3081,Teshie,Ghana,0.00W,5.63N
+3082,Tete,Mozambique,33.49E,16.87S
+3083,Texcoco,Mexico,98.96W,20.09N
+3084,Teófilo Otoni,Brazil,42.25W,18.48S
+3085,Thana,India,72.68E,18.48N
+3086,Thanesar,India,77.54E,29.74N
+3087,Thanh Hóa,Vietnam,105.78E,20.09N
+3088,Thanjavur,India,79.36E,10.45N
+3089,Thanyaburi,Thailand,101.56E,13.66N
+3090,Thaton,Burma,97.12E,16.87N
+3091,The Hague,Netherlands,5.26E,52.24N
+3092,Thessaloníki,Greece,23.43E,40.99N
+3093,Thiruvananthapuram,India,77.03E,8.84N
+3094,Thiès,Senegal,17.50W,15.27N
+3095,Thornton,United States,104.05W,39.38N
+3096,Thousand Oaks,United States,118.70W,34.56N
+3097,Thrissur,India,76.09E,10.45N
+3098,Thái Nguyên,Vietnam,106.44E,21.70N
+3099,Tianjin,China,116.53E,39.38N
+3100,Tianmen,China,113.09E,31.35N
+3101,Tieli,China,129.08E,47.42N
+3102,Tieling,China,124.36E,42.59N
+3103,Tighina,Moldova,29.61E,47.42N
+3104,Tijuana,Mexico,117.77W,32.95N
+3105,Tilburg,Netherlands,5.26E,52.24N
+3106,Timisoara,Romania,21.92E,45.81N
+3107,Timon,Brazil,43.59W,5.63S
+3108,Tirana,Albania,19.17E,40.99N
+3109,Tiruchchirappalli,India,79.36E,10.45N
+3110,Tirunelveli,India,77.03E,8.84N
+3111,Tirupati,India,80.09E,13.66N
+3112,Tiruppur,India,77.73E,10.45N
+3113,Tiruvannamalai,India,78.90E,12.05N
+3114,Tiruvottiyur,India,80.09E,13.66N
+3115,Titagarh,India,88.25E,23.31N
+3116,Tlalnepantla,Mexico,98.96W,20.09N
+3117,Tlaquepaque,Mexico,104.08W,20.09N
+3118,Toamasina,Madagascar,49.01E,18.48S
+3119,Toda,Japan,139.23E,36.17N
+3120,Tokat,Turkey,36.21E,40.99N
+3121,Tokorozawa,Japan,139.23E,36.17N
+3122,Tokuyama,Japan,132.32E,34.56N
+3123,Tokyo,Japan,139.23E,36.17N
+3124,Toledo,Philippines,123.55E,10.45N
+3125,Toledo,United States,83.08W,40.99N
+3126,Toliary,Madagascar,42.82E,23.31S
+3127,Toluca,Mexico,99.72W,18.48N
+3128,Tolyatti,Russia,50.45E,53.84N
+3129,Tomakomai,Japan,141.82E,42.59N
+3130,Toms River,United States,74.91W,39.38N
+3131,Tomsk,Russia,84.10E,57.05N
+3132,Tonalá,Mexico,104.08W,20.09N
+3133,Tondabayashi,Japan,136.22E,34.56N
+3134,Tongchuan,China,108.97E,34.56N
+3135,Tongliao,China,122.98E,44.20N
+3136,Tongling,China,118.74E,31.35N
+3137,Tongzhou,China,116.53E,39.38N
+3138,Tonk,India,75.22E,26.52N
+3139,Topeka,United States,95.72W,39.38N
+3140,Toronto,Canada,80.50W,44.20N
+3141,Torrance,United States,118.70W,34.56N
+3142,Torrejón De Ardoz,Spain,4.26W,40.99N
+3143,Torreón,Mexico,102.86W,24.92N
+3144,Torun,Poland,18.39E,52.24N
+3145,Tottori,Japan,134.27E,34.56N
+3146,Touliu,Taiwan,119.71E,23.31N
+3147,Toulon,France,6.55E,42.59N
+3148,Toulouse,France,2.24E,44.20N
+3149,Toungoo,Burma,96.34E,18.48N
+3150,Tours,France,1.18E,47.42N
+3151,Townsville,Australia,147.04E,18.48S
+3152,Toyohashi,Japan,138.16E,34.56N
+3153,Toyokawa,Japan,138.16E,34.56N
+3154,Toyonaka,Japan,136.22E,34.56N
+3155,Toyota,Japan,136.22E,34.56N
+3156,Trabzon,Turkey,40.47E,40.99N
+3157,Trelew,Argentina,65.45W,42.59S
+3158,Trento,Italy,10.38E,45.81N
+3159,Trier,Germany,7.35E,49.03N
+3160,Trieste,Italy,12.69E,45.81N
+3161,Trincomalee,Sri Lanka,81.89E,8.84N
+3162,Tripoli,Libya,12.45E,32.95N
+3163,Trois Rivières,Canada,72.69W,45.81N
+3164,Trondheim,Norway,9.00E,63.49N
+3165,Trujillo,Peru,78.65W,8.84S
+3166,Tshikapa,Congo (Democratic Republic Of The),20.99E,5.63S
+3167,Tsuchiura,Japan,139.23E,36.17N
+3168,Tsukuba,Japan,139.23E,36.17N
+3169,Tubruq,Libya,24.50E,31.35N
+3170,Tucheng,Taiwan,120.59E,24.92N
+3171,Tucson,United States,111.20W,31.35N
+3172,Tucuman,Argentina,64.48W,26.52S
+3173,Tuguegarao,Philippines,121.69E,18.48N
+3174,Tula,Russia,36.82E,53.84N
+3175,Tulancingo,Mexico,98.96W,20.09N
+3176,Tulsa,United States,95.47W,36.17N
+3177,Tuluá,Colombia,76.34W,4.02N
+3178,Tumbes,Peru,81.16W,4.02S
+3179,Tumkur,India,76.79E,13.66N
+3180,Tungi,Bangladesh,90.00E,23.31N
+3181,Tunis,Tunisia,9.94E,36.17N
+3182,Tunja,Colombia,72.65W,5.63N
+3183,Turgutlu,Turkey,28.47E,37.78N
+3184,Turhal,Turkey,36.21E,40.99N
+3185,Turin,Italy,8.08E,45.81N
+3186,Turku,Finland,22.70E,60.27N
+3187,Turmero,Venezuela,67.91W,10.45N
+3188,Tuxtla Gutiérrez,Mexico,93.77W,16.87N
+3189,Tuzla,Bosnia And Herzegovina,17.89E,44.20N
+3190,Tver,Russia,36.89E,57.05N
+3191,Tychy,Poland,19.01E,50.63N
+3192,Tyumen,Russia,66.39E,57.05N
+3193,Tétouan,Morocco,5.97W,36.17N
+3194,Türkmenabat,Turkmenistan,64.51E,39.38N
+3195,Ube,Japan,130.38E,34.56N
+3196,Uberaba,Brazil,47.77W,20.09S
+3197,Uberlândia,Brazil,49.01W,18.48S
+3198,Ubon Ratchathani,Thailand,104.17E,15.27N
+3199,Udgir,India,77.75E,18.48N
+3200,Udon Thani,Thailand,102.14E,16.87N
+3201,Udupi,India,75.14E,13.66N
+3202,Ueda,Japan,139.23E,36.17N
+3203,Ufa,Russia,56.69E,55.45N
+3204,Ugep,Nigeria,8.07E,5.63N
+3205,Uitenhage,South Africa,25.30E,34.56S
+3206,Uji,Japan,136.22E,34.56N
+3207,Ujjain,India,76.02E,23.31N
+3208,Ukhta,Russia,52.20E,63.49N
+3209,Ulaanbaatar,Mongolia,107.76E,47.42N
+3210,Ulan Ude,Russia,107.74E,52.24N
+3211,Ulhasnagar,India,72.68E,18.48N
+3212,Ulm,Germany,9.80E,49.03N
+3213,Ulubaria,India,88.25E,23.31N
+3214,Ulyanovsk,Russia,47.73E,53.84N
+3215,Umm Durman,Sudan,32.50E,15.27N
+3216,Umuahia,Nigeria,8.07E,5.63N
+3217,Ungaran,Indonesia,111.08E,7.23S
+3218,Unnao,India,80.60E,26.52N
+3219,Uppsala,Sweden,16.22E,60.27N
+3220,Urayasu,Japan,139.23E,36.17N
+3221,Urdaneta,Philippines,120.83E,15.27N
+3222,Urfa,Turkey,38.64E,37.78N
+3223,Uromi,Nigeria,5.68E,7.23N
+3224,Uruapan,Mexico,102.37W,20.09N
+3225,Uruguaiana,Brazil,57.23W,29.74S
+3226,Usak,Turkey,29.13E,39.38N
+3227,Ussuriysk,Russia,131.93E,44.20N
+3228,Ust Ilimsk,Russia,101.54E,58.66N
+3229,Utrecht,Netherlands,5.26E,52.24N
+3230,Uvira,Congo (Democratic Republic Of The),29.73E,4.02S
+3231,Uyo,Nigeria,8.07E,5.63N
+3232,Uzhhorod,Ukraine,22.04E,49.03N
+3233,Vadodara,India,73.56E,21.70N
+3234,Valdivia,Chile,72.83W,39.38S
+3235,Valencia,Spain,0.00W,39.38N
+3236,Valencia,Venezuela,67.91W,10.45N
+3237,Valladolid,Spain,4.26W,40.99N
+3238,Valledupar,Colombia,72.82W,10.45N
+3239,Vallejo,United States,122.03W,37.78N
+3240,Valparaiso,Chile,71.81W,32.95S
+3241,Van,Turkey,42.71E,37.78N
+3242,Vanadzor,Armenia,44.73E,40.99N
+3243,Vancouver,Canada,122.45W,49.03N
+3244,Vancouver,United States,123.46W,45.81N
+3245,Vanderbijlpark,South Africa,28.66E,26.52S
+3246,Varamin,Iran,51.71E,36.17N
+3247,Varanasi,India,83.35E,24.92N
+3248,Varginha,Brazil,45.87W,21.70S
+3249,Varna,Bulgaria,28.36E,42.59N
+3250,Vejalpur,India,74.27E,23.31N
+3251,Velikie Luki,Russia,30.98E,57.05N
+3252,Velikiy Novgorod,Russia,30.77E,58.66N
+3253,Velluru,India,78.90E,12.05N
+3254,Venice,Italy,12.69E,45.81N
+3255,Veracruz,Mexico,96.34W,18.48N
+3256,Veraval,India,70.10E,21.70N
+3257,Vereeniging,South Africa,28.66E,26.52S
+3258,Verona,Italy,10.38E,45.81N
+3259,Verwoerdburg,South Africa,28.66E,26.52S
+3260,Viamão,Brazil,51.69W,29.74S
+3261,Vicenza,Italy,12.69E,45.81N
+3262,Victoria,Canada,122.45W,49.03N
+3263,Vidisha,India,77.77E,23.31N
+3264,Vienna,Austria,17.14E,49.03N
+3265,Vientiane,Laos,103.10E,18.48N
+3266,Vigo,Spain,8.73W,42.59N
+3267,Vihari,Pakistan,72.00E,29.74N
+3268,Vijayawada,India,80.37E,16.87N
+3269,Vila Velha,Brazil,40.95W,20.09S
+3270,Villa Canales,Guatemala,90.83W,15.27N
+3271,Villa Nueva,Guatemala,90.83W,15.27N
+3272,Villahermosa,Mexico,92.96W,18.48N
+3273,Villavicencio,Colombia,73.13W,4.02N
+3274,Villeurbanne,France,5.77E,45.81N
+3275,Vilnius,Lithuania,25.51E,55.45N
+3276,Vina Del Mar,Chile,71.81W,32.95S
+3277,Vinh,Vietnam,106.48E,18.48N
+3278,Vinh Long,Vietnam,105.55E,10.45N
+3279,Vinnitsa,Ukraine,29.39E,49.03N
+3280,Vinnytsya,Ukraine,29.39E,49.03N
+3281,Viransehir,Turkey,40.68E,37.78N
+3282,Virar,India,73.36E,20.09N
+3283,Virginia,South Africa,26.36E,28.13S
+3284,Virginia Beach,United States,75.58W,36.17N
+3285,Visakhapatnam,India,82.82E,18.48N
+3286,Visalia,United States,119.34W,36.17N
+3287,Vitoria,Spain,2.18W,42.59N
+3288,Vitória,Brazil,40.95W,20.09S
+3289,Vitória Da Conquista,Brazil,40.83W,15.27S
+3290,Vitória De Santo Antão,Brazil,34.86W,8.84S
+3291,Vizianagaram,India,82.82E,18.48N
+3292,Vladikavkaz,Russia,43.64E,42.59N
+3293,Vladimir,Russia,39.69E,55.45N
+3294,Vladivostok,Russia,130.91E,42.59N
+3295,Volgodonsk,Russia,41.45E,47.42N
+3296,Volgograd,Russia,44.08E,49.03N
+3297,Vologda,Russia,40.00E,58.66N
+3298,Volta Redonda,Brazil,44.13W,21.70S
+3299,Volzhskiy,Russia,44.08E,49.03N
+3300,Voronezh,Russia,39.42E,52.24N
+3301,Vryheid,South Africa,30.00E,28.13S
+3302,Vung Tau,Vietnam,107.18E,10.45N
+3303,Várzea Grande,Brazil,55.83W,15.27S
+3304,Várzea Paulista,Brazil,46.31W,23.31S
+3305,Västerås,Sweden,16.22E,60.27N
+3306,Waco,United States,98.01W,31.35N
+3307,Wad Madani,Sudan,33.85E,13.66N
+3308,Wah,Pakistan,72.00E,34.56N
+3309,Wahran,Algeria,0.00W,36.17N
+3310,Waitakere,New Zealand,175.03E,36.17S
+3311,Walbrzych,Poland,16.48E,50.63N
+3312,Walsall,United Kingdom,2.63W,52.24N
+3313,Wanxian,China,109.32E,31.35N
+3314,Warangal,India,79.44E,18.48N
+3315,Wardha,India,78.48E,20.09N
+3316,Warqla,Algeria,5.65E,31.35N
+3317,Warren,United States,82.91W,42.59N
+3318,Warri,Nigeria,6.46E,5.63N
+3319,Warsaw,Poland,21.02E,52.24N
+3320,Waru,Indonesia,112.70E,7.23S
+3321,Washington,United States,76.99W,39.38N
+3322,Waterbury,United States,72.43W,40.99N
+3323,Waterloo,Canada,80.50W,44.20N
+3324,Watford,United Kingdom,0.00W,52.24N
+3325,Waw,Sudan,28.38E,7.23N
+3326,Wazirabad,Pakistan,73.72E,32.95N
+3327,Weifang,China,119.34E,36.17N
+3328,Weihai,China,122.03E,37.78N
+3329,Weinan,China,108.97E,34.56N
+3330,Welkom,South Africa,26.36E,28.13S
+3331,Wellington,New Zealand,174.67E,40.99S
+3332,Wencheng,China,122.03E,37.78N
+3333,Wenzhou,China,120.91E,28.13N
+3334,Weru,Indonesia,107.84E,7.23S
+3335,West Bromwich,United Kingdom,2.63W,52.24N
+3336,West Covina,United States,118.70W,34.56N
+3337,West Jordan,United States,112.90W,40.99N
+3338,West Valley City,United States,112.90W,40.99N
+3339,Westminster,United States,104.05W,39.38N
+3340,Westonaria,South Africa,26.87E,26.52S
+3341,Wichita,United States,97.63W,37.78N
+3342,Wichita Falls,United States,99.24W,34.56N
+3343,Wiesbaden,Germany,8.87E,50.63N
+3344,Windhoek,Namibia,16.60E,23.31S
+3345,Windsor,United States,82.91W,42.59N
+3346,Winnipeg,Canada,97.61W,50.63N
+3347,Winston Salem,United States,79.56W,36.17N
+3348,Witbank,South Africa,28.66E,26.52S
+3349,Witten,Germany,7.88E,52.24N
+3350,Wloclawek,Poland,18.39E,52.24N
+3351,Wolfsburg,Germany,10.51E,52.24N
+3352,Wollongong,Australia,151.78E,34.56S
+3353,Wolverhampton,United Kingdom,2.63W,52.24N
+3354,Worcester,South Africa,20.11E,32.95S
+3355,Worcester,United Kingdom,2.63W,52.24N
+3356,Worcester,United States,72.00W,42.59N
+3357,Wroclaw,Poland,16.48E,50.63N
+3358,Wuda,China,106.13E,39.38N
+3359,Wufeng,China,104.55E,28.13N
+3360,Wuhan,China,114.46E,29.74N
+3361,Wuhu,China,118.74E,31.35N
+3362,Wulanhaote,China,121.15E,45.81N
+3363,Wuning,China,120.00E,29.74N
+3364,Wuppertal,Germany,6.34E,50.63N
+3365,Wuwei,China,101.69E,37.78N
+3366,Wuxi,China,120.63E,31.35N
+3367,Wuxue,China,116.31E,29.74N
+3368,Wuzhou,China,110.97E,23.31N
+3369,Würzburg,Germany,9.80E,49.03N
+3370,Xai Xai,Mozambique,33.69E,24.92S
+3371,Xalapa,Mexico,97.25W,20.09N
+3372,Xiamen,China,118.82E,24.92N
+3373,Xian,China,108.97E,34.56N
+3374,Xiangdong,China,113.64E,28.13N
+3375,Xiangfan,China,112.02E,32.95N
+3376,Xiantao,China,112.62E,29.74N
+3377,Xianyang,China,108.97E,34.56N
+3378,Xiaolan,China,112.72E,23.31N
+3379,Xiazhen,China,116.76E,34.56N
+3380,Xichang,China,102.73E,28.13N
+3381,Xico,Mexico,98.96W,20.09N
+3382,Xingtai,China,113.90E,37.78N
+3383,Xingyi,China,104.63E,24.92N
+3384,Xining,China,101.44E,36.17N
+3385,Xinpu,China,118.70E,34.56N
+3386,Xintai,China,117.35E,36.17N
+3387,Xinxiang,China,113.37E,36.17N
+3388,Xinyang,China,113.94E,32.95N
+3389,Xinzhou,China,111.86E,37.78N
+3390,Xuanhua,China,115.03E,40.99N
+3391,Xuanzhou,China,118.74E,31.35N
+3392,Xuchang,China,112.86E,34.56N
+3393,Xuzhou,China,116.76E,34.56N
+3394,Yaan,China,103.38E,29.74N
+3395,Yachiyo,Japan,139.23E,36.17N
+3396,Yaizu,Japan,138.16E,34.56N
+3397,Yakeshi,China,120.00E,49.03N
+3398,Yamoussoukro,Côte D'Ivoire,5.68W,7.23N
+3399,Yamunanagar,India,77.54E,29.74N
+3400,Yanan,China,109.39E,36.17N
+3401,Yancheng,China,119.68E,32.95N
+3402,Yangjiang,China,111.63E,21.70N
+3403,Yangmei,Taiwan,120.59E,24.92N
+3404,Yangzhou,China,119.68E,32.95N
+3405,Yanji,China,128.73E,42.59N
+3406,Yantai,China,122.03E,37.78N
+3407,Yao,Japan,136.22E,34.56N
+3408,Yaoundé,Cameroon,12.05E,4.02N
+3409,Yaroslavl,Russia,39.84E,57.05N
+3410,Yatsushiro,Japan,131.17E,32.95N
+3411,Yavatmal,India,78.48E,20.09N
+3412,Yazd,Iran,54.66E,31.35N
+3413,Yekaterinburg,Russia,60.49E,57.05N
+3414,Yelahanka,India,76.79E,13.66N
+3415,Yelets,Russia,39.42E,52.24N
+3416,Yenangyaung,Burma,95.55E,20.09N
+3417,Yerevan,Armenia,44.73E,40.99N
+3418,Yevpatoriya,Ukraine,33.46E,45.81N
+3419,Yibin,China,104.55E,28.13N
+3420,Yichang,China,111.20E,31.35N
+3421,Yichun,China,113.64E,28.13N
+3422,Yichun,China,129.08E,47.42N
+3423,Yidu,China,119.34E,36.17N
+3424,Yinchuan,China,105.76E,37.78N
+3425,Yingcheng,China,113.09E,31.35N
+3426,Yingcheng,China,113.50E,24.92N
+3427,Yingkou,China,123.55E,40.99N
+3428,Yingzhong,China,113.09E,31.35N
+3429,Yining,China,80.50E,44.20N
+3430,Yiyang,China,111.82E,28.13N
+3431,Yizheng,China,119.68E,32.95N
+3432,Yogyakarta,Indonesia,111.08E,7.23S
+3433,Yokkaichi,Japan,136.22E,34.56N
+3434,Yokosuka,Japan,140.11E,34.56N
+3435,Yonago,Japan,133.26E,36.17N
+3436,Yongan,China,118.21E,26.52N
+3437,Yonkers,United States,74.56W,40.99N
+3438,York,United Kingdom,1.36W,53.84N
+3439,Yuci,China,111.86E,37.78N
+3440,Yueyang,China,112.62E,29.74N
+3441,Yulin,China,109.90E,21.70N
+3442,Yuncheng,China,110.92E,34.56N
+3443,Yungho,Taiwan,122.36E,24.92N
+3444,Yungkang,Taiwan,121.46E,23.31N
+3445,Yushan,China,120.63E,31.35N
+3446,Yushu,China,127.45E,44.20N
+3447,Yuyao,China,121.85E,29.74N
+3448,Yüanlin,Taiwan,120.59E,24.92N
+3449,Zaanstad,Netherlands,5.26E,52.24N
+3450,Zabol,Iran,62.20E,31.35N
+3451,Zabrze,Poland,19.01E,50.63N
+3452,Zacatecas,Mexico,102.23W,23.31N
+3453,Zagreb,Croatia,15.00E,45.81N
+3454,Zalantun,China,121.97E,47.42N
+3455,Zama,Japan,139.23E,36.17N
+3456,Zamboanga,Philippines,122.43E,7.23N
+3457,Zamora,Mexico,102.37W,20.09N
+3458,Zanjan,Iran,47.73E,36.17N
+3459,Zanzibar,Tanzania,38.74E,5.63S
+3460,Zaoyang,China,113.09E,31.35N
+3461,Zaozhuang,China,116.76E,34.56N
+3462,Zapopan,Mexico,104.08W,20.09N
+3463,Zaporizhzhya,Ukraine,34.34E,47.42N
+3464,Zaragoza,Spain,0.00W,40.99N
+3465,Zaria,Nigeria,7.36E,10.45N
+3466,Zelenodolsk,Russia,48.19E,55.45N
+3467,Zelenograd,Russia,36.85E,55.45N
+3468,Zenica,Bosnia And Herzegovina,17.89E,44.20N
+3469,Zhangdian,China,117.35E,36.17N
+3470,Zhangjiakou,China,115.03E,40.99N
+3471,Zhangzhou,China,117.04E,24.92N
+3472,Zhanjiang,China,109.90E,21.70N
+3473,Zhaocheng,China,120.00E,37.78N
+3474,Zhaodong,China,125.77E,45.81N
+3475,Zhaoqing,China,112.72E,23.31N
+3476,Zhaotong,China,103.88E,26.52N
+3477,Zhaoyang,China,119.68E,32.95N
+3478,Zhenjiang,China,119.68E,32.95N
+3479,Zhezkazgan,Kazakhstan,67.50E,47.42N
+3480,Zhicheng,China,110.77E,29.74N
+3481,Zhongshan,China,113.37E,21.70N
+3482,Zhoucheng,China,102.86E,24.92N
+3483,Zhoucun,China,117.35E,36.17N
+3484,Zhoukou,China,113.94E,32.95N
+3485,Zhucheng,China,119.34E,36.17N
+3486,Zhuhai,China,113.37E,21.70N
+3487,Zhuji,China,120.00E,29.74N
+3488,Zhukovskiy,Russia,36.85E,55.45N
+3489,Zhumadian,China,113.94E,32.95N
+3490,Zhuozhou,China,116.53E,39.38N
+3491,Zhuzhou,China,113.64E,28.13N
+3492,Zhytomyr,Ukraine,29.15E,50.63N
+3493,Zielona Gora,Poland,15.77E,52.24N
+3494,Zigong,China,105.23E,29.74N
+3495,Ziguinchor,Senegal,16.44W,12.05N
+3496,Zinder,Niger,9.08E,13.66N
+3497,Zlatoust,Russia,59.53E,55.45N
+3498,Zoetermeer,Netherlands,5.26E,52.24N
+3499,Zonguldak,Turkey,31.95E,40.99N
+3500,Zouxian,China,117.35E,36.17N
+3501,Zunyi,China,106.36E,28.13N
+3502,Zurich,Switzerland,8.29E,47.42N
+3503,Zuwarah,Libya,12.45E,32.95N
+3504,Zwolle,Netherlands,5.26E,52.24N
+3505,Århus,Denmark,10.33E,57.05N
+3506,Çorlu,Turkey,27.69E,40.99N
+3507,Çorum,Turkey,34.08E,40.99N
+3508,Öskemen,Kazakhstan,82.39E,50.63N
+3509,Ürümqi,China,87.20E,44.20N

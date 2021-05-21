@@ -3,8 +3,6 @@
 # The goal of this lab is to work through the basics of python with
 # a focus on the aspects that are important for datascience and machine learning.
 
-
-
 # ## Working with types
 
 # Unlike other languages that you may have worked with in the past
