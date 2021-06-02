@@ -1,19 +1,122 @@
-# # Module 4 - Hands on Machine Learning
+# # Module 4 - Machine Learning
 
-import sklearn.linear_model
+
+# Last class we saw some complex tables based operations. 
+
+import sklearn
+from sklearn.linear_model import LogisticRegression
+#from sklearn.linear_model import KNNClassifier
 import pandas as pd
 import altair as alt
 import numpy as np
 
-df = pd.read_csv("data/Temperatures.csv", index_col=0, parse_dates=[1])
 
+# In this dataset we will start with a classic ML dataset.
+
+df = pd.read_csv("data/DataSet.csv")
+df
+
+
+# ## Training versus Test.
+
+df_train = df.loc[df["Split"] == "Train"]
+chart = (alt.Chart(df_train)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color=["class"]
+    ))
+
+
+df_test = df.loc[df["Split"] == "Test"]
+chart = (alt.Chart(df_test)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color = ["class"]
+    ))
+
+
+# ## Machine Learning
+
+
+# Declarative Machine Learning
+# *
+# * 
+
+model = LogisticRegression()
+model.fit(df_train[["feature1", "feature2"]],
+          df_train["class"])
+
+
+# Predict
+
+df_test["predict"] = model.predict(df_test[["feature1", "feature2"]])
+
+
+chart = (alt.Chart(df_test)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color = ["class", "predict"]
+    ))
+chart
+
+chart = (alt.Chart(background)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color = ["class", "predict"]
+    ))
+chart
+
+# Alternative data 
+
+
+df = pd.read_csv("data/DataSet.csv")
+df
+
+df_train = df.loc[df["Split"] == "Train"]
+
+model = LinearClassification()
+model.fit(df_train[["feature1", "feature2"]],
+          df_train["class"])
+
+df_test = df.loc[df["Split"] == "Test"]
+df_test["predict"] = model.predict(df_test[["feature1", "feature2"]])
+
+
+# Alternative Approach
+
+model = KNNClassifier()
+model.fit(df_train[["feature1", "feature2"]],
+          df_train["class"])
+
+
+df_test = df.loc[df["Split"] == "Test"]
+df_test["predict"] = model.predict(df_test[["feature1", "feature2"]])
+
+
+# ## Evaluation.
+
+df_test["correct"]
+df_test["predict"]
+
+# Real World example
+
+# Temperature classification. 
+
+df = pd.read_csv("data/Temperatures.csv", index_col=0, parse_dates=[1])
 
 
 check = ((df["Country"] == "United States") &
          (df["dt"].dt.year == 1950) &
          (df["dt"].dt.month == 7) )
 df2 = df.loc[check]
-
 
 
 out = df2.describe()
@@ -107,23 +210,5 @@ chart
 model = sklearn.linear_model.LinearRegression()
 model.fit(df2[["Latitude"]], df2["AverageTemperature"])
 
-
-
-# ## Features 
-
-# ## Regression
-
-# Predict Temperature
-
-
-# ## Classification
-
-# In a state. 
-
-
-# ## Fitting Models to Data
-
-
-# ## Graphs and Scikitlean
 
 

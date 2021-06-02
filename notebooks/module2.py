@@ -1,4 +1,4 @@
-# # Lab 2 - Working with Data 1
+# # Lab 2 - Working with Data
 
 
 # The target of this lab session is to analyze and understand a large
@@ -111,6 +111,12 @@ df.loc[list_of_rows]
 
 # In Pandas, we first create a filter. This is kind of like an if statement that gets
 # applied to every row. It creates a variable that remembers which rows passed the filter test.
+
+# SKILL Filtering
+#
+# 1) Define a filter for you dataframe
+# 2) Apply filter and rename.
+
 filter = df["Country"] == "Mexico"
 filter
 
@@ -131,6 +137,7 @@ total_mexican
 # Filters can also be more complex. You can check for basically any property you might
 # think of. For instance, here we want to keep both cities in the US and in Canada. The
 # symbol `|` means `either-or`. 
+
 
 filter = (df["Country"] == "United States") | (df["Country"] == "Canada")
 us_or_canada_df = df.loc[filter]
@@ -269,7 +276,6 @@ df = df.merge(all_cities_df, on=["City", "Country"])
 df
 
 
-
 # ## Formatting Exercise
 
 # Convert the latitude and longitude strings...
@@ -372,7 +378,7 @@ chart = background + chart
 chart
 
 
-# WIth a little more work we can even make this look cooler!
+# With a little more work we can even make this look cooler!
 
 states = alt.topo_feature(data.world_110m.url, feature='countries')
 background = alt.Chart(states).mark_geoshape(

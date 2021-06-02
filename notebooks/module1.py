@@ -137,7 +137,7 @@ for value in list3:
 # First we add a line of code to important a new type into our program.
 # it will often looks something like this.
 
-import collect
+import collections
 # We can then use the type like this.
 
 count = collections.Counter([1, 2, 1, 2, 1, 1, 1])
@@ -176,6 +176,7 @@ count.most_common(1)
 # Another very common type that we will want to handle is the type for
 # dates. I forgot how this works so let's Google it "how do i get the
 # current time in python"
+#
 
 
 # The link we get back is here
@@ -225,7 +226,7 @@ months[1]
 
 # We can convert it to a month name through a lookup.
 
-number_to_name_dict[date1.month]
+months[date1.month]
 
 
 # If we want to see all the months we walk through them with a `for` loop.
@@ -299,10 +300,10 @@ new_str
 # Checks if one string contains another  
 
 original_str = "Item 1 | Item 2 | Item 3"
-contains1 = original_str.contains("Item 2")
+contains1 = "Item 2" in original_str
 contains1
 
-contains2 = original_str.contains("Item 4")
+contains2 = "Item 4" in original_str 
 contains2
 
 
