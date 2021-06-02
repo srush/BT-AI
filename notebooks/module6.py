@@ -4,6 +4,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasClassifier
 import keras
+import numpy
 
 # Function to create model, required for KerasClassifier
 def create_model(input_dim):
@@ -24,22 +25,22 @@ numpy.random.seed(seed)
 
 
 # load pima indians dataset
-dataset = numpy.loadtxt("pima-indians-diabetes.csv", delimiter=",")
+# dataset = numpy.loadtxt("pima-indians-diabetes.csv", delimiter=",")
 
 
-# split into input (X) and output (Y) variables
-X = dataset[:, 0:8]
-Y = dataset[:, 8]
+# # split into input (X) and output (Y) variables
+# X = dataset[:, 0:8]
+# Y = dataset[:, 8]
 
-# create model
-model = KerasClassifier(build_fn=create_model,
-                        input_dim=2,
-                        epochs=150,
-                        batch_size=10,
-                        verbose=0)
-model.fit(df_train[["feature1", "feature2"]],
-          df_train["class"])
-model.fit()
+# # create model
+# model = KerasClassifier(build_fn=create_model,
+#                         input_dim=2,
+#                         epochs=150,
+#                         batch_size=10,
+#                         verbose=0)
+# model.fit(df_train[["feature1", "feature2"]],
+#           df_train["class"])
+# model.fit()
 
 # ## Deep Learning
 

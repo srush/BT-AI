@@ -65,7 +65,7 @@ chart = (alt.Chart(df_test)
     ))
 chart
 
-chart = (alt.Chart(background)
+chart = (alt.Chart(df_test)
     .mark_point()
     .encode(
         x = "feature1",
@@ -82,7 +82,7 @@ df
 
 df_train = df.loc[df["Split"] == "Train"]
 
-model = LinearClassification()
+model = LogisticRegression()
 model.fit(df_train[["feature1", "feature2"]],
           df_train["class"])
 
@@ -92,9 +92,9 @@ df_test["predict"] = model.predict(df_test[["feature1", "feature2"]])
 
 # Alternative Approach
 
-model = KNNClassifier()
-model.fit(df_train[["feature1", "feature2"]],
-          df_train["class"])
+# model = KNNClassifier()
+# model.fit(df_train[["feature1", "feature2"]],
+#           df_train["class"])
 
 
 df_test = df.loc[df["Split"] == "Test"]
@@ -103,7 +103,7 @@ df_test["predict"] = model.predict(df_test[["feature1", "feature2"]])
 
 # ## Evaluation.
 
-df_test["correct"]
+df_test["class"]
 df_test["predict"]
 
 # Real World example
