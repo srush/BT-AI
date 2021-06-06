@@ -379,7 +379,7 @@ for letter in str1:
 # functions in Python. Most of the time it is best to google for these, but
 # here are some important ones to remember
 
-# ### Split
+# * Split
 # Splits a string up into a list of strings based on a separator
 
 str1 = "a:b:c"
@@ -387,14 +387,17 @@ list_of_splits = str1.split(":")
 list_of_splits[1]
 
 
-# ### Join
+# * Join
 # Joins a string back together from a list.
 
 str1 = ",".join(list_of_splits)
-str1
 
 
-# ### Replace
+# **Student Question: What value does ```str1``` have?**
+
+#Fill-Me In
+
+# * Replace
 # Replaces some part of a string.
 
 original_str = "Item 1 | Item 2 | Item 3"
@@ -406,19 +409,24 @@ new_str
 
 
 
-# ### Contains
+# * In
 # Checks if one string contains another
 
 original_str = "Item 1 | Item 2 | Item 3"
 contains1 = "Item 2" in original_str
-contains1
+
 
 contains2 = "Item 4" in original_str
-contains2
 
 
-# ### Conversions
+# **Student Question: What values do ```contains1``` and ```contains2`` have?**
+
+#Fill-me In
+
+
+# *  Conversions
 # Converts between a string and a number
+
 int1 = int("15")
 int1
 
@@ -427,7 +435,6 @@ decimal1
 
 
 # ## Functions
-
 
 # Functions are small snippets of code that you may want to use
 # multiple times.
@@ -467,14 +474,68 @@ word_list = ["spider", "bat", "super"]
 out = map(add_man, word_list)
 out
 
+# # Group Exercise B
+
+# ## Question 1
+
+# When processing real-world data it is very common to be given a
+# complex string. that contains many different items all smashed together. 
+
+real_word_string1 = "Sasha Rush,arush@cornell.edu,Roosevelt Island,NYC"
 
 
-# ## Exercises
-
-teacher_str = "Sasha Rush,arush@cornell.edu,Roosevelt Island,NYC"
-
-
-name, email, location, city =  teacher_str.split(",")
+# Use one of the string functions above to pull out the email from
+# this string and print it.
 
 
-# Todo - Keyword args
+#Fill-Me
+
+# ## Question 2
+
+# Now assume the we have a list of strings.
+
+real_word_strings2 = ["Sasha Rush,arush@cornell.edu,Roosevelt Island,NY",
+                     "Bill Jones,bjones@cornell.edu,Manhattan,NY",
+                     "Sarah Jones,sjones@cornell.edu,Queens,NY"]
+
+
+# Write a for loop that does the following.
+
+# * Steps through each string
+# * Finds the email address
+# * Prints out the email address
+
+#Fill-Me In
+
+# ## Question 3
+
+# Next we will assume that we have a list of strings where people come from
+# different locations. Your goal is to step through the list and print out the
+# emails of *only* the people who come from New York.
+
+real_word_strings3 = ["Sasha Rush,arush@cornell.edu,Roosevelt Island,NY",
+                      "Erica Zhou,ezhou@cornell.edu,Manhattan,NY",
+                      "Jessica Peters,jpeters@cornell.edu,Miami,FL",
+                      "Bill Jones,bjones@cornell.edu,Philadelpha,PA",
+                      "Sarah Jones,sjones@cornell.edu,Queens,NY"]
+
+
+# ## Question 4
+
+# Finally lets assume that we want to create a new list of strings. We are going to do this
+# by adding one more element to each string.
+
+# Instead of "Sasha Rush,arush@cornell.edu,Roosevelt Island,NY"
+# we want it to say =>
+# "Sasha Rush,arush@cornell.edu,Roosevelt Island,NY,Computer Science"
+
+# Your task is to add this last element to each one of the strings
+
+real_word_strings4 = ["Sasha Rush,arush@cornell.edu,Roosevelt Island,NY",
+                      "Erica Zhou,ezhou@cornell.edu,Manhattan,NY",
+                      "Jessica Peters,jpeters@cornell.edu,Miami,FL",
+                      "Bill Jones,bjones@cornell.edu,Philadelpha,PA",
+                      "Sarah Jones,sjones@cornell.edu,Queens,NY"]
+
+
+#Fill-Me In
