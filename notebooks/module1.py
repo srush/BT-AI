@@ -67,7 +67,6 @@ number2 = 20
 # You don't have to do that in Python. The type is still there, but it is
 # added automatically.
 
-
 # You can add two numbers together to make a
 
 number3 = number1 + number2
@@ -86,7 +85,6 @@ pass
 string1 = "New York "
 string2 = "City"
 
-
 # To combine two strings you simply add them together.
 
 string3 = string1 + string2
@@ -97,12 +95,9 @@ string3 = string1 + string2
 #📝📝📝📝
 pass
 
-
-
 # ### Lists
 
 # Python has a simple type for multiple values called a list.
-
 
 list1 = [1, 2, 3]
 list2 = [4, 5]
@@ -112,24 +107,16 @@ list2 = [4, 5]
 # way easier. You don't need to declare their size or type. Just make
 # them.
 
-
-
 # Adding two lists together creates a new list combining the two.
 
 list3 = list1 + list2
-
 
 # **👩‍🎓Student Question: What value does ```list3``` have?**
 
 #📝📝📝📝
 pass
 
-
-
-
-
 # ## Dictionaries
-
 
 # A dictionary type is used to link a "key" to a "value".
 # You can have as many keys and values as you want, and they can
@@ -138,7 +125,6 @@ pass
 dict1 = {"apple": "red",
          "banana": "yellow"}
 dict1
-
 
 # To access a value of the dictionary, you use the square bracket notation
 # with the key that you want to access.
@@ -152,13 +138,10 @@ dict1["banana"]
 
 dict1["pear"] = "green"
 
-
 # **👩‍🎓Student Question: What value does ```dict1``` have?**
 
 #📝📝📝📝 FILLME
 pass
-
-
 
 # ## Importing and Reading Docs
 
@@ -166,11 +149,9 @@ pass
 # that we will use throughout the summer. Every programmer should know
 # these basic types.
 
-
 # However to be a really good, it is important to be able to use types
 # that you don't yet know. Most of the time the problem that you are
 # interested will have a type that is already made by someone else.
-
 
 # For instance, let's say we want a type for a date. We could try to write our own.
 
@@ -190,9 +171,7 @@ import datetime
 date1 = datetime.datetime.now()
 date1
 
-
 # How did I know how to do this?
-
 
 # Honestly, I had no idea. I completly forgot how this worked so I did this.
 
@@ -201,9 +180,6 @@ date1
 # 2. Clicked the link we get back here https://stackoverflow.com/questions/415511/how-to-get-the-current-time-in-python
 #
 # This is one of the most important skills to learn Python :)
-
-
-
 
 # The format of the output of the line above is telling use the we can
 # access the day and month of the current date in the following
@@ -217,7 +193,6 @@ date1.month
 
 #📝📝📝📝 FILLME
 pass
-
 
 # # Group Exercise A
 
@@ -264,9 +239,7 @@ from collections import Counter
 #📝📝📝📝 FILLME
 pass
 
-
 # ## Question 3
-
 
 # Another useful aspect of the `Counter` is that it can tell you the most common
 # elements in a list. This is particularly useful when there are a ton of different
@@ -282,14 +255,10 @@ wizard_of_oz
 #📝📝📝📝 FILLME
 pass
 
-
-
 # More than anything remember this. The best programmers use help the
 # most! No one wins a prize for memerizing the most functions. If you
 # want to be a good programmer, learn how to look things up quickly and
 # ask the most questions.
-
-
 
 # # Unit B
 
@@ -298,11 +267,9 @@ pass
 # you should not have to write very long amounts of code, but there are
 # some cases when it is useful.
 
-
 # ## Basic Structures
 
 # ### `if` statements
-
 
 # If statements check for a condition and run the
 # code if it is true. In Python you need to indent
@@ -335,14 +302,11 @@ else:
 
 list3
 
-
-
 # You indicate a for loop in the following manner. The code will be run 5 times
 # with the variable `value` taking on a new value each time through the loop.
 
 for value in list3:
     print("Next value is: ", value)
-
 
 # Note: unlike other languages Python for loops always need a list to
 # walkthough. This differs from language where you have a counter variable.
@@ -363,11 +327,9 @@ for month in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
 
 # ## Working with Strings
 
-
 # Strings are an importnat special case. Throughout this class we will
 # work a lot with text. We will start with simple examples and work our
 # way up to artificial intelligence over text.
-
 
 # Text will also be represented with a string type. This is created with
 # quotes.
@@ -395,12 +357,10 @@ str1 = "a:b:c"
 list_of_splits = str1.split(":")
 list_of_splits[1]
 
-
 # * Join
 # Joins a string back together from a list.
 
 str1 = ",".join(list_of_splits)
-
 
 # **👩‍🎓Student Question: What value does ```str1``` have?**
 
@@ -417,19 +377,15 @@ new_str
 new_str = original_str.replace("|", "")
 new_str
 
-
-
 # * In
 # Checks if one string contains another
 
 original_str = "Item 1 | Item 2 | Item 3"
 contains1 = "Item 2" in original_str
 
-
 contains2 = "Item 4" in original_str
 
-
-# **Student Question: What values do ```contains1``` and ```contains2`` have?**
+# **Student Question: What values do `contains1` and `contains2` have?**
 
 #📝📝📝📝 FILLME
 pass
@@ -443,7 +399,6 @@ int1
 decimal1 = float("15.50")
 decimal1
 
-
 # ## Functions
 
 # Functions are small snippets of code that you may want to use
@@ -454,7 +409,6 @@ def add_man(str1):
 
 out = add_man("bat")
 out
-
 
 # Most of the time, functions should not change the variables that
 # are sent to them. For instance here we do not change the variable `y`.
@@ -492,10 +446,8 @@ out
 
 real_word_string1 = "Sasha Rush,arush@cornell.edu,Roosevelt Island,NYC"
 
-
 # Use one of the string functions above to pull out the email from
 # this string and print it.
-
 
 #📝📝📝📝 FILLME
 pass
@@ -507,7 +459,6 @@ pass
 real_word_strings2 = ["Sasha Rush,arush@cornell.edu,Roosevelt Island,NY",
                      "Bill Jones,bjones@cornell.edu,Manhattan,NY",
                      "Sarah Jones,sjones@cornell.edu,Queens,NY"]
-
 
 # Write a for loop that does the following.
 
@@ -533,7 +484,6 @@ real_word_strings3 = ["Sasha Rush,arush@cornell.edu,Roosevelt Island,NY",
 #📝📝📝📝 FILLME
 pass
 
-
 # ## Question 4
 
 # Finally lets assume that we want to create a new list of strings. We are going to do this
@@ -550,7 +500,6 @@ real_word_strings4 = ["Sasha Rush,arush@cornell.edu,Roosevelt Island,NY",
                       "Jessica Peters,jpeters@cornell.edu,Miami,FL",
                       "Bill Jones,bjones@cornell.edu,Philadelpha,PA",
                       "Sarah Jones,sjones@cornell.edu,Queens,NY"]
+
 #📝📝📝📝 FILLME
 pass
-
-
