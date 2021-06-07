@@ -15,14 +15,14 @@
 
 # Planned Labs
 #
-# 1) Programming (Python)
-# 2) Structured Data (Pandas)
-# 3) Visualizing Data (Altair)
-# 4) Machine Learning I (Scikit-Learn)
-# 5) Machine Learning II (Scikit-Learn)
-# 6) Deep Learning I (Keras)
-# 7) Deep Learning II (Keras)
-# 8) AI Applications (Keras)
+# 1. Programming (Python)
+# 2. Structured Data (Pandas)
+# 3. Visualizing Data (Altair)
+# 4. Machine Learning I (Scikit-Learn)
+# 5. Machine Learning II (Scikit-Learn)
+# 6. Deep Learning I (Keras)
+# 7. Deep Learning II (Keras)
+# 8. AI Applications (Keras)
 
 
 # ## Lab Structure
@@ -38,16 +38,16 @@
 
 # ## Sample Lab
 
-# 4:00-4:10 - Icebreakers and Weekly Teams
-# 4:10-4:25 - Review
-# 4:25-4:30 - Self-Review Exercise
-# 4:30-5:00 - Unit A Walkthrough
-# 5:00-5:35 - Group Exercise A
-# 5:35-5:45 - Break
-# 5:45-6:15 - Unit B Walkthrough
-# 6:15-6:45 - Group Exercise B
-# 6:45-6:55 - Wrap-up
-# 6:55-7:00 - Class Survey
+# * 4:00-4:10 - Icebreakers and Weekly Teams
+# * 4:10-4:25 - Review
+# * 4:25-4:30 - Self-Review Exercise
+# * 4:30-5:00 - Unit A Walkthrough
+# * 5:00-5:35 - Group Exercise A
+# * 5:35-5:45 - Break
+# * 5:45-6:15 - Unit B Walkthrough
+# * 6:15-6:45 - Group Exercise B
+# * 6:45-6:55 - Wrap-up
+# * 6:55-7:00 - Class Survey
 
 
 # ## Colab Notebooks
@@ -59,10 +59,10 @@
 
 # To get started, you will need to follow these steps:
 
-# 1) Be sure to have a Google account. If you use gmail
+# 1. Be sure to have a Google account. If you use gmail
 #    that should work to get started.
-# 2) Navigate to https://colab.research.google.com/
-# 3) Click "Examples -> Overview of Colab Features"
+# 2. Navigate to https://colab.research.google.com/
+# 3. Click "Examples -> Overview of Colab Features"
 
 
 # The key takeaway from the Colab setup is that you can
