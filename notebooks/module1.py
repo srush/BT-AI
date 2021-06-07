@@ -72,7 +72,7 @@ number2 = 20
 number3 = number1 + number2
 
 
-# **👩‍🎓Student Question: What value does ```number3``` have?**
+# 👩‍🎓**Student Question: What value does ```number3``` have?**
 
 #📝📝📝📝
 pass
@@ -90,7 +90,7 @@ string2 = "City"
 string3 = string1 + string2
 
 
-# **👩‍🎓Student Question: What value does ```string3``` have?**
+# 👩‍🎓**Student Question: What value does ```string3``` have?**
 
 #📝📝📝📝
 pass
@@ -111,7 +111,7 @@ list2 = [4, 5]
 
 list3 = list1 + list2
 
-# **👩‍🎓Student Question: What value does ```list3``` have?**
+# 👩‍🎓**Student Question: What value does ```list3``` have?**
 
 #📝📝📝📝
 pass
@@ -138,7 +138,7 @@ dict1["banana"]
 
 dict1["pear"] = "green"
 
-# **👩‍🎓Student Question: What value does ```dict1``` have?**
+# 👩‍🎓**Student Question: What value does ```dict1``` have?**
 
 #📝📝📝📝 FILLME
 pass
@@ -189,7 +189,7 @@ date1.day
 
 date1.month
 
-# **👩‍🎓Student Question: Can you print the current value of the year**
+# 👩‍🎓**Student Question: Can you print the current value of the year**
 
 #📝📝📝📝 FILLME
 pass
@@ -318,7 +318,7 @@ for value in list3:
 for val in range(10):
     print(val)
 
-# **👩‍🎓Student Question: Print out each month name from your month dictionary.**
+# 👩‍🎓**Student Question: Print out each month name from your month dictionary.**
 
 #📝📝📝📝 FILLME
 for month in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
@@ -362,7 +362,7 @@ list_of_splits[1]
 
 str1 = ",".join(list_of_splits)
 
-# **👩‍🎓Student Question: What value does ```str1``` have?**
+# 👩‍🎓**Student Question: What value does ```str1``` have?**
 
 #📝📝📝📝 FILLME
 pass
@@ -385,7 +385,7 @@ contains1 = "Item 2" in original_str
 
 contains2 = "Item 4" in original_str
 
-# **Student Question: What values do `contains1` and `contains2` have?**
+# 👩‍🎓**Student Question: What values do `contains1` and `contains2` have?**
 
 #📝📝📝📝 FILLME
 pass

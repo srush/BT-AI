@@ -85,7 +85,7 @@ pass
 
 # In this spreadsheet we can do lots of things.
 
-# *👩‍🎓Student question: Do you know how to do the following?*
+# 👩‍🎓**Student question: Do you know how to do the following?**
 
 # * Change the column names
 # * Delete a row
@@ -136,7 +136,7 @@ df.columns
 
 df["City"]
 
-# *👩‍🎓Student Question: Can you print out another column in the table?*
+# 👩‍🎓**Student Question: Can you print out another column in the table?**
 
 #📝📝📝📝 FILLME
 pass
@@ -151,7 +151,7 @@ df.loc[1]
 list_of_rows = [1, 5, 6]
 df.loc[list_of_rows]
 
-# *👩‍🎓Student Question: Can you print out the rows of Philadelphia and Los Angleles?*
+# 👩‍🎓**Student Question: Can you print out the rows of Philadelphia and Los Angeles?**
 
 #📝📝📝📝 FILLME
 pass
@@ -215,7 +215,7 @@ filter = (df["Country"] == "United States") | (df["Country"] == "Canada")
 us_or_canada_df = df.loc[filter]
 us_or_canada_df
 
-# *👩‍🎓Student Question: How many of the cities are in the US or Canada?*
+# 👩‍🎓**Student Question: How many of the cities are in the US or Canada?**
 
 #📝📝📝📝 FILLME
 pass
@@ -340,7 +340,7 @@ count_of_cities
 max_pop = grouped["Population"].max()
 max_pop
 
-# *👩‍🎓Student Question: Can you compute the city with the minimum population on the list for each country? *
+# 👩‍🎓**Student Question: Can you compute the city with the minimum population on the list for each country? **
 
 #📝📝📝📝 FILLME
 pass
