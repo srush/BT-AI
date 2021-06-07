@@ -304,74 +304,96 @@ us_or_canada_df
 
 # # Unit B
 
-# ## Group By
+# In this unit we will look at three more advanced Pandas functions.
+# Unlike filters, which just remove rows, these will allow use to manipute
+# our data to compute new properties and even new columns. 
 
-# GroupBys
+# ## Group By's
+
+# We saw above how to compute the total number of cities in Mexico on
+# our list. We did this by first filtering and then "aggregating" by
+# calling `count()`. Here is a reminder. 
+
+filter = df["Country"] == "Mexico"
+cities_in_mexico_df = df.loc[filter]
+total_cities_in_mexico = cities_in_mexico_df["City"].count()
+total_cities_in_mexico
+
+# However, what if we also want to know the number of cities
+# in Canada and US and all the other countries on our list.
+# We can do this with a group-by operation
+
+
+# **GroupBy**
 #
-# 1) Filter - Figure out the data to start with
-# 2) GroupBy - Determine the subset of data to use
-# 3) Aggregation - Compute a property over the group 
+# 1. GroupBy - Determine the subset of data to use
+# 2. Aggregation - Compute a property over the group
 
 
-# # 1) Filter
-# filter = ((df["Country"] == "United States") &
-#           (df["Year"] == 1950))
+# Step 1. Group By
 
-# # 2) Group By
-# grouped = df.loc[filter].groupby(["Country"])
+grouped = df.groupby(["Country"])
 
-# # 3) Aggregated
-# temperature = grouped["AverageTemperature"].agg(['mean'])
-# temperature
+# Step 2. Aggregate
 
+count_of_cities = grouped["City"].count()
+count_of_cities
 
-# # 2) Group By
-# grouped = df[filter].groupby(["City"])
+# Here is another example. This one computes the population of the
+# largest city in each country. 
 
-# # 3) Aggregated
-# temperature = grouped["AverageTemperature"].agg(['mean'])
-# temperature
+max_pop = grouped["Population"].max()
+max_pop
 
 
-# # 2) Group By
-# grouped = df[filter].groupby(["Year", "Country"])
+# *Student Question: Can you compute the city with the minimum population on the list for each country? *
 
-# # 3) Aggregated
-# temperature = grouped["AverageTemperature"].agg(['mean'])
-# temperature
-
-
-
+#FILLIN
 
 # ## Manipulating Tables
 
-# Another useful aspect of tables is to manipulate by adding in new
-# columns. The easiest way to add a new column in pandas is to write a
-# function that tells us how to create the new column from the other
-# columns in the table.
+# Another useful aspect of tables is is to add in new columns.
+# Adding new columns allows us to group by additional properties,
+# create advanced filters, or make pretty graphs.
 
-# Here's and example of how to do this.
 
+# The easiest way to add a new column in pandas is to write a function
+# that tells us how to create the new column from the other columns in
+# the table.
+
+# In order to add a new column, we need to write a function.
+# If you remember last class, a function looked something like this.
+
+# Returns if the country is in US or Canada
 def in_us_or_canada(country):
-    "Returns Yes if country is in the US or Canada "
     if country == "United States":
-        return "Yes"
+        return "US/Canada"
     if country == "Canada":
-        return "Yes"
-    return "No"
+        return "US/Canada"
+    return "Not US/Canada"
 
 
 # Now we can add a new column by setting that column equal to
-# the country 
+# the country. We do this by calling Pandas `map` with the function
+# and the column of interest. This line of code will call our function
+# for each row of the Country column. Notice how it creates a new column.
 
 df["US_or_Canada"] = df["Country"].map(in_us_or_canada)
 df
 
 
+df.columns
+
+# We can then use this column in a group by.
+
+grouped = df.groupby(["US_or_Canada"])
+count_of_cities = grouped["City"].count()
+count_of_cities
+
+
 # A similar technique can be used to manipulate the data in a
 # column to change certain values. For instance, we might want to
 # remove the final " City" from cities like "New York" 
-
 
 def change_name(str1):
     return str1.replace(" City", "")
@@ -386,10 +408,10 @@ df
 
 # Pandas becomes much more powerful when we start to have many
 # different tables that relate to each other. For this example we will
-# consider another table that provides new information about these
-# cities.
+# consider another table that provides the locations about these
+# cities. You can see that here: 
 
-# https://docs.google.com/spreadsheets/d/1Jwcr6IBJbOT1G4Vq7VqaZ7S1V9gRmUb5ALkJPaG5fxI/edit?usp=sharing
+# [City Location Spreadsheet](https://docs.google.com/spreadsheets/d/1Jwcr6IBJbOT1G4Vq7VqaZ7S1V9gRmUb5ALkJPaG5fxI/edit?usp=sharing)
 
 # wget https://raw.githubusercontent.com/srush/BTT-2021/main/notebooks/data/AllCities.csv
 
@@ -399,14 +421,8 @@ all_cities_df = pd.read_csv("data/AllCities.csv")
 all_cities_df
 
 
-# We can see where we in NYC are located in this table.
-
-filter = all_cities_df["City"] == "New York" 
-new_york_df = all_cities_df.loc[filter]
-new_york_df
-
-
-# But there are a lot of other cities in this table outside of North America. 
+# This table has most of the cities in our dataset.
+# But there are also a lot of other cities in this table outside of North America. 
 
 filter = all_cities_df["Country"] == "Germany" 
 europe_df = all_cities_df.loc[filter]
@@ -414,14 +430,8 @@ europe_df
 
 
 
-# We would like to make a combined table that consists of:
-#
-# * Only Cities in North America
-# * Populations for each city
-# * Locations for each city.
-
-# This operation is known as a `join` or a `merge` since it joins together
-# these two tables. We just need to tell pandas which are the shared columns
+# In order to use this new information let's merge since it in to our table. 
+# We just need to tell pandas which are the shared columns
 # between the two tables. 
 
 df = df.merge(all_cities_df, on=["City", "Country"])
@@ -432,10 +442,8 @@ df
 
 # ## Question 1
 
-# Group by
+# The following are the official abbreviation codes for the cities in our data table.
 
-# ## Question 2
-# Exercise: New Columns
 
 abbrev = {
     "United States": "US",
@@ -450,16 +458,23 @@ abbrev = {
     "Guatemala" : "G",
     }
 
-def abbreviate(country):
-    return abbrev[country]
+# Can you add a new column to the table called "Abbrev" that lists the abbreviation code for that city?
+
+# Fill-IN
 
 
-df["Abbrev"] = df["Country"].map(abbreviate)
-df
+# ## Question 2
+
+# Our table has the Latitude and Longitude of all the major North American Cities. 
+
+# Can you find out where New York is located? How about Detroit, Las Vegas, and Portland?
+
 
 # ## Question 3
 
-# Convert the latitude and longitude strings...
+
+# Currently in the table the latitude and longitude are represented as string types, because they
+# have N / S and E / W in their values. These two functions will fix that issue. 
 
 def latitude_to_number(latitude_string):
     str1 = latitude_string
@@ -467,16 +482,24 @@ def latitude_to_number(latitude_string):
         return float(str1[:-1])        
     else:
         return -float(str1[:-1])    
-df["Latitude"] = df["Latitude"].map(latitude_to_number)
-
 
 def longitude_to_number(longitude_string):
     str1 = longitude_string.replace("W", "")
     return -float(str1)
-df["Longitude"] = df["Longitude"].map(longitude_to_number)
 
+lat = latitude_to_number("190N")
+lat
 
+# Can you use these functions to fix the Latitude and Longitude columns to instead use numeric values?
 
+#FILLIN
+
+# ## Question 4
+
+# After completing question 3 use group by and compute the Latitude of 
+# most southern city in each country of the table.
+
+#FILLIN
 
 # # Visualization
 
@@ -495,20 +518,21 @@ background = alt.Chart(states).mark_geoshape().project('albersUsa')
 # Now we can plot
 
 states = alt.topo_feature(data.world_110m.url, feature='countries')
-background = alt.Chart(states).mark_geoshape(
-    fill='lightgray',
-    stroke='white'
-).properties(
-    width=500,
-    height=300
-).project('orthographic', rotate= [95, -42, 0])
-points = alt.Chart(df).mark_circle().encode(
-    longitude='Longitude',
-    latitude='Latitude',
-    size="Population",
-    tooltip=['City','Population']
-)
-chart = background + points
+chart = alt.Chart(states).mark_geoshape(
+        fill='lightgray',
+        stroke='white'
+    ).properties(
+        width=500,
+        height=300
+    ).project('orthographic', rotate= [95, -42, 0])
+if False:
+    points = alt.Chart(df).mark_circle().encode(
+        longitude='Longitude',
+        latitude='Latitude',
+        size="Population",
+        tooltip=['City','Population']
+    )
+    chart += points
 chart
 
 
