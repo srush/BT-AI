@@ -79,10 +79,10 @@ number2 = 20
 number3 = number1 + number2
 
 
-# **Student Question: What value does ```number3``` have?**
+# **👩‍🎓Student Question: What value does ```number3``` have?**
 
-#Fill-Me In
-
+#📝📝📝📝
+pass
 
 # ### Strings
 
@@ -98,9 +98,11 @@ string2 = "City"
 string3 = string1 + string2
 
 
-# **Student Question: What value does ```string3``` have?**
+# **👩‍🎓Student Question: What value does ```string3``` have?**
 
-#Fill-Me In
+#📝📝📝📝
+pass
+
 
 
 # ### Lists
@@ -126,9 +128,12 @@ list2 = [4, 5]
 list3 = list1 + list2
 
 
-# **Student Question: What value does ```list3``` have?**
+# **👩‍🎓Student Question: What value does ```list3``` have?**
 
-#Fill-Me In
+#📝📝📝📝
+pass
+
+
 
 
 
@@ -157,9 +162,12 @@ dict1["banana"]
 dict1["pear"] = "green"
 
 
-# **Student Question: What value does ```dict1``` have?**
+# **👩‍🎓Student Question: What value does ```dict1``` have?**
 
-#Fill-Me In
+#📝📝📝📝 FILLME
+pass
+
+
 
 # ## Importing and Reading Docs
 
@@ -214,9 +222,11 @@ date1.day
 
 date1.month
 
-# **Student Question: Can you print the current value of the year**
+# **👩‍🎓Student Question: Can you print the current value of the year**
 
-#Fill-Me In
+#📝📝📝📝 FILLME
+pass
+
 
 # # Group Exercise A
 
@@ -230,7 +240,7 @@ date1.month
 # do so by making a dictionary.
 
 
-#*Fill-Me*
+#📝📝📝📝 FILLME
 #months = {
 #    1 : "Jan",
 #    ...
@@ -239,7 +249,8 @@ date1.month
 
 # User your dictionary to convert the current month to a month name.
 
-#Fill-Me
+#📝📝📝📝 FILLME
+pass
 
 # ## Question 2
 
@@ -259,6 +270,10 @@ from collections import Counter
 # Use what you find to print out the count of each number of votes that
 # each candidate "A" received.
 
+#📝📝📝📝 FILLME
+pass
+
+
 # ## Question 3
 
 
@@ -273,7 +288,9 @@ wizard_of_oz
 
 # Print out the 10'th most common element in this list.
 
-#Fill-Me
+#📝📝📝📝 FILLME
+pass
+
 
 
 # More than anything remember this. The best programmers use help the
@@ -346,10 +363,11 @@ for value in list3:
 for val in range(10):
     print(val)
 
-# **Student Question: Print out each month name from your month dictionary.**
+# **👩‍🎓Student Question: Print out each month name from your month dictionary.**
 
-#Fill-Me-IN
-#for month in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
+#📝📝📝📝 FILLME
+for month in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]:
+    pass
 
 
 # ## Working with Strings
@@ -393,9 +411,10 @@ list_of_splits[1]
 str1 = ",".join(list_of_splits)
 
 
-# **Student Question: What value does ```str1``` have?**
+# **👩‍🎓Student Question: What value does ```str1``` have?**
 
-#Fill-Me In
+#📝📝📝📝 FILLME
+pass
 
 # * Replace
 # Replaces some part of a string.
@@ -419,10 +438,10 @@ contains1 = "Item 2" in original_str
 contains2 = "Item 4" in original_str
 
 
-# **Student Question: What values do ```contains1``` and ```contains2`` have?**
+# **👩‍🎓Student Question: What values do ```contains1``` and ```contains2`` have?**
 
-#Fill-me In
-
+#📝📝📝📝 FILLME
+pass
 
 # *  Conversions
 # Converts between a string and a number
@@ -488,7 +507,8 @@ real_word_string1 = "Sasha Rush,arush@cornell.edu,Roosevelt Island,NYC"
 # this string and print it.
 
 
-#Fill-Me
+#📝📝📝📝 FILLME
+pass
 
 # ## Question 2
 
@@ -505,7 +525,8 @@ real_word_strings2 = ["Sasha Rush,arush@cornell.edu,Roosevelt Island,NY",
 # * Finds the email address
 # * Prints out the email address
 
-#Fill-Me In
+#📝📝📝📝 FILLME
+pass
 
 # ## Question 3
 
@@ -519,6 +540,9 @@ real_word_strings3 = ["Sasha Rush,arush@cornell.edu,Roosevelt Island,NY",
                       "Bill Jones,bjones@cornell.edu,Philadelpha,PA",
                       "Sarah Jones,sjones@cornell.edu,Queens,NY"]
 
+#📝📝📝📝 FILLME
+pass
+
 
 # ## Question 4
 
@@ -527,7 +551,7 @@ real_word_strings3 = ["Sasha Rush,arush@cornell.edu,Roosevelt Island,NY",
 
 # Instead of "Sasha Rush,arush@cornell.edu,Roosevelt Island,NY"
 # we want it to say =>
-# "Sasha Rush,arush@cornell.edu,Roosevelt Island,NY,Computer Science"
+# "Sasha Rush,arush@cornell.edu,Roosevelt Island,NY,Computer Science" 
 
 # Your task is to add this last element to each one of the strings
 
@@ -536,6 +560,7 @@ real_word_strings4 = ["Sasha Rush,arush@cornell.edu,Roosevelt Island,NY",
                       "Jessica Peters,jpeters@cornell.edu,Miami,FL",
                       "Bill Jones,bjones@cornell.edu,Philadelpha,PA",
                       "Sarah Jones,sjones@cornell.edu,Queens,NY"]
+#📝📝📝📝 FILLME
+pass
 
 
-#Fill-Me In
