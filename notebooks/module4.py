@@ -404,20 +404,45 @@ chart
 
 # Well let's try the circle dataset.
 
+chart = (alt.Chart(df2_train)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color = "class",
+    ))
+chart
+
+
+# First we fit. 
 
 model.fit(X=df2_train[["feature1", "feature2"]],
           y=df2_train["class"] == "red")
 
-# This is similar to Altair chart. Just tell it which columns to use.  
+# Then we predict.
 
-# Step 3. Predict. Once we have a model we can use it to predict the
-# output classes of our model. This replaces the part where we did it
-# manually.
+df2_test["predict"] = model.predict(df2_test[["feature1", "feature2"]])
 
-df_test["predict"] = model.predict(df2_test[["feature1", "feature2"]])
+
+df2_test
+
+# Finally we graph.
+
+all_df["predict"] = model.predict(all_df[["feature1", "feature2"]])
+
+chart = (alt.Chart(all_df)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color="predict",
+        fill = "predict",
+    ))
+chart
 
 
 # We can put in any value to get a score
+
 
 
 all_df["score"] = model.predict_proba(all_df[["feature1", "feature2"]])[:, 0]
