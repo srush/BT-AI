@@ -441,162 +441,76 @@ chart = (alt.Chart(all_df)
 chart
 
 
-# We can put in any value to get a score
+# Unfortunately this result no good. The model did not learn about the circle.
+# In fact it learned something completely wrong.
+
+# We can debug the problem by looking at how we created our model. 
+
+# This line of code, says create `Linear` model. Linear in this case
+# implies that the model can only use a line to split the points. 
+
+model = sklearn.linear_model.LogisticRegression()
+
+# This model couldn't even learn about the circle if it wanted to.
+
+# Instead let us use a different model. 
+
+# # Group Exercise B
+
+# ## Question 1
+
+# The linear model we used above could only draw lines to seperate
+# red and blue. Let us consider a new model.
+
+import sklearn.neighbors 
+neighbor_model = sklearn.neighbors.KNeighborsClassifier(1)
+
+# The neighbor model takes a different approach. Instead of
+# producing a line, it memorizes all the points in training and
+# predicts based on how close a test example is.
+
+# For this question, you should :
+#
+# 1. Fit the neighbor model to the circle data.
+# 2. Predict on `all_df`
+# 3. Graph the resulting shape.
 
 
+#📝📝📝📝 FILLME
+pass
 
-all_df["score"] = model.predict_proba(all_df[["feature1", "feature2"]])[:, 0]
-all_df
+# It will not be perfect but it should be much closer to the circle shape of the data.
 
-chart2 = (alt.Chart(all_df)
-    .mark_rect()
-    .encode(
-        x = alt.X("feature1:Q", bin=alt.Bin(maxbins=50)),
-        y = alt.Y("feature2:Q", bin=alt.Bin(maxbins=50)),
-        color = "score"
-    ))
-chart2
+# ## Question 2
 
+# So far all of our datasets have had 2 features. For this dataset there are three
+# features (`feature1`, `feature2`, `feature3`).
 
-out = chart2 + chart
-out
+df3 = pd.read_csv("https://srush.github.io/BT-AI/notebooks/three.csv")
 
-# Alternative data 
+# Split the dataset into train and test, and then fit the linear model
+# `model` to all three of these features.
 
+#📝📝📝📝 FILLME
+pass
 
-df = pd.read_csv("simple.csv")
-df
+# How many points in test does the model get correct? 
 
-df_train = df.loc[df["split"] == "Train"]
+#📝📝📝📝 FILLME
+pass
 
-model = LogisticRegression()
-model.fit(df_train[["feature1", "feature2"]],
-          df_train["class"])
-
-df_test = df.loc[df["split"] == "Test"]
-df_test["predict"] = model.predict(df_test[["feature1", "feature2"]])
+# ## Question 3
 
 
-# Alternative Approach
-from sklearn.neighbors import KNeighborsClassifier
+# It turns out that for `df3` you only need two of the features to
+# acheive high accuracy. Make a graph for each pair of features (three
+# graphs total).
 
-# model = KNNClassifier()
-# model.fit(df_train[["feature1", "feature2"]],
-#           df_train["class"])
-
-
-df_test = df.loc[df["split"] == "Test"]
-df_test["predict"] = model.predict(df_test[["feature1", "feature2"]])
+#📝📝📝📝 FILLME
+pass
 
 
-# ## Evaluation.
+# Which are the two features that you need? Try fitting `model` to just those two.
 
-df_test["class"]
-df_test["predict"]
-
-# Real World example
-
-# Temperature classification. 
-
-df = pd.read_csv("data/Temperatures.csv", index_col=0, parse_dates=[1])
-
-
-check = ((df["Country"] == "United States") &
-         (df["dt"].dt.year == 1950) &
-         (df["dt"].dt.month == 7) )
-df2 = df.loc[check]
-
-
-out = df2.describe()
-out
-
-chart = alt.Chart(df2).mark_point().encode(
-    y = "AverageTemperature",
-    x = "Latitude",
-    tooltip=["City", "Country"],
-)
-chart
-
-
-model = sklearn.linear_model.LinearRegression()
-model.fit(df2[["Latitude"]], df2["AverageTemperature"])
-
-df_pred = pd.DataFrame({"Latitude": np.linspace(25, 50, 10)})
-df_pred["AverageTemperature"] = model.predict(df_pred[["Latitude"]])
-df_pred
-
-
-chart2 = alt.Chart(df_pred).mark_line(color="red").encode(
-    y = "AverageTemperature",
-    x = "Latitude",
-)
-out = chart + chart2
-out
-
-
-model_bad = sklearn.linear_model.LinearRegression()
-model_bad.fit(df2[["Longitude"]], df2["AverageTemperature"])
-
-df_pred = pd.DataFrame({"Longitude": np.linspace(-150, -75, 10)})
-df_pred["AverageTemperature"] = model_bad.predict(df_pred[["Longitude"]])
-df_pred
-
-
-chart = alt.Chart(df2).mark_point().encode(
-    y = "AverageTemperature",
-    x = "Longitude",
-    tooltip=["City", "Country"],
-)
-chart2 = alt.Chart(df_pred).mark_line(color="red").encode(
-    y = "AverageTemperature",
-    x = "Longitude",
-)
-out = chart + chart2
-out
-
-
-
-from vega_datasets import data
-
-us_cities_df = df.loc[df["Country"] == "United States"]
-
-
-states = alt.topo_feature(data.us_10m.url, feature='states')
-background = alt.Chart(states).mark_geoshape(
-    fill='lightgray',
-    stroke='white'
-).properties(
-    width=500,
-    height=300
-).project('albersUsa')
-points = alt.Chart(df2).mark_point(size=100).encode(
-    longitude='Longitude',
-    latitude='Latitude',
-    color="AverageTemperature",
-    tooltip=['City','AverageTemperature']
-)
-chart = background + points
-chart
-
-
-matr = np.linspace((25, -150), (50, -75), 20)
-Lat, Log = np.meshgrid(matr[:, 0], matr[:, 1])
-df_pred = pd.DataFrame({"Latitude": Lat.flatten(), "Longitude": Log.flatten()})
-df_pred["AverageTemperature"] = model.predict(df_pred[["Latitude"]])
-
-points = alt.Chart(df_pred).mark_circle(size=10).encode(
-    longitude='Longitude',
-    latitude='Latitude',
-    color=alt.Color("AverageTemperature", scale=alt.Scale(scheme="reds"))
-)
-chart = chart + points
-chart
-
-# ## Input Formats
-
-
-model = sklearn.linear_model.LinearRegression()
-model.fit(df2[["Latitude"]], df2["AverageTemperature"])
-
-
-
+#📝📝📝📝 FILLME
+pass
