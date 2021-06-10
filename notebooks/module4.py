@@ -91,9 +91,8 @@ pass
 # Our dataset is a Red versus Blue classification challenge. Instead of
 # describing this dataset let us take a look.
 
-#wget https://raw.githubusercontent.com/srush/BTT-2021/main/notebooks/simple.csv
 
-df = pd.read_csv("simple.csv")
+df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/simple.csv")
 df
 
 # The first thing to do is to look at the columns.
@@ -230,16 +229,38 @@ chart
 # The dataset above is a bit easy. It seems like you can just
 # separate the points with a line. 
 
-# How about this 
+# Next let us consider a harder example where the red and blue points form a circle.
 
-#wget https://raw.githubusercontent.com/srush/BTT-2021/main/notebooks/circle.csv
 
-df = pd.read_csv("circle.csv")
-df
+df2 = pd.read_csv("https://srush.github.io/BT-AI/notebooks/circle.csv")
+
+df2_train = df2.loc[df2["split"] == "train"]
+df2_test = df2.loc[df2["split"] == "test"]
+
+# Draw a chart with these points. 
+
+#📝📝📝📝 FILLME
+chart = ()
+chart
+
 
 # ## Question 3
 
+# Try to write a function that separates the blue and the red
+# points. How well can you do?
 
+
+#📝📝📝📝 FILLME
+def my_circle_predict(point):
+    pass
+df2_test["predict"] = df2_test.apply(predict, axis=1)
+
+
+# Redraw the graph above to show that you split up the points correctly.
+
+#📝📝📝📝 FILLME
+chart = ()
+chart
 
 # # Unit B
 
@@ -302,6 +323,8 @@ chart = (alt.Chart(df_test)
         border=5.0
     )
 chart
+
+
 
 
 

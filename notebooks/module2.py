@@ -107,11 +107,11 @@ pass
 # The data that we are working with is located in the file "Cities.csv".
 # You can get this file from the internet by running this command.
 
-#wget https://raw.githubusercontent.com/srush/BTT-2021/main/notebooks/data/Cities.csv
+
 
 # This file is raw data as a text file. We can see the output in raw form.
 
-print(open("Cities.csv").read())
+# https://srush.github.io/BT-AI/notebooks/Cities.csv
 
 # We can see that "csv" stands for "comma separated values" as each element
 # of the file is split using a comma. 
@@ -123,7 +123,7 @@ import pandas as pd
 # To load data in the library we use the following command. Here `df`
 # refers to the "DataFrame" which is what Pandas calls a spreadsheet.
 
-df = pd.read_csv("Cities.csv")
+df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/Cities.csv")
 df
 
 # Just like in a spreadsheet Pandas has multiple columns representing
@@ -401,11 +401,9 @@ df
 
 # [City Location Spreadsheet](https://docs.google.com/spreadsheets/d/1Jwcr6IBJbOT1G4Vq7VqaZ7S1V9gRmUb5ALkJPaG5fxI/edit?usp=sharing)
 
-# wget https://raw.githubusercontent.com/srush/BTT-2021/main/notebooks/data/AllCities.csv
-
 # Lets load this table into a new variable.
 
-all_cities_df = pd.read_csv("data/AllCities.csv")
+all_cities_df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/AllCities.csv")
 all_cities_df
 
 # This table has most of the cities in our dataset.
