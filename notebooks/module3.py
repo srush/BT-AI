@@ -134,7 +134,6 @@ chart
 # * Mark - Bar chart
 # * Encode - City by Population
 
-
 chart = (alt.Chart(df)
             .mark_bar()
             .encode(x="City",
@@ -154,12 +153,20 @@ chart
 chart = (alt.Chart(df)
             .mark_point()
             .encode(y="Latitude",
-                    x="Population",
+                    x="Longitude",
                     tooltip="City"
             ))
 chart
 
 # ## Group Exercise A
+
+
+# ### Question 1
+
+# ### Question 2
+
+# ### Question 3
+
 
 # ## Unit B
 

@@ -9,7 +9,9 @@
 
 # Python is pretty much the standard programming language for AI and
 # machine learning these days. It is widely used in companies like Google
-# or Netflix for their AI systems. It is also what is used in research
+# or Netflix for their AI systems.
+
+# It is also what is used in research
 # and most non-profit organizations. This is lucky because it also
 # one of the most fun programming languages!
 
@@ -118,7 +120,8 @@ pass
 
 # ## Dictionaries
 
-# A dictionary type is used to link a "key" to a "value".
+# A dictionary type stores "keys" and "values", and allows you to look up values using their corresponding keys.
+
 # You can have as many keys and values as you want, and they can
 # be of most of the types that we have seen so far.
 
@@ -256,7 +259,7 @@ wizard_of_oz
 pass
 
 # More than anything remember this. The best programmers use help the
-# most! No one wins a prize for memerizing the most functions. If you
+# most! No one wins a prize for memorizing the most functions. If you
 # want to be a good programmer, learn how to look things up quickly and
 # ask the most questions.
 
@@ -293,8 +296,6 @@ if number3 > 100:
     print("number is greater than 100")
 else:
     print("number is not greater than 100")
-
-
 
 # ### `for` loops
 
@@ -350,14 +351,14 @@ for letter in str1:
 # functions in Python. Most of the time it is best to google for these, but
 # here are some important ones to remember
 
-# * Split
+# ### Split
 # Splits a string up into a list of strings based on a separator
 
 str1 = "a:b:c"
 list_of_splits = str1.split(":")
 list_of_splits[1]
 
-# * Join
+# ### Join
 # Joins a string back together from a list.
 
 str1 = ",".join(list_of_splits)
@@ -367,7 +368,7 @@ str1 = ",".join(list_of_splits)
 #📝📝📝📝 FILLME
 pass
 
-# * Replace
+# ### Replace
 # Replaces some part of a string.
 
 original_str = "Item 1 | Item 2 | Item 3"
@@ -377,7 +378,7 @@ new_str
 new_str = original_str.replace("|", "")
 new_str
 
-# * In
+# ### In
 # Checks if one string contains another
 
 original_str = "Item 1 | Item 2 | Item 3"
@@ -390,7 +391,7 @@ contains2 = "Item 4" in original_str
 #📝📝📝📝 FILLME
 pass
 
-# *  Conversions
+# ###  Conversions
 # Converts between a string and a number
 
 int1 = int("15")
