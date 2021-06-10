@@ -108,7 +108,6 @@ pass
 # You can get this file from the internet by running this command.
 
 
-
 # This file is raw data as a text file. We can see the output in raw form.
 
 # https://srush.github.io/BT-AI/notebooks/Cities.csv
@@ -171,7 +170,7 @@ pass
 # **Filtering**
 #
 # 1. Decide on the conditional statements in your filter.
-# 2. Define a `filter` varaible for your dataframe 
+# 2. Define a `filter` varaible for your dataframe .
 # 3. Apply filter and rename the dataframe.
 
 
@@ -289,7 +288,7 @@ pass
 
 # We can also apply filters that look for two properties at the same time. 
 
-# Can you write a filter to find the cities in the US over a million people?
+# Can you write a filter to find the cities in the US of over a million people?
 
 #📝📝📝📝 FILLME
 pass
@@ -340,7 +339,7 @@ count_of_cities
 max_pop = grouped["Population"].max()
 max_pop
 
-# 👩‍🎓**Student Question: Can you compute the city with the minimum population on the list for each country? **
+# 👩‍🎓 ** Student Question: Can you compute the city with the minimum population on the list for each country? **
 
 #📝📝📝📝 FILLME
 pass
