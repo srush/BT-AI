@@ -13,6 +13,8 @@
 # So far the two libraries that we have covered are Pandas which handles data frames.
 
 import pandas as pd
+import warnings
+warnings.filterwarnings('ignore')
 
 # And Altair which handles data visualization. 
 
@@ -110,7 +112,7 @@ df.columns
 # our Train split might be pictures of birds from a guide, whereas our Test split
 # would be new pictures of birds in the wild that we want to classify. 
 
-# Let us separate these out. using a filter.
+# Let us separate these out using a filter.
 
 df_train = df.loc[df["split"] == "train"]
 df_test = df.loc[df["split"] == "test"]
@@ -120,8 +122,8 @@ df_test = df.loc[df["split"] == "test"]
 # This tells us the color associated with the point. For this exercise,
 # our goal is going to be splitting up these two colors.  
 
-df_train["class"].sum()
-
+classes = df_train["class"].unique()
+classes
 
 # Finally we have "features". Features are the columns that we use
 # in order to solve the challenge. The machine learning model gets to
@@ -472,7 +474,7 @@ neighbor_model = sklearn.neighbors.KNeighborsClassifier(1)
 # For this question, you should :
 #
 # 1. Fit the neighbor model to the circle data.
-# 2. Predict on `all_df`
+# 2. Predict on `all_df`.
 # 3. Graph the resulting shape.
 
 
