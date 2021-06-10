@@ -35,7 +35,7 @@ import pandas as pd
 # [answer](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
 # on stack overflow.)
 
-df = pd.read_csv("data/Temperatures.csv",
+df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/Temperatures.csv",
                  index_col=0,
                  parse_dates=["dt"])
 df
@@ -84,6 +84,7 @@ df
 # Can you compute the maximum monthly temperature in New York in this dataset? 
 
 #FILLIN
+pass
 
 # # Unit A
 
@@ -351,8 +352,6 @@ chart2 = chart.mark_point(color='red').encode(
     )
 chart = chart + chart2
 chart
-
-
 
 
 

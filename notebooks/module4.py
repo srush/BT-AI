@@ -264,48 +264,85 @@ chart
 
 # # Unit B
 
-# Declarative Machine Learning
-# *
-# * 
+# In Unit A we wrote a function to try to split the red and the blue
+# data points.
+
+# Machine learning (ML) allows us to produce that function without having
+# to write it manually.
+
+# The library Scikit-Learn is a standard toolkit for machine learning in Python. 
+
+# ![sklearn](https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png)
+
+# One warning. The documentation for Scikit-Learn is a bit intimidating. If you look something
+# up it might appear like this. 
+
+# https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+
+# Do not be scared though. Most of these options do not matter so much in practice. You can
+# learn the important parts in 30 minutes. 
+
+# Let us first important the library.
+
+import sklearn.linear_model
 
 
-from sklearn.linear_model import LogisticRegression
+# We are going to use this formula for all our machine learning. 
 
+# **Model Fitting**
+#
+# 1. Dataframe. Create your training data (This part you are an expert in!)
+# 2. Fit. Create a model and give it training features
+# 3. Predict. Use the model on test data.
 
-# * Model Fitting * 
-# 1. Filter. Create your training data
-# 2. Fit. Create a model and give it features
-# 3. Predict. Use the model on new data.
+# Step 1. Create out data. (We did this already.
 
+df_train
 
-model = LogisticRegression()
+# Step 2. Create our model and fit it to data. 
 
+# First we pick a model type. We will mostly use this one. (Don't worry about the name for now!)
 
-# Training
+model = sklearn.linear_model.LogisticRegression()
 
-model.fit(df_train[["feature1", "feature2"]],
-          df_train["class"] == "red")
+# Then we tell it which features to use as input (X) and what it goal
+# is (y). Here we tell it to use `feature1` and `feature2` and to
+# predict whether the point is red.
 
+model.fit(X=df_train[["feature1", "feature2"]],
+          y=df_train["class"] == "red")
 
-# Predict
+# This is similar to Altair chart. Just tell it which columns to use.  
+
+# Step 3. Predict. Once we have a model we can use it to predict the
+# output classes of our model. This replaces the part where we did it
+# manually.
 
 df_test["predict"] = model.predict(df_test[["feature1", "feature2"]])
+
+# We can see the graph that came out.
 
 chart = (alt.Chart(df_test)
     .mark_point()
     .encode(
         x = "feature1",
         y = "feature2",
-        color = "predict"
+        color = "class",
+        fill = "predict",
+        tooltip = ["correct"]
     ))
 chart
 
 
+# That's it! You have done machine learning.
+
+# ## Details
+
 # What happened? 
 
-# Model learns to give every possible point a score. 
-circle_df = pd.read_csv("circle.csv")
-all_df = pd.read_csv("all_points.csv")
+model.predict([[0.0, 1.0]])
+
+all_df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/all_points.csv")
 
 
 df_test["score"] = model.predict_proba(df_test[["feature1", "feature2"]])[:, 0]
