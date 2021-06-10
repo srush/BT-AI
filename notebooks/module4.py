@@ -338,31 +338,83 @@ chart
 
 # ## Details
 
-# What happened? 
+# What happened? How did the system know whether the output points
+# would be red or blue? 
 
-model.predict([[0.0, 1.0]])
+# The key idea is that behind the scenes the model uses the training data
+# to learn a class for every possible point.
+
+# For instance, if we make up a feature value.
+
+feature1 = 0.2
+feature2 = 0.5
+
+# Our model will produce an output prediction.
+
+predict = model.predict([[feature1, feature2]])
+predict
+
+
+# In fact, we can even see what the model would do for any point.
+
+
+# This dataframe has most of the possible points.
+
 
 all_df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/all_points.csv")
-
-
-df_test["score"] = model.predict_proba(df_test[["feature1", "feature2"]])[:, 0]
-
-chart = (alt.Chart(df_test)
+chart = (alt.Chart(all_df)
     .mark_point()
     .encode(
         x = "feature1",
         y = "feature2",
-        color = "score",
-        tooltip = "score"
-    )).configure_mark(
-        
-        opacity=1.0,
-        border=5.0
-    )
+    ))
 chart
 
 
+# Let us see what our model would do on each of them.
 
+all_df["predict"] = model.predict(all_df[["feature1", "feature2"]])
+
+chart = (alt.Chart(all_df)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color="predict",
+        fill = "predict",
+    ))
+chart
+
+# This makes sense. 
+
+chart2 = (alt.Chart(df_test)
+    .mark_point(color="black")
+    .encode(
+        x = "feature1",
+        y = "feature2",
+    ))
+chart = chart + chart2
+chart
+
+
+# ## Other Data.
+
+# So is machine learning magic? Can we just give any data
+# and have it learn a separator for us?
+
+# Well let's try the circle dataset.
+
+
+model.fit(X=df2_train[["feature1", "feature2"]],
+          y=df2_train["class"] == "red")
+
+# This is similar to Altair chart. Just tell it which columns to use.  
+
+# Step 3. Predict. Once we have a model we can use it to predict the
+# output classes of our model. This replaces the part where we did it
+# manually.
+
+df_test["predict"] = model.predict(df2_test[["feature1", "feature2"]])
 
 
 # We can put in any value to get a score
