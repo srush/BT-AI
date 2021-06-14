@@ -1,9 +1,8 @@
-# # Lab 0
+# # Lab Intro
 
 # As part of the summer session, we are going to each build an AI
 # system. Our main focus will be on learning the core elements of data
 # processing, machine learning, deep learning, and AI.
-
 
 # ## Lab Schedule
 
@@ -24,6 +23,28 @@
 # 7. Deep Learning II (Keras)
 # 8. AI Applications (Keras)
 
+# ## Introduction
+
+# Sasha Rush
+
+# ![Sasha](https://avatars0.githubusercontent.com/u/35882?s=460&v=4)
+
+# Professor at Cornell at Cornell Tech in NYC. (Previously Professor at Harvard)
+
+# Researcher in Natural Language Processing
+
+# * Summarization of Text
+# * Translation of Text
+# * Speech Recognition and Understanding
+
+# Previously AI Software Engineer
+
+# * Facebook
+# * Google
+
+# ## Philosophy
+
+# * You only know it, when you code it.
 
 # ## Lab Structure
 
