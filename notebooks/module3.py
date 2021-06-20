@@ -1,9 +1,13 @@
 # # Lab 3 - Visualization
 
-# The goal of today's lab is to become proficient in data visualization and graphs.
+# The goal of today's lab is to become great at data visualization and graphs.
 # This is a really fun topic as it lets us make images that represent our underlying
-# data and problems. When doing machine learning it is a great way understand and explain
-# what is happening in our systems. 
+# data and problems.
+
+# When doing machine learning we are going to make a lot of graphs
+# that describe each of the systems that we build. Visualizations are
+# a great way understand and explain what is happening in our
+# systems.
 
 
 
@@ -22,10 +26,21 @@ import pandas as pd
 # In this class we will start to work on a new data set about the
 # temperatures and climate change of different cities over time.
 
-# [Temperatures](https://docs.google.com/spreadsheets/d/1Jwcr6IBJbOT1G4Vq7VqaZ7S1V9gRmUb5ALkJPaG5fxI/edit?usp=sharing)
+# Click here to see the full dataset as a spreadsheet [Temperatures](https://docs.google.com/spreadsheets/d/1Jwcr6IBJbOT1G4Vq7VqaZ7S1V9gRmUb5ALkJPaG5fxI/edit#gid=2108802139)
 
 # Recall that we first need to load in our data. We saw the `read_csv`
 # function from last time.
+
+path = "https://srush.github.io/BT-AI/notebooks/Temperatures.csv",
+path = "Temperatures.csv"
+@__st.cache()
+def load():
+    df = pd.read_csv(path,
+                     index_col=0,
+                     parse_dates=["Date"])
+    return df
+df = load().copy()
+df
 
 # (We need to add a bit of extra options in
 # order to load this data in. In particular we want to have a date
@@ -35,17 +50,13 @@ import pandas as pd
 # [answer](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
 # on stack overflow.)
 
-df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/Temperatures.csv",
-                 index_col=0,
-                 parse_dates=["dt"])
-df
-
-# Let's now review the different tools that we have available for us. 
+# Let's now review the different tools that we have available for us.
 
 
-# *Student Question: Do you remember how to see the columns of a data table?* 
+# 👩‍🎓**Student Question: Do you remember how to see the columns of a data table?*
 
-#FILLIN
+#📝📝📝📝
+pass
 
 
 # We can also filter the table to find only the rows with certain filtered values.
@@ -58,126 +69,264 @@ nyc_df
 # We have seen how we can use multiple filters and combine them with
 # elements like or `|` and `&`.
 
-filter = (df["City"] == "New York") | (df["City"] == "Philadelphia") 
+filter = (df["City"] == "New York") | (df["City"] == "Philadelphia")
 nyc_phila_df = df.loc[filter]
 nyc_phila_df
 
 # Once there is a dataframe that is filtered in a specific manner
 # we can use it to compute properties on the remaining data.
 
-average_temp = nyc_df["AverageTemperature"].mean()
+average_temp = nyc_df["Temperature"].mean()
 average_temp
 
-# Finally we can add new columns by setting them in the original dataframe. 
+# Finally we can add new columns by setting them in the original dataframe.
 
 def in_nyc(city):
-    "Returns Yes if country is in the US or Canada "
+    "Returns True if the city is New York"
     if city == "New York":
         return True
     return False
-df["InNYC"] = df["City"].map(in_nyc)
+# df["InNYC"] = df["City"].map(in_nyc)
 df
 
-# ## Review Exercise 
+# ## Review Exercise
 
-# In this data set the column "AverageTemperature" is the average temperature for each month.
-# Can you compute the maximum monthly temperature in New York in this dataset? 
+# In this data set the column "Temperature" is the average temperature for the month.
+# Can you compute the highest monthly temperature for Philadelphia in this dataset?
+# Bonus question: What month and year did it occur?
 
-#FILLIN
+
+
+#📝📝📝📝
 pass
 
 # # Unit A
 
-import altair as alt
+# The goal of today's lab will be to learn how to visualize our data
+# using charts and graphs. Data and spreadsheets by themselves are
+# pretty boring, but graphs and charts allows us to tell the story
+# about what is happening behind the scenes.
+
+
+# For example let's consider these graph from the New York Times about the impacts
+# of climate change in the 20th century.
+
+# ![Climate](https://static01.nyt.com/images/2019/01/15/learning/WinterTemperatures2LN/WinterTemperatures2LN-superJumbo.png?quality=90&auto=webp)
+
+
+# Sea Ice
+
+# ![](https://static01.nyt.com/images/2019/02/13/learning/SeaIceLN/SeaIceLN-jumbo.png?quality=90&auto=webp)
+
+
+# 👩‍🎓**Student Question: How do these graphs differ?  What do they "encode" on their axes? What do they encode in their colors?*
+
+
+# ## Preliminary Data
+
+# Before we return to our temperature data let us consider graphing
+# some simple data.
+
+# For this unit we will assume that we are coaching a track
+# team. There are four members of the team.
+
+athletes = ["Soledad", "Jamie", "Meira", "Jung-Sook"]
+
+
+# There have been five track meets so far this season and each athelete has run in each of them.
+
+meets = [1, 2, 3, 4, 5]
+
+# Here are their running times. Note that we are representing them as a
+# list of dictionaries with the athlete meet and time.
+
+
+times = [{'athlete': 'Soledad', 'meet': 1, 'time': 10.274234127603819}, {'athlete': 'Soledad', 'meet': 2, 'time': 10.804654030945134}, {'athlete': 'Soledad', 'meet': 3, 'time': 10.720626632654193}, {'athlete': 'Soledad', 'meet': 4, 'time': 9.804132329178772}, {'athlete': 'Soledad', 'meet': 5, 'time': 10.404912209134388}, {'athlete': 'Jamie', 'meet': 1, 'time': 11.655619806058349}, {'athlete': 'Jamie', 'meet': 2, 'time': 11.572477407100791}, {'athlete': 'Jamie', 'meet': 3, 'time': 10.927372423232223}, {'athlete': 'Jamie', 'meet': 4, 'time': 10.78549207395879}, {'athlete': 'Jamie', 'meet': 5, 'time': 11.345569807912721}, {'athlete': 'Meira', 'meet': 1, 'time': 9.108715402467988}, {'athlete': 'Meira', 'meet': 2, 'time': 9.689643262622113}, {'athlete': 'Meira', 'meet': 3, 'time': 9.139530785504235}, {'athlete': 'Meira', 'meet': 4, 'time': 9.129667780531356}, {'athlete': 'Meira', 'meet': 5, 'time': 9.361089344017424}, {'athlete': 'Jung-Sook', 'meet': 1, 'time': 8.764472058652602}, {'athlete': 'Jung-Sook', 'meet': 2, 'time': 8.1119272852491}, {'athlete': 'Jung-Sook', 'meet': 3, 'time': 8.787020155204402}, {'athlete': 'Jung-Sook', 'meet': 4, 'time': 8.147531540987394}, {'athlete': 'Jung-Sook', 'meet': 5, 'time': 8.18982105467709}]
+
+# This is an alternative way of creating a pandas dataframe. Sometimes it is easier than reading from a CSV file.
+
+df = pd.DataFrame(times)
+df
+
+
+
+# Our goal is to create graphs to help our team improve at the next meet.
+
+# Before we begin though, let us consider the *types* of the three different columns.
+# This will help us decide what charts to use.
+
+# 1. Athlete - This is simply the person name. All people are equal and in no order. We say this is therefore a *Nominal* column.
+# 2. Meet - This only takes whole number values. We know that Meet 3 occurred after Meet 1, but there is no meet 2.5. This is therefore a *Ordinal* column.
+# 3. Times - This is a decimal column. It contains very precise numerical values. This is therefore a "Quantitative" column.
+
 
 # ## Visualization
 
-# Now lets look at how to graph this data. 
+# To build visualizations we are again going to rely heavily on
+# datatables and use a new library called `altair`. This library has
+# very nice [documentation](https://altair-viz.github.io/)
 
-
-simple_df = pd.DataFrame({
-    "names" : ["a", "b", "c"],
-    "val1" : [10., 20., 30.],
-    "val2" : [10., 20., 30.],
-})
-simple_df
-
-# Review
-
-
-chart = (alt.Chart(simple_df)
-           .mark_bar()
-           .encode(x = "names",
-                   y = "val1"))
-chart
-
-chart = (alt.Chart(simple_df)
-           .mark_line()
-           .encode(x = "names",
-                   y = "val1"))
-chart
-
-
-# Example in the spreadsheet
+import altair as alt
 
 # We can make a graph by converting our table into a `Chart`. We do this
 # in three steps
 
-# * Chart - Convert a dataframe to a chart
+# * Chart - Process your a dataframe to only what you want to include
 # * Mark - Determine which type of chart we want
 # * Encode - Say which Pandas columns correspond to which dimensions
 
 
-# For instance if we want to convert our cities to a bar chart we select:
+# ### Example 1: Who ran the fastest?
 
-# * Chart - df
-# * Mark - Bar chart
-# * Encode - City by Population
+# For this example we will simply try to determine who ran the fastest.
 
-chart = (alt.Chart(df)
-            .mark_bar()
-            .encode(x="City",
-                    y="Population"))
+# * Chart - Determine the fastest run
+# * Mark - Show as a bar graph
+# * Encode - Let the x be athlete (nominal) and y be times (quantitative)
+
+faster_df = df.groupby(["athlete"], as_index=False).min()
+faster_df
+
+chart = (alt.Chart(faster_df)
+           .mark_bar()
+           .encode(x = "athlete",
+                   y = "time"))
 chart
 
-# There are many different possible graphs from the same data. For
-# instance we might want to explore whether how north or south a city
-# is impacts its population. This graph plots population against
-# latitude. The special `tooltip` argument uses the city column to
-# show the name of each city.
+# ### Example 2: How did Jung-Sook's times change in the season?
 
-# * Chart - df
-# * Mark - Point chart
-# * Encode - Population, Latitude
+# * Chart - Filter to Jung-Sook's runs
+# * Mark - Show as a line graph
+# * Encode - Let the x be meet (ording) and y be times (quantitative)
 
-chart = (alt.Chart(df)
-            .mark_point()
-            .encode(y="Latitude",
-                    x="Longitude",
-                    tooltip="City"
-            ))
+chart = (alt.Chart(df[df["athlete"] == "Jung-Sook"])
+           .mark_line()
+           .encode(x = "meet:O",
+                   y = "time"))
 chart
 
-# ## Group Exercise A
+
+# ### Example 3: How did all the runners compare over the season?
+
+# * Chart - All the data?
+# * Mark - Show as a line graph
+# * Encode - Let the x be meet (ordinal) and y be times (quantitative) and the color be the athlete (nominal)
+
+chart = (alt.Chart(df)
+           .mark_line()
+           .encode(color = "athlete",
+                   x = "meet:O",
+                   y = "time"))
+chart
 
 
-# ### Question 1
+# Alternatively we can split this into 4 different individual graphs using facet.
 
-# ### Question 2
+chart = (alt.Chart(df)
+           .mark_line()
+           .encode(facet = "athlete",
+                   x = "meet:O",
+                   y = "time"))
+chart
 
-# ### Question 3
+
+# Finally one nice aspect of the library is that we can include
+#  multiple charts on the same graph.
+
+chart1 = (alt.Chart(df[df["athlete"] == "Jung-Sook"])
+           .mark_bar()
+           .encode(x = "meet:O",
+                   y = "time"))
+chart2 = (alt.Chart(df[df["athlete"] == "Jung-Sook"])
+           .mark_point()
+           .encode(x = "meet:O",
+                   y = "time"))
+chart = chart1 + chart2
+chart
+
+# # Group Exercise A
+
+# ## Question 1
+
+# We would like to know the average time between all of the runners at each
+# meet this will give us a sense of whether the team is improving. Can you
+# make a group-by command to find the average time at each meet?
+
+#📝📝📝📝 FILLME
+pass
+
+# Can you plot your results as a line graph?
+
+#📝📝📝📝 FILLME
+pass
+
+# ## Question 2
+
+# The `point` mark will draw a single point for each data input it is given.
+#  Can you draw a point graph that will plot each runners time for each meet over the
+# season?
+
+#📝📝📝📝 FILLME
+pass
 
 
-# ## Unit B
+# The `shape` encoding will use a different shape for each data point. Can you add a shape
+# encoding based on the athlete name?
 
-# ## Advanced table functions
+#📝📝📝📝 FILLME
+pass
 
-# Our filters have mainly tried to filter rows by string values,
+
+# The `tooltip` encoding will make it so you can mouseover the
+# datapoint of interest. If you give it a list of columns it will
+# include all of them. Add a tooltip for the athlete and the meet.
+
+#📝📝📝📝 FILLME
+pass
+
+
+# Finally this graph can be combined with the average time of each meet above. Combine them into a single graph.
+
+#📝📝📝📝 FILLME
+pass
+
+
+# ## Question 3
+
+
+# Altair graphs can be customized with a lot of visualization options in additions to the ones we have seen so far.
+
+# For this exercise you will want to consult [Altair Configuation docs](https://altair-viz.github.io/user_guide/configuration.html).
+
+
+# * Add a title.
+# * Make the graph bigger
+# * Add better axis names.
+# * Change the color of the points
+# * Make the points larger.
+# * Give the legend rounded corners.
+# * Add any other customizations you would like!
+
+
+#📝📝📝📝 FILLME
+pass
+
+
+# # Unit B
+
+# ## Advanced Pandas
+
+# Now we are going to try working with a realistic large dataset for our visualization.
+
+df = load().copy()
+
+
+# Our filtering so far has mainly tried to filter rows by string values,
 # but we can filter by many different properties. These properties
 # depend on the type of the column.
 
 # If you remember back to lesson 1, we saw how we could use a dates
-# in python. 
+# in python.
 
 import datetime
 date1 = datetime.datetime.now()
@@ -185,78 +334,151 @@ date1
 
 print(date1.day, date1.month, date1.year)
 
-# Let's look now at the types of our columns. 
+# Let's look now at the types of our columns.
 
 df.dtypes
 
-# We can see that `dt` is a date. Therefore
-# we can access similar properties as we have seen in the table. 
+# We can see that `data` is a date. Therefore
+# we can access similar properties as we have seen in the table.
 
-df["dt"].dt.month
+df["Date"].dt.month
 
 # Let's convert these into columns
 
-df["Month"] = df["dt"].dt.month
-df["Year"] = df["dt"].dt.year
+df["Month"] = df["Date"].dt.month
+df["Year"] = df["Date"].dt.year
 
 
-# Now these are columns in the table. 
+# Now these are columns in the table.
 
 df.columns
 
 
-# ## Advanced  Filtering
+# We can use some complex filters for checking for specific months and years in our dataset.
 
 filter = (df["Month"] == 7) & (df["Year"] == 1950)
 summer = nyc_df.loc[filter]
 summer
 
 
-filter = (df["Year"] >= 1950) & (df["Year"] <= 1960) 
+# We can also filter by ranges of dates to pull out a specific period.
+
+filter = (df["Year"] >= 1950) & (df["Year"] <= 1960)
 fifties = df.loc[filter]
 fifties
 
 
-# How does the temperature vary over a 10 year period?
+# Putting this all together we can group New York in the 50's into one dataframe.
 
-filter = df["InNYC"] & (df["Year"] >= 1950) & (df["Year"] <= 1960) 
+filter = df["InNYC"] & (df["Year"] >= 1950) & (df["Year"] <= 1960)
 period = df.loc[filter]
-
-
 
 # ## Visualizing Complex Data
 
-# * Chart - Over the last 10 years
-# * Mark - Line graph
-# * Encode - date and temperature
+# As with the runners above this allows us to explore our data along
+# many different charts and questions. Here are some examples
 
+
+# ### Example 1: How did the temperature of New York change during the 50's?
+
+# * Chart - New York city Over the last 10 years
+# * Mark - Line graph showing pattern.
+# * Encode - Date (new type- date) and temperature (quantitative)
 
 chart = (alt.Chart(period)
            .mark_line()
-           .encode(x = "dt",
-                   y = "AverageTemperature"))
+           .encode(x = "Date",
+                   y = "Temperature"))
 chart
 
+# ### Example 2: How do the monthly temperatures of New York fluctuate per year?
 
-# We can instead graph different properties.
+# This graph instead uses the year as the x-axis and color to represent the time of the year. This makes it easier to compare months to each other.
 
-# * Chart - Over the last 10 years
+# * Chart - NYC with data from over the last 10 years
 # * Mark - Line graph
-# * Encode - date and temperature month
+# * Encode - Year as ordinal axis, temperature as y-axis, month as color.
 
 
 chart = (alt.Chart(period)
             .mark_line()
-            .encode(x = "Year",
-                    y = "AverageTemperature",
+            .encode(x = "Year:O",
+                    y = "Temperature",
                     color = "Month:N"))
 chart
 
-# How does the temperature vary over a 200 year period?
+# ### Example 3: How does the temperature in NYC vary over a 200 year period?
 
 filter = df["InNYC"] & (df["Year"] >= 1800) & (df["Year"] <= 2000)
 period = df.loc[filter]
 period
+
+
+chart = (alt.Chart(period)
+            .mark_line()
+            .encode(x = "Year:O",
+                    y = "Temperature",
+                    color = "Month:N"))
+chart
+
+# ## Advanced: GroupBys
+
+
+# GroupBys
+#
+# 1) Filter - Figure out the data to start with
+# 2) GroupBy - Determine the subset of data to use
+# 3) Aggregation - Compute a property over the group
+
+
+# 1) Filter
+filter = ((df["Country"] == "United States") &
+          (df["Year"] == 1950))
+
+# 2) Group By
+grouped = df.loc[filter].groupby(["Country"],  as_index=False)
+
+# 3) Aggregated
+temperature = grouped["Temperature"].mean()
+temperature
+
+
+# 2) Group By
+grouped = df[filter].groupby(["City"], as_index=False)
+
+# 3) Aggregated
+temperature = grouped["Temperature"].mean()
+temperature
+
+
+# We can also check how much the temperature changes during the year.
+
+temperature = grouped["Temperature"].std()
+temperature
+
+
+# 2) Group By
+grouped = df[filter].groupby(["Year", "Country"], as_index=False)
+
+# 3) Aggregated
+temperature = grouped["Temperature"].mean()
+temperature
+
+
+# ## Group Exercise A
+
+
+# ### Question 1
+
+# How does the temperature vary over a 5 year period?
+
+
+# ### Question 2
+
+# How does the temperature vary with latitude?
+
+# ### Question 3
+
 
 # How does the temperature vary over a 5 year period?
 
@@ -264,8 +486,8 @@ filter = df["City"].isin(["New York", "Los Angeles", "Detroit"]) & (df["Year"] >
 period = df.loc[filter]
 chart = (alt.Chart(period)
          .mark_line()
-         .encode(x = "dt",
-                 y = "AverageTemperature",
+         .encode(x = "Date",
+                 y = "Temperature",
                  color = "City",
                  strokeDash = "City"))
 chart
@@ -300,44 +522,23 @@ chart = (alt.Chart(period)
 chart
 
 
+# There are many different possible graphs from the same data. For
+# instance we might want to explore whether how north or south a city
+# is impacts its population. This graph plots population against
+# latitude. The special `tooltip` argument uses the city column to
+# show the name of each city.
 
-# ## Advanced: GroupBys
+# * Chart - df
+# * Mark - Point chart
+# * Encode - Population, Latitude
 
-
-# GroupBys
-#
-# 1) Filter - Figure out the data to start with
-# 2) GroupBy - Determine the subset of data to use
-# 3) Aggregation - Compute a property over the group 
-
-
-# 1) Filter
-filter = ((df["Country"] == "United States") &
-          (df["Year"] == 1950))
-
-# 2) Group By
-grouped = df.loc[filter].groupby(["Country"])
-
-# 3) Aggregated
-temperature = grouped["AverageTemperature"].agg(['mean'])
-temperature
-
-
-# 2) Group By
-grouped = df[filter].groupby(["City"])
-
-# 3) Aggregated
-temperature = grouped["AverageTemperature"].agg(['mean'])
-temperature
-
-
-# 2) Group By
-grouped = df[filter].groupby(["Year", "Country"])
-
-# 3) Aggregated
-temperature = grouped["AverageTemperature"].agg(['mean'])
-temperature
-
+chart = (alt.Chart(df)
+            .mark_point()
+            .encode(y="Latitude",
+                    x="Longitude",
+                    tooltip="City"
+            ))
+chart
 
 
 
@@ -390,3 +591,23 @@ chart = (alt.Chart(us_cities_df)
              ))
 chart = background + chart
 chart
+
+
+# # Group Exercise B
+
+
+# ## Question 1
+
+#📝📝📝📝 FILLME
+pass
+
+# ## Question 2
+
+#📝📝📝📝 FILLME
+pass
+
+
+# ## Question 3
+
+#📝📝📝📝 FILLME
+pass
