@@ -1,6 +1,6 @@
 # # Lab 2 - Working with Structured Data
 
-# The target of this lab session is to analyze and understand a large
+# (Hello)  The target of this lab session is to analyze and understand a large
 # dataset efficiently. The dataset we will work with is a dataset of
 # cities in the US and their climates. The module will
 # discuss the challenges of loading data, finding the parts we are
