@@ -96,7 +96,6 @@ df
 # Bonus question: What month and year did it occur?
 
 
-
 #📝📝📝📝
 pass
 
@@ -208,7 +207,7 @@ chart
 
 # ### Example 3: How did all the runners compare over the season?
 
-# * Chart - All the data?
+# * Chart - All the data
 # * Mark - Show as a line graph
 # * Encode - Let the x be meet (ordinal) and y be times (quantitative) and the color be the athlete (nominal)
 
