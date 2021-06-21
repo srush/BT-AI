@@ -1,7 +1,7 @@
 # # Lab 2 - Working with Structured Data
 
-# (Hello)  The target of this lab session is to analyze and understand a large
-# dataset efficiently. The dataset we will work with is a dataset of
+# The target of this lab session is to analyze and understand a large
+# datasets. The data we will work with today is a dataset of
 # cities in the US and their climates. The module will
 # discuss the challenges of loading data, finding the parts we are
 # interested in, and visualizing data output.
@@ -56,7 +56,10 @@ for val in range(10):
 str1 = "first|second"
 
 str1.split("|")
-    
+
+
+# ## Questions from the previous lab?
+
 # ## Review Exercise 
 
 # Print only the values in this list that are greater than 20.
@@ -68,9 +71,9 @@ pass
 
 # # Unit A
 
-# This week is all about `data tables`. Data tables are a common way
-# of representing facts anywhere from newspaper articles to scientific
-# studies.
+# This week is all about `datatables`, also known as
+# `dataframes`. Data tables are a common way of representing facts
+# anywhere from newspaper articles to scientific studies.
 
 # For instance, as a running example let us consider this table from Wikipedia.
 
@@ -105,9 +108,6 @@ pass
 # ## Pandas
 
 # The data that we are working with is located in the file "Cities.csv".
-# You can get this file from the internet by running this command.
-
-
 # This file is raw data as a text file. We can see the output in raw form.
 
 # https://srush.github.io/BT-AI/notebooks/Cities.csv
@@ -423,22 +423,12 @@ df
 
 # ## Question 1
 
-# The following are the official abbreviation codes for the cities in our data table.
+# The following website has the official abbreviation codes for all countries.
+# https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes
 
-abbrev = {
-    "United States": "US",
-    "Mexico" : "MX",
-    "Canada" : "CA",
-    "Haiti" : "HAT",
-    "Jamaica" : "JM",
-    "Cuba" : "CU",
-    "Honduras" : "HO",
-    "Nicaragua" : "NR",
-    "Dominican Republic" : "DR",
-    "Guatemala" : "G",
-    }
+# To get all of the unique entries of a series you can use https://pandas.pydata.org/docs/reference/api/pandas.unique.html
 
-# Can you add a new column to the table called "Abbrev" that lists the abbreviation code for that city?
+# Using a table mapping countries to their codes.  Can you add a new column to the table called "Abbrev" that lists the abbreviation code for that city?
 
 #📝📝📝📝 FILLME
 pass
@@ -452,18 +442,15 @@ pass
 # ## Question 3
 
 # Currently in the table the latitude and longitude are represented as string types, because they
-# have N / S and E / W in their values. These two functions will fix that issue. 
+# have N / S and E / W in their values.
+
+# Instead we would for longitude E to be positive and W negative, for example 100W -> -100
+# For latitude we would like N to be positive and S to be negative, for example 100N -> 100  
 
 def latitude_to_number(latitude_string):
-    str1 = latitude_string
-    if str1[-1] == "N":
-        return float(str1[:-1])        
-    else:
-        return -float(str1[:-1])    
-
+    pass
 def longitude_to_number(longitude_string):
-    str1 = longitude_string.replace("W", "")
-    return -float(str1)
+    pass
 
 lat = latitude_to_number("190N")
 lat
