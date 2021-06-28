@@ -114,8 +114,6 @@ pass
 # The temperature column in this dataset is in Celsius. Can you add a new column for
 # Farenheit temperature? (The formula is $F = (C× 9/5) + 32$)
 
-#📝📝📝📝
-pass 
 
 
 
