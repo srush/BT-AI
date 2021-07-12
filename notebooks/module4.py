@@ -1,36 +1,35 @@
 # # Lab 4 - Machine Learning 1 - Classification
 
 # This lab will introduce the basic concepts behind machine learning
-# and the tools that allow us to learn from data. Machine learning is
-# one of the main topics in modern AI and is used for many exciting
-# applications that we will see in the coming weeks.
+# and the tools that allow us to learn from data.
 
+# Machine learning is one of the main topics in modern AI and is used
+# for many exciting applications that we will see in the coming weeks.
 
 # ![scikit](https://scikit-learn.org/stable/_images/sphx_glr_plot_classifier_comparison_001.png)
 
 # # Review
 
-# So far the two libraries that we have covered are Pandas which handles data frames.
+# So far the two libraries that we have covered are Pandas (Week 2) which handles data frames.
 
 import pandas as pd
-import warnings
-warnings.filterwarnings('ignore')
 
-# And Altair which handles data visualization.
+# And Altair (Week 3) which handles data visualization.
 
 import altair as alt
 
 # We will continue building on these two libraries throughout the semester.
 
 # Let's start from a simple dataframe. We have been mainly loading
-# data frames from files, but we can also create them directly.
+# data frames from files, but we can also create them directly from python dictionaries.
 
-df = pd.DataFrame({
+d = {
     "City" : ["New York", "Philadelphia", "Boston"],
     "Temperature" : [25.3, 30.1, 22.1],
     "Location" : [20.0, 15.0, 25.0],
-    "Population" : [10000000, 10000000, 500000],
-})
+    "Population" : [10000000, 1000000, 500000],
+}
+df = pd.DataFrame(d)
 df
 
 # Here are our columns.
@@ -55,7 +54,7 @@ chart = (alt.Chart(df)
 chart
 
 
-# Notice that we didn't have to use all the columns and it only showed the ones we specified.
+# Notice that we didn't have to use all the columns, and it only showed the ones we specified.
 
 # Another example is a chart that shows the location and the temperature.
 
@@ -70,10 +69,13 @@ chart
 
 
 chart = (alt.Chart(df)
-           .mark_point()
+           .mark_point(size=100, fill="yellow")
+           .properties(title="Temperature By Location")
            .encode(x = "Location",
                    y = "Temperature",
-                   tooltip = "City"
+                   shape = "City",
+                   color = "City",
+                   tooltip = ["City", "Temperature"]
            ))
 chart
 
@@ -87,11 +89,12 @@ pass
 
 # # Unit A
 
-# For today's class we are going to take a break from temperature and
-# look at some simplified starter dataset.
+# ## Machine Learning Data
 
-# Our dataset is a Red versus Blue classification challenge. Instead of
-# describing this dataset let us take a look.
+# For today's  class we  are going  to take a  break from  our climate
+# change data and work with a simplified set of starter data.
+
+# Our dataset is a Red versus Blue classification challenge. Let us take a look.
 
 
 df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/simple.csv")
@@ -102,15 +105,34 @@ df
 df.columns
 
 
-# First is "split". The two options here are `train` and `test`. This is an important
+# Here is what the data looks like.
+
+chart = (alt.Chart(df)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color = "class",
+        shape = "split"
+    ))
+chart
+
+
+# First is `split`.
+
+splits = df["split"].unique()
+splits
+
+# The two options here are `train` and `test`. This is an important
 # distinction in machine learning.
 #
-# * Train -> Points that we use to "fit" our machine learning model
-# * Test ->  Points that we use to "predict" with our machine learning model.
+# * Train -> Points that we use to fit our machine learning model.
+# * Test ->  Points that we use to predict with our machine learning model.
 
-# For example, if we were building a model for classifying types of birds from images,
-# our Train split might be pictures of birds from a guide, whereas our Test split
-# would be new pictures of birds in the wild that we want to classify.
+# For example, if we were building a model for classifying types of
+# birds from images, our Train split might be pictures of birds from a
+# guide, whereas our Test split would be new pictures of birds in the
+# wild that we want to classify.
 
 # Let us separate these out using a filter.
 
@@ -118,14 +140,22 @@ df_train = df.loc[df["split"] == "train"]
 df_test = df.loc[df["split"] == "test"]
 
 
-# Next is "class". We can see there are two options, `red` and `blue`.
-# This tells us the color associated with the point. For this exercise,
-# our goal is going to be splitting up these two colors.
+# Next is `class`.
 
 classes = df_train["class"].unique()
 classes
 
-# Finally we have "features". Features are the columns that we use
+# We can see there are two options, `red` and `blue`.
+# This tells us the color associated with the point. For this exercise,
+# our goal is going to be splitting up these two colors.
+
+
+# Finally we have `features`.
+
+features = df_train[["feature1", "feature2"]].describe()
+features
+
+# Features are the columns that we use
 # in order to solve the challenge. The machine learning model gets to
 # use the features in any way it wants it order to predict the class.
 
@@ -164,6 +194,8 @@ chart = (alt.Chart(df_test)
         color = "class"
     ))
 chart
+
+# ## Prediction
 
 # We are interested in using the features to predict the class (red/blue).
 # We can do this by writing a function.
@@ -266,13 +298,13 @@ chart
 
 # # Unit B
 
-# In Unit A we wrote a function to try to split the red and the blue
-# data points.
+# Machine learning (ML) is a collection of method for automatically
+# finding a way to split up points. It sounds really simple, but
+# it turns out that splitting up points like this is really useful.
 
-# Machine learning (ML) allows us to produce that function without having
-# to write it manually.
 
-# The library Scikit-Learn is a standard toolkit for machine learning in Python.
+# To explore this idea we are going to use the library Scikit-Learn.  This is 
+# a standard toolkit for machine learning in Python.
 
 # ![sklearn](https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png)
 
@@ -284,7 +316,7 @@ chart
 # Do not be scared though. Most of these options do not matter so much in practice. You can
 # learn the important parts in 30 minutes.
 
-# Let us first important the library.
+# Let us first import the library.
 
 import sklearn.linear_model
 
@@ -297,33 +329,31 @@ import sklearn.linear_model
 # 2. Fit. Create a model and give it training features
 # 3. Predict. Use the model on test data.
 
-# Step 1. Create out data. (We did this already.
+# *Step 1.* Create out data. (We did this already).
 
 df_train
 
-# Step 2. Create our model and fit it to data.
+# *Step 2.* Create our model and fit it to data.
 
 # First we pick a model type. We will mostly use this one.
 
 sklearn.linear_model.LogisticRegression
 
-
-# However I really hate the name `logistic regression`. Both those words are extemely complex and silly. So let us rename this function to what it really is.
+# However I really hate the name *logistic regression*. So let us rename this function to what it really is.
 
 LinearClassification = sklearn.linear_model.LogisticRegression
-
 model = LinearClassification()
 
 # Then we tell it which features to use as input (X) and what it goal
 # is (y). Here we tell it to use `feature1` and `feature2` and to
-# predict whether the point is red.
+# predict whether the point is `red`.
 
 model.fit(X=df_train[["feature1", "feature2"]],
           y=df_train["class"] == "red")
 
 # This is similar to Altair chart. Just tell it which columns to use.
 
-# Step 3. Predict. Once we have a model we can use it to predict the
+# *Step 3*. Predict. Once we have a model we can use it to predict the
 # output classes of our model. This replaces the part where we did it
 # manually.
 
@@ -343,7 +373,7 @@ chart = (alt.Chart(df_test)
 chart
 
 
-# That's it! You have done machine learning.
+# That's it! You have just built your first machine learning model.
 
 # ## Details
 
@@ -364,10 +394,7 @@ predict = model.predict([[feature1, feature2]])
 predict
 
 
-# In fact, we can even see what the model would do for any point.
-
-
-# This dataframe has most of the possible points.
+# In fact, we can even see what the model would do for any point. This dataframe has all possible points.
 
 
 all_df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/all_points.csv")
@@ -394,7 +421,7 @@ chart = (alt.Chart(all_df)
     ))
 chart
 
-# This makes sense.
+# This makes sense as it corresponds to the same line that we saw on our original chart.
 
 chart2 = (alt.Chart(df_test)
     .mark_point(color="black")
@@ -462,7 +489,7 @@ model = LinearClassification()
 
 # This model couldn't even learn about the circle if it wanted to.
 
-# Instead let us use a different model.
+# In the group exercise you will explore some other possible models that can get around some of these limitations.
 
 # # Group Exercise B
 
