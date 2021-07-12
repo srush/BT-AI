@@ -1,20 +1,31 @@
 # # Lab 5 - Machine Learning 2 - Features
 
 # This lab will continue our journey through applied machine learning.
-# The main goal of the lab is to gain intuition for *features*. We will
-# learn how they can be constructed for structured data and how they allow
-# us to use simple models to make complex predictions.
+# The main goal of the lab is to gain intuition for *features*.
+
+# We will learn how features can be constructed for structured data
+# and how they allow us to use simple models to make complex
+# predictions.
 
 # We will also return to our climate change data and learn how to use
 # past data to make future predictions.
 
+# ![](https://www.climate.gov/sites/default/files/styles/featured-image/public/clmdiv_avg_temp_February_2014_620.png?itok=74iCFfGv)
+
+
+
 # # Review
 
-
-# Our dataset is a Red versus Blue classification challenge.
+# We have learned 3 libraries so far. Pandas, Altair, and
+# Scikit-Learn. We will use all three heavily today.
 
 import pandas as pd
 import altair as alt
+import sklearn.linear_model
+
+# Reminder that our main sample dataset is a Red versus Blue classification
+# challenge.
+
 df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/simple.csv")
 df
 
@@ -30,7 +41,7 @@ df_test = df.loc[df["split"] == "test"]
 
 df_train["class"]
 
-# A point graph allows us to see our problem.
+# A point graph allows us to see our problem clearly. We need to separate the Reds from the Blues.
 
 chart = (alt.Chart(df_train)
     .mark_point()
@@ -41,31 +52,29 @@ chart = (alt.Chart(df_train)
     ))
 chart
 
-# We are using the library *scikit-learn* for prediction. We are focusing on
-# a method known as Linear Classification. (It has a confusing name in the library).
+# We are using the library *scikit-learn* for prediction. We are
+# focusing on a method known as Linear Classification. (Note it has a
+# silly name in the library, we rename it for simplicity.).
 
-import sklearn.linear_model
-# Rename
 LinearClassification = sklearn.linear_model.LogisticRegression
-
-
-# 1. - Make a models
-# 2. - Fit to our data.
-
-
 model = LinearClassification()
+
+#  The main machine learning step is to fit our model to the features of the data.
+
 model.fit(X=df_train[["feature1", "feature2"]],
           y=df_train["class"] == "red")
 
 
-# Linear Classification draw the best linear to split the two classes.
-# For now you can ignore how it does that. Intuitively the best line
-# is defined by how faw each point is from the line.
+# Linear Classification draws the best line to split the two classes.
+# (For now you can ignore how it does that.) Intuitively the best line
+# is defined by how far each point is from the line.
 
 # We can see this visually by trying out out every possible point and seeing where the system puts them.
 
 all_df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/all_points.csv")
 all_df["predict"] = model.predict(all_df[["feature1", "feature2"]])
+
+# Here is a graph of out the points.
 
 chart = (alt.Chart(all_df)
     .mark_point()
@@ -81,33 +90,36 @@ chart
 # The goal of machine learning is to accurately predict the results of
 # unseen data. We use the test data to make this possible.
 
-
-
 # ## Review Exercise
 
 # Use the model to predict on the test data (using `model.predict`).
-# What is the accuracy (number of points where the prediction is the same as the class)?
+# What is the accuracy (number of points where the *prediction* is the same as the true  *class*)?
 
 #📝📝📝📝 FILLME
 pass
 
-# Bonus question. Can you graph the test data showing both the prediction and the true class?
+# Can you graph the test data showing both the prediction and the true class?
 
 
 #📝📝📝📝 FILLME
 pass
 
-# ## Unit A
+# # Unit A
 
-# ## Complex Data
+# ## Complex Data 
 
 # Our model is effective at drawing a line between data. However as we saw last time
-# this only works if our data can be split.
+# this only works if our data can be split easily with a line.
+
+# Let us load some more complex data. 
 
 
-df = pd.read_csv("complex.csv")
-
+df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/complex.csv")
 df_train = df[df["split"] == "train"]
+
+# This data has all the red point in a the top-right corner. This makes it hard
+# to separate.
+
 chart = (alt.Chart(df_train)
     .mark_point()
     .encode(
@@ -117,15 +129,14 @@ chart = (alt.Chart(df_train)
     ))
 chart
 
-# If we try to fit this data in our standard way.
+# Let us now try to fit out data in the standard way.
 
-model = LinearClassification()
 model.fit(X=df_train[["feature1", "feature2"]],
           y=df_train["class"] == "red")
 
-df_train["predict"] = model.predict(df_train[["feature1", "feature2"]])
+# We can then predict on the train set to see how well it fit the data.
 
-# It will fail pretty badly.
+df_train["predict"] = model.predict(df_train[["feature1", "feature2"]])
 
 chart = (alt.Chart(df_train)
     .mark_point()
@@ -138,10 +149,12 @@ chart = (alt.Chart(df_train)
 chart
 
 
-# Here is what it is trying to do.
+# Unfortunately we can see that it did not fit well. 
+
+# We can see that it did its best to try to find a line. However, it did
+# not succeed in practice. 
 
 all_df["predict"] = model.predict(all_df[["feature1", "feature2"]])
-
 chart = (alt.Chart(all_df)
     .mark_point()
     .encode(
@@ -152,10 +165,15 @@ chart = (alt.Chart(all_df)
     ))
 chart
 
+# ## Reasoning about Seperation
 
-# Last class we saw that we could replace the linear classification with a different classifier. Today we will examine a different approach. We will create new features.
+# Let us think about how we would seperate this data manually.
 
-# Let us think about how we would split this data manually.
+# Remember that our main tool was to create filters that let use divide up
+# the points.
+
+# The upper right corner can be defined as the *and* of the right side
+# and the upper side of our data. 
 
 filter = (df_train["feature1"] > 0.5) & (df_train["feature2"] > 0.5)
 df_red = df_train.loc[filter]
@@ -171,7 +189,8 @@ chart = (alt.Chart(df_red)
 chart
 
 
-# Alternatively we can look at the blue pts
+# Conversely we separate the blue pts by the *or* of the the left side
+# and the bottom side.
 
 filter = (df_train["feature1"] < 0.5) | (df_train["feature2"] < 0.5)
 df_blue = df_train.loc[filter]
@@ -186,20 +205,27 @@ chart = (alt.Chart(df_blue)
     ))
 chart
 
-
-
 # ## Features
 
-df_train["feature3"] = df_train["feature1"] > 0.5
-df_train["feature4"] = df_train["feature2"] > 0.5
+# We can create features as new functions that transform our data. Here we note that the
+# feature should be aware of where the middle of the data is.
+
+def mkupperfeature(f):
+    if f > 0.5:
+        return 1.0
+    else:
+        return 0.0
+
+# We can use standard pandas methods to create these new features.
+    
+df_train["feature3"] = df_train["feature1"].map(mkupperfeature)
+df_train["feature4"] = df_train["feature2"].map(mkupperfeature)
 
 
-# Now we fit on the new data
+# Now we can fit our model. *Note* we are passing feature 3 and 4, not 1 and 2.
 
-model = LinearClassification()
 model.fit(X=df_train[["feature3", "feature4"]],
           y=df_train["class"] == "red")
-
 df_train["predict"] = model.predict(df_train[["feature3", "feature4"]])
 
 # Now it works!
@@ -215,12 +241,17 @@ chart = (alt.Chart(df_train)
 chart
 
 
-# Wow that was neat.
+# Let's repeat that and look what happened. We first added new features
+# that tell the model about the up/down and left/right regions.
 
-all_df["feature3"] = all_df["feature1"] > 0.5
-all_df["feature4"] = all_df["feature2"] > 0.5
+all_df["feature3"] = all_df["feature1"].map(mkupperfeature)
+all_df["feature4"] = all_df["feature2"].map(mkupperfeature)
+
+# We then predict on these new features. 
 
 all_df["predict"] = model.predict(all_df[["feature3", "feature4"]])
+
+# And when we graph on the original features, it can draw fancy shapes. 
 
 chart = (alt.Chart(all_df)
     .mark_point()
@@ -233,9 +264,10 @@ chart = (alt.Chart(all_df)
 chart
 
 
-# We were able to draw a line that had a square shape. Why was that?
+# Why were able to draw a line that had a square shape?
 
-# The trick is that the line is straight in the features that we gave the model .
+# The key trick is that the line is straight in the features that we gave the model. Features 3 and 4.
+# If we graph them it looks like this. 
 
 chart = (alt.Chart(df_train)
     .mark_point()
@@ -247,7 +279,8 @@ chart = (alt.Chart(df_train)
     ))
 chart
 
-# And in those we can draw the graph.
+# The key idea is that when we train on the new features. We can be
+# *non-linear* in the original features.
 
 
 
@@ -259,14 +292,15 @@ chart
 
 
 
+
 # ## Question 1
 
-df = pd.read_csv("periodic.csv")
+# For this first question, the data is separated into two parts based on
+# how far it is from the center
+
+df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/center.csv")
 df_train = df.loc[df["split"] == "train"]
 df_test = df.loc[df["split"] == "test"]
-
-
-
 chart = (alt.Chart(df_train)
     .mark_point()
     .encode(
@@ -277,29 +311,20 @@ chart = (alt.Chart(df_train)
 chart
 
 
-# Dataset 1 is a periodic data set.
-
-import math
-
-
-# The Sine function will turn a point into a curve.
-
-x = math.sin(0.0)
-
-# Use this function to create a new feature (feature 3). Show that training a
-# model on just feature 3 will yield an accurate value
-
+# Construct new features that allow you to separate the data into parts. 
 
 #📝📝📝📝 FILLME
 pass
 
 # ## Question 2
 
-df = pd.read_csv("center.csv")
+# Now the data is split into a circle around the point (0.4, 0.4).
+
+
+df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/circle.csv")
 df_train = df.loc[df["split"] == "train"]
 df_test = df.loc[df["split"] == "test"]
 
-# Points from the equator
 
 chart = (alt.Chart(df_train)
     .mark_point()
@@ -310,19 +335,18 @@ chart = (alt.Chart(df_train)
     ))
 chart
 
+# Use the formula for distance from a point $\sqrt{(x - 0.4)^2 + (y - 0.4)^2}$ to define new features for this problem.
 
 #📝📝📝📝 FILLME
 pass
 
 # ## Question 3
 
-df = pd.read_csv("circle.csv")
+# Finally consider a problem with a periodic (repeating) curve.
 
+df = pd.read_csv("periodic.csv")
 df_train = df.loc[df["split"] == "train"]
 df_test = df.loc[df["split"] == "test"]
-
-# Points from the equator
-
 chart = (alt.Chart(df_train)
     .mark_point()
     .encode(
@@ -332,32 +356,52 @@ chart = (alt.Chart(df_train)
     ))
 chart
 
-# Distance from the center.
+# Define a new feature based on the formula $\sin(\mathrm{feature1}*10)$. (Sin is in the math library).
+
+import math
+
+
+# Use this function to create a new feature (feature 3). Show that training with
+# feature 1,2, and 3 will yield an accurate value
+
 
 #📝📝📝📝 FILLME
 pass
 
-# ## Unit B
+
+# # Unit B
 
 # ## Real World Data
 
 
-# Temperature classification.
+# Now we will apply the methods we learned in the previous section to a real-world
+# classification problem. We will return to the temperature classification problem
+# from Week 3
 
-df = pd.read_csv("Temperatures.csv", index_col=0, parse_dates=[1])
-df["Temp"] = (df["Temperature"] * 9/5) + 32
+temp_df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/Temperatures.csv", index_col=0, parse_dates=[1])
 
-check = ((df["Country"] == "United States") &
-         (df["Date"].dt.year >= 2000) & (df["Date"].dt.year <= 2001))
+# We convert the tempertature to Farenheit for easier visualization.
 
-df = df.loc[check]
+temp_df["Temp"] = (temp_df["Temperature"] * 9/5) + 32
 
+
+# To make things simpler, we filter to the US in the years 2000 and 2001
+
+filter = ((temp_df["Country"] == "United States") &
+          (temp_df["Date"].dt.year >= 2000) & (temp_df["Date"].dt.year <= 2001))
+df = temp_df.loc[filter]
+
+# Just as a a reminder here are our columns.
 
 df.columns
 
-# ## When is the temperature over 70 degrees?
+# ## Example: Predicting Temperature
+
+# We will start with the question of predicting when the temperature goes over 70 degrees.
 
 df["class"] = df["Temp"] > 70
+
+# To make our splits we divide the data arbitrarily into a train and test set.
 
 def mksplit(city):
     if city[0] > "M":
@@ -367,25 +411,37 @@ def mksplit(city):
 df["split"] = df["City"].map(mksplit)
 
 
-# Let us try something simple to start.
+# The main question of interest will be "Which features should we use?". We want features
+# that best separate the data into warm and cold groups.
+
+# ### Try 1
+
+# A natural first attempt is to use location features. We can use the Longitude (east-west) and Latitude (north-south) to start.
+
 df["feature1"] = df["Longitude"]
 df["feature2"] = df["Latitude"]
 
+# We then split the data into train and test sets.
 
 df_train = df.loc[df["split"] == "train"]
 df_test = df.loc[df["split"] == "test"]
 
+# The different classes are True and False, i.e. is it over 70 for
+# that city in that month.
 
 df_train["class"]
+
+
+# Now we follow our standard method to fit the data and see how well it does
+# at separating on the train set. 
 
 model.fit(X=df_train[["feature1", "feature2"]],
           y=df_train["class"]
 )
-
 df_train["predict"] = model.predict(df_train[["feature1", "feature2"]])
 
 
-# The model does not do that well.
+# Unfortunately the model does not do that well at all!
 
 chart = (alt.Chart(df_train)
     .mark_point()
@@ -398,7 +454,9 @@ chart = (alt.Chart(df_train)
     ))
 chart
 
-# Let us see what is happening.
+# ## Try 2
+
+# Let us look at the data to see what is happening. Why is it not enough to just look at Longitude and Latitude?
 
 chart = (alt.Chart(df_train)
     .mark_tick(thickness=4)
@@ -412,7 +470,9 @@ chart = (alt.Chart(df_train)
     ))
 chart
 
+# The problem seems to be seasons. The same city will have very different average temperatures in different months.
 
+# We can see this by looking at points grouped by latitude. 
 
 chart = alt.Chart(df).mark_point().encode(
     y = "Temp",
@@ -421,38 +481,41 @@ chart = alt.Chart(df).mark_point().encode(
 )
 chart
 
-# It even though in theory Latitude is a good way to tell temperature,
-# it is not enough alone. We need to be able to separate out by season as
+# Latitude is clearly a useful feature, lower latitude means higher temperature.
+# But it is not enough alone. We need to be able to separate out by season as
 # well.
-
-
-df
-
 
 chart = alt.Chart(df).mark_point().encode(
     y = "Temp",
-    x = "dt:T",
+    x = "Date:T",
     color = "class", 
     tooltip=["City", "Country"],
 )
 chart
 
+# This feature turns the month of the year into a value between -1 and 1.
+# Summer is 1 and winter is 0.
+
 def mkfeature(time):
-    return math.cos(((time.month - 1) / 11.0) * 2 * 3.14)
+    return -math.cos(((time.month - 1) / 11.0) * 2 * math.pi)
+
+# We can include this feature with latitude.
 
 df["feature3"] = df["Date"].map(mkfeature)
 df["feature4"] = df["Latitude"]
 
+# Apply the standard ML steps.
+
 df_train = df.loc[df["split"] == "train"]
 df_test = df.loc[df["split"] == "test"]
-
-
 model.fit(X=df_train[["feature3", "feature4"]],
           y=df_train["class"]
 )
-
 df_train["predict"] = model.predict(df_train[["feature3", "feature4"]])
 
+
+# And now we can plot our graph. Here the x axis is the seasonal value and the y axis
+# is the latitude. Mostly the model is able to now predict correctly.
 
 chart = (alt.Chart(df_train)
     .mark_point()
@@ -465,7 +528,7 @@ chart = (alt.Chart(df_train)
     ))
 chart
 
-# Check on test data.
+# Checking on the test data we can see that the model use both features to make its predictions.
 
 df_test["predict"] = model.predict(df_test[["feature3", "feature4"]])
 
@@ -482,13 +545,17 @@ chart
 
 # ## Pretty Chart
 
-from vega_datasets import data
+# Just for fun we can chart this data on a map.
 
+from vega_datasets import data
 us_cities_df = df.loc[df["Country"] == "United States"]
 
-df["predict"] = model.predict(df[["feature3", "feature4"]])
+# We just look at one month in the data.
 
+df["predict"] = model.predict(df[["feature3", "feature4"]])
 df_summer = df[(df["Date"].dt.month==4) & (df["Date"].dt.year==2001)]
+
+# Draw the background map.
 
 states = alt.topo_feature(data.us_10m.url, feature='states')
 background = alt.Chart(states).mark_geoshape(
@@ -498,6 +565,10 @@ background = alt.Chart(states).mark_geoshape(
     width=500,
     height=300
 ).project('albersUsa')
+
+
+# Plot our points, predictions, and the true answer on the map.
+
 points = alt.Chart(df_summer).mark_point(size=100).encode(
     longitude='Longitude',
     latitude='Latitude',
@@ -509,11 +580,11 @@ points = alt.Chart(df_summer).mark_point(size=100).encode(
 chart = background + points
 chart
 
-# ## Other Countries
+# ## Example 2: Adding Other Countries
 
-temp_df = pd.read_csv("Temperatures.csv", index_col=0, parse_dates=[1])
 
-temp_df["Temp"] = (temp_df["Temperature"] * 9/5) + 32
+# For the group activity today, you will extend these ideas to other
+# countries. In particular we will consider 3 others. 
 
 filter = (((temp_df["Country"] == "Canada") |
            (temp_df["Country"] == "France") |
@@ -523,16 +594,21 @@ df = temp_df.loc[filter]
 
 df
 
+# Classification and features are the same.
 
 df["class"] = df["Temp"] > 70
 df["feature3"] = df["Date"].map(mkfeature)
 df["feature4"] = df["Latitude"]
 
+# The model and predictions are the same. 
 
 model.fit(X=df[["feature3", "feature4"]],
           y=df["class"]
 )
 df["predict"] = model.predict(df[["feature3", "feature4"]])
+
+
+# However, suddenly this approach does not work!
 
 chart = alt.Chart(df).mark_point().encode(
     y = "Temp",
