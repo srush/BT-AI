@@ -13,6 +13,8 @@
 
 # Our dataset is a Red versus Blue classification challenge.
 
+import pandas as pd
+import altair as alt
 df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/simple.csv")
 df
 
@@ -49,6 +51,7 @@ LinearClassification = sklearn.linear_model.LogisticRegression
 
 # 1. - Make a models
 # 2. - Fit to our data.
+
 
 model = LinearClassification()
 model.fit(X=df_train[["feature1", "feature2"]],
@@ -101,8 +104,10 @@ pass
 # Our model is effective at drawing a line between data. However as we saw last time
 # this only works if our data can be split.
 
+
 df = pd.read_csv("complex.csv")
-df_train = df[df["Split"] = "train"]
+
+df_train = df[df["split"] == "train"]
 chart = (alt.Chart(df_train)
     .mark_point()
     .encode(
@@ -114,7 +119,7 @@ chart
 
 # If we try to fit this data in our standard way.
 
-model = LinearModel()
+model = LinearClassification()
 model.fit(X=df_train[["feature1", "feature2"]],
           y=df_train["class"] == "red")
 
@@ -132,17 +137,33 @@ chart = (alt.Chart(df_train)
     ))
 chart
 
+
+# Here is what it is trying to do.
+
+all_df["predict"] = model.predict(all_df[["feature1", "feature2"]])
+
+chart = (alt.Chart(all_df)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color="predict",
+        fill = "predict",
+    ))
+chart
+
+
 # Last class we saw that we could replace the linear classification with a different classifier. Today we will examine a different approach. We will create new features.
 
 # Let us think about how we would split this data manually.
 
-filter = (df_train["feature1"] < 0.5) & (df_train["feature2"] < 0.5)
+filter = (df_train["feature1"] > 0.5) & (df_train["feature2"] > 0.5)
 df_red = df_train.loc[filter]
 
 # Here is what it looks like.
 
 chart = (alt.Chart(df_red)
-    .mark_point()
+    .mark_point(color="orange")
     .encode(
         x = "feature1",
         y = "feature2",
@@ -152,7 +173,7 @@ chart
 
 # Alternatively we can look at the blue pts
 
-filter = (df_train["feature1"] > 0.5) | (df_train["feature2"] < 0.5)
+filter = (df_train["feature1"] < 0.5) | (df_train["feature2"] < 0.5)
 df_blue = df_train.loc[filter]
 
 
@@ -161,8 +182,10 @@ chart = (alt.Chart(df_blue)
     .encode(
         x = "feature1",
         y = "feature2",
+        color = "class",
     ))
 chart
+
 
 
 # ## Features
@@ -173,13 +196,13 @@ df_train["feature4"] = df_train["feature2"] > 0.5
 
 # Now we fit on the new data
 
-model = LinearModel()
+model = LinearClassification()
 model.fit(X=df_train[["feature3", "feature4"]],
           y=df_train["class"] == "red")
 
 df_train["predict"] = model.predict(df_train[["feature3", "feature4"]])
 
-# It will fail pretty badly.
+# Now it works!
 
 chart = (alt.Chart(df_train)
     .mark_point()
@@ -192,19 +215,39 @@ chart = (alt.Chart(df_train)
 chart
 
 
-# Wow that was neat. We were able to draw a line that had a square shape. Why was that?
+# Wow that was neat.
+
+all_df["feature3"] = all_df["feature1"] > 0.5
+all_df["feature4"] = all_df["feature2"] > 0.5
+
+all_df["predict"] = model.predict(all_df[["feature3", "feature4"]])
+
+chart = (alt.Chart(all_df)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color = "predict",
+        fill = "predict",
+    ))
+chart
+
+
+# We were able to draw a line that had a square shape. Why was that?
 
 # The trick is that the line is straight in the features that we gave the model .
 
 chart = (alt.Chart(df_train)
     .mark_point()
     .encode(
-        x = "feature3",
-        y = "feature4",
+        x = "feature3:Q",
+        y = "feature4:Q",
         color="class",
         fill = "predict",
     ))
 chart
+
+# And in those we can draw the graph.
 
 
 
@@ -219,143 +262,233 @@ chart
 # ## Question 1
 
 df = pd.read_csv("periodic.csv")
+df_train = df.loc[df["split"] == "train"]
+df_test = df.loc[df["split"] == "test"]
+
+
+
+chart = (alt.Chart(df_train)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color = "class"
+    ))
+chart
+
 
 # Dataset 1 is a periodic data set.
+
+import math
 
 
 # The Sine function will turn a point into a curve.
 
-x = sin()
+x = math.sin(0.0)
 
 # Use this function to create a new feature (feature 3). Show that training a
 # model on just feature 3 will yield an accurate value
 
-#📝📝g📝📝 FILLME
+
+#📝📝📝📝 FILLME
 pass
 
 # ## Question 2
 
+df = pd.read_csv("center.csv")
+df_train = df.loc[df["split"] == "train"]
+df_test = df.loc[df["split"] == "test"]
 
 # Points from the equator
 
-#📝📝g📝📝 FILLME
+chart = (alt.Chart(df_train)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color = "class"
+    ))
+chart
+
+
+#📝📝📝📝 FILLME
 pass
 
 # ## Question 3
 
+df = pd.read_csv("circle.csv")
+
+df_train = df.loc[df["split"] == "train"]
+df_test = df.loc[df["split"] == "test"]
+
+# Points from the equator
+
+chart = (alt.Chart(df_train)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color = "class"
+    ))
+chart
 
 # Distance from the center.
 
-#📝📝g📝📝 FILLME
-pas
-
+#📝📝📝📝 FILLME
+pass
 
 # ## Unit B
 
 # ## Real World Data
 
 
-# Equator
-# Seasons
-
-df = pd.read_csv("simple.csv")
-df
-
-df_train = df.loc[df["split"] == "Train"]
-
-model = LogisticRegression()
-model.fit(df_train[["feature1", "feature2"]],
-          df_train["class"])
-
-df_test = df.loc[df["split"] == "Test"]
-df_test["predict"] = model.predict(df_test[["feature1", "feature2"]])
-
-
-# Alternative Approach
-from sklearn.neighbors import KNeighborsClassifier
-
-# model = KNNClassifier()
-# model.fit(df_train[["feature1", "feature2"]],
-#           df_train["class"])
-
-
-df_test = df.loc[df["split"] == "Test"]
-df_test["predict"] = model.predict(df_test[["feature1", "feature2"]])
-
-
-# ## Evaluation.
-
-df_test["class"]
-df_test["predict"]
-
-# Real World example
-
-
-
 # Temperature classification.
 
-df = pd.read_csv("data/Temperatures.csv", index_col=0, parse_dates=[1])
-
+df = pd.read_csv("Temperatures.csv", index_col=0, parse_dates=[1])
+df["Temp"] = (df["Temperature"] * 9/5) + 32
 
 check = ((df["Country"] == "United States") &
-         (df["dt"].dt.year == 1950) &
-         (df["dt"].dt.month == 7) )
-df2 = df.loc[check]
+         (df["Date"].dt.year >= 2000) & (df["Date"].dt.year <= 2001))
+
+df = df.loc[check]
 
 
-out = df2.describe()
-out
+df.columns
 
-chart = alt.Chart(df2).mark_point().encode(
-    y = "AverageTemperature",
+# ## When is the temperature over 70 degrees?
+
+df["class"] = df["Temp"] > 70
+
+def mksplit(city):
+    if city[0] > "M":
+        return "test"
+    else:
+        return "train"
+df["split"] = df["City"].map(mksplit)
+
+
+# Let us try something simple to start.
+df["feature1"] = df["Longitude"]
+df["feature2"] = df["Latitude"]
+
+
+df_train = df.loc[df["split"] == "train"]
+df_test = df.loc[df["split"] == "test"]
+
+
+df_train["class"]
+
+model.fit(X=df_train[["feature1", "feature2"]],
+          y=df_train["class"]
+)
+
+df_train["predict"] = model.predict(df_train[["feature1", "feature2"]])
+
+
+# The model does not do that well.
+
+chart = (alt.Chart(df_train)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color="class",
+        fill = "predict",
+        tooltip = "City"
+    ))
+chart
+
+# Let us see what is happening.
+
+chart = (alt.Chart(df_train)
+    .mark_tick(thickness=4)
+    .encode(
+        x = "City",
+        y = "Temp",
+        color="class",
+        fill = "class",
+        tooltip = "City",
+        shape="City"
+    ))
+chart
+
+
+
+chart = alt.Chart(df).mark_point().encode(
+    y = "Temp",
     x = "Latitude",
     tooltip=["City", "Country"],
 )
 chart
 
-
-model = sklearn.linear_model.LinearRegression()
-model.fit(df2[["Latitude"]], df2["AverageTemperature"])
-
-df_pred = pd.DataFrame({"Latitude": np.linspace(25, 50, 10)})
-df_pred["AverageTemperature"] = model.predict(df_pred[["Latitude"]])
-df_pred
+# It even though in theory Latitude is a good way to tell temperature,
+# it is not enough alone. We need to be able to separate out by season as
+# well.
 
 
-chart2 = alt.Chart(df_pred).mark_line(color="red").encode(
-    y = "AverageTemperature",
-    x = "Latitude",
-)
-out = chart + chart2
-out
+df
 
 
-model_bad = sklearn.linear_model.LinearRegression()
-model_bad.fit(df2[["Longitude"]], df2["AverageTemperature"])
-
-df_pred = pd.DataFrame({"Longitude": np.linspace(-150, -75, 10)})
-df_pred["AverageTemperature"] = model_bad.predict(df_pred[["Longitude"]])
-df_pred
-
-
-chart = alt.Chart(df2).mark_point().encode(
-    y = "AverageTemperature",
-    x = "Longitude",
+chart = alt.Chart(df).mark_point().encode(
+    y = "Temp",
+    x = "dt:T",
+    color = "class", 
     tooltip=["City", "Country"],
 )
-chart2 = alt.Chart(df_pred).mark_line(color="red").encode(
-    y = "AverageTemperature",
-    x = "Longitude",
+chart
+
+def mkfeature(time):
+    return math.cos(((time.month - 1) / 11.0) * 2 * 3.14)
+
+df["feature3"] = df["Date"].map(mkfeature)
+df["feature4"] = df["Latitude"]
+
+df_train = df.loc[df["split"] == "train"]
+df_test = df.loc[df["split"] == "test"]
+
+
+model.fit(X=df_train[["feature3", "feature4"]],
+          y=df_train["class"]
 )
-out = chart + chart2
-out
+
+df_train["predict"] = model.predict(df_train[["feature3", "feature4"]])
 
 
+chart = (alt.Chart(df_train)
+    .mark_point()
+    .encode(
+        x = "feature3",
+        y = "feature4",
+        color="class",
+        fill = "predict",
+        tooltip = "City"
+    ))
+chart
+
+# Check on test data.
+
+df_test["predict"] = model.predict(df_test[["feature3", "feature4"]])
+
+chart = alt.Chart(df_test).mark_point().encode(
+    y = "Temp",
+    x = "Latitude",
+    color="class",
+    fill = "predict",
+
+    tooltip=["City", "Country"],
+)
+chart
+
+
+# ## Pretty Chart
 
 from vega_datasets import data
 
 us_cities_df = df.loc[df["Country"] == "United States"]
 
+df["predict"] = model.predict(df[["feature3", "feature4"]])
+
+df_summer = df[(df["Date"].dt.month==4) & (df["Date"].dt.year==2001)]
 
 states = alt.topo_feature(data.us_10m.url, feature='states')
 background = alt.Chart(states).mark_geoshape(
@@ -365,110 +498,96 @@ background = alt.Chart(states).mark_geoshape(
     width=500,
     height=300
 ).project('albersUsa')
-points = alt.Chart(df2).mark_point(size=100).encode(
+points = alt.Chart(df_summer).mark_point(size=100).encode(
     longitude='Longitude',
     latitude='Latitude',
-    color="AverageTemperature",
-    tooltip=['City','AverageTemperature']
+    fill="Temp",
+    color="predict",
+    shape="class",
+    tooltip=['City', "Temp"]
 )
 chart = background + points
 chart
 
+# ## Other Countries
 
-matr = np.linspace((25, -150), (50, -75), 20)
-Lat, Log = np.meshgrid(matr[:, 0], matr[:, 1])
-df_pred = pd.DataFrame({"Latitude": Lat.flatten(), "Longitude": Log.flatten()})
-df_pred["AverageTemperature"] = model.predict(df_pred[["Latitude"]])
+temp_df = pd.read_csv("Temperatures.csv", index_col=0, parse_dates=[1])
 
-points = alt.Chart(df_pred).mark_circle(size=10).encode(
-    longitude='Longitude',
-    latitude='Latitude',
-    color=alt.Color("AverageTemperature", scale=alt.Scale(scheme="reds"))
+temp_df["Temp"] = (temp_df["Temperature"] * 9/5) + 32
+
+filter = (((temp_df["Country"] == "Canada") |
+           (temp_df["Country"] == "France") |
+           (temp_df["Country"] == "Brazil")) &
+          ((temp_df["Date"].dt.year == 2000) & (temp_df["Date"].dt.month==7)))
+df = temp_df.loc[filter]
+
+df
+
+
+df["class"] = df["Temp"] > 70
+df["feature3"] = df["Date"].map(mkfeature)
+df["feature4"] = df["Latitude"]
+
+
+model.fit(X=df[["feature3", "feature4"]],
+          y=df["class"]
 )
-chart = chart + points
+df["predict"] = model.predict(df[["feature3", "feature4"]])
+
+chart = alt.Chart(df).mark_point().encode(
+    y = "Temp",
+    x = "Latitude",
+    color="class",
+    fill = "predict",
+
+    tooltip=["City", "Country"],
+)
 chart
 
-# ## Input Formats
+
+# # Group Exercise B
+
+# For this group exercise you will puzzle through what is giong wrong when we apply the approach
+# to other countries on the map.
+
+# ## Question 1
+
+# The model predicts the cities in Brazil mostly incorrectly. What is going wrong with this approach?
+
+#📝📝📝📝 FILLME
+
+# ## Question 2
+
+# Modify one of the features in the model to help it correctly predict the Brazil cities. 
+
+#📝📝📝📝 FILLME
+pass
+
+# ## Question 3
+
+# Now consider a comparison of just France and Canada
+
+filter = (((temp_df["Country"] == "France") |
+           (temp_df["Country"] == "Canada")) &
+          ((temp_df["Date"].dt.year == 2000) & (temp_df["Date"].dt.month==1)))
+df = temp_df.loc[filter]
+df["class"] = df["Temp"] > 25
 
 
-model = sklearn.linear_model.LinearRegression()
-model.fit(df2[["Latitude"]], df2["AverageTemperature"])
+# Surprisingly France is at a very northern Latitude, almost as high as Canada.
+
+# Draw a chart like above that shows what happens when you try to run our
+# standard model on this data. 
 
 
+#📝📝📝📝 FILLME
+pass
 
 
-# When are features more complex?
+# Propose a different feature and add it to the model to mostly correctly classify this
+# dataset. In particular, how does the classifier split France and Canada?
 
 
-# import sklearn
-# from sklearn.linear_model import LogisticRegression
-# import pandas as pd
-# import altair as alt
-# import numpy as np
+#📝📝📝📝 FILLME
+pass
 
-# df = pd.read_csv("data/DataSet.csv",
-#                  index_col=0,
-#                  parse_dates=[1])
-
-# df_train = df["Split"] == "Train"
-# df_test = df["Split"] == "Test"
-
-# model = LogisticRegression()
-# features = ["Latitude", "Longitude"]
-# model.fit(df_train[features],
-#           df_train["AverageTemperature"])
-
-# df_test["predict"] = model.predict(df_test[features])
-
-
-# results = df_test["predict"] == df_test["correct"]
-# results
-
-
-# # ## When are features more complex?
-
-# # Creating New Features
-
-# df["IsSummer"] = (df["Month"] >= 5) & (df["Month"] <= 9)
-# df["IsWinter"] = (df["Month"] >= 12) & (df["Month"] <= 3)
-
-# features = ["Latitude", "Longitude", "IsSummer", "IsWinter"]
-# model = LogisticRegression()
-# model.fit(df_train[features],
-#           df_train["class"])
-
-# results = df_test["predict"] == df_test["correct"]
-# results
-
-
-# # Summer features
-
-# features = ["Latitude", "Longitude", "IsSummer", "IsWinter"]
-# model = LogisticRegression()
-# model.fit(df_train[features],
-#           df_train["class"])
-
-# results = df_test["predict"] == df_test["correct"]
-# results
-
-
-# # Distance from the Equator
-
-# df["DistanceFromEq"] = df["Longitude"].abs()
-
-# features = ["Latitude", "Longitude", "IsSummer", "IsWinter", "DistanceFromEq"]
-# model = LogisticRegression()
-# model.fit(df_train[features],
-#           df_train["class"])
-
-# results = df_test["predict"] == df_test["correct"]
-# results
-
-
-# Example 2: NLP
-
-# Competition.
-
-# Movie reviews, Features
-
-#
