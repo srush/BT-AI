@@ -242,6 +242,24 @@ pass
 
 # # Group Exercise A
 
+# ## Question 0
+
+# Who are other members of your group today?
+
+#📝📝📝📝 FILLME
+pass
+
+# What is something they are great at cooking?
+
+#📝📝📝📝 FILLME
+pass
+
+# What are their favorite animals? 
+
+#📝📝📝📝 FILLME
+pass
+
+
 # ## Question 1
 
 # The `predict` function above is not able to fully separate the points into red/blue groups.
