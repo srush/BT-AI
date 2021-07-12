@@ -303,14 +303,14 @@ df_train
 
 # Step 2. Create our model and fit it to data.
 
-# First we pick a model type. We will mostly use this one. (Don't worry about the name for now!)
+# First we pick a model type. We will mostly use this one.
 
-sklearn.linear_model.LogisticRegression()
+sklearn.linear_model.LogisticRegression
 
 
 # However I really hate the name `logistic regression`. Both those words are extemely complex and silly. So let us rename this function to what it really is.
 
-LinearClassification = sklearn.linear_model.LogisticRegression()
+LinearClassification = sklearn.linear_model.LogisticRegression
 
 model = LinearClassification()
 
