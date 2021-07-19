@@ -1,7 +1,8 @@
 # # Lab 5 - Machine Learning 2 - Features
 
 # This lab will continue our journey through applied machine learning.
-# The main goal of the lab is to gain intuition for *features*.
+# The main goal of the lab is to gain intuition for *features* and how
+# better features allow us to capture more complex properties. 
 
 # We will learn how features can be constructed for structured data
 # and how they allow us to use simple models to make complex
@@ -11,7 +12,6 @@
 # past data to make future predictions.
 
 # ![](https://www.climate.gov/sites/default/files/styles/featured-image/public/clmdiv_avg_temp_February_2014_620.png?itok=74iCFfGv)
-
 
 
 # # Review
@@ -52,6 +52,52 @@ chart = (alt.Chart(df_train)
     ))
 chart
 
+
+# We can try this ourself by splitting the points doing it with one feature is not good enough.
+
+def my_predict_feature1(point):
+    if point["feature1"] > 0.5:
+        return "red"
+    else:
+        return "blue"
+
+
+df_test["predict"] = df_test.apply(my_predict_feature1, axis=1)
+
+
+chart = (alt.Chart(df_test)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color = "class",
+        fill = "predict:N"
+    ))
+chart
+
+# But if we base it on two features we can get it right.
+
+def my_predict_linear(point):
+    if point["feature1"] + point["feature2"] < 1.0:
+        return "blue"
+    else:
+        return "red"
+
+df_test["predict"] = df_test.apply(my_predict_linear, axis=1)
+
+# Notice how our cutoff used an addition between our two features. This
+# allows us to form any line as the cutoff between the colors.
+
+chart = (alt.Chart(df_test)
+    .mark_point()
+    .encode(
+        x = "feature1",
+        y = "feature2",
+        color = "class",
+        fill = "predict:N"
+    ))
+chart
+
 # We are using the library *scikit-learn* for prediction. We are
 # focusing on a method known as Linear Classification. (Note it has a
 # silly name in the library, we rename it for simplicity.).
@@ -66,8 +112,9 @@ model.fit(X=df_train[["feature1", "feature2"]],
 
 
 # Linear Classification draws the best line to split the two classes.
-# (For now you can ignore how it does that.) Intuitively the best line
-# is defined by how far each point is from the line.
+# That is it tries out different combinations of adding together features
+# and cutoffs to find the best one.
+# (For now you can ignore how it does that.) 
 
 # We can see this visually by trying out out every possible point and seeing where the system puts them.
 
@@ -106,7 +153,7 @@ pass
 
 # # Unit A
 
-# ## Complex Data 
+# ## More Complex Data 
 
 # Our model is effective at drawing a line between data. However as we saw last time
 # this only works if our data can be split easily with a line.
@@ -117,7 +164,7 @@ pass
 df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/complex.csv")
 df_train = df[df["split"] == "train"]
 
-# This data has all the red point in a the top-right corner. This makes it hard
+# This data has all the red points in a the top-right corner. This makes it hard
 # to separate.
 
 chart = (alt.Chart(df_train)
@@ -129,6 +176,20 @@ chart = (alt.Chart(df_train)
     ))
 chart
 
+
+# 👩‍🎓**Student question: Can you split the data yourself?**
+
+#📝📝📝📝 FILLME
+def my_predict(point):
+    if True:
+        return "blue"
+    else:
+        return "red"
+    
+df_test["predict"] = df_test.apply(my_predict, axis=1)
+
+
+
 # Let us now try to fit out data in the standard way.
 
 model.fit(X=df_train[["feature1", "feature2"]],
@@ -137,6 +198,7 @@ model.fit(X=df_train[["feature1", "feature2"]],
 # We can then predict on the train set to see how well it fit the data.
 
 df_train["predict"] = model.predict(df_train[["feature1", "feature2"]])
+df_train["correct"] = df_train["predict"] == (df_train["class"] == "red")
 
 chart = (alt.Chart(df_train)
     .mark_point()
@@ -145,6 +207,7 @@ chart = (alt.Chart(df_train)
         y = "feature2",
         color="class",
         fill = "predict",
+        shape = "correct",
     ))
 chart
 
@@ -211,10 +274,10 @@ chart
 # feature should be aware of where the middle of the data is.
 
 def mkupperfeature(f):
-    if f > 0.5:
-        return 1.0
+    if f <= 0.5:
+        return -1.0
     else:
-        return 0.0
+        return f 
 
 # We can use standard pandas methods to create these new features.
     
@@ -290,6 +353,28 @@ chart
 # For this exercise we will try to learn classifiers for the following data sets.
 # This will let us experiment with different features and their usefulness.
 
+# ## Question 0
+
+# Who are other members of your group today?
+
+#📝📝📝📝 FILLME
+pass
+
+# Do they prefer cats or dogs?
+
+#📝📝📝📝 FILLME
+pass
+
+# Do they prefer summer or winter?
+
+#📝📝📝📝 FILLME
+pass
+
+# Do they prefer sweet or savoury breakfast?
+
+#📝📝📝📝 FILLME
+pass
+
 
 
 
@@ -344,7 +429,7 @@ pass
 
 # Finally consider a problem with a periodic (repeating) curve.
 
-df = pd.read_csv("periodic.csv")
+df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/periodic.csv")
 df_train = df.loc[df["split"] == "train"]
 df_test = df.loc[df["split"] == "test"]
 chart = (alt.Chart(df_train)
@@ -359,7 +444,7 @@ chart
 # Define a new feature based on the formula $\sin(\mathrm{feature1}*10)$. (Sin is in the math library).
 
 import math
-
+math.sin
 
 # Use this function to create a new feature (feature 3). Show that training with
 # feature 1,2, and 3 will yield an accurate value
@@ -623,7 +708,7 @@ chart
 
 # # Group Exercise B
 
-# For this group exercise you will puzzle through what is giong wrong when we apply the approach
+# For this group exercise you will puzzle through what is going wrong when we apply the approach
 # to other countries on the map.
 
 # ## Question 1
