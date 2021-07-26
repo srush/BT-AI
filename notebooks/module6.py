@@ -184,18 +184,17 @@ from keras.layers import Dense, Activation
 
 # We also need a function to create model, which is required for building a general `KerasClassifier`.
 
-def create_model():
+def create_model(rate=1.0):
     # Makes it the same for everyone in class
     tf.random.set_seed(2)
     
     # Create model 
     model = Sequential()
-    model.add(Dense(1)) # Linear
-    model.add(Activation("sigmoid")) # Classifier
+    model.add(Dense(1, activation="sigmoid")) # Linear Classifier
 
     # Compile model
     optimizer = tf.keras.optimizers.SGD(
-        learning_rate=1.00
+        learning_rate=rate
     )
     model.compile(loss="binary_crossentropy",
                   optimizer=optimizer,
@@ -428,26 +427,10 @@ pass
 # Now it's a good time for us to look back at how we created and trained a `KerasClassifier` before.
 # Do you understand what's happening behind the scene now?
 
-def create_model():
-    # Makes it the same for everyone in class
-    tf.random.set_seed(2)
-    
-    # Create model 
-    model = Sequential()
-    model.add(Dense(1)) # Linear
-    model.add(Activation("sigmoid")) # Classifier
-
-    # Compile model
-    optimizer = tf.keras.optimizers.SGD(
-        learning_rate=1.00
-    )
-    model.compile(loss="binary_crossentropy",
-                  optimizer=optimizer,
-                  metrics=["accuracy"])
-    return model
 
 model = KerasClassifier(build_fn=create_model,
                         epochs=10,
+                        rate=1.00,
                         batch_size=20,
                         verbose=False)
 df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/simple.csv")
@@ -488,7 +471,8 @@ model = KerasClassifier(build_fn=create_model,
 
 # ## Back to the Playground
 
-# In this unit we are going to explore how neural networks can learn to produce some of the features from last class automatically.
+# In this unit we are going to explore how neural networks can learn
+# to produce some of the features from last class automatically.
 
 # Do you remember last class how we had this graph?
 
@@ -545,50 +529,60 @@ chart
 # [Example 3](https://playground.tensorflow.org/#activation=relu&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=3&seed=0.43804&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=false&xSquared=false&ySquared=false&cosX=false&sinX=false&cosY=false&sinY=false&collectStats=false&problem=classification&initZero=false&hideText=false)
 
 
-# ## Coding Multiple Leayers
+# ## Coding Multiple Layers
 
 # At its heart, TensorFlow is a library for allowing us to build
 # stacks of multiple-layers.
 
-
 # Let's directly go to the code and add one more layer to our model.
 
-
-def create_model():
+def create_multi_model(rate=0.05):
     # create model
     tf.random.set_seed(2)
     model = Sequential()
-    model.add(Dense(10)) # the added layer
-    model.add(Activation("relu"))
-    model.add(Dense(1))
-    model.add(Activation("sigmoid"))
+    model.add(Dense(10, activation="relu")) # the new layer
+    model.add(Dense(1, activation="sigmoid"))
+    
     # Compile model
-    sgd = tf.keras.optimizers.SGD(
-        learning_rate=0.5
+    optimizer = tf.keras.optimizers.SGD(
+        learning_rate=rate
     )
 
     model.compile(loss="binary_crossentropy",
-                  optimizer=sgd,
+                  optimizer=optimizer,
                   metrics=["accuracy"])
     return model
 
-# In the above code, we added a linear layer `Dense(4)` which projects the input to a vector of size 16, and then `Dense(1)`
-# projects this vector to a scalar. Finally, the sigmoid activation normalizes the output to be a valid probability.
+# In the above code, we added a linear layer `Dense(4)` which is one
+# hidden layer size 4, and then `Dense(1)` which makes our prediction.
 
-# As before, we create the model, fit it on the training data, and finally apply it to all points to check the shape of its decision
+# 👩‍🎓**Student question: Can you make this example in the playground?**
+
+# [Playground](https://playground.tensorflow.org)
+
+# As before, we create the model, fit it on the training data, and
+# finally apply it to all points to check the shape of its decision
 # boundary.
 
 model = KerasClassifier(build_fn=create_model,
-                         epochs=20,
-                         batch_size=20,
-                         verbose=True)
+                        epochs=20,
+                        batch_size=20,
+                        verbose=False)
+
+
+# Finally we fit it the same way as before.
 
 model.fit(x=df[["feature1", "feature2"]],
           y=df["class"]=="red")
+df["predict"] = model.predict(df[["feature1", "feature2"]])
+
+
+# Let us look at what this model looks like.
 
 model.model.summary()
 
-df["predict"] = model.predict(df[["feature1", "feature2"]])
+
+# And make the chart.
 
 chart = (alt.Chart(df)
     .mark_point()
@@ -601,7 +595,6 @@ chart = (alt.Chart(df)
 chart
 
 
-
 # # Group Exercise B
 
 # ## Question 1
@@ -610,62 +603,56 @@ chart
 
 # [Tensorflow Playground](https://playground.tensorflow.org/)
 
-#
+
+# * There is an option at the top to change the `Activation`. What do each of these do to the output shape?
+
+#📝📝📝📝 FILLME - Description
+
+
+# * Can you make different number of layers to get some of the harder examples? Can you get the spiral?
+
+#📝📝📝📝 FILLME - Picture
+
+
+# * When you get the spiral, what shape do the hidden layers use to help separate? Can you screenshot a picture? 
+
+#📝📝📝📝 FILLME - Description
+
 
 # ## Question 2
 
 # Can you further improve the above model to achieve even better accuracy?
-# Hint: try stacking more layers (don't forget the nonlinear transformations between linear layers)
+# Hint: try stacking more layers.
 
-# Redraw the decision boundary graph above to visualize the new classifier.
 
-#📝📝📝📝 FILLME
 def create_model():
+    tf.random.set_seed(2)
     # create model
     model = Sequential()
-    model.add(Dense(32))
-    model.add(Activation("relu"))
-    model.add(Dense(32))
-    model.add(Activation("relu"))
-    model.add(Dense(1))
-    model.add(Activation("sigmoid"))
+    model.add(Dense(32, activation="relu"))
+    model.add(Dense(32, activation="relu"))
+    model.add(Dense(1, activation="sigmoid"))
     # Compile model
+    optimizer = tf.keras.optimizers.SGD(
+        learning_rate=rate
+    )
+
     model.compile(loss="binary_crossentropy",
-                  optimizer="adam",
+                  optimizer=optimizer,
                   metrics=["accuracy"])
     return model
+
 # create model
 model = KerasClassifier(build_fn=create_model,
-                         epochs=500,
-                         batch_size=5,
+                         epochs=100,
+                         batch_size=20,
                          verbose=0)
-# fit model on training set
-# model.fit(x=df_train[["feature1", "feature2"]],
-#           y=df_train["class"])
-# # print model info
-# print (model.model.summary())
-# # predict on all data points
-# all_df["predict"] = model.predict(all_df[["feature1", "feature2"]])
-# # visualize decision boundary
-# chart = (alt.Chart(all_df)
-#     .mark_point()
-#     .encode(
-#         x = "feature1",
-#         y = "feature2",
-#         color="predict",
-#         fill = "predict",
-#     ))
-# # print accuracy
-# df_test["predict"] = model.predict(df_test[["feature1", "feature2"]])
-# correct = (df_test["predict"] ==  df_test["class"])
-# accuracy = correct.sum() / correct.size
-# print ("accuracy: ", accuracy)
-# chart
 
+#📝📝📝📝 FILLME - Train and test model
 
 # ## Question 3
 
-# Apply a multi-laye perceptron (MLP) to predict whether a city's temperature is over 20 degrees celsius,
+# We can apply a model to predict whether a city's temperature is over 20 degrees celsius,
 # based on its latitude, the month and year of the query date. We provide basic data processing and a
 # naive baseline below
 
@@ -701,43 +688,20 @@ chart = alt.Chart(df_train.sample(n=500)).mark_point().encode(
 )
 chart
 
-# From the above visualizations, can you tell what features are more informative?
-
-# A simple baseline is to always predict `False`, which is the majority class in the training dataset.
-
-df_test["predict"] = False
-correct = (df_test["predict"] ==  df_test["class"])
-accuracy = correct.sum() / correct.size
-accuracy
 
 # Now it's your turn to develop a model! What accuracy can you get?
 # We recommend using a smaller number of epochs by setting `epochs=1` in `KerasClassifier` to make training faster.
 
 #📝📝📝📝 FILLME
-pass
 def create_model():
-    # create model
-    model = Sequential()
-    model.add(Dense(32))
-    model.add(Activation("relu"))
-    model.add(Dense(1))
-    model.add(Activation("sigmoid"))
-    # Compile model
-    model.compile(loss="binary_crossentropy",
-                  optimizer="adam",
-                  metrics=["accuracy"])
-    return model
-# create model
+    pass
+
 model = KerasClassifier(build_fn=create_model,
-                         epochs=1,
-                         batch_size=5,
-                         verbose=0)
-# fit model
+                        epochs=1,
+                        batch_size=5,
+                        verbose=0)
 # model.fit(x=df_train[["Latitude", "Month", "Year"]],
 #           y=df_train["class"])
-# # print summary
-# print (model.model.summary())
-# # predict on test set
 # df_test["predict"] = model.predict(df_test[["Latitude", "Month", "Year"]])
 # correct = (df_test["predict"] ==  df_test["class"])
 # accuracy = correct.sum() / correct.size
