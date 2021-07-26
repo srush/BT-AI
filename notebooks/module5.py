@@ -406,19 +406,19 @@ pass
 # Now the data is split into a circle around the point (0.4, 0.4).
 
 
-df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/circle.csv")
-df_train = df.loc[df["split"] == "train"]
-df_test = df.loc[df["split"] == "test"]
+# df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/circle.csv")
+# df_train = df.loc[df["split"] == "train"]
+# df_test = df.loc[df["split"] == "test"]
 
 
-chart = (alt.Chart(df_train)
-    .mark_point()
-    .encode(
-        x = "feature1",
-        y = "feature2",
-        color = "class"
-    ))
-chart
+# chart = (alt.Chart(df_train)
+#     .mark_point()
+#     .encode(
+#         x = "feature1",
+#         y = "feature2",
+#         color = "class"
+#     ))
+# chart
 
 # Use the formula for distance from a point $\sqrt{(x - 0.4)^2 + (y - 0.4)^2}$ to define new features for this problem.
 
@@ -429,17 +429,17 @@ pass
 
 # Finally consider a problem with a periodic (repeating) curve.
 
-df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/periodic.csv")
-df_train = df.loc[df["split"] == "train"]
-df_test = df.loc[df["split"] == "test"]
-chart = (alt.Chart(df_train)
-    .mark_point()
-    .encode(
-        x = "feature1",
-        y = "feature2",
-        color = "class"
-    ))
-chart
+# df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/periodic.csv")
+# df_train = df.loc[df["split"] == "train"]
+# df_test = df.loc[df["split"] == "test"]
+# chart = (alt.Chart(df_train)
+#     .mark_point()
+#     .encode(
+#         x = "feature1",
+#         y = "feature2",
+#         color = "class"
+#     ))
+# chart
 
 # Define a new feature based on the formula $\sin(\mathrm{feature1}*10)$. (Sin is in the math library).
 
