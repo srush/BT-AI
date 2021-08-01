@@ -1,42 +1,65 @@
 # # Lab 7 - Deep Learning 2
 
-# The goal of this week's lab is to learn to use two widely-used neural network modules: convolutional neural networks (CNNs) and recurrent neural networks (RNNs). We can use them to extract features from images and text.
+# The goal of this week's lab is to learn to use two widely-used
+# neural network modules: convolutional neural networks (CNNs) and
+# recurrent neural networks (RNNs). We can use them to learn
+# features from images and text.
 
 # ![image](https://upload.wikimedia.org/wikipedia/commons/6/63/Typical_cnn.png)
 
-# Images and text are common data modalities we encounter in classification or generation tasks. While we can directly apply the linear or multi-linear perceptron (MLP) modules we learned in the past few weeks to those modalities, there are neural network modules specifically designed for processing them, namely CNNs and RNNs.
+# Images and text are common data modalities we encounter in
+# classification or generation tasks. While we can directly apply the
+# linear or multi-layer modules we learned in the past few weeks to
+# those modalities, there are neural network modules specifically
+# designed for processing them, namely CNNs and RNNs.
 
 # This week we will walk through the basics of CNNs and RNNs.
 
-# * **Review**: Training and Multi-Layer Perceptrons (MLPs)
+# * **Review**: Training and Multi-Layer Models (NNs)
 # * **Unit A**: Convolution Neural Networks (CNNs)
 # * **Unit B**: Recurrent Neural Networks (RNNs)
 
 # ## Review
 
-# Last time we took a look at what's happening inside training when we call `model.fit`. We did this by implementing `model.fit` ourselves.
+# Last time we took a look at what's happening inside training when we
+# call `model.fit`. We did this by implementing `model.fit` ourselves.
 
-import altair as alt
+# For Tables
 import pandas as pd
+# For Visualization
+import altair as alt
+# For Scikit-Learn
+from keras.wrappers.scikit_learn import KerasClassifier
+# For Neural Networks
 import tensorflow as tf
 import keras
-from keras.wrappers.scikit_learn import KerasClassifier
 from keras.models import Sequential
-from keras.layers import Dense, Activation
+from keras.layers import Dense
 
 # We will also turn off warnings.
 
 import warnings
 warnings.filterwarnings('ignore')
 
-# We first load the data.
+# As we have seen in past weeks we load our structured data in
+# Pandas format.
 
 df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/circle.csv")
 all_df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/all_points.csv")
 
-# Next, we need to define a function that creates our model.
 
-def create_model(learning_rate=1.0):
+# Next, we need to define a function that creates our model. This will
+# determine the range or different feature shapes the model can learn.
+
+# [TensorFlow Playground](https://playground.tensorflow.org/)
+
+# Depending on the complexity of the data we may select a model that
+# is linear or one with multiple layers. 
+
+
+# Here is what a linear model looks like.
+
+def create_linear_model(learning_rate=1.0):
     # Makes it the same for everyone in class
     tf.random.set_seed(2)
 
@@ -53,117 +76,71 @@ def create_model(learning_rate=1.0):
                   metrics=["accuracy"])
     return model
 
-# Then we create the model and implement training ourselves instead of directly calling `model.fit`. The basic idea is to first compute the loss, then adjust parameters to decrease the loss at each iteration. We use a learning rate as a factor to control how much we change the parameters per iteration.
+# Here is what a more complex multi-layer model looks like.
 
-model = create_model(learning_rate=1.0)
-X = df[["feature1", "feature2"]]
-y = df["class"] == "red"
-X = tf.convert_to_tensor(X)
-y = tf.convert_to_tensor(y)
-pick = []
-for i in range(400):
-    # Compute loss
-    with tf.GradientTape() as tape: 
-        loss = model.compiled_loss(y, model(X, training=True))
+def create_model():
+    tf.random.set_seed(2)
+    # create model
+    model = Sequential()
+    model.add(Dense(4, activation="relu"))
+    model.add(Dense(4, activation="relu"))
+    model.add(Dense(1, activation="sigmoid"))
+    # Compile model
+    optimizer = tf.keras.optimizers.SGD(
+        learning_rate=rate
+    )
 
-    # Compute derivatives
-    gradients = tape.gradient(loss, model.trainable_variables)
+    model.compile(loss="binary_crossentropy",
+                  optimizer=optimizer,
+                  metrics=["accuracy"])
+    return model
 
-    # Adjust parameters
-    model.optimizer.apply_gradients(zip(gradients, model.trainable_variables))
+# Generally, we will use "ReLU" for the inner layers and "sigmoid" for
+# the final layer. The reasons for this are beyond the class, and mostly
+# have to do with computational simplicity and standard practice. 
 
-    # Save for graphing.
-    if i % 16 == 0:
-        t = all_df.copy()
-        t["predict"] = model.predict(all_df[["feature1", "feature2"]]) > 0.5
-        pick.append(t)
+# Once we have described the shape of our model we can turn it into a classifier
+# and train it on data. 
 
-# Now we can visualize how the classifier fits the data better and better over time.
+model = KerasClassifier(build_fn=create_model,
+                        epochs=10,
+                        batch_size=20,
+                        verbose=True)
+
+
+# The neural network is used just like the classifiers from Week 4 and 5. The only
+# difference is that we got to design its internal shape.
+
+model.fit(x=df[["feature1", "feature2"]],
+          y=(df["class"] == "red"))
+df["predict"] = model.predict(df[["feature1", "feature2"]])
+
+
+# The output of the `model.fit` command tells us a lot of information about
+# how the approach is doing.
+
+# In particular if it is working the `loss` should go down and the `accuracy` should
+# go up. This implies that the model is learning to fit to the data that we provided it. 
+
+# We can view how the model determines the separation of the data.
+
 chart = (alt.Chart(df)
     .mark_point()
     .encode(
-        x = "feature1",
-        y = "feature2",
+        x="feature1",
+        y="feature2",
         color="class",
+        fill="predict",
     ))
-vc = alt.vconcat()
-for p in pick: 
-    chart2 = (alt.Chart(p)
-              .mark_point(color="white")
-              .encode(
-                  x = "feature1",
-                  y = "feature2",
-                  fill = "predict" 
-              ))
-    vc &= (chart2 + chart)
-vc
+chart
 
 
 # ### Review Exercise
 
-# Change the model above to an MLP and visualize how the classifier improves over time. 
+# Change the model above to have three inner layers with the first having size 10, the second size 5, and the third having size 5. How well does this do on our problem?
 
 #📝📝📝📝 FILLME
 pass
-# SOLUTION
-def create_model(learning_rate):
-    # Makes it the same for everyone in class
-    tf.random.set_seed(2)
-
-    # Create model
-    model = Sequential()
-    model.add(Dense(32, activation="relu"))
-    model.add(Dense(1, activation="sigmoid"))
-
-    # Compile model
-    optimizer = tf.keras.optimizers.SGD(
-        learning_rate=learning_rate
-    )
-    model.compile(loss="binary_crossentropy",
-                  optimizer=optimizer,
-                  metrics=["accuracy"])
-    return model
-model = create_model(learning_rate=1)
-X = df[["feature1", "feature2"]]
-y = df["class"] == "red"
-X = tf.convert_to_tensor(X)
-y = tf.convert_to_tensor(y)
-pick = []
-for i in range(400):
-    # Compute loss
-    with tf.GradientTape() as tape:
-        loss = model.compiled_loss(y, model(X, training=True))
-
-    # Compute derivatives
-    gradients = tape.gradient(loss, model.trainable_variables)
-
-    # Adjust parameters
-    model.optimizer.apply_gradients(zip(gradients, model.trainable_variables))
-
-    # Save for graphing.
-    if i % 16 == 0:
-        t = all_df.copy()
-        t["predict"] = model.predict(all_df[["feature1", "feature2"]]) > 0.5
-        pick.append(t)
-# Now we can visualize how the classifier fits the data better and better over time.
-chart = (alt.Chart(df)
-    .mark_point()
-    .encode(
-        x = "feature1",
-        y = "feature2",
-        color="class",
-    ))
-vc = alt.vconcat()
-for p in pick:
-    chart2 = (alt.Chart(p)
-              .mark_point(color="white")
-              .encode(
-                  x = "feature1",
-                  y = "feature2",
-                  fill = "predict"
-              ))
-    vc &= (chart2 + chart)
-vc
 
 # ## Unit A
 
