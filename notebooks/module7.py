@@ -423,7 +423,7 @@ output
 # CNNs can be used to do the same thing. However, instead of looking at
 # all the features at once they look at small groups of feature. 
 
-# CNNs can match patterns with proper filter weights. For instance, if
+# CNNs can match patterns with filter weights. For instance, if
 # we set the filter to be $\begin{bmatrix}-0.5 & 0.5 \\ -0.5 &
 # 0.5\end{bmatrix}$, it can detect vertical edges.
 
@@ -725,14 +725,7 @@ pooling_layer = MaxPool2D(pool_size=(2, 2),
 output = pooling_layer(input)
 print (tf.reshape(output, (3, 3)))
 
-# In the above example we used `strides=(1,1)`. However, the most
-# common way of using a pooling layer is to set `strides` to be the
-# same as `pool_size`, which is the default behavior if we don't set
-# `strides`.
-
-pooling_layer = MaxPool2D(pool_size=(2, 2))
-output = pooling_layer(input)
-print (tf.reshape(output, (2, 2)))
+# In the above example we used `strides=(1,1)`. 
 
 # ### Putting Everything Together
 
