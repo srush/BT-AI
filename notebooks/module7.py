@@ -269,10 +269,10 @@ def create_model(learning_rate=1.0):
 model = KerasClassifier(build_fn=create_model,
                         epochs=2,
                         batch_size=20,
-                        verbose=0)
+                        verbose=True)
 # Fit model
 model.fit(x=df_train[features].astype(float),
-          y=df_train["label"])
+          y=df_train["class"])
 
 
 # Now that it is fit we can print a summary
@@ -297,12 +297,12 @@ pass
 # high dimensionality. Instead we can look at some examples that the
 # classifier gets wrong.
 
-wrong = (df_test["predict"] != df_test["label"])
+wrong = (df_test["predict"] != df_test["class"])
 examples = df_test.loc[wrong]
 num = 0
 charts = alt.vconcat()
 for idx, example in examples.iterrows():
-    label = example['label']
+    label = example["class"]
     predicted_label = example["predict"]
     print (f'true label: {label}, predicted label: {predicted_label}')
     charts &= draw_image(idx)
@@ -334,8 +334,7 @@ im = draw_image(15, shuffle=True)
 im
 
 
-
-# 👩<200d>🎓**Student question: can you recognize what those images are? Train an MLP classifier on the shuffled images and report the test accuracy. (Hint: replace every `features` with `shuffled_features`)**
+# 👩🎓**Student question: can you recognize what those images are? Train an MLP classifier on the shuffled images and report the test accuracy. (Hint: replace every `features` with `shuffled_features`)**
 
 #📝📝📝📝 FILLME
 pass
@@ -345,58 +344,59 @@ model = KerasClassifier(build_fn=create_model,
                         epochs=2,
                         batch_size=20,
                         verbose=0)
-# fit model
-model.fit(x=df_train[shuffled_features].astype(float), y=df_train["label"])
-# print summary
-#print (model.model.summary())
-# predict on test set
+
+shuffled_features = shuffle(features, random_state=1234)
+
+# Fit model
+model.fit(x=df_train[shuffled_features].astype(float), y=df_train["class"])
+
+# Predict on test set
 df_test["predict"] = model.predict(df_test[shuffled_features])
-correct = (df_test["predict"] == df_test["label"])
+correct = (df_test["predict"] == df_test["class"])
 accuracy = correct.sum() / correct.size
 print ("accuracy: ", accuracy)
 
-# If you implemented correctly, you should see that the test accuracy on the shuffled images is similar to that on the original images. Think for a moment why shuffling doesn't change the accuracy much.
+# If you implemented correctly, you should see that the test accuracy
+# on the shuffled images is similar to that on the original
+# images. Think for a moment why shuffling doesn't change the accuracy
+# much.
 
-# MLPs do not take into account locations in the input as humans do. For instance, the model is not aware that the pixel at position (i, j) is closer to the pixel at position (i+1, j) compared to position (i+10, j). For instance, if we swap the input feature i with the input feature j, and at the same time also swap the weights connected to i with the weights connected to j, we would end up with the same results after the first layer. We can see this by training a model on the original MNIST images, and then directly shuffle the input weights to get a model that works on the shuffled images:
+# MLPs do not take into account locations in the input as humans
+# do. For instance, the model is not aware that the pixel at position
+# (i, j) is closer to the pixel at position (i+1, j) compared to
+# position (i+10, j). For instance, if we swap the input feature i
+# with the input feature j, and at the same time also swap the weights
+# connected to i with the weights connected to j, we would end up with
+# the same results after the first layer. We can see this by training
+# a model on the original MNIST images, and then directly shuffle the
+# input weights to get a model that works on the shuffled images:
 
-# create model
+# Create model
 model = KerasClassifier(build_fn=create_model,
                         epochs=2,
                         batch_size=20,
                         verbose=0)
-# fit model
-model.fit(x=df_train[features].astype(float), y=df_train["label"])
-# predict on test set
+# Fit model
+model.fit(x=df_train[features].astype(float), y=df_train["class"])
+# Predict on test set
 df_test["predict"] = model.predict(df_test[features])
-correct = (df_test["predict"] == df_test["label"])
+correct = (df_test["predict"] == df_test["class"])
 accuracy = correct.sum() / correct.size
 print ("the accuracy of the original model on the original MNIST dataset: ", accuracy)
-# predict on shuffled test set
+# Predict on shuffled test set
 df_test["predict"] = model.predict(df_test[shuffled_features])
-correct = (df_test["predict"] == df_test["label"])
+correct = (df_test["predict"] == df_test["class"])
 accuracy = correct.sum() / correct.size
 print ("the accuracy of the original model on the shuffled MNIST dataset: ", accuracy)
-#
-# shuffle input weights, no need to memorize how to do this
-input_layer = model.model.layers[0]
-weights, biases = input_layer.get_weights()
-shuffled_weights = shuffle(weights, random_state=random_state)
-input_layer.set_weights([shuffled_weights, biases])
-#
-# predict on shuffled test set
-df_test["predict"] = model.predict(df_test[shuffled_features])
-correct = (df_test["predict"] == df_test["label"])
-accuracy = correct.sum() / correct.size
-print ("the accuracy of the shuffled model on the shuffled MNIST dataset: ", accuracy)
 
 # So we can see that an MLP classifier does not take into account the
 # spatial information: it's simply maintaining a different weight for
 # each input feature, and there is no sense of "closeness" between
-# pixels that are spatially close to each other. It's not built to be
-# translation-invariant: for example, if the digit in the image is
-# shifted by one pixel to the right, the output of MLP is likely to be
-# very different.
+# pixels that are spatially close to each other. I
 
+# It's not built to understand how images work: for example, if the
+# digit in the image is shifted by one pixel to the right, the output
+# of MLP is likely to be very different.
 
 # # Group Exercise A
 
@@ -419,104 +419,10 @@ print ("the accuracy of the shuffled model on the shuffled MNIST dataset: ", acc
 #📝📝📝📝 FILLME
 
 
-# ## Question 1
-
-# Apply the CNN model to the shuffled MNIST dataset. What accuracy do you get? Is that what you expected?
-
-#📝📝📝📝 FILLME
-pass
-model = KerasClassifier(build_fn=create_cnn_model,
-                        epochs=2,
-                        batch_size=20,
-                        verbose=0)
-# fit model
-model.fit(x=df_train[shuffled_features].astype(float), y=df_train["label"])
-# predict on test set
-df_test["predict"] = model.predict(df_test[shuffled_features])
-correct = (df_test["predict"] == df_test["label"])
-accuracy = correct.sum() / correct.size
-print ("accuracy: ", accuracy)
-
-# ## Question 2
-
-# For this question we will use the CNN Explainer website.
-
-# [CNN Explainer](https://poloclub.github.io/cnn-explainer/)
-
-# * Use the tool under the section "Understanding Hyperparameters" to figure out the output shape of each layer in the above CNN model.
-
-#📝📝📝📝 FILLME
-pass
-
-# * Use `print (model.model.summary())` to print the output shape of each layer. Did you get the same results as above?
-
-#📝📝📝📝 FILLME
-pass
-# SOLUTION
-#print (model.model.summary())
-
-# ## Question 3
-
-# Let's apply our model to a different dataset, [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist), where the goal is to classify an image into one of the below 10 classes:
-#```
-#Label 	Description
-#0 	T-shirt/top
-#1 	Trouser
-#2 	Pullover
-#3 	Dress
-#4 	Coat
-#5 	Sandal
-#6 	Shirt
-#7 	Sneaker
-#8 	Bag
-#9 	Ankle boot
-#```
-
-# Some examples from the dataset are shown below, where each class takes three rows.
-
-# ![image](https://github.com/zalandoresearch/fashion-mnist/raw/master/doc/img/fashion-mnist-sprite.png)
-
-# We have processed the dataset into the same format as MNIST:
-
-df_train = pd.read_csv('fashion_mnist_train.csv.zip', compression='zip')
-df_test = pd.read_csv('fashion_mnist_test.csv.zip', compression='zip')
-df_train
-
-# Let's visualize some examples first
-
-for idx in range(10):
-    example = df_train.loc[idx]
-    pixel_values = example[features]
-    label = example['label']
-    print ('label: ', label)
-    visualize_mnist(pixel_values)
-
-# Apply the CNN model to this dataset and print out the accuracy.
-
-#📝📝📝📝 FILLME
-pass
-#SOLUTION
-# create model
-model = KerasClassifier(build_fn=create_cnn_model,
-                         epochs=2,
-                         batch_size=20,
-                         verbose=0)
-# fit model
-model.fit(x=df_train[features].astype(float), y=df_train["label"])
-# print summary
-print (model.model.summary())
-# predict on test set
-df_test["predict"] = model.predict(df_test[features])
-correct = (df_test["predict"] == df_test["label"])
-accuracy = correct.sum() / correct.size
-print ("accuracy: ", accuracy)
-
-
 
 # ## Unit B
 
-# ### Convolutional Neural Networks
-# #### The Convolution Operation
+# ### Convolutions
 
 # Convolutional Neural Networks (CNNs) are commonly used to extract
 # features from images and time series. It takes into account the
@@ -861,13 +767,109 @@ model = KerasClassifier(build_fn=create_cnn_model,
                          batch_size=20,
                          verbose=0)
 # fit model
-model.fit(x=df_train[features].astype(float), y=df_train["label"])
+model.fit(x=df_train[features].astype(float),
+          y=df_train["class"])
 # print summary
 #print (model.model.summary())
 # predict on test set
 df_test["predict"] = model.predict(df_test[features])
-correct = (df_test["predict"] == df_test["label"])
+correct = (df_test["predict"] == df_test["class"])
 accuracy = correct.sum() / correct.size
 print ("accuracy: ", accuracy)
 
 # We are able to get much bette accuracy than using MLPs!
+
+
+# # Group Exercise B
+
+# ## Question 1
+
+# Apply the CNN model to the shuffled MNIST dataset. What accuracy do you get? Is that what you expected?
+
+#📝📝📝📝 FILLME
+pass
+model = KerasClassifier(build_fn=create_cnn_model,
+                        epochs=2,
+                        batch_size=20,
+                        verbose=0)
+# fit model
+model.fit(x=df_train[shuffled_features].astype(float), y=df_train["class"])
+# predict on test set
+df_test["predict"] = model.predict(df_test[shuffled_features])
+correct = (df_test["predict"] == df_test["class"])
+accuracy = correct.sum() / correct.size
+print ("accuracy: ", accuracy)
+
+# ## Question 2
+
+# For this question we will use the CNN Explainer website.
+
+# [CNN Explainer](https://poloclub.github.io/cnn-explainer/)
+
+# * Use the tool under the section "Understanding Hyperparameters" to figure out the output shape of each layer in the above CNN model.
+
+#📝📝📝📝 FILLME
+pass
+
+# * Use `print (model.model.summary())` to print the output shape of each layer. Did you get the same results as above?
+
+#📝📝📝📝 FILLME
+pass
+# SOLUTION
+#print (model.model.summary())
+
+# ## Question 3
+
+# Let's apply our model to a different dataset, [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist), where the goal is to classify an image into one of the below 10 classes:
+#```
+#Label 	Description
+#0 	T-shirt/top
+#1 	Trouser
+#2 	Pullover
+#3 	Dress
+#4 	Coat
+#5 	Sandal
+#6 	Shirt
+#7 	Sneaker
+#8 	Bag
+#9 	Ankle boot
+#```
+
+# Some examples from the dataset are shown below, where each class takes three rows.
+
+# ![image](https://github.com/zalandoresearch/fashion-mnist/raw/master/doc/img/fashion-mnist-sprite.png)
+
+# We have processed the dataset into the same format as MNIST:
+
+df_train = pd.read_csv('fashion_mnist_train.csv.zip', compression='zip')
+df_test = pd.read_csv('fashion_mnist_test.csv.zip', compression='zip')
+df_train
+
+# Let's visualize some examples first
+
+for idx in range(10):
+    example = df_train.loc[idx]
+    pixel_values = example[features]
+    label = example['label']
+    print ('label: ', label)
+    visualize_mnist(pixel_values)
+
+# Apply the CNN model to this dataset and print out the accuracy.
+
+#📝📝📝📝 FILLME
+pass
+#SOLUTION
+# create model
+model = KerasClassifier(build_fn=create_cnn_model,
+                         epochs=2,
+                         batch_size=20,
+                         verbose=0)
+# fit model
+model.fit(x=df_train[features].astype(float), y=df_train["class"])
+# print summary
+print (model.model.summary())
+# predict on test set
+df_test["predict"] = model.predict(df_test[features])
+correct = (df_test["predict"] == df_test["class"])
+accuracy = correct.sum() / correct.size
+print ("accuracy: ", accuracy)
