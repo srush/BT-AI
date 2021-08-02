@@ -16,7 +16,7 @@
 
 # * **Review**: Training and Multi-Layer Models (NNs)
 # * **Unit A**: Convolution Neural Networks (CNNs)
-# * **Unit B**: Image and Text Processing 
+# * **Unit B**: Image and Text Processing
 
 # ## Review
 
@@ -28,6 +28,7 @@ import pandas as pd
 # For Visualization
 import altair as alt
 # For Scikit-Learn
+import sklearn
 from keras.wrappers.scikit_learn import KerasClassifier
 # For Neural Networks
 import tensorflow as tf
@@ -53,7 +54,7 @@ all_df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/all_points.csv")
 # [TensorFlow Playground](https://playground.tensorflow.org/)
 
 # Depending on the complexity of the data we may select a model that
-# is linear or one with multiple layers. 
+# is linear or one with multiple layers.
 
 
 # Here is what a linear model looks like.
@@ -96,10 +97,10 @@ def create_model(learning_rate=0.4):
 
 # Generally, we will use "ReLU" for the inner layers and "sigmoid" for
 # the final layer. The reasons for this are beyond the class, and mostly
-# have to do with computational simplicity and standard practice. 
+# have to do with computational simplicity and standard practice.
 
 # Once we have described the shape of our model we can turn it into a classifier
-# and train it on data. 
+# and train it on data.
 
 model = KerasClassifier(build_fn=create_model,
                         epochs=10,
@@ -119,7 +120,7 @@ df["predict"] = model.predict(df[["feature1", "feature2"]])
 # how the approach is doing.
 
 # In particular if it is working the `loss` should go down and the `accuracy` should
-# go up. This implies that the model is learning to fit to the data that we provided it. 
+# go up. This implies that the model is learning to fit to the data that we provided it.
 
 # We can view how the model determines the separation of the data.
 
@@ -152,15 +153,15 @@ pass
 
 # We are going to start with a famous simple image classification tasks known as
 # MNist. This dataset consists of pictures of hand-written numbers. The goal is to
-# look at the handwriting and determine what the number is. 
+# look at the handwriting and determine what the number is.
 
 # Let's start with an image classification task. We will be using the [MNIST dataset](http://yann.lecun.com/exdb/mnist/), where the goal is to recognize handwritten digits.
 
-df_train = pd.read_csv('mnist_train.csv')
-df_test = pd.read_csv('mnist_test.csv')
+df_train = pd.read_csv('mnist_train.csv.gz', compression='gzip')
+df_test = pd.read_csv('mnist_test.csv.gz', compression='gzip')
 df_train[:100]
 
-# This data is in the same format that we have been using so far. 
+# This data is in the same format that we have been using so far.
 
 # The column `class` stores the class of each image, which is a number between 0 and 9.
 
@@ -168,7 +169,7 @@ df_train[:100]["class"].unique()
 
 # The rest of columns store the features. However there are many more features than before!
 
-# In particular the images are 28x28 pixels which means we have 784 features. 
+# In particular the images are 28x28 pixels which means we have 784 features.
 # To make later processing easier, we store the names of pixel value columns in a list `features`.
 
 features = []
@@ -176,9 +177,9 @@ for i in range(1, 29):
     for j in range(1, 29):
         features.append(str(i) + "x" + str(j))
 len(features)
-        
 
-# These features are the intensity at each pixel : for instance, the column "3x4" stores the pixel value at the 3rd row and the 4th column. Since the size of each image is 28x28, there are 28 rows and 28 columns. 
+
+# These features are the intensity at each pixel : for instance, the column "3x4" stores the pixel value at the 3rd row and the 4th column. Since the size of each image is 28x28, there are 28 rows and 28 columns.
 
 
 # We can use pandas apply to graph these values for one image.
@@ -191,14 +192,14 @@ def position(row):
             "y":int(y),
             "val":row["val"]}
 
-# Draw a heat map showing the image. 
+# Draw a heat map showing the image.
 
-def draw_image(i):
+def draw_image(i, shuffle=False):
     t = df_train[i:i+1].T.reset_index().rename(columns={i: "val"})
     out = t.loc[t["index"] != "class"].apply(position, axis=1, result_type="expand")
-
+    if shuffle:
+        out["val"] = sklearn.utils.shuffle(out["val"])
     label = df_train.loc[i]["class"]
-    
     return (alt.Chart(out)
             .mark_rect()
             .properties(title="Image of a " + str(label))
@@ -218,12 +219,12 @@ im
 im = draw_image(4)
 im
 
-im = draw_image(100)
+im = draw_image(15)
 im
 
 
 # How can we solve this task? The challenge is that the are many different
-# aspects that can make a digit look unique. 
+# aspects that can make a digit look unique.
 
 # 👩🎓**Student question: What are some features that you use to tell apart digits?**
 
@@ -233,7 +234,7 @@ im
 
 
 # First, the final layer needs to output 10 different values.
-# Also we need to switch `sigmoid` tot a  `softmax`. 
+# Also we need to switch `sigmoid` tot a  `softmax`.
 # Lastly, we need to change the loss function to
 # `sparse_categorical_crossentropy`.
 
@@ -248,7 +249,7 @@ def create_model(learning_rate=1.0):
     model = Sequential()
     model.add(Dense(64, activation="relu"))
     model.add(Dense(10, activation="softmax"))
-    
+
     # Compile model
     optimizer = tf.keras.optimizers.SGD(
         learning_rate=learning_rate
@@ -261,7 +262,7 @@ def create_model(learning_rate=1.0):
 
 # While these terms are a bit technical, the main thing to know
 # is that they team up to change the `loss` function from last
-# week to score 10 different values instead of 2. 
+# week to score 10 different values instead of 2.
 
 
 # Create model
@@ -281,11 +282,11 @@ print (model.model.summary())
 # And predict on test set
 
 df_test["predict"] = model.predict(df_test[features])
-correct = (df_test["predict"] == df_test["label"])
+correct = (df_test["predict"] == df_test["class"])
 accuracy = correct.sum() / correct.size
 print ("accuracy: ", accuracy)
 
-# This simple MLP classifier was able to get 90% accuracy! 
+# This simple MLP classifier was able to get 90% accuracy!
 
 # 👩🎓**Student question: what is the size of the input to the model??**
 
@@ -310,27 +311,29 @@ for idx, example in examples.iterrows():
         break
 
 charts
-    
-# ### What does a NN see? 
+
+# ### What does a NN see?
 
 # While MLP classifiers reach a decent accuracy on this task, it
 # doesn't take into account locations in the model. To see this, let's
 # shuffle each image in MNIST using the **same** shuffling order.
 
-from sklearn.utils import shuffle
-random_state = 1234
-shuffled_features = shuffle(features, random_state=random_state)
+# from sklearn.utils import shuffle
+# random_state = 1234
+# shuffled_features = shuffle(features, random_state=random_state)
+
+im = draw_image(0, shuffle=True)
+im
 
 
-num = 0
-for idx, example in df_train.iterrows():
-    pixel_values = example[shuffled_features]
-    label = example['label']
-    print (f'label: {label}')
-    visualize_mnist(pixel_values)
-    num += 1
-    if num > 5:
-        break
+im = draw_image(4, shuffle=True)
+im
+
+
+im = draw_image(15, shuffle=True)
+im
+
+
 
 # 👩<200d>🎓**Student question: can you recognize what those images are? Train an MLP classifier on the shuffled images and report the test accuracy. (Hint: replace every `features` with `shuffled_features`)**
 
@@ -540,7 +543,7 @@ print ("accuracy: ", accuracy)
 
 # In this illustration, the input shown in blue is of size 4x4, and the kernel/filter shown in pink is of size 2x2. The output size 3x3 is determined by the input size and the kernel/filter size. The paramters of the kernel/filter are
 # $\begin{bmatrix}1 & 0 \\ 1 & 1\end{bmatrix}$,
-# which is shown in white followed by a "$\times$". 
+# which is shown in white followed by a "$\times$".
 
 # The upperleft corner of the output is calculated as $1\times1 + 0\times0 + 0\times1 + 1\times1=2$.
 
@@ -758,7 +761,7 @@ kernel_shape = (2, 2, 1, 1) # kernel height 2, kernel width 2, 1 input channel, 
 kernel = tf.reshape(kernel, kernel_shape)
 #
 cnn_layer = Conv2D(filters=1,  # filters specifies the number of output channels
-                   kernel_size=(2, 2), 
+                   kernel_size=(2, 2),
 )
 cnn_layer(input) # hack to allocate memory for the kernel
 cnn_layer.set_weights((kernel, tf.convert_to_tensor([0.]))) # biases are set to 0
@@ -793,16 +796,16 @@ print (tf.reshape(output, (3, 3)))
 # Let's take a look at how to create a max pooling layer in Keras.
 # ```
 # MaxPool2D(
-#     pool_size=(2, 2), 
-#     strides=None, 
-#     padding='valid', 
+#     pool_size=(2, 2),
+#     strides=None,
+#     padding='valid',
 #     data_format=None,
 #     **kwargs
 #)
 # ```
 # Notice how similar it is to convolution layers? Can you infer what `strides` does here?
 
-# Now let's use Keras to verify the max pooling results above. 
+# Now let's use Keras to verify the max pooling results above.
 
 from keras.layers import MaxPool2D
 input_shape = (1, 4, 4, 1)
