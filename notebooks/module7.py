@@ -1,14 +1,13 @@
 # # Lab 7 - Deep Learning 2
 
-# The goal of this week's lab is to learn to use two widely-used
-# neural network modules: convolutional neural networks (CNNs) and
-# recurrent neural networks (RNNs). We can use them to learn
-# features from images and text.
+# The goal of this week's lab is to learn to use a widely-used neural
+# network modules: convolutional neural networks (CNNs). We can use
+# them to learn features from images and even text.
 
 # ![image](https://upload.wikimedia.org/wikipedia/commons/6/63/Typical_cnn.png)
 
 # Images and text are common data modalities we encounter in
-# classification or generation tasks. While we can directly apply the
+# classification tasks. While we can directly apply the
 # linear or multi-layer modules we learned in the past few weeks to
 # those modalities, there are neural network modules specifically
 # designed for processing them, namely CNNs and RNNs.
@@ -17,7 +16,7 @@
 
 # * **Review**: Training and Multi-Layer Models (NNs)
 # * **Unit A**: Convolution Neural Networks (CNNs)
-# * **Unit B**: Recurrent Neural Networks (RNNs)
+# * **Unit B**: Image and Text Processing 
 
 # ## Review
 
@@ -78,7 +77,7 @@ def create_linear_model(learning_rate=1.0):
 
 # Here is what a more complex multi-layer model looks like.
 
-def create_model():
+def create_model(learning_rate=0.4):
     tf.random.set_seed(2)
     # create model
     model = Sequential()
@@ -87,7 +86,7 @@ def create_model():
     model.add(Dense(1, activation="sigmoid"))
     # Compile model
     optimizer = tf.keras.optimizers.SGD(
-        learning_rate=rate
+        learning_rate=learning_rate
     )
 
     model.compile(loss="binary_crossentropy",
@@ -144,70 +143,143 @@ pass
 
 # ## Unit A
 
-# ### MLP for Image Classification
+# ### Image Classification
+
+# Today's focus will be the problem of image classification. The goal is to take an
+# image and predict the image class. So instead of predicting whether a point is
+# red or blue we will now be predicting whether an image is a cat or a dog, or a
+# house or a plane.
+
+# We are going to start with a famous simple image classification tasks known as
+# MNist. This dataset consists of pictures of hand-written numbers. The goal is to
+# look at the handwriting and determine what the number is. 
+
 # Let's start with an image classification task. We will be using the [MNIST dataset](http://yann.lecun.com/exdb/mnist/), where the goal is to recognize handwritten digits.
 
-df_train = pd.read_csv('mnist_train.csv.zip', compression='zip')
-df_test = pd.read_csv('mnist_test.csv.zip', compression='zip')
-df_train
+df_train = pd.read_csv('mnist_train.csv')
+df_test = pd.read_csv('mnist_test.csv')
+df_train[:100]
 
-# The column "label" stores the label of each image, which is a number between 0 and 9; the rest of columns store the pixel values at each position in the image: for instance, the column "3x4" stores the pixel value at the 3rd row and the 4th column. Since the size of each image is 28x28, there are 28 rows and 28 columns. (If you are familiar with image processing, you might notice that there is only a single channel here, meaning there's only a single pixel value at each position, whereas images normally use 3 channels, meaning there's a value for each of the Red, Green, and Blue channels at each position. That's because MNIST is a dataset of grayscale images.)
+# This data is in the same format that we have been using so far. 
 
+# The column `class` stores the class of each image, which is a number between 0 and 9.
+
+df_train[:100]["class"].unique()
+
+# The rest of columns store the features. However there are many more features than before!
+
+# In particular the images are 28x28 pixels which means we have 784 features. 
 # To make later processing easier, we store the names of pixel value columns in a list `features`.
 
-features = [f'{i}x{j}' for i in range(1, 29) for j in range(1, 29)]
+features = []
+for i in range(1, 29):
+    for j in range(1, 29):
+        features.append(str(i) + "x" + str(j))
+len(features)
+        
 
-# To get a sense of what those images look like, we can use the following function to visuailze some images.
+# These features are the intensity at each pixel : for instance, the column "3x4" stores the pixel value at the 3rd row and the 4th column. Since the size of each image is 28x28, there are 28 rows and 28 columns. 
 
-import matplotlib.pyplot as plt
-def visualize_mnist(pixel_values):
-    image = tf.convert_to_tensor(pixel_values)
-    plt.imshow(tf.reshape(image, (28, 28)))
-    plt.show()
-for idx in range(10):
-    example = df_train.loc[idx]
-    pixel_values = example[features]
-    label = example['label']
-    print ('label: ', label)
-    visualize_mnist(pixel_values)
 
-# Note that the variable `pixel_values` is a flat vector: it flattens the 28x28 image into a vector of size 784, so we reshaped it into 28x28 in the function `visualize_mnist`.
+# We can use pandas apply to graph these values for one image.
 
-# How can we solve this task? We can use the MLP classifier we learned last week, with a few modifications to change from binary classification to multi-class (10-way in this case) classification: first, the final layer needs to output a vector of size 10, which we denote by $\mathbf{l}$; second, we need to use a `softmax` activation function to normalize this vector into valid probabilities:
+# Convert feature to x, y, and value.
 
-# $\text{softmax}(\mathbf{l}) = \mathbf{p}$, where
+def position(row):
+    y, x = row["index"].split("x")
+    return {"x":int(x),
+            "y":int(y),
+            "val":row["val"]}
 
-# $p_i = \frac{\exp(l_i)}{\sum_{j=1}^{10} \exp(l_j)}$ for $i=1, \ldots, 10$. 
+# Draw a heat map showing the image. 
 
-# We use $p_i$ to parameterize the predicted probability of the label being $i$. The $\exp$ operation in softmax ensures that the results are all non-negative, and then we divide by their summation to make sure that they add up to 1 (verify that $\sum_i p_i=1$ yourself).
+def draw_image(i):
+    t = df_train[i:i+1].T.reset_index().rename(columns={i: "val"})
+    out = t.loc[t["index"] != "class"].apply(position, axis=1, result_type="expand")
 
-# Lastly, we need to change the loss function to `sparse_categorical_crossentropy`, which computes $-\log P(\text{label})$ so minimizing the loss is equivalent to maximizing the log likelihood of true labels under our model.
+    label = df_train.loc[i]["class"]
+    
+    return (alt.Chart(out)
+            .mark_rect()
+            .properties(title="Image of a " + str(label))
+            .encode(
+                x="x:O",
+                y="y:O",
+                fill="val:Q",
+                color="val:Q",
+                tooltip=("x", "y", "val")
+            ))
 
-# Let's adapt the MLP classifier we used last week to this problem:
+# Here are some example images.
 
-def create_model():
-    # create model
+im = draw_image(0)
+im
+
+im = draw_image(4)
+im
+
+im = draw_image(100)
+im
+
+
+# How can we solve this task? The challenge is that the are many different
+# aspects that can make a digit look unique. 
+
+# 👩🎓**Student question: What are some features that you use to tell apart digits?**
+
+# We can use the NN classifier we learned
+# last week, with a few modifications to change from binary
+# classification to multi-class (10-way in this case) classification.
+
+
+# First, the final layer needs to output 10 different values.
+# Also we need to switch `sigmoid` tot a  `softmax`. 
+# Lastly, we need to change the loss function to
+# `sparse_categorical_crossentropy`.
+
+# The practical change is quite small, it should look very similar to
+# what we have seen already
+
+def create_model(learning_rate=1.0):
+    # Makes it the same for everyone in class
+    tf.random.set_seed(2)
+
+    # Create model
     model = Sequential()
-    model.add(Dense(64))
-    model.add(Activation("relu"))
-    model.add(Dense(10)) # output a vector of size 10
-    model.add(Activation("softmax")) # use softmax to get valid probabilities
+    model.add(Dense(64, activation="relu"))
+    model.add(Dense(10, activation="softmax"))
+    
     # Compile model
+    optimizer = tf.keras.optimizers.SGD(
+        learning_rate=learning_rate
+    )
     model.compile(loss="sparse_categorical_crossentropy",
-                  optimizer="adam",
+                  optimizer=optimizer,
                   metrics=["accuracy"])
     return model
 
-# create model
+
+# While these terms are a bit technical, the main thing to know
+# is that they team up to change the `loss` function from last
+# week to score 10 different values instead of 2. 
+
+
+# Create model
 model = KerasClassifier(build_fn=create_model,
                         epochs=2,
                         batch_size=20,
                         verbose=0)
-# fit model
-model.fit(x=df_train[features].astype(float), y=df_train["label"])
-# print summary
-#print (model.model.summary())
-# predict on test set
+# Fit model
+model.fit(x=df_train[features].astype(float),
+          y=df_train["label"])
+
+
+# Now that it is fit we can print a summary
+
+print (model.model.summary())
+
+# And predict on test set
+
 df_test["predict"] = model.predict(df_test[features])
 correct = (df_test["predict"] == df_test["label"])
 accuracy = correct.sum() / correct.size
@@ -215,35 +287,41 @@ print ("accuracy: ", accuracy)
 
 # This simple MLP classifier was able to get 90% accuracy! 
 
-# 👩<200d>🎓**Student question: what is the size of the input to the model??**
+# 👩🎓**Student question: what is the size of the input to the model??**
 
 #📝📝📝📝 FILLME
 pass
-# SOLUTION
-784
 
-# It is hard to visualize the behavior of the classifier under such a high dimensionality. Instead we can look at some examples that the classifier gets wrong:
+# It is hard to visualize the behavior of the classifier under such a
+# high dimensionality. Instead we can look at some examples that the
+# classifier gets wrong.
 
 wrong = (df_test["predict"] != df_test["label"])
 examples = df_test.loc[wrong]
 num = 0
+charts = alt.vconcat()
 for idx, example in examples.iterrows():
-    pixel_values = example[features]
     label = example['label']
     predicted_label = example["predict"]
     print (f'true label: {label}, predicted label: {predicted_label}')
-    visualize_mnist(pixel_values)
+    charts &= draw_image(idx)
     num += 1
     if num > 10:
         break
 
-# ### MLP for Shuffled Image Classification
+charts
+    
+# ### What does a NN see? 
 
-# While MLP classifiers reach a decent accuracy on this task, it doesn't take into account locations in the model. To see this, let's shuffle each image in MNIST using the **same** shuffling order.
+# While MLP classifiers reach a decent accuracy on this task, it
+# doesn't take into account locations in the model. To see this, let's
+# shuffle each image in MNIST using the **same** shuffling order.
 
 from sklearn.utils import shuffle
 random_state = 1234
 shuffled_features = shuffle(features, random_state=random_state)
+
+
 num = 0
 for idx, example in df_train.iterrows():
     pixel_values = example[shuffled_features]
@@ -308,16 +386,157 @@ correct = (df_test["predict"] == df_test["label"])
 accuracy = correct.sum() / correct.size
 print ("the accuracy of the shuffled model on the shuffled MNIST dataset: ", accuracy)
 
-# So we can see that an MLP classifier does not take into account the spatial information: it's simply maintaining a different weight for each input feature, and there is no sense of "closeness" between pixels that are spatially close to each other. It's not built to be translation-invariant: for example, if the digit in the image is shifted by one pixel to the right, the output of MLP is likely to be very different.
+# So we can see that an MLP classifier does not take into account the
+# spatial information: it's simply maintaining a different weight for
+# each input feature, and there is no sense of "closeness" between
+# pixels that are spatially close to each other. It's not built to be
+# translation-invariant: for example, if the digit in the image is
+# shifted by one pixel to the right, the output of MLP is likely to be
+# very different.
+
+
+# # Group Exercise A
+
+# ## Question 0
+
+# Icebreakers
+
+# Who are other members of your group today?
+
+#📝📝📝📝 FILLME
+
+
+# * What's their favorite flower or plant?
+
+#📝📝📝📝 FILLME
+
+
+# * Do they prefer to work from home or in the office?
+
+#📝📝📝📝 FILLME
+
+
+# ## Question 1
+
+# Apply the CNN model to the shuffled MNIST dataset. What accuracy do you get? Is that what you expected?
+
+#📝📝📝📝 FILLME
+pass
+model = KerasClassifier(build_fn=create_cnn_model,
+                        epochs=2,
+                        batch_size=20,
+                        verbose=0)
+# fit model
+model.fit(x=df_train[shuffled_features].astype(float), y=df_train["label"])
+# predict on test set
+df_test["predict"] = model.predict(df_test[shuffled_features])
+correct = (df_test["predict"] == df_test["label"])
+accuracy = correct.sum() / correct.size
+print ("accuracy: ", accuracy)
+
+# ## Question 2
+
+# For this question we will use the CNN Explainer website.
+
+# [CNN Explainer](https://poloclub.github.io/cnn-explainer/)
+
+# * Use the tool under the section "Understanding Hyperparameters" to figure out the output shape of each layer in the above CNN model.
+
+#📝📝📝📝 FILLME
+pass
+
+# * Use `print (model.model.summary())` to print the output shape of each layer. Did you get the same results as above?
+
+#📝📝📝📝 FILLME
+pass
+# SOLUTION
+#print (model.model.summary())
+
+# ## Question 3
+
+# Let's apply our model to a different dataset, [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist), where the goal is to classify an image into one of the below 10 classes:
+#```
+#Label 	Description
+#0 	T-shirt/top
+#1 	Trouser
+#2 	Pullover
+#3 	Dress
+#4 	Coat
+#5 	Sandal
+#6 	Shirt
+#7 	Sneaker
+#8 	Bag
+#9 	Ankle boot
+#```
+
+# Some examples from the dataset are shown below, where each class takes three rows.
+
+# ![image](https://github.com/zalandoresearch/fashion-mnist/raw/master/doc/img/fashion-mnist-sprite.png)
+
+# We have processed the dataset into the same format as MNIST:
+
+df_train = pd.read_csv('fashion_mnist_train.csv.zip', compression='zip')
+df_test = pd.read_csv('fashion_mnist_test.csv.zip', compression='zip')
+df_train
+
+# Let's visualize some examples first
+
+for idx in range(10):
+    example = df_train.loc[idx]
+    pixel_values = example[features]
+    label = example['label']
+    print ('label: ', label)
+    visualize_mnist(pixel_values)
+
+# Apply the CNN model to this dataset and print out the accuracy.
+
+#📝📝📝📝 FILLME
+pass
+#SOLUTION
+# create model
+model = KerasClassifier(build_fn=create_cnn_model,
+                         epochs=2,
+                         batch_size=20,
+                         verbose=0)
+# fit model
+model.fit(x=df_train[features].astype(float), y=df_train["label"])
+# print summary
+print (model.model.summary())
+# predict on test set
+df_test["predict"] = model.predict(df_test[features])
+correct = (df_test["predict"] == df_test["label"])
+accuracy = correct.sum() / correct.size
+print ("accuracy: ", accuracy)
+
+
+
+# ## Unit B
 
 # ### Convolutional Neural Networks
 # #### The Convolution Operation
 
-# Convolutional Neural Networks (CNNs) are commonly used to extract features from images and time series. It takes into account the spatial information, allows matching local patterns (we'll see in a moment what it means), and it is robust under translation: it reacts similarly to an image and its shifted version.
+# Convolutional Neural Networks (CNNs) are commonly used to extract
+# features from images and time series. It takes into account the
+# spatial information, allows matching local patterns (we'll see in a
+# moment what it means), and it is robust under translation: it reacts
+# similarly to an image and its shifted version.
 
-# Let's first define a CNN layer in the 2-D case (such as MNIST images). For now let's assume that the input of the CNN layer is a 2-D matrix, and the output of the CNN layer is also a 2-D matrix, usually of a smaller size compared to the input (without input padding). The parameters of a CNN layer are stored in a kernel (or a filter), which is a matrix (usually of a small size such as 3x3).
+# Let's first define a CNN layer in the 2-D case (such as MNIST
+# images). For now let's assume that the input of the CNN layer is a
+# 2-D matrix, and the output of the CNN layer is also a 2-D matrix,
+# usually of a smaller size compared to the input (without input
+# padding). The parameters of a CNN layer are stored in a kernel (or a
+# filter), which is a matrix (usually of a small size such as 3x3).
 
-# To get the output of the CNN layer, we overlay the kernel/filter on top of the input such that it covers part of the input without crossing the image boundary. We start from the upperleft corner, and traverse the input in a row-major order. At each overlay position, we multiply the kernel/filter matrix with the corresponding portion of the input **element-wise**, and take the sum of the result to fill in the corresponding slot in the output matrix. The size of the output matrix is determined by the number of possible overlay positions. This process is illustrated below.
+# To get the output of the CNN layer, we overlay the kernel/filter on
+# top of the input such that it covers part of the input without
+# crossing the image boundary. We start from the upperleft corner, and
+# traverse the input in a row-major order. At each overlay position,
+# we multiply the kernel/filter matrix with the corresponding portion
+# of the input **element-wise**, and take the sum of the result to
+# fill in the corresponding slot in the output matrix. The size of the
+# output matrix is determined by the number of possible overlay
+# positions. This process is illustrated below.
 
 # In this illustration, the input shown in blue is of size 4x4, and the kernel/filter shown in pink is of size 2x2. The output size 3x3 is determined by the input size and the kernel/filter size. The paramters of the kernel/filter are
 # $\begin{bmatrix}1 & 0 \\ 1 & 1\end{bmatrix}$,
@@ -327,7 +546,9 @@ print ("the accuracy of the shuffled model on the shuffled MNIST dataset: ", acc
 
 # ![image](imgs/1.png)
 
-# Now we shift the kernel/filter to its right. The next value of the output is calculated as $0\times1 + 1\times0 + 1\times1 + 1\times1=2$.
+# Now we shift the kernel/filter to its right. The next value of the
+# output is calculated as $0\times1 + 1\times0 + 1\times1 +
+# 1\times1=2$.
 
 # ![image](imgs/2.png)
 
@@ -335,7 +556,12 @@ print ("the accuracy of the shuffled model on the shuffled MNIST dataset: ", acc
 
 # ![image](imgs/3.png)
 
-# We can't shift the kernel/filter to the right any more since doing so would cross the boundary. Therefore, we start from the first column of the second row (this is also known as the row-major traversing order since we traverse each row before going to the next). The next value of the output is calculated as $0\times1 + 1\times0 + 0\times1 + 1\times1=1$.
+# We can't shift the kernel/filter to the right any more since doing
+# so would cross the boundary. Therefore, we start from the first
+# column of the second row (this is also known as the row-major
+# traversing order since we traverse each row before going to the
+# next). The next value of the output is calculated as $0\times1 +
+# 1\times0 + 0\times1 + 1\times1=1$.
 
 # ![image](imgs/4.png)
 
@@ -392,29 +618,55 @@ pass
 
 # #### Multiple Input and Output Channels
 
-# In practice, we want to go beyond only being able to detect a single type of edge, and we want to learn the kernel/filter weights automatically instead of setting them manually (a recurring theme in deep learning). Therefore, instead of only using a single kernel/filter, we use multiple "output channels", each with a different kernel/filter, such that each output channel can detect a different kind of pattern. The output shape is thereby augmented by an output channel dimension, forming a 3-D tensor of size (output height, output width, output channels).
+# In practice, we want to go beyond only being able to detect a single
+# type of edge, and we want to learn the kernel/filter weights
+# automatically instead of setting them manually (a recurring theme in
+# deep learning). Therefore, instead of only using a single
+# kernel/filter, we use multiple "output channels", each with a
+# different kernel/filter, such that each output channel can detect a
+# different kind of pattern. The output shape is thereby augmented by
+# an output channel dimension, forming a 3-D tensor of size (output
+# height, output width, output channels).
 
-# Similarly, the input can also have multiple channels: for example, the input can be an RGB color image, or it can be the output of a previous CNN layer with multiple output channels. Therefore, instead of using a single kernel, we use one kernel per input channel, then apply the convolution operation to each input channel independently, and take the element-wise sum of the outputs from different input channels as the final output. This process is illustrated below, where for simplicity we only use a single output channel.
+# Similarly, the input can also have multiple channels: for example,
+# the input can be an RGB color image, or it can be the output of a
+# previous CNN layer with multiple output channels. Therefore, instead
+# of using a single kernel, we use one kernel per input channel, then
+# apply the convolution operation to each input channel independently,
+# and take the element-wise sum of the outputs from different input
+# channels as the final output. This process is illustrated below,
+# where for simplicity we only use a single output channel.
 
 # ![image](imgs/multi_input_channels.png)
 
-# In practice, we also need to prepend a sample dimension such that we can process multiple samples all at once. For kernels, we need to append two additional dimensions, one for input channels, the other for output channels. Below is a summary of the shapes of these tensors.
+# In practice, we also need to prepend a sample dimension such that we
+# can process multiple samples all at once. For kernels, we need to
+# append two additional dimensions, one for input channels, the other
+# for output channels. Below is a summary of the shapes of these
+# tensors.
 
 # 1. input: (num samples, input height, input width, input channels).
 # 2. output: (num samples, output height, output width, output channels).
 # 3. kernel: (kernel height, kernel width, input channels, output channels).
 
-# The total number of parameters of the kernel can be calculated as input channels x kernel height x kernel width x output channels.
+# The total number of parameters of the kernel can be calculated as
+# input channels x kernel height x kernel width x output channels.
 
 
-# In the above discussions, we can see that a CNN layer can detect edges in the input image. By stacking multiple layers of CNNs together, it can learn to build up more and more sophisticated pattern matchers, detecting not only edges, but also mid-level and high-level patterns. 
-# To get a sense of how a CNN works in practice and the types of patterns it can match, let us look at the CNN Explainer. For now let's just play with the demo on the top of the website.
+# In the above discussions, we can see that a CNN layer can detect
+# edges in the input image. By stacking multiple layers of CNNs
+# together, it can learn to build up more and more sophisticated
+# pattern matchers, detecting not only edges, but also mid-level and
+# high-level patterns.  To get a sense of how a CNN works in practice
+# and the types of patterns it can match, let us look at the CNN
+# Explainer. For now let's just play with the demo on the top of the
+# website.
 
 # [CNN Explainer](https://poloclub.github.io/cnn-explainer/)
 
 # There are several things to look at in the tool.
 
-# 1.  What's the height and width of the input image?
+# 1. What's the height and width of the input image?
 # 2. What's the number of the output channels of conv_1_1?
 # 3. What kind of patterns does the model use for each image?
 
@@ -616,116 +868,3 @@ accuracy = correct.sum() / correct.size
 print ("accuracy: ", accuracy)
 
 # We are able to get much bette accuracy than using MLPs!
-
-# # Group Exercise A
-
-# ## Question 0
-
-# Icebreakers
-
-# Who are other members of your group today?
-
-#📝📝📝📝 FILLME
-
-
-# * What's their favorite flower or plant?
-
-#📝📝📝📝 FILLME
-
-
-# * Do they prefer to work from home or in the office?
-
-#📝📝📝📝 FILLME
-
-
-# ## Question 1
-
-# Apply the CNN model to the shuffled MNIST dataset. What accuracy do you get? Is that what you expected?
-
-#📝📝📝📝 FILLME
-pass
-model = KerasClassifier(build_fn=create_cnn_model,
-                        epochs=2,
-                        batch_size=20,
-                        verbose=0)
-# fit model
-model.fit(x=df_train[shuffled_features].astype(float), y=df_train["label"])
-# predict on test set
-df_test["predict"] = model.predict(df_test[shuffled_features])
-correct = (df_test["predict"] == df_test["label"])
-accuracy = correct.sum() / correct.size
-print ("accuracy: ", accuracy)
-
-# ## Question 2
-
-# For this question we will use the CNN Explainer website.
-
-# [CNN Explainer](https://poloclub.github.io/cnn-explainer/)
-
-# * Use the tool under the section "Understanding Hyperparameters" to figure out the output shape of each layer in the above CNN model.
-
-#📝📝📝📝 FILLME
-pass
-
-# * Use `print (model.model.summary())` to print the output shape of each layer. Did you get the same results as above?
-
-#📝📝📝📝 FILLME
-pass
-# SOLUTION
-#print (model.model.summary())
-
-# ## Question 3
-
-# Let's apply our model to a different dataset, [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist), where the goal is to classify an image into one of the below 10 classes:
-#```
-#Label 	Description
-#0 	T-shirt/top
-#1 	Trouser
-#2 	Pullover
-#3 	Dress
-#4 	Coat
-#5 	Sandal
-#6 	Shirt
-#7 	Sneaker
-#8 	Bag
-#9 	Ankle boot
-#```
-
-# Some examples from the dataset are shown below, where each class takes three rows.
-
-# ![image](https://github.com/zalandoresearch/fashion-mnist/raw/master/doc/img/fashion-mnist-sprite.png)
-
-# We have processed the dataset into the same format as MNIST:
-
-df_train = pd.read_csv('fashion_mnist_train.csv.zip', compression='zip')
-df_test = pd.read_csv('fashion_mnist_test.csv.zip', compression='zip')
-df_train
-
-# Let's visualize some examples first
-
-for idx in range(10):
-    example = df_train.loc[idx]
-    pixel_values = example[features]
-    label = example['label']
-    print ('label: ', label)
-    visualize_mnist(pixel_values)
-
-# Apply the CNN model to this dataset and print out the accuracy.
-
-#📝📝📝📝 FILLME
-pass
-#SOLUTION
-# create model
-model = KerasClassifier(build_fn=create_cnn_model,
-                         epochs=2,
-                         batch_size=20,
-                         verbose=0)
-# fit model
-model.fit(x=df_train[features].astype(float), y=df_train["label"])
-# print summary
-print (model.model.summary())
-# predict on test set
-df_test["predict"] = model.predict(df_test[features])
-correct = (df_test["predict"] == df_test["label"])
-accuracy = correct.sum() / correct.size
-print ("accuracy: ", accuracy)
