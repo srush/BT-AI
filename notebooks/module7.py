@@ -829,8 +829,8 @@ pass
 
 # We have processed the dataset into the same format as MNIST:
 
-df_train = pd.read_csv('https://srush.github.io/BT-AI/notebooks/fashion_mnist_train.csv.zip', compression='zip')
-df_test = pd.read_csv('https://srush.github.io/BT-AI/notebooks/fashion_mnist_test.csv.zip', compression='zip')
+df_train = pd.read_csv('https://srush.github.io/BT-AI/notebooks/fashion_mnist_train.csv.gz', compression='gzip')
+df_test = pd.read_csv('https://srush.github.io/BT-AI/notebooks/fashion_mnist_test.csv.gz', compression='gzip')
 df_train
 
 # Let's visualize some examples first
