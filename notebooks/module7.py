@@ -23,8 +23,6 @@
 # Last time we took a look at what's happening inside training when we
 # call `model.fit`. We did this by implementing `model.fit` ourselves.
 
-EPOCHS = 1
-
 # For Tables
 import pandas as pd
 # For Visualization
@@ -80,7 +78,7 @@ def create_linear_model(learning_rate=1.0):
 
 # Here is what a more complex multi-layer model looks like.
 
-def create_model(learning_rate=0.4):
+def create_model(learning_rate=0.05):
     tf.random.set_seed(2)
     # create model
     model = Sequential()
@@ -105,7 +103,7 @@ def create_model(learning_rate=0.4):
 # and train it on data.
 
 model = KerasClassifier(build_fn=create_model,
-                        epochs=EPOCHS,
+                        epochs=20,
                         batch_size=20,
                         verbose=0)
 
@@ -159,8 +157,8 @@ pass
 
 # Let's start with an image classification task. We will be using the [MNIST dataset](http://yann.lecun.com/exdb/mnist/), where the goal is to recognize handwritten digits.
 
-df_train = pd.read_csv('mnist_train.csv.gz', compression='gzip')
-df_test = pd.read_csv('mnist_test.csv.gz', compression='gzip')
+df_train = pd.read_csv('https://srush.github.io/BT-AI/notebooks/mnist_train.csv.gz', compression='gzip')
+df_test = pd.read_csv('https://srush.github.io/BT-AI/notebooks/mnist_test.csv.gz', compression='gzip')
 df_train[:100]
 
 # This data is in the same format that we have been using so far.
@@ -247,7 +245,7 @@ im
 # The practical change is quite small, it should look very similar to
 # what we have seen already
 
-def create_model(learning_rate=1.0):
+def create_model():
     # Makes it the same for everyone in class
     tf.random.set_seed(2)
 
@@ -257,11 +255,8 @@ def create_model(learning_rate=1.0):
     model.add(Dense(10, activation="softmax"))
 
     # Compile model
-    optimizer = tf.keras.optimizers.SGD(
-        learning_rate=learning_rate
-    )
     model.compile(loss="sparse_categorical_crossentropy",
-                  optimizer=optimizer,
+                  optimizer="adam",
                   metrics=["accuracy"])
     return model
 
@@ -273,7 +268,7 @@ def create_model(learning_rate=1.0):
 
 # Create model
 model = KerasClassifier(build_fn=create_model,
-                        epochs=EPOCHS,
+                        epochs=2,
                         batch_size=20,
                         verbose=False)
 # Fit model
@@ -335,14 +330,14 @@ im = draw_image(15, shuffle=True)
 im
 
 
-# 👩🎓**Student question: can you recognize what those images are? Train an MLP classifier on the shuffled images and report the test accuracy. (Hint: replace every `features` with `shuffled_features`)**
+# Can you recognize what those images are? Let's train an MLP
+# classifier on the shuffled images and report the test
+# accuracy. 
 
-#📝📝📝📝 FILLME
-pass
-# SOLUTION
-# create model
+
+# Create model
 model = KerasClassifier(build_fn=create_model,
-                        epochs=EPOCHS,
+                        epochs=2,
                         batch_size=20,
                         verbose=0)
 
@@ -373,7 +368,6 @@ output
 # spatial information: it's simply maintaining a input feature, and
 # there is no sense of "closeness" between pixels that are spatially
 # close to each other.
-
 
 # ### Convolutions
 
@@ -531,7 +525,7 @@ pass
 
 # ## Unit B
 
-# ### Multiple Filters 
+# ### Multiple Filters
 
 # In practice, we want to go beyond only being able to detect a single
 # type of edge. Therefore, instead of only using a single
@@ -554,7 +548,6 @@ pass
 # simplicity we only use a single output channel.
 
 # ![image](https://srush.github.io/BT-AI/notebooks/imgs/multi_input_channels.png)
-
 
 # One of the tricky parts of CNNs is keeping track of all of the
 # elements grouped together.
@@ -597,11 +590,20 @@ pass
 #)
 # ```
 
-# The argument `filters` specifies the number of output channels. The argument `kernel_size` is a tuple (height, width) specifying the size of the filter.
+# The argument `filters` specifies the number of output channels. The
+# argument `kernel_size` is a tuple (height, width) specifying the
+# size of the filter.
 
-# Now let's discuss what `strides` does.  In the above convolution layer examples, when we shift the filter to the right, we move by 1 pixel; similarly, when we move the filter down, we move down 1 pixel.
+# Now let's discuss what `strides` does.  In the above convolution
+# layer examples, when we shift the filter to the right, we move by 1
+# pixel; similarly, when we move the filter down, we move down 1
+# pixel.
 
-# We can generalize the step size of movements using strides. For example, we can use a stride of 2 along the width dimension, so we move by two pixels each time we move right (note that we still move down by 1 pixel since the stride along the height dimension is 1), resulting an output of size 3 x 2.
+# We can generalize the step size of movements using strides. For
+# example, we can use a stride of 2 along the width dimension, so we
+# move by two pixels each time we move right (note that we still move
+# down by 1 pixel since the stride along the height dimension is 1),
+# resulting an output of size 3 x 2.
 
 # ![image](https://srush.github.io/BT-AI/notebooks/imgs/stride1.png)
 
@@ -620,8 +622,6 @@ pass
 
 #📝📝📝📝 FILLME
 pass
-# SOLUTION
-# $\begin{bmatrix}2 & 3 \\ 1 & 0\end{bmatrix}$
 
 # ### Convolution Layers in Keras
 
@@ -633,7 +633,9 @@ from keras.layers import Conv2D
 
 # ![image](https://srush.github.io/BT-AI/notebooks/imgs/9.png)
 
-# Note that we need to do lots of reshapes to add the sample dimension, or the input/output channel dimension. To recap, the relevant shapes are:
+# Note that we need to do lots of reshapes to add the sample
+# dimension, or the input/output channel dimension. To recap, the
+# relevant shapes are:
 
 # 1. input: (num samples, input height, input width, input channels).
 # 2. output: (num samples, output height, output width, output channels).
@@ -656,7 +658,7 @@ def cnn(input, filter):
     # Call Keras 
     cnn_layer = Conv2D(filters=1, kernel_size=(2, 2))
     cnn_layer(input)
-    cnn_layer.set_weights((kernel, tf.convert_to_tensor([0.])))
+    cnn_layer.set_weights((filter, tf.convert_to_tensor([0.])))
     output = cnn_layer(input)
 
     # Output
@@ -664,17 +666,19 @@ def cnn(input, filter):
 
 print(cnn(input, filter))
 
-# Yeah our calculations were correct!
+# Nice, our calculations were correct!
 
 # ### Pooling
 
 # In a convolution layer, we took the convolution between the filter
 # and a portion of the input to calculate the output. However sometimes
 # these areas are very small. What if we want a feature over a larger
-# area. 
+# area?
 
 
-# If we simply take the max value of that portion of input instead of using the convolution, we get a max pooling layer, as illustrated below. 
+# If we simply take the max value of that portion of input instead of
+# using the convolution, we get a max pooling layer, as illustrated
+# below.
 
 # ![image](https://srush.github.io/BT-AI/notebooks/imgs/max1.png)
 
@@ -732,11 +736,15 @@ pooling_layer = MaxPool2D(pool_size=(2, 2))
 output = pooling_layer(input)
 print (tf.reshape(output, (2, 2)))
 
-# #### Putting Everything Together
+# ### Putting Everything Together
 
 # ![image](https://upload.wikimedia.org/wikipedia/commons/6/63/Typical_cnn.png)
 
-# Now we can put everything together to build a full CNN classifier for MNIST classification. Below shows an example model, where we need to use a `Reshape` layer to reshape the input into a single-channel 2-D image, as well as a `Flatten` layer to flatten the feature map back to a vector.
+# Now we can put everything together to build a full CNN classifier
+# for MNIST classification. Below shows an example model, where we
+# need to use a `Reshape` layer to reshape the input into a
+# single-channel 2-D image, as well as a `Flatten` layer to flatten
+# the feature map back to a vector.
 
 from keras.layers import Flatten, Reshape
 
@@ -759,15 +767,12 @@ def create_cnn_model():
  #
  # create model
 model = KerasClassifier(build_fn=create_cnn_model,
-                         epochs=EPOCHS,
+                         epochs=2,
                          batch_size=20,
                          verbose=0)
 # fit model
 model.fit(x=df_train[features].astype(float),
           y=df_train["class"])
-# print summary
-#print (model.model.summary())
-# predict on test set
 df_test["predict"] = model.predict(df_test[features])
 correct = (df_test["predict"] == df_test["class"])
 accuracy = correct.sum() / correct.size
@@ -824,8 +829,8 @@ pass
 
 # We have processed the dataset into the same format as MNIST:
 
-df_train = pd.read_csv('fashion_mnist_train.csv.zip', compression='zip')
-df_test = pd.read_csv('fashion_mnist_test.csv.zip', compression='zip')
+df_train = pd.read_csv('https://srush.github.io/BT-AI/notebooks/fashion_mnist_train.csv.zip', compression='zip')
+df_test = pd.read_csv('https://srush.github.io/BT-AI/notebooks/fashion_mnist_test.csv.zip', compression='zip')
 df_train
 
 # Let's visualize some examples first
