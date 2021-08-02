@@ -23,6 +23,8 @@
 # Last time we took a look at what's happening inside training when we
 # call `model.fit`. We did this by implementing `model.fit` ourselves.
 
+EPOCHS = 1
+
 # For Tables
 import pandas as pd
 # For Visualization
@@ -103,9 +105,9 @@ def create_model(learning_rate=0.4):
 # and train it on data.
 
 model = KerasClassifier(build_fn=create_model,
-                        epochs=10,
+                        epochs=EPOCHS,
                         batch_size=20,
-                        verbose=True)
+                        verbose=0)
 
 
 # The neural network is used just like the classifiers from Week 4 and 5. The only
@@ -197,12 +199,16 @@ def position(row):
 def draw_image(i, shuffle=False):
     t = df_train[i:i+1].T.reset_index().rename(columns={i: "val"})
     out = t.loc[t["index"] != "class"].apply(position, axis=1, result_type="expand")
-    if shuffle:
-        out["val"] = sklearn.utils.shuffle(out["val"])
+
     label = df_train.loc[i]["class"]
+    title = "Image of a " + str(label)
+    if shuffle:
+        out["val"] = sklearn.utils.shuffle(out["val"], random_state=1234).reset_index()["val"]
+        title = "Shuffled Image of a " + str(label)
+        
     return (alt.Chart(out)
             .mark_rect()
-            .properties(title="Image of a " + str(label))
+            .properties(title=title)
             .encode(
                 x="x:O",
                 y="y:O",
@@ -267,9 +273,9 @@ def create_model(learning_rate=1.0):
 
 # Create model
 model = KerasClassifier(build_fn=create_model,
-                        epochs=2,
+                        epochs=EPOCHS,
                         batch_size=20,
-                        verbose=True)
+                        verbose=False)
 # Fit model
 model.fit(x=df_train[features].astype(float),
           y=df_train["class"])
@@ -304,7 +310,6 @@ charts = alt.vconcat()
 for idx, example in examples.iterrows():
     label = example["class"]
     predicted_label = example["predict"]
-    print (f'true label: {label}, predicted label: {predicted_label}')
     charts &= draw_image(idx)
     num += 1
     if num > 10:
@@ -314,13 +319,9 @@ charts
 
 # ### What does a NN see?
 
-# While MLP classifiers reach a decent accuracy on this task, it
+# While NN classifiers reach a decent accuracy on this task, it
 # doesn't take into account locations in the model. To see this, let's
 # shuffle each image in MNIST using the **same** shuffling order.
-
-# from sklearn.utils import shuffle
-# random_state = 1234
-# shuffled_features = shuffle(features, random_state=random_state)
 
 im = draw_image(0, shuffle=True)
 im
@@ -341,62 +342,115 @@ pass
 # SOLUTION
 # create model
 model = KerasClassifier(build_fn=create_model,
-                        epochs=2,
+                        epochs=EPOCHS,
                         batch_size=20,
                         verbose=0)
 
-shuffled_features = shuffle(features, random_state=1234)
+shuffled_features = sklearn.utils.shuffle(features, random_state=1234)
 
 # Fit model
-model.fit(x=df_train[shuffled_features].astype(float), y=df_train["class"])
+model.fit(x=df_train[shuffled_features].astype(float),
+          y=df_train["class"])
 
 # Predict on test set
 df_test["predict"] = model.predict(df_test[shuffled_features])
 correct = (df_test["predict"] == df_test["class"])
 accuracy = correct.sum() / correct.size
-print ("accuracy: ", accuracy)
+output = "accuracy: ", accuracy
+output
 
 # If you implemented correctly, you should see that the test accuracy
 # on the shuffled images is similar to that on the original
 # images. Think for a moment why shuffling doesn't change the accuracy
 # much.
 
-# MLPs do not take into account locations in the input as humans
-# do. For instance, the model is not aware that the pixel at position
-# (i, j) is closer to the pixel at position (i+1, j) compared to
-# position (i+10, j). For instance, if we swap the input feature i
-# with the input feature j, and at the same time also swap the weights
-# connected to i with the weights connected to j, we would end up with
-# the same results after the first layer. We can see this by training
-# a model on the original MNIST images, and then directly shuffle the
-# input weights to get a model that works on the shuffled images:
+# NNs do not inherently take into account locations in the input as humans
+# do. For instance, the model is not aware that the feature at position
+# (4, 4) is closer to the feature at position (5, 4) compared to
+# position (14, 4).
 
-# Create model
-model = KerasClassifier(build_fn=create_model,
-                        epochs=2,
-                        batch_size=20,
-                        verbose=0)
-# Fit model
-model.fit(x=df_train[features].astype(float), y=df_train["class"])
-# Predict on test set
-df_test["predict"] = model.predict(df_test[features])
-correct = (df_test["predict"] == df_test["class"])
-accuracy = correct.sum() / correct.size
-print ("the accuracy of the original model on the original MNIST dataset: ", accuracy)
-# Predict on shuffled test set
-df_test["predict"] = model.predict(df_test[shuffled_features])
-correct = (df_test["predict"] == df_test["class"])
-accuracy = correct.sum() / correct.size
-print ("the accuracy of the original model on the shuffled MNIST dataset: ", accuracy)
+# So we can see that an NN classifier does not take into account the
+# spatial information: it's simply maintaining a input feature, and
+# there is no sense of "closeness" between pixels that are spatially
+# close to each other.
 
-# So we can see that an MLP classifier does not take into account the
-# spatial information: it's simply maintaining a different weight for
-# each input feature, and there is no sense of "closeness" between
-# pixels that are spatially close to each other. I
 
-# It's not built to understand how images work: for example, if the
-# digit in the image is shifted by one pixel to the right, the output
-# of MLP is likely to be very different.
+# ### Convolutions
+
+# Instead of standard NNs we are going to instead use Convolutional
+# Neural Networks (CNNS). CNNs are commonly used to learn
+# features from images and time series. They takes into account the
+# spatial information allowing for locality.
+
+# Let's first define a CNN layer for images. For now let's assume that
+# the input of the CNN layer is a image, and the output of the
+# CNN layer is also an image, usually of a smaller size compared
+# to the input (without input padding). The `parameters` of a CNN layer
+# consist of a little NN that is trying to draw a separator of a region
+# of the image. This is called the `filter`.
+
+# To get the output of the CNN layer, we overlay the filter on
+# top of the input such that it covers part of the input without
+# crossing the image boundary. We start from the upperleft corner.
+
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/1.png)
+
+# At each overlay position, we apply the filter with the corresponding
+# portion of the input. The filter is converting the region it looks
+# at into a new feature, the same way that we saw last class.
+
+# In this illustration, the input shown in blue is of size 4x4, and
+# the filter shown in pink is of size 2x2. The output size 3x3 is
+# determined by the input size and the filter size.
+
+# Now we shift the filter to the right. 
+
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/2.png)
+
+# We shift the filter to the right again. 
+
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/3.png)
+
+# We can't shift the filter to the right any more since doing
+# so would cross the boundary. Therefore, we start from the first
+# column of the second row
+
+
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/4.png)
+
+# Moving right again.
+
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/5.png)
+
+# ### Pattern Matching
+
+# Last week we saw how neural networks were able to learn to match
+# patterns in the training data. For instance they were able to spot
+# certain features in order to distinguish between red and blue points.
+
+# CNNs can be used to do the same thing. However, instead of looking at
+# all the features at once they look at small groups of feature. 
+
+# CNNs can match patterns with proper filter weights. For instance, if
+# we set the filter to be $\begin{bmatrix}-0.5 & 0.5 \\ -0.5 &
+# 0.5\end{bmatrix}$, it can detect vertical edges.
+
+# In the below example, the first column of the output takes values 1,
+# corresponding to a line in the original image.
+
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/edge1.png)
+
+# What if we shift the edge in the original input to the right by 1
+# pixel? We can see that the 1's in the output also shift to the right
+# by 1.
+
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/edge2.png)
+
+# Similarly, if we shift the edge to the right by 2 pixels, the 1's in
+# the output shift to the right by 2.
+
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/edge3.png)
+
 
 # # Group Exercise A
 
@@ -418,155 +472,107 @@ print ("the accuracy of the original model on the shuffled MNIST dataset: ", acc
 
 #📝📝📝📝 FILLME
 
+# ## Question 1
+
+# Brainstorm ways that you might write a program tell apart the digits 5 and 6.
+
+#📝📝📝📝 FILLME
+pass
+
+# Do these methods need to look at the whole image? Which parts do they need to look at?
+
+#📝📝📝📝 FILLME
+pass
+
+#  Would these approaches still work if the digits were bigger or smaller? What if they moved around on the page? 
+
+#📝📝📝📝 FILLME
+pass
+
+# ## Question 2
+
+# Now it is your turn to finish the result of the CNN computations. Write
+# down the full result of applying this CNN layer to the given
+# input.
+
+#📝📝📝📝 FILLME
+pass
+
+# If we increase the height of the input by 1, how would the size of the output change?
+# If we increase the width of the filter by 1, how would the size of the output change?**
+
+#📝📝📝📝 FILLME
+pass
+
+
+# In the above illustrations, it seems that a CNN layer processes the input image in a sequential order. Are computations at different positions dependent upon each other? Can we use a different order such as starting from the bottom right corner? 
+
+#📝📝📝📝 FILLME
+pass
+
+# ## Question 3
+
+# Design a filter to detect edges in the horizontal direction.**
+
+#📝📝📝📝 FILLME
+pass
+
+
+# Design a filter to detect edges along a diagonal direction.**
+
+#📝📝📝📝 FILLME
+pass
+
+# Is it possible to design a filter to detect other edges such as curves?
+
+#📝📝📝📝 FILLME
+pass
 
 
 # ## Unit B
 
-# ### Convolutions
-
-# Convolutional Neural Networks (CNNs) are commonly used to extract
-# features from images and time series. It takes into account the
-# spatial information, allows matching local patterns (we'll see in a
-# moment what it means), and it is robust under translation: it reacts
-# similarly to an image and its shifted version.
-
-# Let's first define a CNN layer in the 2-D case (such as MNIST
-# images). For now let's assume that the input of the CNN layer is a
-# 2-D matrix, and the output of the CNN layer is also a 2-D matrix,
-# usually of a smaller size compared to the input (without input
-# padding). The parameters of a CNN layer are stored in a kernel (or a
-# filter), which is a matrix (usually of a small size such as 3x3).
-
-# To get the output of the CNN layer, we overlay the kernel/filter on
-# top of the input such that it covers part of the input without
-# crossing the image boundary. We start from the upperleft corner, and
-# traverse the input in a row-major order. At each overlay position,
-# we multiply the kernel/filter matrix with the corresponding portion
-# of the input **element-wise**, and take the sum of the result to
-# fill in the corresponding slot in the output matrix. The size of the
-# output matrix is determined by the number of possible overlay
-# positions. This process is illustrated below.
-
-# In this illustration, the input shown in blue is of size 4x4, and the kernel/filter shown in pink is of size 2x2. The output size 3x3 is determined by the input size and the kernel/filter size. The paramters of the kernel/filter are
-# $\begin{bmatrix}1 & 0 \\ 1 & 1\end{bmatrix}$,
-# which is shown in white followed by a "$\times$".
-
-# The upperleft corner of the output is calculated as $1\times1 + 0\times0 + 0\times1 + 1\times1=2$.
-
-# ![image](imgs/1.png)
-
-# Now we shift the kernel/filter to its right. The next value of the
-# output is calculated as $0\times1 + 1\times0 + 1\times1 +
-# 1\times1=2$.
-
-# ![image](imgs/2.png)
-
-# We shift the kernel/filter to its right again. The next value of the output is calculated as $1\times1 + 0\times0 + 1\times1 + 1\times1=3$.
-
-# ![image](imgs/3.png)
-
-# We can't shift the kernel/filter to the right any more since doing
-# so would cross the boundary. Therefore, we start from the first
-# column of the second row (this is also known as the row-major
-# traversing order since we traverse each row before going to the
-# next). The next value of the output is calculated as $0\times1 +
-# 1\times0 + 0\times1 + 1\times1=1$.
-
-# ![image](imgs/4.png)
-
-# Moving right again, the next value of the output is calculated as $1\times1 + 1\times0 + 1\times1 + 0\times1=2$.
-
-# ![image](imgs/5.png)
-
-# 👩<200d>🎓**Student question: Now it is your turn to finish the result of the computations. Write down the full result of applying this CNN layer to the given input.**
-
-#📝📝📝📝 FILLME
-pass
-# SOLUTION
-# the rest of the output values are: 1, 1, 1, 0
-
-# 👩<200d>🎓**Student question: If we increase the height of the input by 1, how would the size of the output change? If we increase the width of the kernel/filter by 1, how would the size of the output change?**
-
-#📝📝📝📝 FILLME
-pass
-# SOLUTION
-# The height of the output will also increase by 1 if we increase the height of the input by 1. The width of the output would decrease by 1 if we increase the width of the kernel/filter.
-
-
-# 👩<200d>🎓**Student question: In the above illustrations, it seems that a CNN layer processes the input image in a sequential order. Are computations at different positions dependent upon each other? Can we use a different order such as starting from the bottom right corner? Can we parallelize the computations and compute them all at once using parallel hardware?**
-
-#📝📝📝📝 FILLME
-pass
-# SOLUTION
-# computations are independent of each other, we can use a different order, and we can parallelize them.
-
-# Technical jargon: the output of a convolution layer is often referred to as a feature map.
-
-# #### Pattern Matching
-
-# CNNs can match patterns with proper kernel weights. For instance, if we set the kernel/filter to be $\begin{bmatrix}-0.5 & 0.5 \\ -0.5 & 0.5\end{bmatrix}$, it can detect vertical edges.
-
-# In the below example, the first column of the output takes values 1, corresponding to the presence of an edge between the first column (all 0's) and the second column (all 1's) in the input image.
-
-# ![image](imgs/edge1.png)
-
-# What if we shift the edge in the original input to the right by 1 pixel? We can see that the 1's in the output also shift to the right by 1.
-
-# ![image](imgs/edge2.png)
-
-# Similarly, if we shift the edge to the right by 2 pixels, the 1's in the output shift to the right by 2.
-
-# ![image](imgs/edge3.png)
-
-# 👩<200d>🎓**Student question: design a kernel to detect edges in the horizontal direction.**
-
-#📝📝📝📝 FILLME
-pass
-# SOLUTION
-# $\begin{bmatrix}-0.5 & -0.5 \\ 0.5 & 0.5\end{bmatrix}$
-
-# #### Multiple Input and Output Channels
+# ### Multiple Filters 
 
 # In practice, we want to go beyond only being able to detect a single
-# type of edge, and we want to learn the kernel/filter weights
-# automatically instead of setting them manually (a recurring theme in
-# deep learning). Therefore, instead of only using a single
-# kernel/filter, we use multiple "output channels", each with a
-# different kernel/filter, such that each output channel can detect a
-# different kind of pattern. The output shape is thereby augmented by
-# an output channel dimension, forming a 3-D tensor of size (output
+# type of edge. Therefore, instead of only using a single
+# filter, we use multiple "output channels", each with a
+# different filter, such that each output channel can detect a
+# different kind of pattern.
+
+# The output shape is thereby augmented by
+# an output channel dimension, forming a 3-D shape of size (output
 # height, output width, output channels).
 
 # Similarly, the input can also have multiple channels: for example,
-# the input can be an RGB color image, or it can be the output of a
-# previous CNN layer with multiple output channels. Therefore, instead
-# of using a single kernel, we use one kernel per input channel, then
-# apply the convolution operation to each input channel independently,
-# and take the element-wise sum of the outputs from different input
-# channels as the final output. This process is illustrated below,
-# where for simplicity we only use a single output channel.
+# the input may be color image split into red, green, and blue channels.
+# Or it can be the output of a
+# previous CNN layer with multiple output channels.
 
-# ![image](imgs/multi_input_channels.png)
+# Instead of using a single filter, we use one filter per input
+# channel, then apply the convolution operation to each input channel
+# independently. This process is illustrated below, where for
+# simplicity we only use a single output channel.
 
-# In practice, we also need to prepend a sample dimension such that we
-# can process multiple samples all at once. For kernels, we need to
-# append two additional dimensions, one for input channels, the other
-# for output channels. Below is a summary of the shapes of these
-# tensors.
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/multi_input_channels.png)
 
-# 1. input: (num samples, input height, input width, input channels).
-# 2. output: (num samples, output height, output width, output channels).
-# 3. kernel: (kernel height, kernel width, input channels, output channels).
 
-# The total number of parameters of the kernel can be calculated as
-# input channels x kernel height x kernel width x output channels.
+# One of the tricky parts of CNNs is keeping track of all of the
+# elements grouped together.
 
+# 1. input: (num images, input height, input width, input channels).
+# 2. output: (num images, output height, output width, output channels).
+# 3. filter: (filter height, filter width, input channels, output channels).
+
+
+# ### CNN Visualization 
 
 # In the above discussions, we can see that a CNN layer can detect
 # edges in the input image. By stacking multiple layers of CNNs
 # together, it can learn to build up more and more sophisticated
 # pattern matchers, detecting not only edges, but also mid-level and
-# high-level patterns.  To get a sense of how a CNN works in practice
+# high-level patterns.
+
+# To get a sense of how a CNN works in practice
 # and the types of patterns it can match, let us look at the CNN
 # Explainer. For now let's just play with the demo on the top of the
 # website.
@@ -579,7 +585,8 @@ pass
 # 2. What's the number of the output channels of conv_1_1?
 # 3. What kind of patterns does the model use for each image?
 
-# #### Strides and Padding
+# ### CNN in Keras
+
 # Let's take a look at how to create a CNN layer in Keras.
 # ```
 # Conv2D(
@@ -587,54 +594,36 @@ pass
 #    kernel_size,
 #    strides=(1, 1),
 #    padding="valid",
-#    data_format=None,
-#    dilation_rate=(1, 1),
-#    groups=1,
-#    activation=None,
-#    use_bias=True,
-#    kernel_initializer="glorot_uniform",
-#    bias_initializer="zeros",
-#    kernel_regularizer=None,
-#    bias_regularizer=None,
-#    activity_regularizer=None,
-#    kernel_constraint=None,
-#    bias_constraint=None,
-#    **kwargs
 #)
 # ```
 
-# It might appear intimidating, but most people only use the first three arguments: `filters`, `kernel_size`, and `strides` in addition to the argument `activation` for which we usually use "relu" as in MLPs. The argument `filters` specifies the number of output channels. The argument `kernel_size` is a tuple (height, width) specifying the size of the kernel. Now let's discuss what `strides` does, and we will also briefly cover `padding`.
+# The argument `filters` specifies the number of output channels. The argument `kernel_size` is a tuple (height, width) specifying the size of the filter.
 
-# In the above convolution layer examples, when we shift the kernel/filter to the right, we move by 1 pixel; similarly, when we move the kernel/filter down, we move down 1 pixel. We can generalize the step size of movements using strides. For example, we can use a stride of 2 along the width dimension, so we move by two pixels each time we move right (note that we still move down by 1 pixel since the stride along the height dimension is 1), resulting an output of size 3 x 2.
+# Now let's discuss what `strides` does.  In the above convolution layer examples, when we shift the filter to the right, we move by 1 pixel; similarly, when we move the filter down, we move down 1 pixel.
 
-# ![image](imgs/stride1.png)
+# We can generalize the step size of movements using strides. For example, we can use a stride of 2 along the width dimension, so we move by two pixels each time we move right (note that we still move down by 1 pixel since the stride along the height dimension is 1), resulting an output of size 3 x 2.
 
-# ![image](imgs/stride2.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/stride1.png)
 
-# ![image](imgs/stride3.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/stride2.png)
 
-# ![image](imgs/stride4.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/stride3.png)
 
-# ![image](imgs/stride5.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/stride4.png)
 
-# ![image](imgs/stride6.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/stride5.png)
 
-# 👩<200d>🎓**Student question: What would the output be if we use a stride of 2 both along the width dimension and the height dimension?**
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/stride6.png)
+
+# 👩🎓**Student question: What would the output be if we use a stride of 2 both along the width dimension and the height dimension?**
+
 
 #📝📝📝📝 FILLME
 pass
 # SOLUTION
 # $\begin{bmatrix}2 & 3 \\ 1 & 0\end{bmatrix}$
 
-# Finally, let's briefly talk about padding. You might have noticed that in our first example, the output size is smaller than the input size:
-
-# ![image](imgs/9.png)
-
-# This is the default behavior in Keras when `padding` is set to "valid". However, in some applications we may want the output to be of the same size as the input. In this case, we can pad the input image using zeros before applying the CNN layer. In Keras, when the argument `padding` is set to be "same",  the amount of padding is determined automatically such that the output size becomes the same as the input size.
-
-# ![image](imgs/pad.png)
-
-# #### Convolution Layers in Keras
+# ### Convolution Layers in Keras
 
 # Now we are ready to implement a CNN layer in Keras! First, we need to import `Conv2D` from `keras.layers`.
 
@@ -642,70 +631,74 @@ from keras.layers import Conv2D
 
 # Now let's use Keras to verify the convolution results we calculated before.
 
-# ![image](imgs/9.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/9.png)
 
 # Note that we need to do lots of reshapes to add the sample dimension, or the input/output channel dimension. To recap, the relevant shapes are:
 
 # 1. input: (num samples, input height, input width, input channels).
 # 2. output: (num samples, output height, output width, output channels).
-# 3. kernel: (kernel height, kernel width, input channels, output channels).
+# 3. filter: (filter height, filter width, input channels, output channels).
 
-input_shape = (1, 4, 4, 1) # 1 sample, height 4, width 4, 1 input channel
-input = tf.convert_to_tensor([
-    [1, 0, 1, 0],
-    [0, 1, 1, 1],
-    [0, 1, 0, 0],
-    [1, 0, 0, 0]
-], dtype=tf.float32)
-input = tf.reshape(input, input_shape)
-#
-kernel = tf.convert_to_tensor([
-    [1., 0],
-    [1, 1],
-], dtype=tf.float32)
-kernel_shape = (2, 2, 1, 1) # kernel height 2, kernel width 2, 1 input channel, 1 output channel
-kernel = tf.reshape(kernel, kernel_shape)
-#
-cnn_layer = Conv2D(filters=1,  # filters specifies the number of output channels
-                   kernel_size=(2, 2),
-)
-cnn_layer(input) # hack to allocate memory for the kernel
-cnn_layer.set_weights((kernel, tf.convert_to_tensor([0.]))) # biases are set to 0
-#
-output = cnn_layer(input)
-print (tf.reshape(output, (3, 3)))
+input = [[1, 0, 1, 0],
+         [0, 1, 1, 1],
+         [0, 1, 0, 0],
+         [1, 0, 0, 0]]
+filter = [[1, 0.],
+          [1, 1.]] 
+
+def cnn(input, filter):
+    # Code to shape the correct
+    filter = tf.convert_to_tensor(filter, dtype=tf.float32)
+    filter = tf.reshape(filter, (2, 2, 1, 1))
+    input = tf.convert_to_tensor(input, dtype=tf.float32)
+    input = tf.reshape(input, (1, 4, 4, 1))
+
+    # Call Keras 
+    cnn_layer = Conv2D(filters=1, kernel_size=(2, 2))
+    cnn_layer(input)
+    cnn_layer.set_weights((kernel, tf.convert_to_tensor([0.])))
+    output = cnn_layer(input)
+
+    # Output
+    return tf.reshape(output, (3, 3))
+
+print(cnn(input, filter))
 
 # Yeah our calculations were correct!
 
-# #### Extension: Pooling Layer
+# ### Pooling
 
-# In a convolution layer, we took the convolution between the kernel and a portion of the input to calculate the output. If we simply take the max value of that portion of input instead of using the convolution, we get a max pooling layer, as illustrated below. Note that a pooling layer does not have any parameters.
+# In a convolution layer, we took the convolution between the filter
+# and a portion of the input to calculate the output. However sometimes
+# these areas are very small. What if we want a feature over a larger
+# area. 
 
-# ![image](imgs/max1.png)
 
-# ![image](imgs/max2.png)
+# If we simply take the max value of that portion of input instead of using the convolution, we get a max pooling layer, as illustrated below. 
 
-# ![image](imgs/max3.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/max1.png)
 
-# ![image](imgs/max4.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/max2.png)
 
-# ![image](imgs/max5.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/max3.png)
 
-# ![image](imgs/max6.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/max4.png)
 
-# ![image](imgs/max7.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/max5.png)
 
-# ![image](imgs/max8.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/max6.png)
 
-# ![image](imgs/max9.png)
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/max7.png)
+
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/max8.png)
+
+# ![image](https://srush.github.io/BT-AI/notebooks/imgs/max9.png)
 
 # Let's take a look at how to create a max pooling layer in Keras.
 # ```
 # MaxPool2D(
 #     pool_size=(2, 2),
 #     strides=None,
-#     padding='valid',
-#     data_format=None,
 #     **kwargs
 #)
 # ```
@@ -714,30 +707,34 @@ print (tf.reshape(output, (3, 3)))
 # Now let's use Keras to verify the max pooling results above.
 
 from keras.layers import MaxPool2D
-input_shape = (1, 4, 4, 1)
-input = tf.convert_to_tensor([
+
+input = [
     [1, 0, 1, 0],
     [0, 1, 1, 1],
     [0, 1, 0, 0],
     [1, 0, 0, 0]
-], dtype=tf.float32)
+]
+
+input_shape = (1, 4, 4, 1)
+input = tf.convert_to_tensor(input, dtype=tf.float32)
 input = tf.reshape(input, input_shape)
 pooling_layer = MaxPool2D(pool_size=(2, 2),
                           strides=(1, 1))
 output = pooling_layer(input)
 print (tf.reshape(output, (3, 3)))
 
-# In the above example we used `strides=(1,1)`. Hoever, the most common way of using a pooling layer is to set `strides` to be the same as `pool_size`, which is the default behavior if we don't set `strides`.
+# In the above example we used `strides=(1,1)`. However, the most
+# common way of using a pooling layer is to set `strides` to be the
+# same as `pool_size`, which is the default behavior if we don't set
+# `strides`.
 
 pooling_layer = MaxPool2D(pool_size=(2, 2))
 output = pooling_layer(input)
 print (tf.reshape(output, (2, 2)))
 
-# #### Extension: 1-D Convolutions
-
-# So far we've been discussing 2-D convolutions/pooling. We can apply what we discussed so far to 1-D cases: we can simply set the height of both the input and the kernel to 1, and what we've learned so far can be directly applied to 1-D objects such as time series or text if we view them as images of height 1.
-
 # #### Putting Everything Together
+
+# ![image](https://upload.wikimedia.org/wikipedia/commons/6/63/Typical_cnn.png)
 
 # Now we can put everything together to build a full CNN classifier for MNIST classification. Below shows an example model, where we need to use a `Reshape` layer to reshape the input into a single-channel 2-D image, as well as a `Flatten` layer to flatten the feature map back to a vector.
 
@@ -753,8 +750,7 @@ def create_cnn_model():
     model.add(Conv2D(64, kernel_size=(3, 3), activation="relu"))
     model.add(MaxPool2D(pool_size=(2, 2)))
     model.add(Flatten())
-    model.add(Dense(10)) # output a vector of size 10
-    model.add(Activation("softmax")) # use softmax to get valid probabilities
+    model.add(Dense(10, activation="softmax")) # output a vector of size 10
     # Compile model
     model.compile(loss="sparse_categorical_crossentropy",
                    optimizer="adam",
@@ -763,7 +759,7 @@ def create_cnn_model():
  #
  # create model
 model = KerasClassifier(build_fn=create_cnn_model,
-                         epochs=2,
+                         epochs=EPOCHS,
                          batch_size=20,
                          verbose=0)
 # fit model
@@ -777,28 +773,17 @@ correct = (df_test["predict"] == df_test["class"])
 accuracy = correct.sum() / correct.size
 print ("accuracy: ", accuracy)
 
-# We are able to get much bette accuracy than using MLPs!
-
+# We are able to get much better accuracy than using basic NNs!
 
 # # Group Exercise B
 
 # ## Question 1
 
-# Apply the CNN model to the shuffled MNIST dataset. What accuracy do you get? Is that what you expected?
+# Apply the CNN model to the shuffled MNIST dataset. What accuracy do
+# you get? Is that what you expected?
 
 #📝📝📝📝 FILLME
 pass
-model = KerasClassifier(build_fn=create_cnn_model,
-                        epochs=2,
-                        batch_size=20,
-                        verbose=0)
-# fit model
-model.fit(x=df_train[shuffled_features].astype(float), y=df_train["class"])
-# predict on test set
-df_test["predict"] = model.predict(df_test[shuffled_features])
-correct = (df_test["predict"] == df_test["class"])
-accuracy = correct.sum() / correct.size
-print ("accuracy: ", accuracy)
 
 # ## Question 2
 
@@ -815,8 +800,6 @@ pass
 
 #📝📝📝📝 FILLME
 pass
-# SOLUTION
-#print (model.model.summary())
 
 # ## Question 3
 
@@ -847,29 +830,13 @@ df_train
 
 # Let's visualize some examples first
 
-for idx in range(10):
-    example = df_train.loc[idx]
-    pixel_values = example[features]
-    label = example['label']
-    print ('label: ', label)
-    visualize_mnist(pixel_values)
+draw_image(1)
+
+draw_image(4)
+
+draw_image(10)
 
 # Apply the CNN model to this dataset and print out the accuracy.
 
 #📝📝📝📝 FILLME
 pass
-#SOLUTION
-# create model
-model = KerasClassifier(build_fn=create_cnn_model,
-                         epochs=2,
-                         batch_size=20,
-                         verbose=0)
-# fit model
-model.fit(x=df_train[features].astype(float), y=df_train["class"])
-# print summary
-print (model.model.summary())
-# predict on test set
-df_test["predict"] = model.predict(df_test[features])
-correct = (df_test["predict"] == df_test["class"])
-accuracy = correct.sum() / correct.size
-print ("accuracy: ", accuracy)
