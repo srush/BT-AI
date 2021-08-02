@@ -15,8 +15,8 @@
 # This week we will walk through the basics of CNNs and RNNs.
 
 # * **Review**: Training and Multi-Layer Models (NNs)
-# * **Unit A**: Convolution Neural Networks (CNNs)
-# * **Unit B**: Image and Text Processing
+# * **Unit A**: Image Processing and Convolutions
+# * **Unit B**: Convolution Neural Networks (CNNs)
 
 # ## Review
 
@@ -56,7 +56,6 @@ all_df = pd.read_csv("https://srush.github.io/BT-AI/notebooks/all_points.csv")
 # Depending on the complexity of the data we may select a model that
 # is linear or one with multiple layers.
 
-
 # Here is what a linear model looks like.
 
 def create_linear_model(learning_rate=1.0):
@@ -82,8 +81,8 @@ def create_model(learning_rate=0.05):
     tf.random.set_seed(2)
     # create model
     model = Sequential()
-    model.add(Dense(4, activation="relu"))
-    model.add(Dense(4, activation="relu"))
+    model.add(Dense(8, activation="relu"))
+    model.add(Dense(8, activation="relu"))
     model.add(Dense(1, activation="sigmoid"))
     # Compile model
     optimizer = tf.keras.optimizers.SGD(
@@ -180,7 +179,6 @@ len(features)
 
 
 # These features are the intensity at each pixel : for instance, the column "3x4" stores the pixel value at the 3rd row and the 4th column. Since the size of each image is 28x28, there are 28 rows and 28 columns.
-
 
 # We can use pandas apply to graph these values for one image.
 
