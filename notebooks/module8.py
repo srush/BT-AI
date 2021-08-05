@@ -4,9 +4,7 @@
 
 # ![image](https://www.researchgate.net/profile/Huy-Tien-Nguyen/publication/321259272/figure/fig2/AS:572716866433034@1513557749934/Illustration-of-our-LSTM-model-for-sentiment-classification-Each-word-is-transfered-to-a_W640.jpg)
 
-# How should we extract features from sequences, which might be of variable lengths? Recurrent Neural Networks (RNNs) provide a solution by iteratively applying the same operation to each element of the input sequence, and by maintaining an internal state (memory) to keep track of what they have seen. The final state can be used as a feature representation of the entire sequence.
-
-# This week we will walk through how to use RNNs for sequence processing.
+# How should we extract features from sequences, which might be of variable length? Recurrent Neural Networks (RNNs) provide a solution by summarizing the entire sequence into a fixed-size vector representation. This week we will walk through how to use RNNs for sequence processing.
 
 # * **Review**: Convolutional Neural Networks (CNNs)
 # * **Unit A**: Time Series Classification and Recurrent Neural Networks (RNNs)
@@ -63,9 +61,6 @@ def position(row):
     return {"x":int(x),
             "y":int(y),
             "val":row["val"]}
-
-# We can visualize an example image.
-
 def draw_image(i, shuffle=False):
     t = df_train[i:i+1].T.reset_index().rename(columns={i: "val"})
     out = t.loc[t["index"] != "class"].apply(position, axis=1, result_type="expand")
@@ -86,12 +81,15 @@ def draw_image(i, shuffle=False):
                 color="val:Q",
                 tooltip=("x", "y", "val")
             ))
+
+# We can visualize an example image.
+
 im = draw_image(0)
 im
 
 # The task is to classify the label given an image. To do that, we first need to define a function that creates our model.
 
-# Here is what a CNN model looks like.
+# Here is what a CNN model looks like. It contains two convolution layers and two max pooling layers.
 
 def create_cnn_model():
     # create model
@@ -275,7 +273,7 @@ pass
 
 # $h_{t+1} = {\text{LSTM}}_{\phi} (h_t, x_t)$,
 
-# where the LSTM cell has two inputs and one output: it uses both the input element $x_t$ and the old memory $h_t$ to compute the updated memory $h_{t+1}$. $\phi$ denotes the parameters of the LSTM cell, which we can adjust during training. For simplicy, we drop these parameters througout the rest of this lab. The internal computations of the LSTM cell are beyond the scope of this course, but for anyone interested in knowing further details, [this blog post](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) might be a good starting point.
+# where the LSTM cell has two inputs and one output: it uses both the input element $x_t$ and the old memory $h_t$ to compute the updated memory $h_{t+1}$. $\phi$ denotes the parameters of the LSTM cell, which we can adjust during training. For simplicy, we omit these parameters througout the rest of this lab. The internal computations of the LSTM cell are beyond the scope of this course, but for anyone interested in knowing further details, [this blog post](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) might be a good starting point.
 
 # Now that we have defined a single update step, we can chain them together to produce a summary of $x_1, \ldots, x_T$, starting from $h_0=0$:
 
@@ -320,7 +318,7 @@ pass
 #     **kwargs
 # )
 # ```
-# It appears intimidating, but we only need to set `units` in this lab. In a nutshell, it controls the size of the hidden states in the LSTM cell: the larger the size, the more powerful the model will be, but the more likely the model will overfit to training data.
+# It appears intimidating, but we only need to set `units` in this lab. In a nutshell, it controls the size of the hidden states in the LSTM cell: the larger the size, the more powerful the model will be, but the more likely the model will overfit to training data (overfitting means memorizing the training data without being able to generlize to the test data).
 
 from keras.layers import LSTM
 hidden_size = 32
@@ -328,16 +326,14 @@ lstm_layer = LSTM(hidden_size)
 
 # This layer can be applied to a sequence of inputs $x_1, \ldots, x_T$, and the output will be the final hidden state $h_T$. Below shows an example of how to use this layer. Note that we need to use a `Reshape` layer to add one additional dimension to the input sequence since the expected input shape of the LSTM layer is `sequence_length x input size`, and the `input_size` in the case is 1 since $x_t$'s are scalars is 1.
 
-from keras.layers import LSTM
-hidden_size = 32
-lstm_layer = LSTM(hidden_size)
-
 input_shape = (input_length, 1)
 model = Sequential()
 model.add(Reshape(input_shape))
 model.add(lstm_layer)
 #
 # take the first example as input
+# input shape: num samples x input_length
+# output shape: num samples x hidden size
 inputs = tf.convert_to_tensor(df_train[features].iloc[:1])
 output = model(inputs)
 print (inputs.shape)
@@ -418,7 +414,7 @@ print ("accuracy: ", accuracy)
 
 # ### Recurrent Neural Networks for Text Classification
 
-# Now let's go to a real application: text classification. Text classification raises new challenges, as the inputs are strings instead of the numeric values we have seen so far in this course. In this unit, we will first find a suitable feature representation for the text input, and then we will apply an LSTM-based model to this task.
+# Now let's go to a real application: text classification. Text classification raises new challenges, as the inputs are strings instead of the numeric values we have been familiar with in this course. In this unit, we will first find a suitable feature representation for the text input, and then we will apply an LSTM-based model to this task.
 
 # The text classification task we will be working with is sentiment analysis,  where the goal is to classify the sentiment of a text sequence. In particular, we will use the Stanford Sentiment Treebank v2 (SST-2) dataset, where we want to predict the sentiment (positive or negative) for a movie review.
 
@@ -442,7 +438,7 @@ for i in range(input_length):
 data = df_train[features].values
 labels = df_train['class'].values
 print (labels[1], data[1])
-print (labels[2], data[2])
+print (labels[8], data[8])
 
 # ### Input Representation
 
@@ -496,9 +492,10 @@ df_train[:10]
 
 # ### Word Embeddings
 
-# Now that we can convert the original text (a sequence of strings) into a sequence of integer ids, can we directly feed that to the LSTM layer as we did for the shape classification problem?
+# Now that we can convert the original text (a sequence of strings) into a sequence of integer ids, can we directly feed that into the LSTM layer as we did for the shape classification problem?
 
-# If we directly use those integer ids in the neural network, we are implicitly assuming that the word with id `1001` is closer to the word with id `1002` than it is to the word with id `10`. However, the way we constructed the mappings between word types and ids does not provide this property. Therefore, instead of directly using those word ids, for each word id, we maintain a different vector (usually termed an embedding), which can be stored in a matrix $E$ of size `vocab_size x embedding_size`. To get the word embedding for word id i, we can simply take the i-th row in the matrix $E_i$.
+# If we directly use those integer ids in the neural network, we are implicitly assuming that the word with id `1001` is closer to the word with id `1002` than it is to the word with id `10`. However, the way we constructed the mappings between word types and ids does not provide this property. 
+# Instead of directly using those word ids, for each word id, we maintain a different vector (usually termed an embedding), which can be stored in a matrix $E$ of size `vocab_size x embedding_size`. To get the word embedding for word id i, we can simply take the i-th row in the matrix $E_i$.
 
 # In `Keras`, this embedding matrix is maintained in an `Embedding` layer.
 # ```
@@ -529,7 +526,7 @@ outputs = model(inputs)
 print (inputs.shape)
 print (outputs.shape)
 
-# So now we have converted words to their word ids to their embeddings. You might notice that the intermediate word id step is not necessary and we can directly map each word type to a word embedding: we used this intermediate word id step since tensors are easier to work with than strings, and we only need to do this conversion once for the dataset.
+# So now we have converted words to their word ids to their embeddings (token strings -> integer word ids -> vector word embeddings). (You might notice that the intermediate word id step is not necessary and we can directly map each word type to a word embedding: we used this intermediate word id step since tensors are easier to work with than strings, and we only need to do this conversion once for the dataset.)
 
 # 👩🎓**Student question: By representing words as word embeddings, are we still making implicit assumptions that the 1001-st word is closer to the 1002-nd word than it is to the 10-th word?**
 
@@ -553,7 +550,7 @@ pass
 
 # ## Question 2
 
-# Finish the TODOs in the below `create_rnn_model` function, train the network and report the test accuracy.
+# Finish the `TODO`s in the `create_rnn_model` function, train the network and report the test accuracy.
 
 #📝📝📝📝 FILLME
 def create_rnn_model():
@@ -570,7 +567,7 @@ def create_rnn_model():
                   optimizer="adam",
                   metrics=["accuracy"])
     return model
-
+#
 # create model
 model = KerasClassifier(build_fn=create_rnn_model,
                         epochs=6,
@@ -601,7 +598,7 @@ def create_rnn_model():
                   optimizer="adam",
                   metrics=["accuracy"])
     return model
-
+#
 # create model
 model = KerasClassifier(build_fn=create_rnn_model,
                         epochs=6,
@@ -620,7 +617,7 @@ pass
 
 # ## Question 3
 
-# Word embeddings might sound like a very abstract concept: we are associating each word with a vector, but what do these vectors mean? What properties do they have? In this question, we will use the Tensorflow Embedding Projector to explore some pretrained word embeddings. (We can also take our trained model and visualize the embeddings from the embedding layer, but we usually need to train on very large datasets to see meaningful visualizations)
+# Word embeddings might sound like a very abstract concept: we are associating each word with a vector, but what do these vectors mean? What properties do they possess? In this question, we will use the [Tensorflow Embedding Projector](https://projector.tensorflow.org/) to explore some pretrained word embeddings. (We can also take our trained model and visualize the embeddings from the embedding layer, but we usually need to train on very large datasets to see meaningful visualizations)
 
 # [Embedding Projector](https://projector.tensorflow.org/)
 
@@ -638,13 +635,13 @@ pass
 
 # ## Question 4
 
-# Word embeddings are numeric representations of word, hence they support algebraic operations. For example, we cannot compute `water + bird - air` in the string space, but we can compute `embedding of water + embedding of bird - embedding of air`. Then we can convert the resulting vector back to word by finding its nearest neighbors like we did in the previous question.
+# Word embeddings are numeric representations of word types, hence they support algebraic operations. For example, we cannot compute `water + bird - air` in the string space, but we can compute `embedding_of_water + embedding_of_bird - embedding_of_air`. Then we can convert the resulting vector back to word by finding its nearest neighbors like we did in the previous question.
 
 # Let's use this demo to perform word algebra.
 
 # [Word Algebra](https://turbomaze.github.io/word2vecjson/)
 
-# * Use the tool under section "Word Algebra" to compute water + bird -air and find its nearest neighbors. What do you get?
+# * Use the tool under section "Word Algebra" to find the nearest neighbors of `water + bird -air`. What do you get?
 
 #📝📝📝📝 FILLME
 pass
