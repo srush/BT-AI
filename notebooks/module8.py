@@ -493,35 +493,66 @@ print ("accuracy: ", accuracy)
 
 # ## Unit B
 
-# ### Recurrent Neural Networks for Text Classification
+# ### Text Classification
 
-# Now let's go to a real application: text classification. Text classification raises new challenges, as the inputs are strings instead of the numeric values we have been familiar with in this course. In this unit, we will first find a suitable feature representation for the text input, and then we will apply an LSTM-based model to this task.
+# Now let's go to a real application: text classification. Text
+# classification is one of many applications of Natural Language
+# Processing, the AI study of human language.
 
-# The text classification task we will be working with is sentiment analysis,  where the goal is to classify the sentiment of a text sequence. In particular, we will use the Stanford Sentiment Treebank v2 (SST-2) dataset, where we want to predict the sentiment (positive or negative) for a movie review.
 
-df_train = pd.read_csv('sst_movie_reviews_processed_train.csv.gz', compression='gzip')
-df_test = pd.read_csv('sst_movie_reviews_processed_test.csv.gz', compression='gzip')
+# Text classification is similar to the shape classification example
+# we saw above. Each problem will be about classifying based on a
+# time series of data. Text classification also raises new challenges, as the inputs are
+# words instead of numbers.
+
+
+# The text classification task we will be working with is sentiment
+# analysis, where the goal is to classify the sentiment of a text
+# sequence. In particular, we will use the Stanford Sentiment Treebank
+# v2 (SST-2) dataset, where we want to predict the sentiment (positive
+# or negative) for a movie review.
+
+df_train = pd.read_csv('https://srush.github.io/BT-AI/notebooks/sst_movie_reviews_processed_train.csv.gz', compression='gzip')
+df_test = pd.read_csv('https://srush.github.io/BT-AI/notebooks/sst_movie_reviews_processed_test.csv.gz', compression='gzip')
 df_train[:10]
 
 # The column `class` stores the sentiment of each review, which is either "positive" or "negative".
 
 df_train[:100]["class"].unique()
 
-# The other columns store the words, where the i-th word is stored in a feature column i (counting from 0). For example, the first word of each movie review is stored in column 0, the second word is stored in column 1, and so on. As before, we store all feature column names in a list. The maximum length of sentences is 55 on this dataset, so we have 55 feature columns.
+# The other columns store the words, where the i-th word is stored in
+# a feature column i (counting from 0). For example, the first word of
+# each movie review is stored in column 0, the second word is stored
+# in column 1, and so on. As before, we store all feature column names
+# in a list. The maximum length of sentences is 55 on this dataset, so
+# we have 55 feature columns.
 
 input_length = 55
 features = []
 for i in range(input_length):
     features.append(str(i))
 
-# Notice that some tokens towards the end are `PAD`. They are actually placeholders to pad every sentence into the same length such that we can store them in a table.
+# Notice that some tokens towards the end are `PAD` or `OOV`. The `PAD` are
+# placeholders to pretend  every sentence into the same length. The `OOV` indicate
+# that this is a rare word.
 
 data = df_train[features].values
 labels = df_train['class'].values
-print (labels[1], data[1])
-print (labels[8], data[8])
+
+# Here is an example of a positive review.
+
+print(labels[1], data[1])
+
+# Here is an example of a negative review.
+
+print(labels[8], data[8])
 
 # ### Input Representation
+
+# In this unit, we will first find a suitable feature
+# representation for the text input, and then we will apply an
+# LSTM-based model to this task.
+
 
 # Different from all examples we've seen so far, the input in text classification cannot be directly fed into a neural network, since they are strings but not numeric values. A natural idea is to associate each word type with an integer id, such that we can use those integer ids to represent words.
 
