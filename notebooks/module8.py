@@ -547,26 +547,32 @@ print(labels[1], data[1])
 
 print(labels[8], data[8])
 
-# ### Input Representation
+# ### Features for Words
 
-# In this unit, we will first find a suitable feature
-# representation for the text input, and then we will apply an
-# LSTM-based model to this task.
+# Our first challenge is to find a suitable feature
+# representation for the text input.
 
 
-# Different from all examples we've seen so far, the input in text classification cannot be directly fed into a neural network, since they are strings but not numeric values. A natural idea is to associate each word type with an integer id, such that we can use those integer ids to represent words.
+# Different from all examples we've seen so far, the input in text
+# classification cannot be directly fed into a machine learning model, since
+# they are words not numbers.
 
-# First, we need to build the mapping from word types to integer ids.
+# A natural idea is to first associate each word type with an integer
+# id. Think about this id as its position in a dictionary. 
 
-# build vocabulary
+# First, we need to build a dictionary from word types to ids.
+
+
+# build dictionary
 word2id = {}
 id2word = {}
 unassigned_id = 0
-for review in data:
-    for token in review:
-        if token not in word2id:
-            word2id[token] = unassigned_id
-            id2word[unassigned_id] = token
+
+for sentence in data:
+    for word in sentence:
+        if word not in word2id:
+            word2id[word] = unassigned_id
+            id2word[unassigned_id] = word
             unassigned_id += 1
 vocab_size = len(word2id)
 print ('Vocab size: ', vocab_size)
@@ -604,26 +610,31 @@ df_train[:10]
 
 # ### Word Embeddings
 
-# Now that we can convert the original text (a sequence of strings) into a sequence of integer ids, can we directly feed that into the LSTM layer as we did for the shape classification problem?
+# Now that we can convert the original sentences
+# into a sequence of integer ids, can we directly feed that into the
+# LSTM layer as we did for the shape classification problem?
 
-# If we directly use those integer ids in the neural network, we are implicitly assuming that the word with id `1001` is closer to the word with id `1002` than it is to the word with id `10`. However, the way we constructed the mappings between word types and ids does not provide this property. 
-# Instead of directly using those word ids, for each word id, we maintain a different vector (usually termed an embedding), which can be stored in a matrix $E$ of size `vocab_size x embedding_size`. To get the word embedding for word id i, we can simply take the i-th row in the matrix $E_i$.
+# Unfortunately not. If we directly use integer ids in the neural
+# network, we are assuming that the word with id `1001` is near to the
+# word with id `1002`. However, our dictionary cannot ensure this property.
+
+# Instead of directly using those word ids, for each word id, we
+# maintain a different set of values, called an `embedding`. This is a
+# small NN that we train to learn which words are similar through
+# these embeddings.
 
 # In `Keras`, this embedding matrix is maintained in an `Embedding` layer.
 # ```
 # Embedding(
 #    input_dim,
 #    output_dim,
-#    embeddings_initializer="uniform",
-#    embeddings_regularizer=None,
-#    activity_regularizer=None,
-#    embeddings_constraint=None,
-#    mask_zero=False,
-#    input_length=None,
 #    **kwargs
 #)
 # ```
-# Again, we don't need to use all arguments. The only two arguments that we need to understand are: `input_dim`, which is the size of the vocabulary `vocab_size`, and `output_dim`, which is the size of the word embeddings `embedding_size`.
+
+# The two arguments that we need to understand are: `input_dim`, which
+# is the size of the vocabulary `vocab_size`, and `output_dim`, which
+# is the size of the word embeddings `embedding_size`.
 
 from keras.layers import Embedding
 model = Sequential()
@@ -638,7 +649,8 @@ outputs = model(inputs)
 print (inputs.shape)
 print (outputs.shape)
 
-# So now we have converted words to their word ids to their embeddings (token strings -> integer word ids -> vector word embeddings). (You might notice that the intermediate word id step is not necessary and we can directly map each word type to a word embedding: we used this intermediate word id step since tensors are easier to work with than strings, and we only need to do this conversion once for the dataset.)
+# So now we have converted words to their word ids to their embeddings
+# (word -> integer word ids -> word embeddings).
 
 # 👩🎓**Student question: By representing words as word embeddings, are we still making implicit assumptions that the 1001-st word is closer to the 1002-nd word than it is to the 10-th word?**
 
@@ -647,7 +659,14 @@ pass
 
 # ### Putting Everything Together
 
-# Now we can put everything together and assemble a model for text classification: we have converted the token strings into word ids. The model first uses an embedding layer to convert those word ids into word embeddings, then the LSTM runs on top of those word embeddings, and we use a final projection layer to project to the output shape.
+# Now we can put everything together and assemble a model for text
+# classification: we have converted the token strings into word
+# ids.
+
+# The model first uses an embedding layer to convert those word
+# ids into word embeddings, then the LSTM runs on top of those word
+# embeddings, and we use a final projection layer to project to the
+# output shape.
 
 # ## Group Exercise B
 
