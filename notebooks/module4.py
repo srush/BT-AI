@@ -104,8 +104,7 @@ df
 
 df.columns
 
-
-# Here is what the data looks like.
+# Now let us take a look at our data.
 
 chart = (alt.Chart(df)
     .mark_point()

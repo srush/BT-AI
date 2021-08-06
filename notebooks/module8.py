@@ -1,16 +1,21 @@
 # # Lab 8 - Deep Learning 3
 
-# The goal of this week's lab is to learn to use another widely-used neural network module: recurrent neural networks (RNNs). We can use it to learn features from sequences such as time series and text.
+# The goal of this week's lab is to learn to use another widely-used
+# neural network module: recurrent neural networks (RNNs). We can use
+# it to learn features from sequences such as time series and then
+# discuss text processing and NLP.
 
 # ![image](https://www.researchgate.net/profile/Huy-Tien-Nguyen/publication/321259272/figure/fig2/AS:572716866433034@1513557749934/Illustration-of-our-LSTM-model-for-sentiment-classification-Each-word-is-transfered-to-a_W640.jpg)
 
-# How should we extract features from sequences, which might be of variable length? Recurrent Neural Networks (RNNs) provide a solution by summarizing the entire sequence into a fixed-size vector representation. This week we will walk through how to use RNNs for sequence processing.
+# How should we learn features from sequences, which might be of
+# variable length? Recurrent Neural Networks (RNNs) provide a solution
+# by summarizing the entire sequence into a feature
+# representation. This week we will walk through how to use RNNs for
+# sequence processing.
 
 # * **Review**: Convolutional Neural Networks (CNNs)
 # * **Unit A**: Time Series Classification and Recurrent Neural Networks (RNNs)
 # * **Unit B**: Recurrent Neural Networks for Text Classification
-
-# ## Review
 
 # Last time we learned the basics of convolutional neural networks (CNNs) and used them for image classification.
 
@@ -32,10 +37,15 @@ from keras.layers import Dense, Conv2D, MaxPool2D, Flatten, Reshape
 import warnings
 warnings.filterwarnings('ignore')
 
+
+# ## Review
+
 # We saw in last week how to store images and their labels in Pandas dataframes.
 
-df_train = pd.read_csv('https://srush.github.io/BT-AI/notebooks/mnist_train.csv.gz', compression='gzip')
-df_test = pd.read_csv('https://srush.github.io/BT-AI/notebooks/mnist_test.csv.gz', compression='gzip')
+df_train = pd.read_csv('https://srush.github.io/BT-AI/notebooks/mnist_train.csv.gz',
+                       compression='gzip')
+df_test = pd.read_csv('https://srush.github.io/BT-AI/notebooks/mnist_test.csv.gz',
+                      compression='gzip')
 
 # The column `class` stores the class of each image, which is a number between 0 and 9.
 
@@ -61,15 +71,12 @@ def position(row):
     return {"x":int(x),
             "y":int(y),
             "val":row["val"]}
-def draw_image(i, shuffle=False):
+def draw_image(i):
     t = df_train[i:i+1].T.reset_index().rename(columns={i: "val"})
     out = t.loc[t["index"] != "class"].apply(position, axis=1, result_type="expand")
 
     label = df_train.loc[i]["class"]
     title = "Image of a " + str(label)
-    if shuffle:
-        out["val"] = sklearn.utils.shuffle(out["val"], random_state=1234).reset_index()["val"]
-        title = "Shuffled Image of a " + str(label)
         
     return (alt.Chart(out)
             .mark_rect()
@@ -87,9 +94,15 @@ def draw_image(i, shuffle=False):
 im = draw_image(0)
 im
 
-# The task is to classify the label given an image. To do that, we first need to define a function that creates our model.
 
-# Here is what a CNN model looks like. It contains two convolution layers and two max pooling layers.
+im = draw_image(5)
+im
+
+# The task is to classify the label given an image. To do that, we
+# first need to define a function that creates our model.
+
+# Here is what a CNN model looks like. It contains two convolution
+# layers and two max pooling layers.
 
 def create_cnn_model():
     # create model
@@ -131,81 +144,46 @@ print ("accuracy: ", accuracy)
 
 #📝📝📝📝 FILLME
 pass
-#SOLUTION
-def create_cnn_model():
-    # create model
-    input_shape = (28, 28, 1)
-    model = Sequential()
-    model.add(Reshape(input_shape))
-    model.add(Conv2D(32, kernel_size=(1, 1), activation="relu"))
-    model.add(MaxPool2D(pool_size=(2, 2)))
-    model.add(Conv2D(64, kernel_size=(1, 1), activation="relu"))
-    model.add(MaxPool2D(pool_size=(2, 2)))
-    model.add(Flatten())
-    model.add(Dense(10, activation="softmax")) # output a vector of size 10
-    # Compile model
-    model.compile(loss="sparse_categorical_crossentropy",
-                   optimizer="adam",
-                   metrics=["accuracy"])
-    return model
-model = KerasClassifier(build_fn=create_cnn_model,
-                         epochs=2,
-                         batch_size=20,
-                         verbose=1)
-# fit model
-model.fit(x=df_train[features].astype(float),
-          y=df_train["class"])
-df_test["predict"] = model.predict(df_test[features])
-correct = (df_test["predict"] == df_test["class"])
-accuracy = correct.sum() / correct.size
-print ("accuracy: ", accuracy)
 
 # Change the model above to have the kernel size of the first convolution layer to be (28, 28), and remove other convolution and pooling layers. How does this affect the performance? Why?
 
 #📝📝📝📝 FILLME
 pass
-#📝📝📝📝 FILLME
-pass
-#SOLUTION
-def create_cnn_model():
-    # create model
-    input_shape = (28, 28, 1)
-    model = Sequential()
-    model.add(Reshape(input_shape))
-    model.add(Conv2D(32, kernel_size=(28, 28), activation="relu"))
-    model.add(Flatten())
-    model.add(Dense(10, activation="softmax")) # output a vector of size 10
-    # Compile model
-    model.compile(loss="sparse_categorical_crossentropy",
-                   optimizer="adam",
-                   metrics=["accuracy"])
-    return model
-model = KerasClassifier(build_fn=create_cnn_model,
-                         epochs=2,
-                         batch_size=20,
-                         verbose=1)
-# fit model
-model.fit(x=df_train[features].astype(float),
-          y=df_train["class"])
-df_test["predict"] = model.predict(df_test[features])
-correct = (df_test["predict"] == df_test["class"])
-accuracy = correct.sum() / correct.size
-print ("accuracy: ", accuracy)
 
 # ## Unit A
 
-# ### Time Series Classification and Recurrent Neural Networks (RNNs)
+# ### Time Series Classification
 
-# Just like CNNs are suitable for the processing of 2-D images (and 1-D sequences since they can be viewed as a special case of 2-D images), recurrent neural networks (RNNs) are suitable for 1-D sequence modeling.
+# The focus of today's class will be on classification just like the
+# last couple of weeks. However this week we will focus on `time series`
+# data.
 
-# Let's start from a concrete sequence classification example, where we want to classify a curve into one of three possible classes: rectangle, triangle, and ellipse:
+# Time series data consists of observations that we see over a period
+# of time. Examples include musical notes, medical records,
+# temperature changes over time, and as we will see, natural language. 
 
-df_train = pd.read_csv('shape_classification_train.csv')
-df_test = pd.read_csv('shape_classification_test.csv')
+
+# Before working on real-world examples let us start with a shape
+# classification example. We will see a sequence of observations over
+# time in a Pandas Data frame. Each observation will be a feature, and they
+# will be given in order. 
+
+# Specifically we are going to classify into one of three possible classes:
+# rectangle, triangle, and ellipse:
+
+df_train = pd.read_csv('https://srush.github.io/BT-AI/notebooks/shape_classification_train.csv')
+df_test = pd.read_csv('https://srush.github.io/BT-AI/notebooks/shape_classification_test.csv')
 df_train
 
-# In this example, the curve is stored as a vector with 55 entries. In the dataframe, the i-th entry of this vector is stored in a column named $i$.
-# As before, we store the names of feature columns in a list `features`.
+
+shapes = df_train["class"].unique()
+shapes
+
+
+# In this example, the curve is stored with 55 features. In the
+# dataframe, the i-th entry is stored in a column named $i$.  Just
+# like with CNNs, we store the names of feature columns in a list
+# `features`.
 
 input_length = 55
 features = []
@@ -214,18 +192,38 @@ for i in range(input_length):
 
 # We can visualize some examples using the following function.
 
-import matplotlib.pyplot as plt
-def draw_curve(i):
-    t = df_train[features].iloc[i]
-    c = df_train['class'].iloc[i]
-    plt.plot(list(t))
-    plt.title(f'class {c}')
-    plt.show()
-draw_curve(0)
-draw_curve(3)
-draw_curve(5)
+def position(row):
+    return {"time_step":int(row["index"]),
+            "val":row["val"]}
 
-# First, let's try to apply an MLP classifier to this problem. Note that we need to set the size of the last layer to be 3 since there are three output classes.
+def draw_curve(i):
+    t = df_train[i:i+1].T.reset_index().rename(columns={i: "val"})
+    out = t.loc[t["index"] != "class"].apply(position, axis=1, result_type="expand")
+    label = df_train.loc[i]["class"]
+    
+    return (alt.Chart(out)
+            .properties(title="Class " + label)
+            .mark_line()
+            .encode(
+                x="time_step:O",
+                y="val:Q",
+                tooltip=("time_step", "val")
+            ))
+    
+im = draw_curve(0)
+im
+
+im = draw_curve(3)
+im
+
+im = draw_curve(5)
+im
+
+
+# Let's try to apply an NN classifier to this problem. This is basically
+# the same NN that we build in week 6.  The only difference
+# is we need to set the size of the last layer to be 3 since there
+# are three output classes.
 
 def create_mlp_model():
     # create model
@@ -238,99 +236,158 @@ def create_mlp_model():
                   metrics=["accuracy"])
     return model
 
+# Remember the two steps for building and fitting.
+
 # create model
 model = KerasClassifier(build_fn=create_mlp_model,
                         epochs=10,
                         batch_size=20,
-                        verbose=1)
-# fit model
+                        verbose=0)
 model.fit(x=df_train[features], y=df_train["class"])
-# print summary
-print (model.model.summary())
-# predict on test set
+
+# Now we predict on the test set.
+
 df_test["predict"] = model.predict(df_test[features])
 correct = (df_test["predict"] == df_test["class"])
 accuracy = correct.sum() / correct.size
 print ("accuracy: ", accuracy)
 
 
-# The accuracy of the MLP classifier is quite low considering the simplicity of this task. The major challenge of this task is that even for the same shapes, the positions where they appear in the sequence, and their sizes may vary. For example, let's look at some rectangles.
-
-draw_curve(0)
-draw_curve(1)
-draw_curve(4)
+# The accuracy of the MLP classifier is quite low considering the simplicity of this task. The major challenge of this task is that even for the same shapes, the positions where they appear in the sequence, and their sizes may vary. 
 
 # 👩🎓**Student question: Do you think MLPs are suitable for this task? Why or why not?**
 
 #📝📝📝📝 FILLME
 pass
 
+
+# The important thing here  though that two versions of the same shape might look quite different. Here are two squares.
+    
+im = draw_curve(0)
+im2 = draw_curve(1)
+im + im2.mark_line(color="orange")
+
+# Here are two triangles.
+
+im = draw_curve(35)
+im2 = draw_curve(37)
+im + im2.mark_line(color="orange")
+
+
+# Notice that the input features might look quite different. Look how different feature 43 is for these two triangles.  
+
+
 # ### Recurrent Neural Networks (RNNs)
 
-# Recurrent Neural Networks (RNNs) work by iteratively applying the same base operation to each element in the input sequence. To keep track of what it has seen so far, it also maintains an internal state. We call the base operation an RNN cell. Throughout this lab, we will use a special kind of RNN cell, a Long short-term memory (LSTM) cell due to its empirical successes.
+# Just like CNNs are suitable for the processing of images, recurrent
+# neural networks (RNNs) are suitable for sequence modeling. They are
+# particularly good at learning features for things that might be
+# stretched out like the shapes above.
 
-# Let's assume that we have a sequence of inputs $x_1, \ldots, x_T$. (We're notating the input elements as if they are scalars, but you should keep in mind that they might well be vectors themselves.) Let's consider a single update operation at step $t$, where the current internal state is denoted by $h_t$:
+# RNNs work by applying the same base NN repeatedly (like a for loop). To keep track of
+# what it has seen so far, it also maintains `state`. We
+# call the base NN the `cell`.
 
-# $h_{t+1} = {\text{LSTM}}_{\phi} (h_t, x_t)$,
+# Here is some code for what an RNN does internally.
+# Let's assume that we have a sequence of inputs $x_1, \ldots,
+# x_T$.
 
-# where the LSTM cell has two inputs and one output: it uses both the input element $x_t$ and the old memory $h_t$ to compute the updated memory $h_{t+1}$. $\phi$ denotes the parameters of the LSTM cell, which we can adjust during training. For simplicy, we omit these parameters througout the rest of this lab. The internal computations of the LSTM cell are beyond the scope of this course, but for anyone interested in knowing further details, [this blog post](https://colah.github.io/posts/2015-08-Understanding-LSTMs/) might be a good starting point.
+def RNN(cell, x):
+    state = 0
+    for i in range(len(x)):
+        state = cell(state, x[i])
+    return state
 
-# Now that we have defined a single update step, we can chain them together to produce a summary of $x_1, \ldots, x_T$, starting from $h_0=0$:
+
+# As an example `x`, we can start with one of our shapes.
+
+x = df_train.loc[9][features]
 
 
-#\begin{align}
-# h_0 &= 0 \\
-# h_1 &= \text{LSTM} (h_0, x_1) \\ 
-# h_2 &= \text{LSTM} (h_1, x_2) \\ 
-# h_3 &= \text{LSTM} (h_2, x_3) \\ 
-# \vdots\\
-# h_T &= \text{LSTM} (h_{T-1}, x_T) \\ 
-# \end{align}"
 
-# $h_T$ can be used as a feature representation for the entire input sequence $x_1, \ldots, x_T$.
+# Do you remember last class when we made "edge features" with convolutions?
+# We can also make features with RNNs. For example, here is a cell that
+# remembers the highest value that are shape reaches.
 
-# In `Keras`, the API for an LSTM cell is
+def cell_high(state, x_i):
+    if x_i > state:
+        return x_i
+    else:
+        return state
+
+# Now we run it.
+
+new_feature = RNN(cell_high, x)
+new_feature
+
+# RNNs can be much more powerful though. For example, a more complex feature would
+# be to check the average non-zero values it passes through.
+
+def average(state, x_i):
+    if state == 0:
+        return (0, 1)
+    if x_i == 0:
+        return state
+
+    v, i = state
+    return ((v + (x_i - v) / i, i+1))
+
+# This feature will look very different on a square then a triangle.
+
+new_feature = RNN(average, x)[0]
+new_feature
+
+# ### LSTMs in Keras
+
+# In practice we will not need to write these features ourselves. Just like
+# other neural networks these features will be learned from data. 
+
+# Throughout this lab, we will use a special cell, called a Long
+# short-term memory (`LSTM`). You can think of LSTM and RNN interchangeably,
+# but you will often see the term LSTM so it is worth remembering.
+
+
+# The internal computations
+# of the LSTM cell are beyond the scope of this course, but for anyone
+# interested in knowing further details, [this blog
+# post](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+# might be a good starting point. 
+
+
+# In `Keras`, the API for an LSTM cell looks like this. 
 # ```
 # LSTM(
 #     units,
-#     activation="tanh",
-#     recurrent_activation="sigmoid",
-#     use_bias=True,
-#     kernel_initializer="glorot_uniform",
-#     recurrent_initializer="orthogonal",
-#     bias_initializer="zeros",
-#     unit_forget_bias=True,
-#     kernel_regularizer=None,
-#     recurrent_regularizer=None,
-#     bias_regularizer=None,
-#     activity_regularizer=None,
-#     kernel_constraint=None,
-#     recurrent_constraint=None,
-#     bias_constraint=None,
-#     dropout=0.0,
-#     recurrent_dropout=0.0,
-#     return_sequences=False,
-#     return_state=False,
-#     go_backwards=False,
-#     stateful=False,
-#     time_major=False,
-#     unroll=False,
 #     **kwargs
 # )
 # ```
-# It appears intimidating, but we only need to set `units` in this lab. In a nutshell, it controls the size of the hidden states in the LSTM cell: the larger the size, the more powerful the model will be, but the more likely the model will overfit to training data (overfitting means memorizing the training data without being able to generlize to the test data).
+
+# If you look at the full docs it will appear intimidating. We only
+# need to set `units` in this lab. `Units` is the same as size or
+# channels from the last lab. It just determines how many
+# transformations we perform each step.
+
 
 from keras.layers import LSTM
-hidden_size = 32
-lstm_layer = LSTM(hidden_size)
+units = 32
+lstm_layer = LSTM(units)
 
-# This layer can be applied to a sequence of inputs $x_1, \ldots, x_T$, and the output will be the final hidden state $h_T$. Below shows an example of how to use this layer. Note that we need to use a `Reshape` layer to add one additional dimension to the input sequence since the expected input shape of the LSTM layer is `sequence_length x input size`, and the `input_size` in the case is 1 since $x_t$'s are scalars is 1.
+# This layer can be applied to a sequence of inputs $x_1, \ldots,
+# x_T$, and the output will be the final features.
 
-input_shape = (input_length, 1)
+values_per_time = 1
+input_shape = (input_length, values_per_time)
 model = Sequential()
 model.add(Reshape(input_shape))
 model.add(lstm_layer)
-#
+
+# Note that we need to use a `Reshape` because we have 1 value at each
+# time.  The LSTM layer allows `sequence_length x values per time` inputs as
+# we will see later. 
+
+# To run the model it looks exactly as we saw the last couple weeks. 
+
+
 # take the first example as input
 # input shape: num samples x input_length
 # output shape: num samples x hidden size
@@ -340,9 +397,9 @@ print (inputs.shape)
 print (output.shape)
 
 
-# # Group Exercise A
+# ## Group Exercise A
 
-# ## Question 0
+# ### Question 0
 
 # Icebreakers
 
@@ -360,9 +417,12 @@ print (output.shape)
 
 #📝📝📝📝 FILLME
 
-# ## Question 1
+# ### Question 1
 
-# Look at this figure again. Can you figure out where are $h_t$'s and $x_t$'s? (Don't worry if you not understand the entire diagram does for now, we will elaborate on it later)**
+# Look at this figure again. Can you figure out where are `inputs` and
+# which are the `cells` and where is the `state`? (Don't worry if you
+# not understand the entire diagram does for now, we will elaborate on
+# it later)**
 
 # ![image](https://www.researchgate.net/profile/Huy-Tien-Nguyen/publication/321259272/figure/fig2/AS:572716866433034@1513557749934/Illustration-of-our-LSTM-model-for-sentiment-classification-Each-word-is-transfered-to-a_W640.jpg)
 
@@ -374,9 +434,30 @@ pass
 #📝📝📝📝 FILLME
 pass
 
-# ## Question 2
+# ### Question 2
 
-# Modify the MLP code to use LSTM instead. We recommend using a hidden size of 32 or 64. Train the model and report the test accuracy. You should expect to see at least 90% accuracy. Hint: don't forget the reshape layer before the LSTM!
+# We saw an RNN Cell that can compute the maximum value and one that could compute the average value.
+
+# Can you write one that can compute the minimum value it sees? 
+
+#📝📝📝📝 FILLME
+pass
+
+
+# Can you compute one that checks if it ever sees a value that is not 0 or 1? (Helpful to filter out squares)
+
+#📝📝📝📝 FILLME
+pass
+
+
+# Hard: Can you create a cell the computes the biggest difference between steps? 
+
+#📝📝📝📝 FILLME
+
+
+# ### Question 3
+
+# Modify the NN code to use LSTM instead. We recommend using units of 32 or 64. Train the model and report the test accuracy. You should expect to see at least 90% accuracy. Hint: don't forget the reshape layer before the LSTM!
 
 #📝📝📝📝 FILLME
 pass
@@ -537,9 +618,9 @@ pass
 
 # Now we can put everything together and assemble a model for text classification: we have converted the token strings into word ids. The model first uses an embedding layer to convert those word ids into word embeddings, then the LSTM runs on top of those word embeddings, and we use a final projection layer to project to the output shape.
 
-# # Group Exercise B
+# ## Group Exercise B
 
-# ## Question 1
+# ### Question 1
 
 # Take another look at this model diagram. Can you explain what's happening in this diagram? What are the modules used? What are the inputs and outputs of each module?
 
@@ -548,7 +629,7 @@ pass
 #📝📝📝📝 FILLME
 pass
 
-# ## Question 2
+# ### Question 2
 
 # Finish the `TODO`s in the `create_rnn_model` function, train the network and report the test accuracy.
 
@@ -615,7 +696,7 @@ accuracy = correct.sum() / correct.size
 print ("accuracy: ", accuracy)
 pass
 
-# ## Question 3
+# ### Question 3
 
 # Word embeddings might sound like a very abstract concept: we are associating each word with a vector, but what do these vectors mean? What properties do they possess? In this question, we will use the [Tensorflow Embedding Projector](https://projector.tensorflow.org/) to explore some pretrained word embeddings. (We can also take our trained model and visualize the embeddings from the embedding layer, but we usually need to train on very large datasets to see meaningful visualizations)
 
@@ -633,7 +714,7 @@ pass
 #📝📝📝📝 FILLME
 pass
 
-# ## Question 4
+# ### Question 4
 
 # Word embeddings are numeric representations of word types, hence they support algebraic operations. For example, we cannot compute `water + bird - air` in the string space, but we can compute `embedding_of_water + embedding_of_bird - embedding_of_air`. Then we can convert the resulting vector back to word by finding its nearest neighbors like we did in the previous question.
 

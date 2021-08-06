@@ -250,7 +250,7 @@ chart
 # The important parts are the `mark_X` which gives the type, encode which tells the library which
 # columns to use, and ":N" which says it is a Nominal (or other type).
 
-# ### Example 2: How did Jung-Sook's times change in the season?
+# ### Example 2: How did Jung-Sooks times change in the season?
 
 # * Chart - Filter to Jung-Sook's runs
 # * Mark - Show as a line graph
@@ -446,7 +446,7 @@ df.columns
 # We can use some complex filters for checking for specific months and years in our dataset.
 
 filter = (df["Month"] == 7) & (df["Year"] == 1950)
-summer = nyc_df.loc[filter]
+summer = df.loc[filter]
 summer
 
 
@@ -468,7 +468,7 @@ period = df.loc[filter]
 # many different charts and questions. Here are some examples
 
 
-# ### Example 1: How did the temperature of New York change during the 50's?
+# ### Example 1: How did the temperature of New York change during the 50s?
 
 # * Chart - New York city Over the last 10 years
 # * Mark - Line graph showing pattern.
