@@ -657,6 +657,14 @@ print (outputs.shape)
 #📝📝📝📝 FILLME
 pass
 
+# Word embeddings might sound like a very abstract concept: we are associating each word with a vector, but what do these vectors mean? What properties do they possess? In this question, we will use the [Tensorflow Embedding Projector](https://projector.tensorflow.org/) to explore some pretrained word embeddings. (We can also take our trained model and visualize the embeddings from the embedding layer, but we usually need to train on very large datasets to see meaningful visualizations)
+
+# [Embedding Projector](https://projector.tensorflow.org/)
+
+
+
+
+
 # ### Putting Everything Together
 
 # Now we can put everything together and assemble a model for text
@@ -747,10 +755,6 @@ print ("accuracy: ", accuracy)
 pass
 
 # ### Question 3
-
-# Word embeddings might sound like a very abstract concept: we are associating each word with a vector, but what do these vectors mean? What properties do they possess? In this question, we will use the [Tensorflow Embedding Projector](https://projector.tensorflow.org/) to explore some pretrained word embeddings. (We can also take our trained model and visualize the embeddings from the embedding layer, but we usually need to train on very large datasets to see meaningful visualizations)
-
-# [Embedding Projector](https://projector.tensorflow.org/)
 
 # This visualization tool visualizes word embeddings in a 3-D space, but keep in mind that those embeddings are actually of much higher dimensionality (`embedding_size` is 200 in the default setting), and their neighbors are found in the original (200-D) space, not the 3-D space, which might lead to some seemingly nearby points not being shown as nearest neighbors.
 
